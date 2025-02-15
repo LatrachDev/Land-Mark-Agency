@@ -1,16 +1,103 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Land Mark</title>
+    <title>Landmark</title>
     <script src="js/tailwind.js"></script>
 </head>
 <body class="bg-[url(LM/BG/Asset7.png)] w-full h-screen bg-cover">
+    <!-- Banner Promotion -->
+    <div class="bg-blue-600 text-white py-2 w-full flex items-center">
+        <div class="flex-1 flex justify-center items-center gap-2">
+            <span>ÉCONOMISEZ 25% SUR TOUS NOS SERVICES AVANT LE</span>
+            <span class="bg-gray-700 px-2 py-1 rounded">02 : 13 : 57 : 45</span>
+        </div>
+        <div class="pr-8">
+            <button class="bg-gray-100 text-black px-4 py-1 rounded text-sm font-medium">
+                SAVE NOW
+            </button>
+        </div>
+    </div>
 
+    <!-- Navbar -->
+    <nav >
+        <div class="container mx-auto px-8 py-6">
+            <div class="flex  justify-center items-center space-x-11 font-bold">
+                <!-- Logo -->
+                <a href="#" class="flex items-center mr-8">
+                    <img src="/LM/Logotype/White.png" alt="Landmark" class="h-14">
+                </a>
+                
+                <a href="#" class="text-white text-sm relative">
+                    PORTFOLIO
+                    <span class="absolute bottom-0 left-0 w-full h-0.5 bg-blue-600"></span>
+                </a>
+                <a href="#" class="text-white text-sm relative group">
+                    SERVICES
+                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a href="#" class="text-white text-sm relative group">
+                    À PROPOS DE NOUS
+                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a href="#" class="text-white text-sm relative group">
+                    BLOG
+                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <button class="bg-transparent text-white text-sm px-4 py-1.5 rounded border border-white transition-all duration-300  hover:border-blue-600">
+                    CONSULTATION GRATUITE
+                </button>
+            </div>
+        </div>
+    </nav>
 
+    <!-- Hero Section -->
+    <div class="container mx-auto px-6 mt-20">
+        <div class="max-w-3xl">
+            <div class="flex justify-center items-center">
+                <h1 class="text-4xl md:text-5xl font-bold mb-6">
+                    <div class="text-white">
+                        <span class="bg-gradient-to-r from-blue-950 to-blue-600 px-4 py-2 ">L'ADOPTION OU L'ADAPTATION</span>
+                    </div>
+                    <div class="text-white mt-4">UNE DÉCISION QUI VOUS RESSEMBLE</div>
+                </h1>
+            </div>
+            <p class="text-gray-300 mb-8">
+                DÉVELOPPEZ LA NOTORIÉTÉ DE VOTRE MARQUE, AUGMENTEZ VOS VENTES<br>
+                ET CRÉEZ UN LIEN FORT AVEC VOTRE AUDIENCE.
+            </p>
+            <div class="flex space-x-4">
+                <button class="bg-blue-600 text-white px-6 py-3 rounded transition-all duration-300 hover:bg-blue-700 hover:scale-105">
+                    DEMANDEZ VOTRE FACTURE
+                </button>
+                <button class="border border-white text-white px-6 py-3 rounded transition-all duration-300 hover:bg-white hover:text-black hover:scale-105">
+                    VOIR LE PORTFOLIO
+                </button>
+            </div>
+        </div>
+    </div>
 
-    
-    
+    <!-- Mission Section -->
+    <div class="container mx-auto px-20 mt-32">
+        <h2 class="text-white text-xl tracking-[0.2em] font-['Sprat'] mb-6 uppercase pl-2">Notre Mission</h2>
+        <div class="relative w-full aspect-video rounded-xl overflow-hidden">
+            <img 
+                src="LM/JPG/me video.png" 
+                alt="Notre Mission" 
+                class="w-full h-full object-cover"
+            />
+            <!-- Play Button Overlay -->
+            <div class="absolute inset-0 flex items-center justify-center">
+                <button class="w-16 h-16 rounded-full bg-black/30 flex items-center justify-center hover:bg-black/40 transition-all">
+                    <div class="w-12 h-12 rounded-full bg-white flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                        </svg>
+                    </div>
+                </button>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
