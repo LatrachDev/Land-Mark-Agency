@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
-<body class="bg-[url(LM/BG/Asset7.png)] w-full h-screen bg-cover">
+<body class="bg-[url(/../../LM/BG/Asset7.png)] w-full h-screen bg-cover">
     <!-- Banner Promotion -->
     <div class="bg-blue-600 text-white py-2 w-full flex items-center">
         <div class="flex-1 flex justify-center items-center gap-2">
@@ -29,7 +29,7 @@
             <div class="flex  justify-center items-center space-x-11 font-bold">
                 <!-- Logo -->
                 <a href="#" class="flex items-center mr-8">
-                    <img src="/LM/Logotype/White.png" alt="Landmark" class="h-14">
+                    <img src="LM/Logotype/White.png" alt="Landmark" class="h-14">
                 </a>
                 
                 <a href="#" class="text-white text-sm relative">
