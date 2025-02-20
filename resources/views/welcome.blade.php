@@ -28,28 +28,30 @@
     <!-- Navbar -->
     <nav >
         <div class="container mx-auto px-8 py-6">
-            <div class="flex  justify-center items-center space-x-11 font-bold">
+            <div class="flex justify-between items-center space-x-22 font-bold ">
                 <!-- Logo -->
                 <a href="#" class="flex items-center mr-8">
                     <img src="../LM/Logotype/White.png" alt="Landmark" class="h-14">
                 </a>
                 
-                <a href="#" class="text-white text-sm relative">
-                    PORTFOLIO
-                    <span class="absolute bottom-0 left-0 w-full h-0.5 bg-blue-600"></span>
-                </a>
-                <a href="#" class="text-white text-sm relative group">
-                    SERVICES
-                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
-                </a>
-                <a href="#" class="text-white text-sm relative group">
-                    À PROPOS DE NOUS
-                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
-                </a>
-                <a href="#" class="text-white text-sm relative group">
-                    BLOG
-                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
-                </a>
+                <div class="flex justify-between w-[40%]">
+                    <a href="#" class="text-white text-sm relative">
+                        PORTFOLIO
+                        <span class="absolute bottom-0 left-0 w-full h-0.5 bg-blue-600"></span>
+                    </a>
+                    <a href="#" class="text-white text-sm relative group">
+                        SERVICES
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="#" class="text-white text-sm relative group">
+                        À PROPOS DE NOUS
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="#" class="text-white text-sm relative group">
+                        BLOG
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                </div>
                 <button class="bg-transparent text-white text-sm px-4 py-1.5 rounded border border-white transition-all duration-300  hover:border-blue-600">
                     CONSULTATION GRATUITE
                 </button>
