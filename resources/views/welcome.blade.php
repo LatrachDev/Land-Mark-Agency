@@ -108,11 +108,12 @@
 
     <!-- Services Section -->
     <div class="bg-white py-16 px-8 text-center">
-        <h2 class="text-xl font-bold text-gray-900 uppercase mb-6 font-['BioRhyme_Expanded']">SERVICES</h2>
-        <h3 class="text-2xl font-bold text-gray-900 uppercase mb-4">
+        <h2 class="text-xl font-bold text-left text-gray-900 uppercase mb-6 font-['BioRhyme_Expanded']">SERVICES</h2>
+        
+        <h3 class="text-xl font-bold text-left text-gray-900 uppercase mb-4">
             DES SOLUTIONS COMPLÈTES POUR BOOSTER VOTRE MARQUE ET VOTRE VISIBILITÉ
         </h3>
-        <p class="text-gray-600 max-w-2xl mx-auto mb-12">
+        <p class="text-gray-600 text-left max-w-2xl mb-12">
             Que vous souhaitiez renforcer votre présence en ligne, bâtir une identité de marque forte ou captiver votre audience avec du contenu créatif, nous offrons des solutions complètes et adaptées.
         </p>
         
