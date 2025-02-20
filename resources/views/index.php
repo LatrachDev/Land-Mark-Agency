@@ -22,7 +22,7 @@
 
     <!-- Navbar -->
     <nav >
-        <div class="container mx-auto px-8 py-6">
+        <div class="container mx-auto px-6 py-6">
             <div class="flex justify-between items-center space-x-22 font-bold ">
                 <!-- Logo -->
                 <a href="#" class="flex items-center mr-8">
@@ -47,7 +47,7 @@
                         <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
                     </a>
                 </div>
-                <button class="bg-transparent text-white text-sm px-4 py-1.5 rounded border border-white transition-all duration-300  hover:border-blue-600">
+                <button class="bg-transparent text-white text-sm px-4 py-1.5  border border-white transition-all duration-300  hover:border-blue-600">
                     CONSULTATION GRATUITE
                 </button>
             </div>
@@ -55,25 +55,30 @@
     </nav>
 
     <!-- Hero Section -->
-    <div class="container mx-auto px-6 mt-20">
-        <div class="max-w-3xl">
-            <div class="flex justify-center items-center">
-                <h1 class="text-4xl md:text-5xl font-bold mb-6">
-                    <div class="text-white">
-                        <span class="bg-gradient-to-r from-blue-950 to-blue-600 px-4 py-2 ">L'ADOPTION OU L'ADAPTATION</span>
+    <div class="container mx-auto px-6 mt-40">
+        <div class="max-w-full mx-start">
+            <div class="flex justify-start items-center">
+                <h1 class="text-3xl md:text-4xl font-bold mb-6">
+                <div class="w-full relative mb-2">
+                    <div class="absolute inset-0 bg-gradient-to-r from-blue-950 to-blue-600 h-6 mt-10 w-[100%]"></div>
+                    <div class="relative z-10 px-0 py-4">
+                        <span class="text-white text-4xl font-bold uppercase tracking-wide text-center">
+                        L'adoption ou l'adaptation au chagement
+                        </span>
                     </div>
-                    <div class="text-white mt-4">UNE DÉCISION QUI VOUS RESSEMBLE</div>
+                    </div>
+                    <div class="text-white leading-[1.4em] mb-12">UNE DÉCISION QUI VOUS RESSEMBLE</div>
                 </h1>
             </div>
-            <p class="text-gray-300 mb-8">
+            <p class="text-gray-300 mb-20 text-xl tracking-normal">
                 DÉVELOPPEZ LA NOTORIÉTÉ DE VOTRE MARQUE, AUGMENTEZ VOS VENTES<br>
                 ET CRÉEZ UN LIEN FORT AVEC VOTRE AUDIENCE.
             </p>
-            <div class="flex space-x-4">
-                <button class="bg-blue-600 text-white px-6 py-3 rounded transition-all duration-300 hover:bg-blue-700 hover:scale-105">
+            <div class="flex space-x-8">
+                <button class="bg-blue-600 text-white px-6 py-3  transition-all duration-300 hover:bg-blue-700 hover:scale-105">
                     DEMANDEZ VOTRE FACTURE
                 </button>
-                <button class="border border-white text-white px-6 py-3 rounded transition-all duration-300 hover:bg-white hover:text-black hover:scale-105">
+                <button class="border border-white text-white px-6 py-3  transition-all duration-300 hover:bg-white hover:text-black hover:scale-105">
                     VOIR LE PORTFOLIO
                 </button>
             </div>
@@ -81,9 +86,9 @@
     </div>
 
     <!-- Mission Section -->
-    <div class="container mx-auto px-20 mt-32">
-        <h2 class="text-white text-xl tracking-[0.2em] font-['Sprat'] mb-6 uppercase pl-2">Notre Mission</h2>
-        <div class="relative w-full aspect-video rounded-xl overflow-hidden">
+    <div class="container mx-auto max:px-0 mt-32 mb-38">
+        <h2 class="text-white text-xl tracking-[0.2em] font-['BioRhyme_Expanded'] mb-6 uppercase pl-0">Notre Mission</h2>
+        <div class="relative w-full aspect-video  overflow-hidden">
             <img 
                 src="LM/JPG/me video.png" 
                 alt="Notre Mission" 
