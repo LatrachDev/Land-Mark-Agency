@@ -159,12 +159,207 @@
             </div>
         </div>
     </div>
+    <section class=" mx-auto px-4 py-16 bg-white">
+        <div class="container w-[90%] m-auto">
+            <!-- Section Title -->
+            <div class="mb-12 text-left">
+                <h2 class="text-2xl font-['BioRhyme_Expanded'] text-blue-900 uppercase">PROJECT HIGHLIGHTS</h2>
+                <p class="text-2xl font-['BioRhyme_Expanded'] text-blue-900 mt-2">"CASE STUDIES"</p>
+            </div>
+
+            <!-- Projects Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Project 1: Extent Media -->
+                <div class="flex flex-col">
+                    <div class=" mb-4 rounded-lg">
+                        <img src="{{ asset('../LM/Projects/3.png') }}" alt="Extent Media Logo" class="w-full">
+                    </div>
+                    <h3 class="text-xl font-bold font-['Jost'] mb-2">BRAND DESIGN <span class="italic">"EXTENT MEDIA"</span></h3>
+                    <p class="font-['Jost'] text-gray-700 mb-6">
+                        Project brief and all aspects of this projects in short word to help understand what we workt on while the project.
+                    </p>
+                    <div>
+                        <p class="text-4xl text-blue-500 font-bold font-['Jost']">45%</p>
+                        <p class="font-['Jost']">Website views<br>after rebranding</p>
+                    </div>
+                </div>
+
+                <!-- Project 2: GrowMax -->
+                <div class="flex flex-col">
+                    <div class=" mb-4 rounded-lg">
+                        <img src="{{ asset('../LM/Projects/2.png') }}" alt="GrowMax Website" class="w-full">
+                    </div>
+                    <h3 class="text-xl font-bold font-['Jost'] mb-2">UI & UX DESIGN <span class="italic">"GROWMAX"</span></h3>
+                    <p class="font-['Jost'] text-gray-700 mb-6">
+                        Project brief and all aspects of this projects in short word to help understand what we workt on while the project.
+                    </p>
+                    <div>
+                        <p class="text-4xl text-blue-500 font-bold font-['Jost']">15%</p>
+                        <p class="font-['Jost']">Website views<br>after rebranding</p>
+                    </div>
+                </div>
+
+                <!-- Project 3: Al Ghosne -->
+                <div class="flex flex-col">
+                    <div class=" mb-4 rounded-lg">
+                        <img src="{{ asset('../LM/Projects/1.png') }}" alt="Al Ghosne Packaging" class="w-full">
+                    </div>
+                    <h3 class="text-xl font-bold font-['Jost'] mb-2">PACKAGING DESIGN <span class="italic">"AL GHOSNE"</span></h3>
+                    <p class="font-['Jost'] text-gray-700 mb-6">
+                        Project brief and all aspects of this projects in short word to help understand what we workt on while the project.
+                    </p>
+                    <div>
+                        <p class="text-4xl text-blue-500 font-bold font-['Jost']">45%</p>
+                        <p class="font-['Jost']">Website views<br>after rebranding</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- View All Button -->
+            <div class="text-left mt-12">
+                <a href="#" class="inline-block border-2 border-gray-800 px-8 py-3 font-['Jost'] uppercase hover:bg-gray-800 hover:text-white transition-colors">
+                    View All Works
+                </a>
+            </div>
+        </div>
+    </section>
 
 
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
+    <section class=" px-4 py-16 bg-white">
+    
+        <div class="container w-[90%] m-auto">
+            <div class="mb-12">
+                <h2 class="text-xl font-['BioRhyme_Expanded'] text-blue-900 uppercase text-left">CONTENT CREATION</h2>
+            </div>
+
+            <!-- Projects Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="flex flex-col">
+                    <div class="mb-8">
+                        <img src="{{ asset('../LM/ContentCreation/1.png') }}" alt="Content Creator" class="w-full h-auto object-cover">
+                    </div>
+                    <h3 class="text-xl font-bold font-['Jost'] mb-8">PROJECT NAME</h3>
+                    <div>
+                        <p class="text-4xl text-blue-500 font-bold font-['Jost']">45%</p>
+                        <p class="font-['Jost']">Website views<br>after rebranding</p>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="flex flex-col">
+                    <div class="mb-8">
+                        <img src="{{ asset('../LM/ContentCreation/2.png') }}" alt="Content Creator" class="w-full h-auto object-cover">
+                    </div>
+                    <h3 class="text-xl font-bold font-['Jost'] mb-8">PROJECT NAME</h3>
+                    <div>
+                        <p class="text-4xl text-blue-500 font-bold font-['Jost']">45%</p>
+                        <p class="font-['Jost']">Website views<br>after rebranding</p>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="flex flex-col">
+                    <div class="mb-8">
+                        <img src="{{ asset('../LM/ContentCreation/3.png') }}" alt="Content Creator" class="w-full h-auto object-cover">
+                    </div>
+                    <h3 class="text-xl font-bold font-['Jost'] mb-8">PROJECT NAME</h3>
+                    <div>
+                        <p class="text-4xl text-blue-500 font-bold font-['Jost']">45%</p>
+                        <p class="font-['Jost']">Website views<br>after rebranding</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- View All Button -->
+            <div class="text-left mt-16">
+                <a href="#" class="inline-block border-2 border-gray-800 px-8 py-3 font-['Jost'] uppercase hover:bg-gray-800 hover:text-white transition-colors">
+                    VIEW ALL WORKS
+                </a>
+            </div>
+        </div>
+    </section>
+
+   
+
+        <section class="bg-white mx-auto px-4 py-16">
+            <div class="container w-[90%] m-auto">
+                <div class="mb-12">
+                    <h2 class="text-xl font-['BioRhyme_Expanded'] text-blue-900 uppercase text-left">OUR BEST CLIENTS REVIEWS</h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Review 1 -->
+                    <div class="bg-gray-100 p-8 rounded-lg">
+                        <!-- Quote Mark -->
+                        <div class="text-6xl text-indigo-900 font-serif mb-4">"</div>
+                        
+                        <!-- Testimonial Text -->
+                        <p class="font-['Jost'] text-gray-800 mb-8">
+                            "Project breef and all aspects of this projects in shorte word to help understand what we workt on while the project."
+                        </p>
+                        
+                        <!-- Client Info -->
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center">
+                                <img src="{{ asset('../LM/reviews/3.png') }}" alt="Mohammed Azzimani" class="w-12 h-12 rounded-full mr-3">
+                                <div>
+                                    <h4 class="font-['Jost'] font-bold">Al Andalous Pack</h4>
+                                    <p class="font-['Jost'] text-sm text-gray-600">Mohammed Azzimani</p>
+                                </div>
+                            </div>
+                            <img src="{{ asset('../LM/reviews/1.png') }}" alt="Google" class="h-6">
+                        </div>
+                    </div>
+
+                    <!-- Review 2 -->
+                    <div class="bg-gray-100 p-8 rounded-lg">
+                        <!-- Quote Mark -->
+                        <div class="text-6xl text-indigo-900 font-serif mb-4">"</div>
+                        
+                        <!-- Testimonial Text -->
+                        <p class="font-['Jost'] text-gray-800 mb-8">
+                            " Project breef and all aspects of this projects in shorte word to help understand what we workt on while the project. "
+                        </p>
+                        
+                        <!-- Client Info -->
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center">
+                                <img src="{{ asset('../LM/reviews/2.png') }}" alt="Mohammed Azzimani" class="w-12 h-12 rounded-full mr-3">
+                                <div>
+                                    <h4 class="font-['Jost'] font-bold">Growmax</h4>
+                                    <p class="font-['Jost'] text-sm text-gray-600">Khaoula Touijer</p>
+                                </div>
+                            </div>
+                            <img src="{{ asset('../LM/reviews/1.png') }}" alt="Google" class="h-6">
+                        </div>
+                    </div>
+
+                    <!-- Review 3 -->
+                    <div class="bg-gray-100 p-8 rounded-lg">
+                        <!-- Quote Mark -->
+                        <div class="text-6xl text-indigo-900 font-serif mb-4">"</div>
+                        
+                        <!-- Testimonial Text -->
+                        <p class="font-['Jost'] text-gray-800 mb-8">
+                            " Project breef and all aspects of this projects in shorte word to help understand what we workt on while the project. "
+                        </p>
+                        
+                        <!-- Client Info -->
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center">
+                                <img src="{{ asset('../LM/reviews/4.png') }}" alt="Mohammed Azzimani" class="w-12 h-12 rounded-full mr-3">
+                                <div>
+                                    <h4 class="font-['Jost'] font-bold">Minari</h4>
+                                    <p class="font-['Jost'] text-sm text-gray-600">Amina Bitari</p>
+                                </div>
+                            </div>
+                            <img src="{{ asset('../LM/reviews/1.png') }}" alt="Google" class="h-6">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </section>
+
 </body>
 </html>
