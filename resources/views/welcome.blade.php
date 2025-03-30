@@ -110,7 +110,7 @@
 
 
     <!-- Services Section -->
-    <div class="bg-white py-16 px-8 text-center">
+    <div class="bg-white py-16 px-6 text-center">
         <h2 class="text-xl font-bold text-left text-gray-900 uppercase mb-6 font-['BioRhyme_Expanded']">SERVICES</h2>
         
         <h3 class="text-xl font-bold text-left text-gray-900 uppercase mb-4">
@@ -291,7 +291,10 @@
                     <!-- Review 1 -->
                     <div class="bg-gray-100 p-8 rounded-lg">
                         <!-- Quote Mark -->
-                        <div class="text-6xl text-indigo-900 font-serif mb-4">"</div>
+                        <div class="text-6xl text-indigo-900 font-serif mb-4"><svg width="32" height="28" viewBox="0 0 32 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M18.504 13.768V0.807997H31.368V4.168C31.368 9.416 30.952 13.352 30.12 15.976C29.352 18.536 27.24 22.216 23.784 27.016L18.312 23.944C21.192 19.016 22.856 15.624 23.304 13.768H18.504ZM1.032 13.768V0.807997H13.896V4.168C13.896 9.416 13.48 13.352 12.648 15.976C11.88 18.536 9.768 22.216 6.312 27.016L0.84 23.944C3.72 19.016 5.384 15.624 5.832 13.768H1.032Z" fill="#263973"/>
+                            </svg>
+                        </div>
                         
                         <!-- Testimonial Text -->
                         <p class="font-['Jost'] text-gray-800 mb-8">
@@ -314,7 +317,10 @@
                     <!-- Review 2 -->
                     <div class="bg-gray-100 p-8 rounded-lg">
                         <!-- Quote Mark -->
-                        <div class="text-6xl text-indigo-900 font-serif mb-4">"</div>
+                        <div class="text-6xl text-indigo-900 font-serif mb-4"><svg width="32" height="28" viewBox="0 0 32 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M18.504 13.768V0.807997H31.368V4.168C31.368 9.416 30.952 13.352 30.12 15.976C29.352 18.536 27.24 22.216 23.784 27.016L18.312 23.944C21.192 19.016 22.856 15.624 23.304 13.768H18.504ZM1.032 13.768V0.807997H13.896V4.168C13.896 9.416 13.48 13.352 12.648 15.976C11.88 18.536 9.768 22.216 6.312 27.016L0.84 23.944C3.72 19.016 5.384 15.624 5.832 13.768H1.032Z" fill="#263973"/>
+                            </svg>
+                        </div>
                         
                         <!-- Testimonial Text -->
                         <p class="font-['Jost'] text-gray-800 mb-8">
@@ -337,7 +343,10 @@
                     <!-- Review 3 -->
                     <div class="bg-gray-100 p-8 rounded-lg">
                         <!-- Quote Mark -->
-                        <div class="text-6xl text-indigo-900 font-serif mb-4">"</div>
+                        <div class="text-6xl text-indigo-900 font-serif mb-4"><svg width="32" height="28" viewBox="0 0 32 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M18.504 13.768V0.807997H31.368V4.168C31.368 9.416 30.952 13.352 30.12 15.976C29.352 18.536 27.24 22.216 23.784 27.016L18.312 23.944C21.192 19.016 22.856 15.624 23.304 13.768H18.504ZM1.032 13.768V0.807997H13.896V4.168C13.896 9.416 13.48 13.352 12.648 15.976C11.88 18.536 9.768 22.216 6.312 27.016L0.84 23.944C3.72 19.016 5.384 15.624 5.832 13.768H1.032Z" fill="#263973"/>
+                            </svg>
+                        </div>
                         
                         <!-- Testimonial Text -->
                         <p class="font-['Jost'] text-gray-800 mb-8">
