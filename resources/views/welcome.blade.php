@@ -37,7 +37,7 @@
             background-color: #1a365d; /* blue-900 */
         }
         .rotate-180 {
-            transform: rotate(180deg);
+            transform: rotate(0deg);
         }
     </style>
     <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
