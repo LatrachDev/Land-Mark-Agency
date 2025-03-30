@@ -13,29 +13,38 @@
     <link href="https://fonts.googleapis.com/css2?family=BioRhyme+Expanded:wght@200;300;400;700;800&family=Jost:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
     <style>
         .swiper {
             width: 100%;
             height: 100%;
         }
+
         .swiper-slide {
             height: auto;
         }
-        .swiper-button-next, .swiper-button-prev {
+
+        .swiper-button-next,
+        .swiper-button-prev {
             width: 40px;
             height: 40px;
             background-color: white;
             border-radius: 50%;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             top: 40%;
         }
-        .swiper-button-next:after, .swiper-button-prev:after {
+
+        .swiper-button-next:after,
+        .swiper-button-prev:after {
             font-size: 18px;
             font-weight: bold;
         }
+
         .swiper-pagination-bullet-active {
-            background-color: #1a365d; /* blue-900 */
+            background-color: #1a365d;
+            /* blue-900 */
         }
+
         .rotate-180 {
             transform: rotate(0deg);
         }
@@ -43,99 +52,137 @@
     <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
 </head>
 
-<body class="bg-[url(../LM/BG/Asset7.png)] w-full h-screen bg-cover bg-no-repeat font-['Jost']">
-    
+<body class="font-['Jost']">
+
     <!-- Banner Promotion -->
-    <div class="bg-blue-600 text-white py-2 w-full flex items-center">
-        <div class="flex-1 flex justify-center items-center gap-2">
-            <span>ÉCONOMISEZ 25% SUR TOUS NOS SERVICES AVANT LE</span>
-            <span class="bg-gray-700 px-2 py-1 rounded">02 : 13 : 57 : 45</span>
+    <div class="bg-blue-600 text-white py-2 w-full flex flex-col sm:flex-row items-center">
+        <div class="flex-1 flex justify-center items-center gap-1 sm:gap-2 text-xs sm:text-base px-2 sm:px-0">
+            <span class="text-center sm:text-left">ÉCONOMISEZ 25% SUR TOUS NOS SERVICES AVANT LE</span>
+            <span class="bg-gray-700 px-2 py-1 rounded countdown-timer">00 : 00 : 00 : 00</span>
         </div>
-        <div class="pr-8">
-            <button class="bg-gray-100 text-black px-4 py-1 rounded text-sm font-medium">
+        <div class="mt-2 sm:mt-0 sm:pr-8 px-2 sm:px-0">
+            <button class="bg-gray-100 hover:bg-gray-200 text-black px-3 sm:px-4 py-1 rounded text-xs sm:text-sm font-medium transition-colors">
                 SAVE NOW
             </button>
         </div>
     </div>
 
-    <!-- Navbar -->
-    <nav>
-        <div class="container mx-auto px-6 py-6">
-            <div class="flex justify-between items-center space-x-22 font-bold ">
-                <!-- Logo -->
-                <a href="#" class="flex items-center mr-8">
-                    <img src="../LM/Logotype/White.png" alt="Landmark" class="h-14">
-                </a>
+    <div class="bg-[url(../LM/BG/Asset7.png)] w-full bg-cover bg-no-repeat">
 
-                <div class="flex justify-between w-[40%]">
-                    <a href="#" class="text-white text-sm relative">
-                        PORTFOLIO
-                        <span class="absolute bottom-0 left-0 w-full h-0.5 bg-blue-600"></span>
+        <!-- Navbar -->
+        <nav class="">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-4">
+                <div class="flex justify-between items-center">
+                    <!-- Logo -->
+                    <a href="#" class="flex items-center">
+                        <img src="../LM/Logotype/White.png" alt="Landmark" class="h-10 md:h-14">
                     </a>
-                    <a href="#" class="text-white text-sm relative group">
-                        SERVICES
-                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
-                    </a>
-                    <a href="#" class="text-white text-sm relative group">
-                        À PROPOS DE NOUS
-                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
-                    </a>
-                    <a href="#" class="text-white text-sm relative group">
-                        BLOG
-                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
-                    </a>
-                </div>
-                <button class="bg-transparent text-white text-sm px-4 py-1.5  border border-white transition-all duration-300  hover:border-blue-600">
-                    CONSULTATION GRATUITE
-                </button>
-            </div>
-        </div>
-    </nav>
 
-    <!-- Hero Section -->
-    <div class="container mx-auto px-6 mt-40">
-        <div class="max-w-full mx-start">
-            <div class="flex justify-start items-center">
-                <h1 class="text-3xl md:text-4xl font-bold mb-6">
-                    <div class="w-full relative mb-2">
-                        <div class="absolute inset-0 bg-gradient-to-r from-blue-950 to-blue-600 h-6 mt-10 w-[100%]"></div>
-                        <div class="relative z-10 px-0 py-4">
-                            <span class="text-white text-4xl font-bold uppercase tracking-wide text-center">
-                                L'adoption ou l'adaptation au chagement
-                            </span>
+                    <!-- Desktop Navigation -->
+                    <div class="hidden md:flex items-center space-x-6 lg:space-x-8">
+                        <div class="flex justify-between space-x-6 lg:space-x-8">
+                            <a href="#" class="text-white text-sm md:text-base relative group">
+                                PORTFOLIO
+                                <span class="absolute bottom-0 left-0 w-full h-0.5 bg-blue-600"></span>
+                            </a>
+                            <a href="#" class="text-white text-sm md:text-base relative group">
+                                SERVICES
+                                <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
+                            </a>
+                            <a href="#" class="text-white text-sm md:text-base relative group">
+                                À PROPOS DE NOUS
+                                <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
+                            </a>
+                            <a href="#" class="text-white text-sm md:text-base relative group">
+                                BLOG
+                                <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
+                            </a>
                         </div>
+                        <button class="bg-transparent text-white text-sm md:text-base px-4 py-1.5 border border-white transition-all duration-300 hover:border-blue-600 whitespace-nowrap">
+                            CONSULTATION GRATUITE
+                        </button>
                     </div>
-                    <div class="text-white leading-[1.4em] mb-12">UNE DÉCISION QUI VOUS RESSEMBLE</div>
-                </h1>
+
+                    <!-- Mobile Menu Button -->
+                    <button class="md:hidden text-white focus:outline-none" id="mobile-menu-button">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Mobile Menu -->
+                <div class="md:hidden hidden pt-4 pb-2" id="mobile-menu">
+                    <div class="flex flex-col space-y-4">
+                        <a href="#" class="text-white text-base relative block py-2">
+                            PORTFOLIO
+                            <span class="absolute bottom-0 left-0 w-full h-0.5 bg-blue-600"></span>
+                        </a>
+                        <a href="#" class="text-white text-base relative block py-2 group">
+                            SERVICES
+                            <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
+                        </a>
+                        <a href="#" class="text-white text-base relative block py-2 group">
+                            À PROPOS DE NOUS
+                            <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
+                        </a>
+                        <a href="#" class="text-white text-base relative block py-2 group">
+                            BLOG
+                            <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
+                        </a>
+                        <button class="bg-transparent text-white text-base px-4 py-2 border border-white transition-all duration-300 hover:border-blue-600 w-full mt-2">
+                            CONSULTATION GRATUITE
+                        </button>
+                    </div>
+                </div>
             </div>
-            <p class="text-gray-300 mb-20 text-xl tracking-normal">
-                DÉVELOPPEZ LA NOTORIÉTÉ DE VOTRE MARQUE, AUGMENTEZ VOS VENTES<br>
-                ET CRÉEZ UN LIEN FORT AVEC VOTRE AUDIENCE.
-            </p>
-            <div class="flex space-x-8">
-                <button class="bg-blue-600 text-white px-6 py-3  transition-all duration-300 hover:bg-blue-700 hover:scale-105">
-                    DEMANDEZ VOTRE FACTURE
-                </button>
-                <button class="border border-white text-white px-6 py-3  transition-all duration-300 hover:bg-white hover:text-black hover:scale-105">
-                    VOIR LE PORTFOLIO
-                </button>
+        </nav>
+
+        <!-- Hero Section -->
+        <div class="container mx-auto px-6 mt-40">
+            <div class="max-w-full mx-start">
+                <div class="flex justify-start items-center">
+                    <h1 class="text-3xl md:text-4xl font-bold mb-6">
+                        <div class="w-full relative mb-2">
+                            <div class="absolute inset-0 bg-gradient-to-r from-blue-950 to-blue-600 h-6 mt-10 w-[100%]"></div>
+                            <div class="relative z-10 px-0 py-4">
+                                <span class="text-white text-4xl font-bold uppercase tracking-wide text-center">
+                                    L'adoption ou l'adaptation au chagement
+                                </span>
+                            </div>
+                        </div>
+                        <div class="text-white leading-[1.4em] mb-12">UNE DÉCISION QUI VOUS RESSEMBLE</div>
+                    </h1>
+                </div>
+                <p class="text-gray-300 mb-20 text-xl tracking-normal">
+                    DÉVELOPPEZ LA NOTORIÉTÉ DE VOTRE MARQUE, AUGMENTEZ VOS VENTES<br>
+                    ET CRÉEZ UN LIEN FORT AVEC VOTRE AUDIENCE.
+                </p>
+                <div class="flex space-x-8">
+                    <button class="bg-blue-600 text-white px-6 py-3  transition-all duration-300 hover:bg-blue-700 hover:scale-105">
+                        DEMANDEZ VOTRE FACTURE
+                    </button>
+                    <button class="border border-white text-white px-6 py-3  transition-all duration-300 hover:bg-white hover:text-black hover:scale-105">
+                        VOIR LE PORTFOLIO
+                    </button>
+                </div>
             </div>
         </div>
-    </div>
 
-    <!-- Mission Section -->
-    <div class="container mx-auto max:px-0 mt-32 mb-38">
-        <h2 class="text-white text-xl tracking-[0.2em] font-['BioRhyme_Expanded'] mb-6 uppercase pl-0">Notre Mission</h2>
-        <div class="relative w-full aspect-video  overflow-hidden">
-            <img
-                src="../LM/JPG/video.png"
-                alt="Notre Mission"
-                class="w-full h-full object-cover" />
-            <!-- Play Button Overlay -->
-            <div class="absolute inset-0 flex items-center justify-center">
-                <button class="w-16 h-16 rounded-full flex items-center justify-center hover:bg-black/40 transition-all">
-                    <img src="LM/Services/videoIcon2.svg" alt="" class="w-12 h-12 rounded-full flex items-center justify-center">
-                </button>
+        <!-- Mission Section -->
+        <div class="container mx-auto max:px-0 mt-32 mb-38">
+            <h2 class="text-white text-xl tracking-[0.2em] font-['BioRhyme_Expanded'] mb-6 uppercase pl-0">Notre Mission</h2>
+            <div class="relative w-full aspect-video  overflow-hidden">
+                <img
+                    src="../LM/JPG/video.png"
+                    alt="Notre Mission"
+                    class="w-full h-full object-cover" />
+                <!-- Play Button Overlay -->
+                <div class="absolute inset-0 flex items-center justify-center">
+                    <button class="w-16 h-16 rounded-full flex items-center justify-center hover:bg-black/40 transition-all">
+                        <img src="LM/Services/videoIcon2.svg" alt="" class="w-12 h-12 rounded-full flex items-center justify-center">
+                    </button>
+                </div>
             </div>
         </div>
     </div>
@@ -416,7 +463,7 @@
                     <h3 class="text-xl font-bold text-left text-gray-900 uppercase mb-4">
                         fill out the form, and we'll contact you.
                     </h3>
-                    
+
                     <div class="w-7/12">
                         <form id="contactForm" action="https://formspree.io/f/xwplbdpq" method="POST" class="space-y-4">
                             <div class="mb-6">
@@ -444,29 +491,29 @@
                                     </label>
                                 </div>
                             </div>
-                            
+
                             <div>
                                 <input name="name" placeholder="Full Name" type="text" class="w-full p-2 border-b-2 border-gray-400 bg-transparent" required>
                             </div>
-                            
+
                             <div>
                                 <input name="email" placeholder="Email" type="email" class="w-full p-2 border-b-2 border-gray-400 bg-transparent" required>
                             </div>
-                            
+
                             <div>
                                 <input name="phone" placeholder="Phone Number" type="tel" class="w-full p-2 border-b-2 border-gray-400 bg-transparent">
                             </div>
-                            
+
                             <div>
                                 <input name="company" placeholder="Company Name" type="text" class="w-full p-2 border-b-2 border-gray-400 bg-transparent">
                             </div>
-                            
+
                             <div>
                                 <textarea name="message" placeholder="Tell us about your business" class="w-full p-2 border-b-2 border-gray-400 bg-transparent h-24" required></textarea>
                             </div>
-                            
+
                             <p id="form-status" class="text-green-500 text-sm hidden"></p>
-                            
+
                             <button type="submit" class="bg-gray-900 text-white px-8 py-3 uppercase font-medium hover:bg-gray-700 transition-colors">
                                 SUBMIT
                             </button>
@@ -516,7 +563,7 @@
                         </div>
                         <h3 class="text-xl font-bold font-['Jost'] mb-4">PROJECT NAME</h3>
                         <p class="font-['Jost'] mb-4">Project brief and all aspects of this projects in short words to help understand what we worked on while the project.</p>
-                        
+
                     </div>
 
                     <!-- Project 3 -->
@@ -526,7 +573,7 @@
                         </div>
                         <h3 class="text-xl font-bold font-['Jost'] mb-4">PROJECT NAME</h3>
                         <p class="font-['Jost'] mb-4">Project brief and all aspects of this projects in short words to help understand what we worked on while the project.</p>
-                        
+
                     </div>
 
                     <!-- Project 4 -->
@@ -536,7 +583,7 @@
                         </div>
                         <h3 class="text-xl font-bold font-['Jost'] mb-4">PROJECT NAME</h3>
                         <p class="font-['Jost'] mb-4">Project brief and all aspects of this projects in short words to help understand what we worked on while the project.</p>
-                        
+
                     </div>
 
                     <!-- Project 5 -->
@@ -546,7 +593,7 @@
                         </div>
                         <h3 class="text-xl font-bold font-['Jost'] mb-4">PROJECT NAME</h3>
                         <p class="font-['Jost'] mb-4">Project brief and all aspects of this projects in short words to help understand what we worked on while the project.</p>
-                        
+
                     </div>
 
                     <!-- Project 6 -->
@@ -556,7 +603,7 @@
                         </div>
                         <h3 class="text-xl font-bold font-['Jost'] mb-4">PROJECT NAME</h3>
                         <p class="font-['Jost'] mb-4">Project brief and all aspects of this projects in short words to help understand what we worked on while the project.</p>
-                        
+
                     </div>
 
                     <!-- Project 7 -->
@@ -566,11 +613,11 @@
                         </div>
                         <h3 class="text-xl font-bold font-['Jost'] mb-4">PROJECT NAME</h3>
                         <p class="font-['Jost'] mb-4">Project brief and all aspects of this projects in short words to help understand what we worked on while the project.</p>
-                        
+
                     </div>
 
                 </div>
-                
+
                 <!-- Swiper Navigation -->
                 <div class="swiper-button-next after:text-gray-800"></div>
                 <div class="swiper-button-prev after:text-gray-800"></div>
@@ -580,7 +627,7 @@
             <!-- View All Button -->
             <div class="text-left">
                 <a href="#" class="inline-block border-2 border-gray-800 px-8 py-3 font-['Jost'] uppercase hover:bg-gray-800 hover:text-white transition-colors">
-                read more
+                    read more
                 </a>
             </div>
         </div>
@@ -602,7 +649,7 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                         </svg>
                     </button>
-                    
+
                     <div id="analyser-content" class="hidden faq-content pl-4">
                         <p class="text-lg mb-4">Une Voie Claire & Ciblée Pour Lancer Votre Entreprise.</p>
                         <ul class="space-y-2 pl-5 list-disc">
@@ -624,7 +671,7 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                         </svg>
                     </button>
-                    
+
                     <div id="branding-content" class="hidden faq-content pl-4">
                         <p class="text-lg mb-4">Une Voie Claire & Ciblée Pour Lancer Votre Entreprise.</p>
                         <ul class="space-y-2 pl-5 list-disc">
@@ -640,17 +687,16 @@
 
                 <!-- CRÉATION DE CONTENU Section -->
                 <div class="border-b border-gray-300 pb-4">
-                    <button 
+                    <button
                         class="faq-toggle w-full text-left flex justify-between items-center py-4"
                         aria-expanded="false"
-                        aria-controls="content-creation-content"
-                    >
+                        aria-controls="content-creation-content">
                         <h3 class="text-lg font-bold uppercase">CRÉATION DE CONTENU</h3>
                         <svg class="w-6 h-6 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                         </svg>
                     </button>
-                    
+
                     <div id="content-creation-content" class="hidden faq-content pl-4">
                         <p class="text-lg mb-4">Une Voie Claire & Ciblée Pour Lancer Votre Entreprise.</p>
                         <ul class="space-y-2 pl-5 list-disc">
@@ -667,102 +713,102 @@
         </div>
     </section>
 
-<!-- Footer -->
-<footer class="bg-[url(../LM/BG/footer.jpg)] bg-cover bg-center w-full text-white font-['Jost'] pt-12 md:pt-20 pb-6 md:pb-10 px-4 md:px-8 lg:px-20">
-    <div class="max-w-7xl mx-auto flex flex-col px-4 sm:px-6 lg:px-8">
-        <!-- Logo -->
-        <img class="w-48 md:w-64 mb-12 md:mb-20" src="{{ asset('LM/Logotype/White.png') }}" alt="Landmark logo">
+    <!-- Footer -->
+    <footer class="bg-[url(../LM/BG/footer.jpg)] bg-cover bg-center w-full text-white font-['Jost'] pt-12 md:pt-20 pb-6 md:pb-10 px-4 md:px-8 lg:px-20">
+        <div class="max-w-7xl mx-auto flex flex-col px-4 sm:px-6 lg:px-8">
+            <!-- Logo -->
+            <img class="w-48 md:w-64 mb-12 md:mb-20" src="{{ asset('LM/Logotype/White.png') }}" alt="Landmark logo">
 
-        <div class="flex flex-col lg:flex-row gap-8 md:gap-12">
-            <!-- Left Section -->
-            <div class="lg:w-7/12">
-                <h2 class="text-xl sm:text-4xl font-bold uppercase mb-4 md:mb-6 tracking-wide text-left">READY TO GET STARTED?</h2>
-                <p class="text-base md:text-lg text-left lg:text-justify w-full lg:w-10/12 mb-6 md:mb-8 tracking-wider uppercase font-light">
-                    Through a customer satisfaction survey. 96% of our clients express strong satisfaction and would confidently recommend our services to others.
-                </p>
-                <div class="text-left">
-                    <a href="#" class="inline-block border border-white text-white px-8 py-3 md:px-10 md:py-4 uppercase font-normal text-sm tracking-wider hover:bg-white hover:text-black transition-colors">
-                        GET IN TOUCH
-                    </a>
-                </div>
-            </div>
-
-            <!-- Right Section -->
-            <div class="lg:w-5/12 flex flex-col md:flex-row lg:flex-col gap-8 md:gap-12">
-                <!-- Social Media -->
-                <div class="w-full md:w-1/2 lg:w-full">
-                    <p class="uppercase mb-3 text-sm tracking-wider font-['BioRhyme_Expanded'] text-left">FOLLOW US FOR DAILY CONTENT</p>
-                    <div class="flex md:justify-start space-x-6 text-xl mt-6 md:mt-10">
-                        <a href="#" class="hover:opacity-70 transition-opacity" aria-label="Facebook">
-                            <i class="fa-brands fa-facebook-f"></i>
-                        </a>
-                        <a href="#" class="hover:opacity-70 transition-opacity" aria-label="Instagram">
-                            <i class="fa-brands fa-instagram"></i>
-                        </a>
-                        <a href="#" class="hover:opacity-70 transition-opacity" aria-label="LinkedIn">
-                            <i class="fa-brands fa-linkedin-in"></i>
-                        </a>
-                        <a href="#" class="hover:opacity-70 transition-opacity" aria-label="Behance">
-                            <i class="fa-brands fa-behance"></i>
+            <div class="flex flex-col lg:flex-row gap-8 md:gap-12">
+                <!-- Left Section -->
+                <div class="lg:w-7/12">
+                    <h2 class="text-xl sm:text-4xl font-bold uppercase mb-4 md:mb-6 tracking-wide text-left">READY TO GET STARTED?</h2>
+                    <p class="text-base md:text-lg text-left lg:text-justify w-full lg:w-10/12 mb-6 md:mb-8 tracking-wider uppercase font-light">
+                        Through a customer satisfaction survey. 96% of our clients express strong satisfaction and would confidently recommend our services to others.
+                    </p>
+                    <div class="text-left">
+                        <a href="#" class="inline-block border border-white text-white px-8 py-3 md:px-10 md:py-4 uppercase font-normal text-sm tracking-wider hover:bg-white hover:text-black transition-colors">
+                            GET IN TOUCH
                         </a>
                     </div>
                 </div>
 
-                <!-- Navigation -->
-                <div class="w-full md:w-1/2 lg:w-full">
-                    <p class="font-bold uppercase mb-3 text-sm tracking-wider font-['BioRhyme_Expanded'] text-left">NAVIGATION</p>
-                    <ul class="space-y-2 mt-6 md:mt-10 text-left">
-                        <li><a href="#" class="font-bold text-sm hover:opacity-70 hover:border-b-2 hover:border-[#445ef2] transition-opacity block w-fit md:mx-0">WORK</a></li>
-                        <li><a href="#" class="font-bold text-sm hover:opacity-70 hover:border-b-2 hover:border-[#445ef2] transition-opacity block w-fit md:mx-0">SERVICES</a></li>
-                        <li><a href="#" class="font-bold text-sm hover:opacity-70 hover:border-b-2 hover:border-[#445ef2] transition-opacity block w-fit md:mx-0">ABOUT US</a></li>
-                        <li><a href="#" class="font-bold text-sm hover:opacity-70 hover:border-b-2 hover:border-[#445ef2] transition-opacity block w-fit md:mx-0">CONTACT US</a></li>
-                        <li><a href="#" class="font-bold text-sm hover:opacity-70 hover:border-b-2 hover:border-[#445ef2] transition-opacity block w-fit md:mx-0">BLOG</a></li>
-                    </ul>
+                <!-- Right Section -->
+                <div class="lg:w-5/12 flex flex-col md:flex-row lg:flex-col gap-8 md:gap-12">
+                    <!-- Social Media -->
+                    <div class="w-full md:w-1/2 lg:w-full">
+                        <p class="uppercase mb-3 text-sm tracking-wider font-['BioRhyme_Expanded'] text-left">FOLLOW US FOR DAILY CONTENT</p>
+                        <div class="flex md:justify-start space-x-6 text-xl mt-6 md:mt-10">
+                            <a href="#" class="hover:opacity-70 transition-opacity" aria-label="Facebook">
+                                <i class="fa-brands fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="hover:opacity-70 transition-opacity" aria-label="Instagram">
+                                <i class="fa-brands fa-instagram"></i>
+                            </a>
+                            <a href="#" class="hover:opacity-70 transition-opacity" aria-label="LinkedIn">
+                                <i class="fa-brands fa-linkedin-in"></i>
+                            </a>
+                            <a href="#" class="hover:opacity-70 transition-opacity" aria-label="Behance">
+                                <i class="fa-brands fa-behance"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Navigation -->
+                    <div class="w-full md:w-1/2 lg:w-full">
+                        <p class="font-bold uppercase mb-3 text-sm tracking-wider font-['BioRhyme_Expanded'] text-left">NAVIGATION</p>
+                        <ul class="space-y-2 mt-6 md:mt-10 text-left">
+                            <li><a href="#" class="font-bold text-sm hover:opacity-70 hover:border-b-2 hover:border-[#445ef2] transition-opacity block w-fit md:mx-0">WORK</a></li>
+                            <li><a href="#" class="font-bold text-sm hover:opacity-70 hover:border-b-2 hover:border-[#445ef2] transition-opacity block w-fit md:mx-0">SERVICES</a></li>
+                            <li><a href="#" class="font-bold text-sm hover:opacity-70 hover:border-b-2 hover:border-[#445ef2] transition-opacity block w-fit md:mx-0">ABOUT US</a></li>
+                            <li><a href="#" class="font-bold text-sm hover:opacity-70 hover:border-b-2 hover:border-[#445ef2] transition-opacity block w-fit md:mx-0">CONTACT US</a></li>
+                            <li><a href="#" class="font-bold text-sm hover:opacity-70 hover:border-b-2 hover:border-[#445ef2] transition-opacity block w-fit md:mx-0">BLOG</a></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <!-- Copyright -->
-        <div class="mt-8 md:mt-12 text-sm md:text-base lg:text-xl">
-            Copyright © 2025 all rights reserved
+            <!-- Copyright -->
+            <div class="mt-8 md:mt-12 text-sm md:text-base lg:text-xl">
+                Copyright © 2025 all rights reserved
+            </div>
         </div>
-    </div>
-</footer>
+    </footer>
 
     <!-- faq's -->
     <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const toggles = document.querySelectorAll('.faq-toggle');
-        
-        toggles.forEach(toggle => {
-            toggle.addEventListener('click', function() {
-                const content = document.getElementById(this.getAttribute('aria-controls'));
-                const isExpanded = this.getAttribute('aria-expanded') === 'true';
-                
-                // Toggle content visibility
-                content.classList.toggle('hidden');
-                
-                // Toggle arrow rotation
-                const arrow = this.querySelector('svg');
-                arrow.classList.toggle('rotate-180');
-                
-                // Update aria-expanded attribute
-                this.setAttribute('aria-expanded', !isExpanded);
-                
-                // Close other open sections if needed
-                if (!isExpanded) {
-                    toggles.forEach(otherToggle => {
-                        if (otherToggle !== toggle) {
-                            const otherContent = document.getElementById(otherToggle.getAttribute('aria-controls'));
-                            otherContent.classList.add('hidden');
-                            otherToggle.setAttribute('aria-expanded', 'false');
-                            otherToggle.querySelector('svg').classList.remove('rotate-180');
-                        }
-                    });
-                }
+        document.addEventListener('DOMContentLoaded', function() {
+            const toggles = document.querySelectorAll('.faq-toggle');
+
+            toggles.forEach(toggle => {
+                toggle.addEventListener('click', function() {
+                    const content = document.getElementById(this.getAttribute('aria-controls'));
+                    const isExpanded = this.getAttribute('aria-expanded') === 'true';
+
+                    // Toggle content visibility
+                    content.classList.toggle('hidden');
+
+                    // Toggle arrow rotation
+                    const arrow = this.querySelector('svg');
+                    arrow.classList.toggle('rotate-180');
+
+                    // Update aria-expanded attribute
+                    this.setAttribute('aria-expanded', !isExpanded);
+
+                    // Close other open sections if needed
+                    if (!isExpanded) {
+                        toggles.forEach(otherToggle => {
+                            if (otherToggle !== toggle) {
+                                const otherContent = document.getElementById(otherToggle.getAttribute('aria-controls'));
+                                otherContent.classList.add('hidden');
+                                otherToggle.setAttribute('aria-expanded', 'false');
+                                otherToggle.querySelector('svg').classList.remove('rotate-180');
+                            }
+                        });
+                    }
+                });
             });
         });
-    });
     </script>
 
 
@@ -804,24 +850,36 @@
         });
     </script>
 
+    <!-- nav -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            mobileMenuButton.addEventListener('click', function() {
+                mobileMenu.classList.toggle('hidden');
+            });
+        });
+    </script>
+
     <!-- email form -->
     <script>
         var form = document.getElementById("contactForm");
-        
+
         async function handleSubmit(event) {
             event.preventDefault();
             var submitButton = event.target.querySelector('button[type="submit"]');
             var status = document.getElementById("form-status");
-            
+
             // Change button text
             submitButton.disabled = true;
             submitButton.innerHTML = 'Sending...';
-            
+
             // Reset status
             status.classList.add('hidden');
             status.classList.remove('text-red-500');
             status.classList.remove('text-green-500');
-            
+
             try {
                 var data = new FormData(event.target);
                 var response = await fetch(event.target.action, {
@@ -831,7 +889,7 @@
                         'Accept': 'application/json'
                     }
                 });
-                
+
                 if (response.ok) {
                     status.innerHTML = "Thank you! Your message has been sent successfully.";
                     status.classList.remove('hidden');
@@ -856,8 +914,42 @@
                 submitButton.innerHTML = 'SUBMIT';
             }
         }
-        
+
         form.addEventListener("submit", handleSubmit);
     </script>
+
+    <!-- countdown -->
+    <script>
+        // Set the date we're counting down to (24 hours from now)
+        const countDownDate = new Date();
+
+        countDownDate.setHours(countDownDate.getHours() + 24);
+
+        // Update the countdown every 1 second
+        const x = setInterval(function() {
+            // Get today's date and time
+            const now = new Date().getTime();
+
+            // Find the distance between now and the countdown date
+            const distance = countDownDate - now;
+
+            // Time calculations for days, hours, minutes and seconds
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Display the result
+            document.querySelector(".countdown-timer").innerHTML =
+                `${String(hours).padStart(2, '0')} : ${String(minutes).padStart(2, '0')} : ${String(seconds).padStart(2, '0')}`;
+
+            // If the countdown is finished, clear interval
+            if (distance < 0) {
+                clearInterval(x);
+                document.querySelector(".countdown-timer").innerHTML = "EXPIRED";
+            }
+        }, 1000);
+    </script>
 </body>
+
 </html>
