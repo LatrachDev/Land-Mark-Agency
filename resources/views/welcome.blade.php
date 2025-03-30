@@ -58,10 +58,10 @@
     <div class="bg-blue-600 text-white py-2 w-full flex flex-col sm:flex-row items-center">
         <div class="flex-1 flex justify-center items-center gap-1 sm:gap-2 text-xs sm:text-base px-2 sm:px-0">
             <span class="text-center sm:text-left">ÉCONOMISEZ 25% SUR TOUS NOS SERVICES AVANT LE</span>
-            <span class="bg-gray-700 px-2 py-1 rounded countdown-timer">00 : 00 : 00 : 00</span>
+            <span class="bg-gray-700 px-2 py-1 countdown-timer">00 : 00 : 00 : 00</span>
         </div>
         <div class="mt-2 sm:mt-0 sm:pr-8 px-2 sm:px-0">
-            <button class="bg-gray-100 hover:bg-gray-200 text-black px-3 sm:px-4 py-1 rounded text-xs sm:text-sm font-medium transition-colors">
+            <button class="bg-gray-100 font-bold hover:bg-gray-200 text-black px-3 sm:px-4 py-1 text-xs sm:text-sm transition-colors">
                 SAVE NOW
             </button>
         </div>
