@@ -596,11 +596,7 @@
             <div class="space-y-4">
                 <!-- ANALYSER LE MARCHÉ Section -->
                 <div class="border-b border-gray-300 pb-4">
-                    <button 
-                        class="faq-toggle w-full text-left flex justify-between items-center py-4"
-                        aria-expanded="false"
-                        aria-controls="analyser-content"
-                    >
+                    <button class="faq-toggle w-full text-left flex justify-between items-center py-4" aria-expanded="false" aria-controls="analyser-content">
                         <h3 class="text-lg font-bold uppercase">ANALYSER LE MARCHÉ</h3>
                         <svg class="w-6 h-6 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
@@ -622,11 +618,7 @@
 
                 <!-- BRANDING DESIGN Section -->
                 <div class="border-b border-gray-300 pb-4">
-                    <button 
-                        class="faq-toggle w-full text-left flex justify-between items-center py-4"
-                        aria-expanded="false"
-                        aria-controls="branding-content"
-                    >
+                    <button class="faq-toggle w-full text-left flex justify-between items-center py-4" aria-expanded="false" aria-controls="branding-content">
                         <h3 class="text-lg font-bold uppercase">BRANDING DESIGN</h3>
                         <svg class="w-6 h-6 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
