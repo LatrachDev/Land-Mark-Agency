@@ -464,12 +464,12 @@
             </div>
 
             <div class="flex flex-col-reverse lg:flex-row gap-8">
-                <div class="lg:w-8/12">
+                <div class="w-full lg:w-8/12">
                     <h3 class="text-xl font-bold text-left text-gray-900 uppercase mb-4">
                         fill out the form, and we'll contact you.
                     </h3>
 
-                    <div class="w-7/12">
+                    <div class="lg:w-7/12">
                         <form id="contactForm" action="https://formspree.io/f/xwplbdpq" method="POST" class="space-y-4">
                             <div class="mb-6">
                                 <h4 class="font-medium text-gray-900 mb-2">I AM INTERESTED IN:</h4>
