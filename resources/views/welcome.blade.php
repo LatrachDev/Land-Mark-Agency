@@ -72,7 +72,7 @@
     <div class="bg-[url(../LM/BG/Asset7.png)] w-full bg-cover bg-no-repeat">
 
         <!-- Navbar -->
-        <nav class="">
+        <nav class="w-[90%] m-auto">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-4">
                 <div class="flex justify-between items-center">
                     <!-- Logo -->
@@ -141,7 +141,7 @@
         </nav>
 
         <!-- Hero Section -->
-        <div class="container mx-auto px-6 mt-40">
+        <div class="container mx-auto px-6 mt-40 w-[90%] m-auto">
             <div class="max-w-full mx-start">
                 <div class="flex justify-start items-center">
                     <h1 class="text-3xl md:text-4xl font-bold mb-6">
@@ -172,7 +172,7 @@
         </div>
 
         <!-- Mission Section -->
-        <div class="container mx-auto max:px-0 mt-32 mb-38">
+        <div class="container mx-auto py-16 px-10 w-[90%] m-auto">
             <h2 class="text-white text-xl tracking-[0.2em] font-['BioRhyme_Expanded'] mb-6 uppercase pl-0">Notre Mission</h2>
             <div class="relative w-full aspect-video  overflow-hidden">
                 <img
@@ -191,7 +191,7 @@
 
 
     <!-- Services Section -->
-    <section class="bg-white py-16 px-6 text-center">
+    <section class="bg-white py-16 px-6 text-center w-[90%] m-auto">
         <h2 class="text-xl font-bold text-left text-gray-900 uppercase mb-6 font-['BioRhyme_Expanded']">SERVICES</h2>
 
         <h3 class="text-xl font-bold text-left text-gray-900 uppercase mb-4">
@@ -201,7 +201,7 @@
             Que vous souhaitiez renforcer votre présence en ligne, bâtir une identité de marque forte ou captiver votre audience avec du contenu créatif, nous offrons des solutions complètes et adaptées.
         </p>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-x-20 gap-y-12 max-w-5xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-x-20 gap-y-12 mx-auto">
             <!-- Service Item -->
             <div class="flex flex-col items-center text-center">
                 <img src="LM/Services/marketingIcon.svg" alt="Marketing Icon" class="h-14 mb-2">
@@ -645,7 +645,7 @@
             <div class="space-y-4">
                 <!-- ANALYSER LE MARCHÉ Section -->
                 <div class="border-b border-gray-300 pb-4">
-                    <button class="faq-toggle w-full text-left flex justify-between items-center py-4" aria-expanded="false" aria-controls="analyser-content">
+                    <button class="cursor-pointer faq-toggle w-full text-left flex justify-between items-center py-4" aria-expanded="false" aria-controls="analyser-content">
                         <h3 class="text-lg font-bold uppercase">ANALYSER LE MARCHÉ</h3>
                         <svg class="w-6 h-6 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
@@ -667,7 +667,7 @@
 
                 <!-- BRANDING DESIGN Section -->
                 <div class="border-b border-gray-300 pb-4">
-                    <button class="faq-toggle w-full text-left flex justify-between items-center py-4" aria-expanded="false" aria-controls="branding-content">
+                    <button class="cursor-pointer faq-toggle w-full text-left flex justify-between items-center py-4" aria-expanded="false" aria-controls="branding-content">
                         <h3 class="text-lg font-bold uppercase">BRANDING DESIGN</h3>
                         <svg class="w-6 h-6 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
@@ -689,10 +689,7 @@
 
                 <!-- CRÉATION DE CONTENU Section -->
                 <div class="border-b border-gray-300 pb-4">
-                    <button
-                        class="faq-toggle w-full text-left flex justify-between items-center py-4"
-                        aria-expanded="false"
-                        aria-controls="content-creation-content">
+                    <button class=" cursor-pointer faq-toggle w-full text-left flex justify-between items-center py-4" aria-expanded="false" aria-controls="content-creation-content">
                         <h3 class="text-lg font-bold uppercase">CRÉATION DE CONTENU</h3>
                         <svg class="w-6 h-6 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
