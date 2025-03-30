@@ -77,11 +77,11 @@
                 <div class="flex justify-between items-center">
                     <!-- Logo -->
                     <a href="#" class="flex items-center">
-                        <img src="../LM/Logotype/White.png" alt="Landmark" class="h-10 md:h-14">
+                        <img src="../LM/Logotype/White.png" alt="Landmark" class="h-10 md:min-w-[200px] md:h-14">
                     </a>
 
                     <!-- Desktop Navigation -->
-                    <div class="hidden md:flex items-center space-x-6 lg:space-x-8">
+                    <div class="hidden lg:flex items-center space-x-6 lg:space-x-8">
                         <div class="flex justify-between space-x-6 lg:space-x-8">
                             <a href="#" class="text-white text-sm md:text-base relative group">
                                 PORTFOLIO
@@ -106,7 +106,7 @@
                     </div>
 
                     <!-- Mobile Menu Button -->
-                    <button class="md:hidden text-white focus:outline-none" id="mobile-menu-button">
+                    <button class="lg:hidden text-white focus:outline-none" id="mobile-menu-button">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                         </svg>
@@ -114,7 +114,7 @@
                 </div>
 
                 <!-- Mobile Menu -->
-                <div class="md:hidden hidden pt-4 pb-2" id="mobile-menu">
+                <div class="lg:hidden hidden h-screen pt-4 pb-2" id="mobile-menu">
                     <div class="flex flex-col space-y-4">
                         <a href="#" class="text-white text-base relative block py-2">
                             PORTFOLIO
