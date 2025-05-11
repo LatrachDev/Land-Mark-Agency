@@ -10,27 +10,38 @@
             <!-- Desktop Navigation -->
             <div class="hidden lg:flex items-center space-x-6 lg:space-x-8">
                 <div class="flex justify-between space-x-6 lg:space-x-8">
-                    <a href="#" class="text-white text-sm md:text-base relative group">
+
+                    <a href="{{ route('home') }}"
+                    class="text-white text-sm md:text-base relative group {{ request()->routeIs('home') ? 'text-blue-600 font-semibold' : '' }}">
                         PORTFOLIO
-                        <span class="absolute bottom-0 left-0 w-full h-0.5 bg-blue-600"></span>
+                        <span class="absolute bottom-0 left-0 {{ request()->routeIs('home') ? 'w-full' : 'w-0' }} h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
                     </a>
-                    <a href="#" class="text-white text-sm md:text-base relative group">
+
+                    <a href="{{ route('services') }}"
+                    class="text-white text-sm md:text-base relative group {{ request()->routeIs('services') ? 'text-blue-600 font-semibold' : '' }}">
                         SERVICES
-                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
+                        <span class="absolute bottom-0 left-0 {{ request()->routeIs('services') ? 'w-full' : 'w-0' }} h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
                     </a>
-                    <a href="#" class="text-white text-sm md:text-base relative group">
+
+                    <a href="{{ route('about') }}"
+                    class="text-white text-sm md:text-base relative group {{ request()->routeIs('about') ? 'text-blue-600 font-semibold' : '' }}">
                         À PROPOS DE NOUS
-                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
+                        <span class="absolute bottom-0 left-0 {{ request()->routeIs('about') ? 'w-full' : 'w-0' }} h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
                     </a>
-                    <a href="#" class="text-white text-sm md:text-base relative group">
+
+                    <a href="{{ route('blog') }}"
+                    class="text-white text-sm md:text-base relative group {{ request()->routeIs('blog') ? 'text-blue-600 font-semibold' : '' }}">
                         BLOG
-                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
+                        <span class="absolute bottom-0 left-0 {{ request()->routeIs('blog') ? 'w-full' : 'w-0' }} h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
                     </a>
+
                 </div>
+
                 <button class="bg-transparent text-white text-sm md:text-base px-4 py-1.5 border border-white transition-all duration-300 hover:border-blue-600 whitespace-nowrap">
                     CONSULTATION GRATUITE
                 </button>
             </div>
+
 
             <!-- Mobile Menu Button -->
             <button class="lg:hidden text-white focus:outline-none" id="mobile-menu-button">
