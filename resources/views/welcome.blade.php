@@ -18,7 +18,7 @@
         <x-hero></x-hero>
 
         <!-- Mission Section -->
-        <x-mission></x-mission>
+        <x-mission class="text-white"></x-mission>
 
     </div>
 

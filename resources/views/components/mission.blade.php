@@ -1,5 +1,5 @@
-<div class="container mx-auto py-16 px-10 w-[90%] m-auto">
-    <h2 class="text-white text-xl tracking-[0.2em] font-['BioRhyme_Expanded'] mb-6 uppercase pl-0">Notre Mission</h2>
+<div {{ $attributes->merge(['class' => 'container mx-auto py-16 px-4 sm:px-10 w-[90%] m-auto']) }}>
+    <h2 class="text-xl tracking-[0.2em] font-['BioRhyme_Expanded'] mb-6 uppercase pl-0">Notre Mission</h2>
     <div class="relative w-full aspect-video  overflow-hidden">
         <img
             src="../LM/JPG/video.png"
