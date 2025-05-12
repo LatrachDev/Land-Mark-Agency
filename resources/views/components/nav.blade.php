@@ -1,36 +1,37 @@
 <!-- Navbar -->
-<nav class="w-[90%] m-auto">
+<nav class="w-[90%] m-auto ">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-4">
         <div class="flex justify-between items-center">
             <!-- Logo -->
             <a href="#" class="flex items-center">
-                <img src="../LM/Logotype/White.png" alt="Landmark" class="h-10 md:min-w-[200px] md:h-14">
+                <img src="{{ request()->routeIs('home') ? '../LM/Logotype/White.png' : '../LM/Logotype/Main.png' }}" alt="Landmark" class="h-10 md:min-w-[200px] md:h-14">
             </a>
 
             <!-- Desktop Navigation -->
-            <div class="hidden lg:flex items-center space-x-6 lg:space-x-8">
+            <div class="hidden lg:flex items-center space-x-6 lg:space-x-8 {{ request()->routeIs('home') ? 'text-white' : 'text-black' }}">
+
                 <div class="flex justify-between space-x-6 lg:space-x-8">
 
                     <a href="{{ route('home') }}"
-                    class="text-white text-sm md:text-base relative group {{ request()->routeIs('home') ? 'text-blue-600 font-semibold' : '' }}">
+                    class=" text-sm md:text-base relative group {{ request()->routeIs('home') ? 'font-semibold' : '' }}">
                         PORTFOLIO
                         <span class="absolute bottom-0 left-0 {{ request()->routeIs('home') ? 'w-full' : 'w-0' }} h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
                     </a>
 
                     <a href="{{ route('services') }}"
-                    class="text-white text-sm md:text-base relative group {{ request()->routeIs('services') ? 'text-blue-600 font-semibold' : '' }}">
+                    class=" text-sm md:text-base relative group {{ request()->routeIs('services') ? 'font-semibold' : '' }}">
                         SERVICES
                         <span class="absolute bottom-0 left-0 {{ request()->routeIs('services') ? 'w-full' : 'w-0' }} h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
                     </a>
 
                     <a href="{{ route('about') }}"
-                    class="text-white text-sm md:text-base relative group {{ request()->routeIs('about') ? 'text-blue-600 font-semibold' : '' }}">
+                    class=" text-sm md:text-base relative group {{ request()->routeIs('about') ? 'font-semibold' : '' }}">
                         À PROPOS DE NOUS
                         <span class="absolute bottom-0 left-0 {{ request()->routeIs('about') ? 'w-full' : 'w-0' }} h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
                     </a>
 
                     <a href="{{ route('blog') }}"
-                    class="text-white text-sm md:text-base relative group {{ request()->routeIs('blog') ? 'text-blue-600 font-semibold' : '' }}">
+                    class=" text-sm md:text-base relative group {{ request()->routeIs('blog') ? 'font-semibold' : '' }}">
                         BLOG
                         <span class="absolute bottom-0 left-0 {{ request()->routeIs('blog') ? 'w-full' : 'w-0' }} h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
                     </a>
