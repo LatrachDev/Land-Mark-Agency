@@ -38,9 +38,11 @@
 
                 </div>
 
-                <button class="bg-transparent text-white text-sm md:text-base px-4 py-1.5 border border-white transition-all duration-300 hover:border-blue-600 whitespace-nowrap">
+                <button class="bg-transparent {{ request()->routeIs('home') ? 'text-white border-white' : 'text-black border-black' }} border text-sm md:text-base px-4 py-1.5 transition-all duration-300 hover:border-blue-600 whitespace-nowrap">
                     CONSULTATION GRATUITE
                 </button>
+
+
             </div>
 
 
