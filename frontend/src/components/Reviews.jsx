@@ -1,8 +1,91 @@
+import React from 'react';
+
+const reviews = [
+  {
+    quote:
+      'Project brief and all aspects of this project in short words to help understand what we worked on.',
+    clientName: 'Mohammed Azzimani',
+    company: 'Al Andalous Pack',
+    avatar: '/LM/reviews/3.png',
+    platformLogo: '/LM/reviews/1.png',
+  },
+  {
+    quote:
+      'Project brief and all aspects of this project in short words to help understand what we worked on.',
+    clientName: 'Khaoula Touijer',
+    company: 'Growmax',
+    avatar: '/LM/reviews/2.png',
+    platformLogo: '/LM/reviews/1.png',
+  },
+  {
+    quote:
+      'Project brief and all aspects of this project in short words to help understand what we worked on.',
+    clientName: 'Amina Bitari',
+    company: 'Minari',
+    avatar: '/LM/reviews/4.png',
+    platformLogo: '/LM/reviews/1.png',
+  },
+];
+
+const QuoteIcon = () => (
+  <svg
+    width="32"
+    height="28"
+    viewBox="0 0 32 28"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    className="text-indigo-900"
+  >
+    <path
+      d="M18.504 13.768V0.807997H31.368V4.168C31.368 9.416 30.952 13.352 30.12 15.976C29.352 18.536 27.24 22.216 23.784 27.016L18.312 23.944C21.192 19.016 22.856 15.624 23.304 13.768H18.504ZM1.032 13.768V0.807997H13.896V4.168C13.896 9.416 13.48 13.352 12.648 15.976C11.88 18.536 9.768 22.216 6.312 27.016L0.84 23.944C3.72 19.016 5.384 15.624 5.832 13.768H1.032Z"
+      fill="#263973"
+    />
+  </svg>
+);
+
 const Reviews = () => {
   return (
-    <div>
-        <h1>Reviews content</h1>
-    </div>
+    <section className="bg-white mx-auto px-4 py-16">
+      <div className="container w-[90%] m-auto">
+        <div className="mb-12">
+          <h2 className="text-xl font-['BioRhyme_Expanded'] text-blue-900 uppercase text-left">
+            OUR BEST CLIENTS REVIEWS
+          </h2>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {reviews.map((review, index) => (
+            <div key={index} className="bg-gray-100 p-8 rounded-lg">
+              <div className="text-6xl text-indigo-900 font-serif mb-4">
+                <QuoteIcon />
+              </div>
+              <p className="font-['Jost'] text-gray-800 mb-8">
+                “{review.quote}”
+              </p>
+              <div className="flex items-center justify-between">
+                <div className="flex items-center">
+                  <img
+                    src={review.avatar}
+                    alt={review.clientName}
+                    className="w-12 h-12 rounded-full mr-3"
+                  />
+                  <div>
+                    <h4 className="font-['Jost'] font-bold">{review.company}</h4>
+                    <p className="font-['Jost'] text-sm text-gray-600">
+                      {review.clientName}
+                    </p>
+                  </div>
+                </div>
+                <img
+                  src={review.platformLogo}
+                  alt="Platform Logo"
+                  className="h-6"
+                />
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
   );
 };
 
