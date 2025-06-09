@@ -1,8 +1,70 @@
+import React from 'react';
+
+const servicesData = [
+  {
+    icon: 'LM/Services/marketingIcon.svg',
+    alt: 'Marketing Icon',
+    title: 'ANALYSER LE MARCHÉ',
+    description: 'Une Voie Claire & Ciblée Pour Lancer Votre Entreprise.',
+  },
+  {
+    icon: 'LM/Services/designIcon.svg',
+    alt: 'Branding Icon',
+    title: 'BRANDING DESIGN',
+    description: 'Create & Launch A Brand That Lasts In The Market.',
+  },
+  {
+    icon: 'LM/Services/creation.svg',
+    alt: 'Content Creation Icon',
+    title: 'CRÉATION DE CONTENU',
+    description: 'Grow & Scale With Content That Drives Engagement.',
+  },
+  {
+    icon: 'LM/Services/seo.svg',
+    alt: 'SEO Icon',
+    title: 'SEO & SEA',
+    description: 'Une Voie Claire & Ciblée Pour Lancer Votre Entreprise.',
+  },
+  {
+    icon: 'LM/Services/ux.svg',
+    alt: 'UI UX Icon',
+    title: 'UI & UX DESIGN',
+    description: 'Create & Launch A Brand That Lasts In The Market.',
+  },
+  {
+    icon: 'LM/Services/photography.svg',
+    alt: 'Photography Icon',
+    title: 'PHOTOGRAPHIE',
+    description: 'Grow & Scale With Content That Drives Engagement.',
+  },
+];
+
 const Services = () => {
   return (
-    <div>
-        <h1>Services content</h1>
-    </div>
+    <section className="bg-white py-16 px-6 text-center w-[90%] m-auto">
+      <h2 className="text-xl font-bold text-left text-gray-900 uppercase mb-6 font-['BioRhyme_Expanded']">
+        SERVICES
+      </h2>
+
+      <h3 className="text-xl font-bold text-left text-gray-900 uppercase mb-4">
+        DES SOLUTIONS COMPLÈTES POUR BOOSTER VOTRE MARQUE ET VOTRE VISIBILITÉ
+      </h3>
+
+      <p className="text-gray-600 text-left max-w-2xl mb-12">
+        Que vous souhaitiez renforcer votre présence en ligne, bâtir une identité de marque forte ou
+        captiver votre audience avec du contenu créatif, nous offrons des solutions complètes et adaptées.
+      </p>
+
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-x-20 gap-y-12 mx-auto">
+        {servicesData.map(({ icon, alt, title, description }, index) => (
+          <div key={index} className="flex flex-col items-center text-center">
+            <img src={icon} alt={alt} className="h-14 mb-2" />
+            <h4 className="text-lg font-bold text-gray-900 mb-1">{title}</h4>
+            <p className="font-semibold text-sm text-gray-600">{description}</p>
+          </div>
+        ))}
+      </div>
+    </section>
   );
 };
 
