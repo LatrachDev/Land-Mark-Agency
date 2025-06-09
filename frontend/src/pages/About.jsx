@@ -69,7 +69,7 @@ export default function AboutPage() {
         <Nav />
 
         {/* Main Content */}
-        <main className="mx-auto px-4 mt-20 md:mt-40 w-[90%] m-auto">
+        <main className="mx-auto px-6 mt-20 md:mt-40 w-[90%] m-auto">
           <h1 className="text-[#010e26] text-xl sm:text-2xl md:text-4xl font-bold uppercase tracking-wide mb-4 md:mb-6">
             <span className="text-[#445ef2]">93%</span> de nos clients se disent <br />
             pleinement satisfaits et prêts à <br />
@@ -81,7 +81,7 @@ export default function AboutPage() {
           </p>
         </main>
 
-        <Mission className="text-[#263973]" />
+        <Mission className="text-[#263973] w-[90%] mx-auto " />
 
         <section className="mx-auto py-16 px-4 sm:px-10 w-[90%] m-auto">
           <h2 className="text-xl tracking-[0.2em] font-['BioRhyme_Expanded'] mb-6 uppercase pl-0 text-[#263973]">
