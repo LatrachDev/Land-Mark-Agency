@@ -4,7 +4,7 @@ const projects = [
   {
     title: 'BRAND DESIGN',
     subtitle: '"EXTENT MEDIA"',
-    image: '/LM/Projects/3.png',
+    image: 'src/assets/JPG/projects/01-01.jpg',
     alt: 'Extent Media Logo',
     description: 'Project brief and all aspects of this project in short words to help understand what we worked on.',
     result: '45%',
@@ -13,7 +13,7 @@ const projects = [
   {
     title: 'UI & UX DESIGN',
     subtitle: '"GROWMAX"',
-    image: '/LM/Projects/2.png',
+    image: 'src/assets/JPG/projects/08-15.jpg',
     alt: 'GrowMax Website',
     description: 'Project brief and all aspects of this project in short words to help understand what we worked on.',
     result: '15%',
@@ -22,7 +22,7 @@ const projects = [
   {
     title: 'PACKAGING DESIGN',
     subtitle: '"AL GHOSNE"',
-    image: '/LM/Projects/1.png',
+    image: 'src/assets/JPG/projects/02-1.jpg',
     alt: 'Al Ghosne Packaging',
     description: 'Project brief and all aspects of this project in short words to help understand what we worked on.',
     result: '45%',

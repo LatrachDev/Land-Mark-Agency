@@ -6,24 +6,24 @@ const reviews = [
       'Project brief and all aspects of this project in short words to help understand what we worked on.',
     clientName: 'Mohammed Azzimani',
     company: 'Al Andalous Pack',
-    avatar: '/LM/reviews/3.png',
-    platformLogo: '/LM/reviews/1.png',
+    avatar: 'src/assets/reviews/azzimani.jpg',
+    platformLogo: 'src/assets/reviews/google-logo.png',
   },
   {
     quote:
       'Project brief and all aspects of this project in short words to help understand what we worked on.',
     clientName: 'Khaoula Touijer',
     company: 'Growmax',
-    avatar: '/LM/reviews/2.png',
-    platformLogo: '/LM/reviews/1.png',
+    avatar: 'src/assets/reviews/logo-for-profiles.png',
+    platformLogo: 'src/assets/reviews/google-logo.png',
   },
   {
     quote:
       'Project brief and all aspects of this project in short words to help understand what we worked on.',
     clientName: 'Amina Bitari',
     company: 'Minari',
-    avatar: '/LM/reviews/4.png',
-    platformLogo: '/LM/reviews/1.png',
+    avatar: 'src/assets/reviews/MINARI-prophile-12.png',
+    platformLogo: 'src/assets/reviews/google-logo.png',
   },
 ];
 

@@ -107,7 +107,7 @@ const Contact = () => {
           {/* Image & Info Section */}
           <div className="lg:w-4/12">
             <div className="mb-6">
-              <img src="/LM/JPG/haytham.jpg" alt="Haytham" className="w-full h-auto" />
+              <img src="src/assets/JPG/haytham.jpg" alt="Haytham" className="w-full h-auto" />
             </div>
             <p className="italic text-justify text-xl text-[#666666] mb-4">
               Did you know that 4 out of 5 customers switch brands due to poor customer experience

@@ -8,43 +8,43 @@ const blogPosts = [
   {
     id: 1,
     title: 'PROJECT NAME',
-    image: '/LM/JPG/me.png',
+    image: 'src/assets/JPG/haytham.jpg',
     description: 'Project brief and all aspects of this projects in short words to help understand what we worked on while the project.'
   },
   {
     id: 2,
     title: 'PROJECT NAME',
-    image: '/LM/JPG/me.png',
+    image: 'src/assets/JPG/haytham.jpg',
     description: 'Project brief and all aspects of this projects in short words to help understand what we worked on while the project.'
   },
   {
     id: 3,
     title: 'PROJECT NAME',
-    image: '/LM/JPG/me.png',
+    image: 'src/assets/JPG/haytham.jpg',
     description: 'Project brief and all aspects of this projects in short words to help understand what we worked on while the project.'
   },
   {
     id: 4,
     title: 'PROJECT NAME',
-    image: '/LM/JPG/me.png',
+    image: 'src/assets/JPG/haytham.jpg',
     description: 'Project brief and all aspects of this projects in short words to help understand what we worked on while the project.'
   },
   {
     id: 5,
     title: 'PROJECT NAME',
-    image: '/LM/JPG/me.png',
+    image: 'src/assets/JPG/haytham.jpg',
     description: 'Project brief and all aspects of this projects in short words to help understand what we worked on while the project.'
   },
   {
     id: 6,
     title: 'PROJECT NAME',
-    image: '/LM/JPG/me.png',
+    image: 'src/assets/JPG/haytham.jpg',
     description: 'Project brief and all aspects of this projects in short words to help understand what we worked on while the project.'
   },
   {
     id: 7,
     title: 'PROJECT NAME',
-    image: '/LM/JPG/me.png',
+    image: 'src/assets/JPG/haytham.jpg',
     description: 'Project brief and all aspects of this projects in short words to help understand what we worked on while the project.'
   }
 ];

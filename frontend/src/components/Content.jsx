@@ -16,7 +16,7 @@ const Content = () => {
             <div key={project} className="flex flex-col">
               <div className="mb-8">
                 <img
-                  src="/LM/ContentCreation/3.png"
+                  src="src/assets/content/content1.jpg"
                   alt="Content Creator"
                   className="w-full h-auto object-cover"
                 />
