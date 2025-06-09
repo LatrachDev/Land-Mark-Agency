@@ -2,37 +2,37 @@ import React from 'react';
 
 const servicesData = [
   {
-    icon: 'LM/Services/marketingIcon.svg',
+    icon: 'src/assets/Services/marketingIcon.svg',
     alt: 'Marketing Icon',
     title: 'ANALYSER LE MARCHÉ',
     description: 'Une Voie Claire & Ciblée Pour Lancer Votre Entreprise.',
   },
   {
-    icon: 'LM/Services/designIcon.svg',
+    icon: 'src/assets/Services/designIcon.svg',
     alt: 'Branding Icon',
     title: 'BRANDING DESIGN',
     description: 'Create & Launch A Brand That Lasts In The Market.',
   },
   {
-    icon: 'LM/Services/creation.svg',
+    icon: 'src/assets/Services/creation.svg',
     alt: 'Content Creation Icon',
     title: 'CRÉATION DE CONTENU',
     description: 'Grow & Scale With Content That Drives Engagement.',
   },
   {
-    icon: 'LM/Services/seo.svg',
+    icon: 'src/assets/Services/seo.svg',
     alt: 'SEO Icon',
     title: 'SEO & SEA',
     description: 'Une Voie Claire & Ciblée Pour Lancer Votre Entreprise.',
   },
   {
-    icon: 'LM/Services/ux.svg',
+    icon: 'src/assets/Services/ux.svg',
     alt: 'UI UX Icon',
     title: 'UI & UX DESIGN',
     description: 'Create & Launch A Brand That Lasts In The Market.',
   },
   {
-    icon: 'LM/Services/photography.svg',
+    icon: 'src/assets/Services/photography.svg',
     alt: 'Photography Icon',
     title: 'PHOTOGRAPHIE',
     description: 'Grow & Scale With Content That Drives Engagement.',

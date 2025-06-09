@@ -2,7 +2,7 @@ import Hero from '../components/Hero';
 import Mission from '../components/Mission';
 import Services from '../components/Services';
 
-const Services = () => {
+const ServicesPage = () => {
   return (
     <>
       {/* <Hero /> */}
@@ -13,4 +13,4 @@ const Services = () => {
   );
 };
 
-export default Services;
+export default ServicesPage;

@@ -1,11 +1,14 @@
-/** @type {import('tailwindcss').Config} */
-module.exports = {
-  content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
-  ],
+import defaultTheme from 'tailwindcss/defaultTheme'
+
+export default {
+  content: ['./index.html', './src/**/*.{js,jsx}'],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        jost: ['Jost', ...defaultTheme.fontFamily.sans],
+        bio: ['BioRhyme_Expanded', ...defaultTheme.fontFamily.sans],
+      },
+    },
   },
   plugins: [],
-};
+}

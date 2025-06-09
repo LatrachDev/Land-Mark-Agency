@@ -3,7 +3,7 @@ const Hero = () => {
     <div className="container mx-auto px-4 sm:px-6 mt-20 md:mt-40 w-full md:w-[90%] m-auto">
       <div className="max-w-full">
         <div className="flex justify-start items-center">
-          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 md:mb-6">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-jost font-bold mb-4 md:mb-6">
             <div className="w-full relative mb-2">
               <div className="absolute inset-0 bg-gradient-to-r from-blue-950 to-blue-600 h-4 sm:h-5 md:h-6 mt-6 sm:mt-8 md:mt-10 w-full"></div>
               <div className="relative z-10 px-0 py-2 sm:py-3 md:py-4">

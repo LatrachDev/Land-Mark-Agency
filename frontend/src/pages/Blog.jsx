@@ -5,9 +5,6 @@ import Services from '../components/Services';
 const Blog = () => {
   return (
     <>
-      {/* <Hero /> */}
-      {/* <Mission /> */}
-      {/* <Services /> */}
     <h1>Blog</h1>
     </>
   );
