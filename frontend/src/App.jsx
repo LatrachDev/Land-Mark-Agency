@@ -15,20 +15,20 @@ import './App.css'
 function App() {
   return (
     <div className="font-[Jost]">
-      <Promotion />
+      {/* <Promotion /> */}
       <div className="bg-[url('../assets/BG/Asset7.png')] w-full bg-cover bg-no-repeat">
         <Nav />
-        <Hero />
-        <Mission />
+        {/* <Hero />
+        <Mission /> */}
       </div>
-      <Services />
+      {/* <Services />
       <Projects />
       <Content />
       <Reviews />
       <Contact />
       <Blog />
       <FAQ />
-      <Footer />
+      <Footer /> */}
     </div>
   );
 }
