@@ -115,7 +115,7 @@ LandMark aims to provide a professional online presence for modern marketing age
 ## 📷 Preview
 
 > _(Add screenshots or a demo video here if available)_  
-> ![Homepage Screenshot](./src/assets/Logotype/White.png)
+> ![Homepage Screenshot](./frontend/src/assets/Logotype/White.png)
 
 ---
 
