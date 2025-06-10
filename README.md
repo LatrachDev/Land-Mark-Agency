@@ -1,5 +1,11 @@
 # 📈 LandMark – Marketing Agency Website
+<p align="center">
+    <img src="./frontend/src/assets/Logotype/White.png" alt="LandMark Agency Logo" width="200"/>
+</p>
 
+<p align="center">
+    <em>This is the logo of LandMark agency.</em>
+</p>
 LandMark is a modern, responsive website built for a marketing agency. This project showcases services, client success stories, project portfolios, blog content, and more — all designed with a sleek, professional look and optimized for user experience.
 
 ---
@@ -115,7 +121,7 @@ LandMark aims to provide a professional online presence for modern marketing age
 ## 📷 Preview
 
 > _(Add screenshots or a demo video here if available)_  
-> ![Homepage Screenshot](./frontend/src/assets/Logotype/White.png)
+> ![Homepage Screenshot](./frontend/src/assets/JPG/screenLM.png)
 
 ---
 
