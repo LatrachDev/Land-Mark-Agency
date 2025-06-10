@@ -1,4 +1,5 @@
 import React from 'react';
+import '@fortawesome/fontawesome-free/css/all.min.css'; 
 
 const Footer = () => {
   return (
@@ -34,7 +35,7 @@ const Footer = () => {
           <div className="lg:w-5/12 flex flex-col md:flex-row lg:flex-col gap-8 md:gap-12">
             {/* Social Media */}
             <div className="w-full md:w-1/2 lg:w-full">
-              <p className="uppercase mb-3 text-sm tracking-wider font-['BioRhyme_Expanded'] text-left">
+              <p className="uppercase mb-3 text-sm tracking-wider text-left" style={{ fontFamily: 'BioRhyme_Expanded' }}>
                 FOLLOW US FOR DAILY CONTENT
               </p>
               <div className="flex md:justify-start space-x-6 text-xl mt-6 md:mt-10">
@@ -43,46 +44,44 @@ const Footer = () => {
                   className="hover:opacity-70 transition-opacity"
                   aria-label="Facebook"
                 >
-                  <i className="fa-brands fa-facebook-f"></i>
+                  <i className="fab fa-facebook-f"></i>
                 </a>
                 <a
                   href="#"
                   className="hover:opacity-70 transition-opacity"
                   aria-label="Instagram"
                 >
-                  <i className="fa-brands fa-instagram"></i>
+                  <i className="fab fa-instagram"></i>
                 </a>
                 <a
                   href="#"
                   className="hover:opacity-70 transition-opacity"
                   aria-label="LinkedIn"
                 >
-                  <i className="fa-brands fa-linkedin-in"></i>
+                  <i className="fab fa-linkedin-in"></i>
                 </a>
                 <a
                   href="#"
                   className="hover:opacity-70 transition-opacity"
                   aria-label="Behance"
                 >
-                  <i className="fa-brands fa-behance"></i>
+                  <i className="fab fa-behance"></i>
                 </a>
               </div>
             </div>
 
             {/* Navigation */}
             <div className="w-full md:w-1/2 lg:w-full">
-              <p className="font-bold uppercase mb-3 text-sm tracking-wider font-['BioRhyme_Expanded'] text-left">
+              <p className="uppercase mb-3 text-sm tracking-wider text-left" style={{ fontFamily: 'BioRhyme_Expanded' }}>
                 NAVIGATION
               </p>
               <ul className="space-y-2 mt-6 md:mt-10 text-left">
                 {['WORK', 'SERVICES', 'ABOUT US', 'CONTACT US', 'BLOG'].map((link, index) => (
                   <li key={index}>
-                    <a
-                      href="#"
-                      className="font-bold text-sm hover:opacity-70 hover:border-b-2 hover:border-[#445ef2] transition-opacity block w-fit"
-                    >
+                    <a href="#" className="font-semibold text-sm border-b-2 border-transparent hover:opacity-70 hover:border-[#445ef2] transition-opacity block w-fit" >
                       {link}
                     </a>
+
                   </li>
                 ))}
               </ul>

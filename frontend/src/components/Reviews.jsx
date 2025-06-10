@@ -48,7 +48,7 @@ const Reviews = () => {
     <section className="bg-white mx-auto px-4 py-16">
       <div className="container w-[90%] m-auto">
         <div className="mb-12">
-          <h2 className="text-xl font-['BioRhyme_Expanded'] text-blue-900 uppercase text-left">
+          <h2 className="text-xl text-[#263973] uppercase text-left" style={{ fontFamily: 'BioRhyme_Expanded' }}>
             OUR BEST CLIENTS REVIEWS
           </h2>
         </div>

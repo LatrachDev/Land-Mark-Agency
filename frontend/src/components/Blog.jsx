@@ -54,7 +54,7 @@ const Blog = () => {
     <section className="px-4 py-16 bg-white">
       <div className="container w-[90%] m-auto">
         <div className="mb-12">
-          <h2 className="text-xl font-['BioRhyme_Expanded'] text-blue-900 uppercase text-left">
+          <h2 className="text-xl text-[#263973] uppercase text-left" style={{ fontFamily: 'BioRhyme_Expanded' }}>
             Latest blog
           </h2>
         </div>

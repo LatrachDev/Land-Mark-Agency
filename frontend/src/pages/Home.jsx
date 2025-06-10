@@ -19,7 +19,7 @@ function Home() {
       <div className="bg-[url('src/assets/BG/Asset7.png')] w-full bg-cover bg-no-repeat">
         <Nav />
         <Hero />
-        <Mission />
+        <Mission className='mx-auto py-16 px-4 sm:px-10 w-[90%] m-auto text-white' />
       </div>
       <Services />
       <Projects />

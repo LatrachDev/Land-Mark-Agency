@@ -5,7 +5,7 @@ const Contact = () => {
     <section className="px-4 py-16 bg-[#eeeeee]">
       <div className="container w-[90%] m-auto">
         <div className="mb-12">
-          <h2 className="text-xl font-['BioRhyme_Expanded'] text-blue-900 uppercase text-left">
+          <h2 className="text-xl font-['BioRhyme_Expanded'] text-[#263973] uppercase text-left" style={{ fontFamily: 'BioRhyme_Expanded' }}>
             Contact us
           </h2>
         </div>
@@ -13,7 +13,7 @@ const Contact = () => {
         <div className="flex flex-col-reverse lg:flex-row gap-8">
           {/* Form Section */}
           <div className="w-full lg:w-8/12">
-            <h3 className="text-xl font-bold text-left text-gray-900 uppercase mb-4">
+            <h3 className="text-xl font-bold text-left text-[#010E26] uppercase mb-4">
               fill out the form, and we'll contact you.
             </h3>
 
@@ -26,7 +26,7 @@ const Contact = () => {
               >
                 {/* Interests */}
                 <div className="mb-6">
-                  <h4 className="font-medium text-gray-900 mb-2">
+                  <h4 className="font-medium text-[#010E26] mb-2">
                     I AM INTERESTED IN:
                   </h4>
                   <div className="flex flex-wrap gap-2 mb-4">
@@ -96,7 +96,7 @@ const Contact = () => {
 
                 <button
                   type="submit"
-                  className="bg-gray-900 text-white px-8 py-3 uppercase font-medium hover:bg-gray-700 transition-colors"
+                  className="bg-[#010E26] text-white px-8 py-3 uppercase font-medium hover:bg-gray-700 transition-colors"
                 >
                   SUBMIT
                 </button>

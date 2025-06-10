@@ -35,9 +35,9 @@ const Projects = () => {
     <section className="mx-auto px-4 py-16 bg-white">
       <div className="container w-[90%] m-auto">
         {/* Section Title */}
-        <div className="mb-12 text-left">
-          <h2 className="text-2xl font-['BioRhyme_Expanded'] text-blue-900 uppercase">PROJECT HIGHLIGHTS</h2>
-          <p className="text-2xl font-['BioRhyme_Expanded'] text-blue-900 mt-2">"CASE STUDIES"</p>
+        <div className="mb-12 text-left" style={{ fontFamily: 'BioRhyme_Expanded' }}>
+          <h2 className="text-2xl  text-[#263973] uppercase">PROJECT HIGHLIGHTS</h2>
+          <p className="text-2xl  text-[#263973] mt-2">"CASE STUDIES"</p>
         </div>
 
         {/* Projects Grid */}
@@ -50,10 +50,10 @@ const Projects = () => {
               <h3 className="text-xl font-bold font-['Jost'] mb-2">
                 {project.title} <span className="italic">{project.subtitle}</span>
               </h3>
-              <p className="font-['Jost'] text-gray-700 mb-6">{project.description}</p>
+              <p className="font-['Jost'] font-normal text-[#010E26] mb-6">{project.description}</p>
               <div>
                 <p className="text-4xl text-blue-500 font-bold font-['Jost']">{project.result}</p>
-                <p className="font-['Jost']">{project.statLabel}</p>
+                <p className="font-['Jost'] w-4/12">{project.statLabel}</p>
               </div>
             </div>
           ))}

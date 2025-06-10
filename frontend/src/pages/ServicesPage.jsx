@@ -24,7 +24,7 @@ export default function ServicesPage() {
         <Nav />
 
         {/* Main Section */}
-        <section className="mx-auto px-6 mt-20 md:mt-40 w-[90%] m-auto">
+        <section className="mx-auto px-4 sm:px-10 mt-20 md:mt-40 w-[90%] m-auto">
           <h1 className="text-[#010e26] text-xl sm:text-2xl md:text-4xl font-bold uppercase tracking-wide mb-4 md:mb-6">
             <span className="text-[#445ef2]">93%</span> de nos clients se disent <br />
             pleinement satisfaits et prêts à <br />
@@ -37,8 +37,8 @@ export default function ServicesPage() {
         </section>
 
         {/* Services Section */}
-        <section className="bg-white py-16 px-6 text-center w-[90%] m-auto">
-          <h2 className="text-xl font-bold text-left text-gray-900 uppercase mb-6 font-['BioRhyme_Expanded']">
+        <section className="bg-white py-16 px-4 sm:px-10 text-center w-[90%] m-auto">
+          <h2 className="text-xl font-normal text-left text-gray-900 uppercase mb-6 " style={{ fontFamily: 'BioRhyme_Expanded' }}>
             SERVICES
           </h2>
 
