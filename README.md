@@ -119,7 +119,7 @@ LandMark aims to provide a professional online presence for modern marketing age
 ---
 
 ## 📷 Preview
- 
+
 > ![Homepage Screenshot](./frontend/src/assets/JPG/screenLM.png)
 
 ---
