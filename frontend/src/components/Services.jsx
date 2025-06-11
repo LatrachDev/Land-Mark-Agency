@@ -41,7 +41,7 @@ const servicesData = [
 
 const Services = () => {
   return (
-    <section className="bg-white py-16 px-6 text-center w-[90%] m-auto">
+    <section className="bg-white py-16 px-4 sm:px-10 text-center w-[90%] m-auto">
       <h2 className="text-xl text-left text-[#263973] uppercase mb-6" style={{ fontFamily: 'BioRhyme_Expanded' }}>
         SERVICES
       </h2>

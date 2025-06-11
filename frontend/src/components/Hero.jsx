@@ -1,6 +1,6 @@
 const Hero = () => {
   return (
-    <div className="container mx-auto mt-20 md:mt-40 w-[90%] m-auto">
+    <div className="container px-4 sm:px-10 mx-auto mt-20 md:mt-40 w-[90%] m-auto">
       <div className="max-w-full">
         <div className="flex justify-start items-center">
           <h1 className="text-2xl sm:text-3xl md:text-4xl font-jost font-bold mb-4 md:mb-6">

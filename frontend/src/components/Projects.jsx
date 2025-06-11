@@ -32,7 +32,7 @@ const projects = [
 
 const Projects = () => {
   return (
-    <section className="mx-auto px-4 py-16 bg-white">
+    <section className="mx-auto px-4 sm:px-10 py-16 bg-white">
       <div className="container w-[90%] m-auto">
         {/* Section Title */}
         <div className="mb-12 text-left" style={{ fontFamily: 'BioRhyme_Expanded' }}>

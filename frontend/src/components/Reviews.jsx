@@ -45,7 +45,7 @@ const QuoteIcon = () => (
 
 const Reviews = () => {
   return (
-    <section className="bg-white mx-auto px-4 py-16">
+    <section className="bg-white mx-auto px-4 sm:px-10 py-16">
       <div className="container w-[90%] m-auto">
         <div className="mb-12">
           <h2 className="text-xl text-[#263973] uppercase text-left" style={{ fontFamily: 'BioRhyme_Expanded' }}>

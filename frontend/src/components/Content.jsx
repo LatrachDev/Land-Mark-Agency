@@ -2,7 +2,7 @@ import React from 'react';
 
 const Content = () => {
   return (
-    <section className="px-4 py-16 bg-white">
+    <section className="px-4 sm:px-10 py-16 bg-white">
       <div className="container w-[90%] mx-auto">
         <div className="mb-12">
           <h2 className="text-xl text-[#263973] uppercase text-left" style={{ fontFamily: 'BioRhyme_Expanded' }}>

@@ -4,8 +4,8 @@ import { FacebookFilled, BehanceOutlined, LinkedinFilled, InstagramOutlined }fro
 
 const Footer = () => {
   return (
-    <footer className="bg-[url('src/assets/BG/Asset7.png')] bg-cover bg-center w-full text-white font-['Jost'] pt-12 md:pt-20 pb-6 md:pb-10 px-4 md:px-8 lg:px-20">
-      <div className="max-w-7xl mx-auto flex flex-col px-4 sm:px-6 lg:px-8">
+    <footer className="bg-[url('src/assets/BG/Asset7.png')] bg-cover bg-center w-full text-white font-['Jost'] pt-12 md:pt-20 pb-6 md:pb-10 px-4 sm:px-10">
+      <div className=" mx-auto flex flex-col w-[90%]">
         {/* Logo */}
         <img className="w-48 md:w-64 mb-12 md:mb-20" src="src/assets/Logotype/White.png" alt="Landmark logo"/>
 
