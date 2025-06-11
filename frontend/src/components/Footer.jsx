@@ -1,16 +1,13 @@
 import React from 'react';
 import '@fortawesome/fontawesome-free/css/all.min.css'; 
+import { FacebookFilled, BehanceOutlined, LinkedinFilled, InstagramOutlined }from "@ant-design/icons" ;
 
 const Footer = () => {
   return (
     <footer className="bg-[url('src/assets/BG/Asset7.png')] bg-cover bg-center w-full text-white font-['Jost'] pt-12 md:pt-20 pb-6 md:pb-10 px-4 md:px-8 lg:px-20">
       <div className="max-w-7xl mx-auto flex flex-col px-4 sm:px-6 lg:px-8">
         {/* Logo */}
-        <img
-          className="w-48 md:w-64 mb-12 md:mb-20"
-          src="src/assets/Logotype/White.png"
-          alt="Landmark logo"
-        />
+        <img className="w-48 md:w-64 mb-12 md:mb-20" src="src/assets/Logotype/White.png" alt="Landmark logo"/>
 
         <div className="flex flex-col lg:flex-row gap-8 md:gap-12">
           {/* Left Section */}
@@ -22,10 +19,7 @@ const Footer = () => {
               Through a customer satisfaction survey. 96% of our clients express strong satisfaction and would confidently recommend our services to others.
             </p>
             <div className="text-left">
-              <a
-                href="#"
-                className="inline-block border border-white text-white px-8 py-3 md:px-10 md:py-4 uppercase font-normal text-sm tracking-wider hover:bg-white hover:text-black transition-colors"
-              >
+              <a href="#" className="inline-block border border-white text-white px-8 py-3 md:px-10 md:py-4 uppercase font-normal text-sm tracking-wider hover:bg-white hover:text-black transition-colors">
                 GET IN TOUCH
               </a>
             </div>
@@ -40,32 +34,37 @@ const Footer = () => {
               </p>
               <div className="flex md:justify-start space-x-6 text-xl mt-6 md:mt-10">
                 <a
-                  href="#"
-                  className="hover:opacity-70 transition-opacity"
+                  href="https://facebook.com/yourpage"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   aria-label="Facebook"
                 >
-                  <i className="fab fa-facebook-f"></i>
+                  <FacebookFilled className="hover:opacity-70 transition-opacity cursor-pointer" />
                 </a>
                 <a
-                  href="#"
-                  className="hover:opacity-70 transition-opacity"
+                  href="https://instagram.com/yourprofile"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   aria-label="Instagram"
                 >
-                  <i className="fab fa-instagram"></i>
+                  <InstagramOutlined className="hover:opacity-70 transition-opacity cursor-pointer" />
                 </a>
                 <a
-                  href="#"
-                  className="hover:opacity-70 transition-opacity"
+                  href="https://linkedin.com/in/yourprofile"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   aria-label="LinkedIn"
                 >
-                  <i className="fab fa-linkedin-in"></i>
+                  <LinkedinFilled className="hover:opacity-70 transition-opacity cursor-pointer" />
                 </a>
                 <a
-                  href="#"
-                  className="hover:opacity-70 transition-opacity"
+                  href="https://behance.net/yourprofile"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   aria-label="Behance"
                 >
-                  <i className="fab fa-behance"></i>
+                  <BehanceOutlined className="hover:opacity-70 transition-opacity cursor-pointer" />
+                  {/* <BehanceSquareFilled className="hover:opacity-70 transition-opacity cursor-pointer" /> */}
                 </a>
               </div>
             </div>
