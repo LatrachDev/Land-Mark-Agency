@@ -25,9 +25,9 @@ const Hero = () => {
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 md:gap-8">
-          <button className="bg-blue-600 text-white px-4 py-2 sm:px-5 sm:py-2.5 md:px-6 md:py-3 transition-all duration-300 hover:bg-blue-700 hover:scale-105 text-sm sm:text-base md:text-lg">
+          <a href="/contact" className="bg-blue-600 text-white px-4 py-2 sm:px-5 sm:py-2.5 md:px-6 md:py-3 transition-all duration-300 hover:bg-blue-700 hover:scale-105 text-sm sm:text-base md:text-lg">
             DEMANDEZ VOTRE FACTURE
-          </button>
+          </a>
           <button className="border border-white text-white px-4 py-2 sm:px-5 sm:py-2.5 md:px-6 md:py-3 transition-all duration-300 hover:bg-white hover:text-black hover:scale-105 text-sm sm:text-base md:text-lg">
             VOIR LE PORTFOLIO
           </button>

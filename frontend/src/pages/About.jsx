@@ -1,9 +1,9 @@
 import React from 'react';
-// import Head from './Head';
 import Promotion from '../components/Promotion';
 import Nav from '../components/Nav';
 import Mission from '../components/Mission';
 import Footer from '../components/Footer';
+import { Helmet } from "react-helmet";
 
 const teamMembers = [
   {
@@ -59,7 +59,11 @@ const teamMembers = [
 export default function AboutPage() {
   return (
     <>
-      {/* <Head title="Landmark - Services" /> */}
+    
+      <Helmet>
+        <title>About Us | LandMark</title>
+        <meta name="description" content="Learn about LandMark's story, our team, and our mission to deliver exceptional marketing and creative solutions." />
+      </Helmet>
 
       <body className="font-['Jost']">
         {/* Banner Promotion */}

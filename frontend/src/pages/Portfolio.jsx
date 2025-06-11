@@ -1,10 +1,9 @@
 import Promotion from '../components/Promotion';
 import Nav from '../components/Nav';
-import Reviews from '../components/Reviews';
 import Contact from '../components/Contact';
 import Footer from '../components/Footer';
 import Services from '../components/Services';
-
+import { Helmet } from "react-helmet";
 
 const projects = [
   {
@@ -93,8 +92,12 @@ const projects = [
 export default function PortfolioPage() {
   return (
     <>
-      {/* <Head title="Landmark - Services" /> */}
 
+      <Helmet>
+        <title>Portfolio | LandMark</title>
+        <meta name="description" content="Discover our creative work and successful projects in branding, web development, and marketing at LandMark." />
+      </Helmet>
+      
       <body className="font-['Jost']">
         {/* Banner Promotion */}
         <Promotion />

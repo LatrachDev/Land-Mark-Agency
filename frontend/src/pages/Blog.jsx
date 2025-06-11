@@ -5,8 +5,8 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import { Navigation } from 'swiper/modules';
 import Footer from '../components/Footer';
+import { Helmet } from "react-helmet";
 
-// Dummy blog data grouped by category
 const blogCategories = [
   {
     category: 'EN RELATION AVEC LE MARKETING',
@@ -40,6 +40,12 @@ const blogCategories = [
 function BlogPage() {
   return (
     <div className="font-[Jost]">
+
+      <Helmet>
+        <title>Blog | LandMark</title>
+        <meta name="description" content="Read our latest insights on branding, marketing, web development, and digital trends from LandMark." />
+      </Helmet>
+      
       <Promotion />
       <Nav />
 

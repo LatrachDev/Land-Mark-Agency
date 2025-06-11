@@ -10,10 +10,17 @@ import Contact from '../components/Contact';
 import Blog from '../components/Blog';
 import FAQ from '../components/FAQ';
 import Footer from '../components/Footer';
+import { Helmet } from "react-helmet";
 
 function Home() {
   return (
     <div className="font-[Jost]">
+
+    <Helmet>
+      <title>Home | LandMark</title>
+      <meta name="description" content="Welcome to LandMark, a full-service marketing agency owned by Haytham Guemmah." />
+    </Helmet>
+    
     {/* <div className=""> */}
       <Promotion />
       <div className="bg-[url('src/assets/BG/Asset7.png')] w-full bg-cover bg-no-repeat">

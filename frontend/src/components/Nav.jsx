@@ -9,7 +9,8 @@ const Nav = () => {
   const isHome = location.pathname === '/';
 
   const navLinks = [
-    { name: 'PORTFOLIO', path: '/' },
+    { name: 'HOME', path: '/' },
+    { name: 'PORTFOLIO', path: '/portfolio' },
     { name: 'SERVICES', path: '/services' },
     { name: 'À PROPOS DE NOUS', path: '/about' },
     { name: 'BLOG', path: '/blog' },
@@ -28,14 +29,14 @@ const Nav = () => {
             />
           </Link>
 
-          {/* Desktop Nav */}
-          <div className={`hidden lg:flex items-center space-x-6 lg:space-x-8 ${isHome ? 'text-white' : 'text-black'}`}>
-            <div className="flex justify-between space-x-6 lg:space-x-8">
+          {/* Desktop Nav - Show only when there's enough space */}
+          <div className={`hidden xl:flex items-center space-x-8 ${isHome ? 'text-white' : 'text-black'}`}>
+            <div className="flex justify-between space-x-8">
               {navLinks.map(link => (
                 <Link
                   key={link.path}
                   to={link.path}
-                  className={`text-sm md:text-base relative group ${location.pathname === link.path ? 'font-semibold' : ''}`}
+                  className={`text-sm md:text-base relative group whitespace-nowrap ${location.pathname === link.path ? 'font-semibold' : ''}`}
                 >
                   {link.name}
                   <span
@@ -55,9 +56,9 @@ const Nav = () => {
             </button>
           </div>
 
-          {/* Mobile Button */}
+          {/* Mobile Button - Show when space is limited */}
           <button
-            className={`lg:hidden ${isHome ? 'text-white' : 'text-black'} focus:outline-none`}
+            className={`xl:hidden ${isHome ? 'text-white' : 'text-black'} focus:outline-none`}
             onClick={() => setMenuOpen(!menuOpen)}
           >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -68,7 +69,7 @@ const Nav = () => {
 
         {/* Mobile Menu */}
         {menuOpen && (
-          <div className="lg:hidden h-screen pt-4 pb-2">
+          <div className="xl:hidden h-screen pt-4 pb-2">
             <div className="flex flex-col space-y-4">
               {navLinks.map(link => (
                 <Link

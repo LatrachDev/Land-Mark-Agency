@@ -3,11 +3,16 @@ import Nav from '../components/Nav';
 import Reviews from '../components/Reviews';
 import Contact from '../components/Contact';
 import Footer from '../components/Footer';
+import { Helmet } from "react-helmet";
 
 export default function ServicesPage() {
   return (
     <>
-      {/* <Head title="Landmark - Services" /> */}
+
+      <Helmet>
+        <title>Services | LandMark</title>
+        <meta name="description" content="Explore our services in branding, web development, marketing, photography, and more." />
+      </Helmet>
 
       <body className="font-['Jost']">
         {/* Banner Promotion */}

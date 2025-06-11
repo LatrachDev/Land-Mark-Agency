@@ -4,6 +4,7 @@ import About from '../pages/About';
 import ServicesPage from '../pages/ServicesPage';
 import Blog from '../pages/Blog';
 import Portfolio from '../pages/Portfolio';
+import Contact from '../pages/ContactPage';
 
 function RoutesList() {
   return (
@@ -13,6 +14,7 @@ function RoutesList() {
       <Route path="/about" element={<About />} />
       <Route path="/services" element={<ServicesPage />} />
       <Route path="/blog" element={<Blog />} />
+      <Route path="/contact" element={<Contact />} />
     </Routes>
   );
 }
