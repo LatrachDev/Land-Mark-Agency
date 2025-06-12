@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Hash;
+use App\Models\User;
 
 class AdminLoginController extends Controller
 {
@@ -22,16 +23,21 @@ class AdminLoginController extends Controller
 
         if ($request->email === $adminEmail && Hash::check($request->password, $adminPasswordHash)) {
 
-            // return response()->json([
-            //     'status' => 'success',
-            //     'message' => 'Admin logged in successfully',
-            //     'token' => 'dummy-admin-token-123456'
-            // ]);
+            // $adminUser = User::firstOrNew(['email' => $adminEmail]);
+            $adminUser = User::firstOrCreate(
+            ['email' => $adminEmail],
+                ['name' => 'Admin', 'password' => $adminPasswordHash]
+            );
             
-            return response()->json(['message' => 'Login successful']);
-        
+            $token = $adminUser->createToken('admin-token')->plainTextToken;
+
+            return response()->json([
+                'message' => 'Login successful',
+                'token' => $token,
+            ]);
+            
         }
-        
+
         return response()->json(['message' => 'Invalid credentials'], 401);
     }
 }

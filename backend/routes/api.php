@@ -27,7 +27,16 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 
-Route::prefix('admin')->group(function () {
+// Route::prefix('admin')->group(function () {
+//     Route::resource('blogs', BlogController::class);
+//     Route::resource('contacts', ContactController::class);
+//     Route::resource('contents', ContentController::class);
+//     Route::resource('projects', ProjectController::class);
+//     Route::resource('teams', TeamController::class);
+// });
+
+
+Route::middleware('auth:sanctum')->prefix('admin')->group(function () {
     Route::resource('blogs', BlogController::class);
     Route::resource('contacts', ContactController::class);
     Route::resource('contents', ContentController::class);
