@@ -9,6 +9,8 @@ use App\Http\Controllers\Admin\ContentController;
 use App\Http\Controllers\Admin\ProjectController;
 use App\Http\Controllers\Admin\TeamController;
 
+use App\Http\Controllers\Auth\AdminLoginController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -33,3 +35,4 @@ Route::prefix('admin')->group(function () {
     Route::resource('teams', TeamController::class);
 });
 
+Route::post('admin/login', [AdminLoginController::class, 'login']);
