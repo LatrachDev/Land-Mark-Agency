@@ -13,6 +13,9 @@ import Footer from '../components/Footer';
 import { Helmet } from "react-helmet";
 
 function Home() {
+      console.log("env: ", import.meta.env.VITE_LOGIN_PATH)
+      // console.log("DASHBOARD_PATH", DASHBOARD_PATH)
+
   return (
     <div className="font-[Jost]">
 
