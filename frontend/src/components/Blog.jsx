@@ -54,7 +54,7 @@ const Blog = () => {
     <section className="px-4 sm:px-10 py-16 bg-white">
       <div className="container w-[90%] m-auto">
         <div className="mb-12">
-          <h2 className="text-xl text-[#263973] uppercase text-left" style={{ fontFamily: 'BioRhyme_Expanded' }}>
+          <h2 className="text-sm sm:text-xl text-[#263973] uppercase text-left" style={{ fontFamily: 'BioRhyme_Expanded' }}>
             Latest blog
           </h2>
         </div>
@@ -79,17 +79,14 @@ const Blog = () => {
                   className="w-full h-auto object-cover transition-transform duration-500 hover:scale-105"
                 />
               </div>
-              <h3 className="text-xl font-bold font-['Jost'] mb-4">{post.title}</h3>
-              <p className="font-['Jost'] mb-4">{post.description}</p>
+              <h3 className="text-sm sm:text-xl font-bold font-['Jost'] mb-4">{post.title}</h3>
+              <p className="font-['Jost'] text-sm sm:text-xl mb-4">{post.description}</p>
             </SwiperSlide>
           ))}
         </Swiper>
 
         <div className="text-left">
-          <a
-            href="#"
-            className="inline-block border-2 border-gray-800 px-8 py-3 font-['Jost'] uppercase hover:bg-gray-800 hover:text-white transition-colors"
-          >
+          <a href="/blog" className="inline-block mt-5 border-2 border-gray-800 px-8 py-3 font-['Jost'] uppercase hover:bg-gray-800 hover:text-white transition-colors">
             read more
           </a>
         </div>

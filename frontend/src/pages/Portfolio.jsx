@@ -125,7 +125,7 @@ export default function PortfolioPage() {
         <section className="mx-auto px-4 sm:px-10 py-16 bg-white">
           <div className="container w-[90%] m-auto">
             {/* Section Title */}
-            <div className="text-xl text-left text-[#263973] uppercase mb-6" style={{ fontFamily: 'BioRhyme_Expanded' }}>
+            <div className="text-sm sm:text-xl text-left text-[#263973] uppercase mb-6" style={{ fontFamily: 'BioRhyme_Expanded' }}>
               <h2 className="">PROJECT HIGHLIGHTS</h2>
               <p className="">"CASE STUDIES"</p>
             </div>
@@ -137,13 +137,13 @@ export default function PortfolioPage() {
                   <div className="mb-4 rounded-lg overflow-hidden">
                     <img src={project.image} alt={project.alt} className="w-full" />
                   </div>
-                  <h3 className="text-xl font-bold font-['Jost'] mb-2">
+                  <h3 className="text-sm sm:text-xl font-bold font-['Jost'] mb-2">
                     {project.title} <span className="italic">{project.subtitle}</span>
                   </h3>
-                  <p className="font-['Jost'] font-normal text-[#010E26] mb-6">{project.description}</p>
+                  <p className="font-['Jost'] text-sm sm:text-base font-normal text-[#010E26] mb-6">{project.description}</p>
                   <div>
-                    <p className="text-4xl text-blue-500 font-bold font-['Jost']">{project.result}</p>
-                    <p className="font-['Jost'] w-4/12">{project.statLabel}</p>
+                    <p className="sm:text-4xl text-2xl text-blue-500 font-bold font-['Jost']">{project.result}</p>
+                    <p className="font-['Jost'] mt-2 text-sm w-4/12">{project.statLabel}</p>
                   </div>
                 </div>
               ))}
@@ -155,7 +155,7 @@ export default function PortfolioPage() {
         <section className="px-4 sm:px-10 py-16 bg-white">
         <div className="container w-[90%] mx-auto">
           <div className="mb-12">
-            <h2 className="text-xl text-[#263973] uppercase text-left" style={{ fontFamily: 'BioRhyme_Expanded' }}>
+            <h2 className="text-sm sm:text-xl text-[#263973] uppercase text-left" style={{ fontFamily: 'BioRhyme_Expanded' }}>
               CONTENT CREATION
             </h2>
           </div>
@@ -163,7 +163,7 @@ export default function PortfolioPage() {
           {/* Projects Grid */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[1, 2, 3, 4, 5, 6].map((project) => (
-              <div key={project} className="flex flex-col mb-10">
+              <div key={project} className="flex flex-col mb-5">
                 <div className="mb-8">
                   <img
                     src="src/assets/content/content1.jpg"
@@ -171,10 +171,10 @@ export default function PortfolioPage() {
                     className="w-full h-auto object-cover"
                   />
                 </div>
-                <h3 className="text-xl font-bold font-['Jost'] mb-8">PROJECT NAME</h3>
+                <h3 className="text-sm sm:text-xl font-bold font-['Jost'] mb-8">PROJECT NAME</h3>
                 <div>
-                  <p className="text-4xl text-blue-500 font-bold font-['Jost']">45%</p>
-                  <p className="font-['Jost']">
+                  <p className="sm:text-4xl text-2xl text-blue-500 font-bold font-['Jost']">45%</p>
+                  <p className="font-['Jost'] mt-2">
                     Website views
                     <br />
                     after rebranding

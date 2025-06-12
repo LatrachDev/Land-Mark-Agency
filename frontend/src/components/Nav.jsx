@@ -25,7 +25,7 @@ const Nav = () => {
             <img
               src={isHome ? whiteLogo : mainLogo}
               alt="Landmark"
-              className="h-10 md:min-w-[200px] md:h-14"
+              className="sm:w-[200px] w-40"
             />
           </Link>
 

@@ -66,14 +66,14 @@ function BlogPage() {
         <div className="container w-[90%] mx-auto space-y-20">
           
           <div className="mb-12">
-            <h2 className="text-xl text-[#263973] uppercase text-left" style={{ fontFamily: 'BioRhyme_Expanded' }}>
+            <h2 className="text-sm sm:text-xl text-[#263973] uppercase text-left" style={{ fontFamily: 'BioRhyme_Expanded' }}>
               Latest blog
             </h2>
           </div>
 
           {blogCategories.map((category, index) => (
             <div key={index}>
-              <h2 className="text-xl text-[#263973] uppercase mb-6 text-left font-bold">
+              <h2 className="text-sm sm:text-xl text-[#263973] uppercase mb-6 text-left font-bold">
                 {category.category}
               </h2>
 
@@ -96,7 +96,7 @@ function BlogPage() {
                         alt={post.title}
                         className="w-full h-auto object-cover mb-4 rounded transition-transform duration-300 hover:scale-105"
                       />
-                      <h3 className="text-lg font-semibold mb-2">{post.title}</h3>
+                      <h3 className="text-xl sm:text-lg font-semibold mb-2">{post.title}</h3>
                       <p className="text-gray-600 text-sm">{post.description}</p>
                     </div>
                   </SwiperSlide>

@@ -3,8 +3,8 @@ import React from 'react';
 const Mission = (props) => {
   return (
     <div className="container" {...props}>
-      {/* <h2 className="text-xl tracking-[0.2em] text-white font-bio font-['BioRhyme_Expanded'] mb-6 uppercase pl-0"> */}
-      <h2 style={{ fontFamily: 'BioRhyme_Expanded' }} className="text-xl tracking-[0.2em] mb-6 uppercase pl-0">
+      
+      <h2 style={{ fontFamily: 'BioRhyme_Expanded' }} className="text-sm sm:text-xl tracking-[0.2em] mb-6 uppercase pl-0">
         Notre Mission
       </h2>
 

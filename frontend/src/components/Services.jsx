@@ -42,15 +42,15 @@ const servicesData = [
 const Services = () => {
   return (
     <section className="bg-white py-16 px-4 sm:px-10 text-center w-[90%] m-auto">
-      <h2 className="text-xl text-left text-[#263973] uppercase mb-6" style={{ fontFamily: 'BioRhyme_Expanded' }}>
+      <h2 className="text-sm sm:text-xl text-left text-[#263973] uppercase mb-6" style={{ fontFamily: 'BioRhyme_Expanded' }}>
         SERVICES
       </h2>
 
-      <h3 className="text-xl font-bold text-left text-gray-900 uppercase mb-4">
+      <h3 className="text-sm sm:text-xl font-bold text-left text-gray-900 uppercase mb-4">
         DES SOLUTIONS COMPLÈTES POUR BOOSTER VOTRE MARQUE ET VOTRE VISIBILITÉ
       </h3>
 
-      <p className="text-[#666666] font-bold text-left max-w-2xl mb-12">
+      <p className="text-[#666666] text-sm sm:text-xl font-bold text-left max-w-2xl mb-12">
         Que vous souhaitiez renforcer votre présence en ligne, bâtir une identité de marque forte ou
         captiver votre audience avec du contenu créatif, nous offrons des solutions complètes et adaptées.
       </p>

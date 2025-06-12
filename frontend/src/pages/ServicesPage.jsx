@@ -36,14 +36,14 @@ export default function ServicesPage() {
 
         {/* Services Section */}
         <section className="bg-white py-16 px-4 sm:px-10 text-center w-[90%] m-auto">
-          <h2 className="text-xl font-normal text-left text-gray-900 uppercase mb-6 " style={{ fontFamily: 'BioRhyme_Expanded' }}>
+          <h2 className="text-sm sm:text-xl font-normal text-left text-gray-900 uppercase mb-6 " style={{ fontFamily: 'BioRhyme_Expanded' }}>
             SERVICES
           </h2>
 
-          <h3 className="text-xl font-bold text-left text-gray-900 uppercase mb-4">
+          <h3 className="text-sm sm:text-xl font-bold text-left text-gray-900 uppercase mb-4">
             DES SOLUTIONS COMPLÈTES POUR BOOSTER VOTRE MARQUE ET VOTRE VISIBILITÉ
           </h3>
-          <p className="text-gray-600 text-left mb-12 font-bold">
+          <p className="text-gray-600 text-sm text-left mb-12 font-bold">
             Que vous souhaitiez renforcer votre présence en ligne, bâtir une identité de marque forte ou captiver votre audience avec du contenu créatif, nous offrons des solutions complètes et adaptées.
           </p>
 
@@ -54,7 +54,7 @@ export default function ServicesPage() {
             { title: "c.reation de contenu" },
           ].map((section, idx) => (
             <div key={idx}>
-              <h3 className="font-bold uppercase text-left text-2xl md:text-4xl mt-28">
+              <h3 className="font-bold uppercase text-left text-xl sm:text-2xl md:text-4xl mt-28">
                 {section.title}
               </h3>
               <section className="flex flex-wrap gap-6 justify-between mt-10">

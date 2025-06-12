@@ -5,7 +5,7 @@ const Content = () => {
     <section className="px-4 sm:px-10 py-16 bg-white">
       <div className="container w-[90%] mx-auto">
         <div className="mb-12">
-          <h2 className="text-xl text-[#263973] uppercase text-left" style={{ fontFamily: 'BioRhyme_Expanded' }}>
+          <h2 className="text-sm sm:text-xl text-[#263973] uppercase text-left" style={{ fontFamily: 'BioRhyme_Expanded' }}>
             CONTENT CREATION
           </h2>
         </div>
@@ -23,8 +23,8 @@ const Content = () => {
               </div>
               <h3 className="text-xl font-bold font-['Jost'] mb-8">PROJECT NAME</h3>
               <div>
-                <p className="text-4xl text-blue-500 font-bold font-['Jost']">45%</p>
-                <p className="font-['Jost']">
+                <p className="text-2xl sm:text-4xl text-blue-500 font-bold font-['Jost']">45%</p>
+                <p className="font-['Jost'] mt-2">
                   Website views
                   <br />
                   after rebranding
@@ -37,7 +37,7 @@ const Content = () => {
         {/* View All Button */}
         <div className="text-left mt-16">
           <a
-            href="#"
+            href="/portfolio"
             className="inline-block border-2 border-gray-800 px-8 py-3 font-['Jost'] uppercase hover:bg-gray-800 hover:text-white transition-colors"
           >
             VIEW ALL WORKS

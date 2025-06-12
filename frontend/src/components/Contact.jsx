@@ -5,7 +5,7 @@ const Contact = () => {
     <section className="px-4 sm:px-10 py-16 bg-[#eeeeee]">
       <div className="container w-[90%] m-auto">
         <div className="mb-12">
-          <h2 className="text-xl font-['BioRhyme_Expanded'] text-[#263973] uppercase text-left" style={{ fontFamily: 'BioRhyme_Expanded' }}>
+          <h2 className="text-sm sm:text-xl font-['BioRhyme_Expanded'] text-[#263973] uppercase text-left" style={{ fontFamily: 'BioRhyme_Expanded' }}>
             Contact us
           </h2>
         </div>
@@ -13,7 +13,7 @@ const Contact = () => {
         <div className="flex flex-col-reverse lg:flex-row gap-8">
           {/* Form Section */}
           <div className="w-full lg:w-8/12">
-            <h3 className="text-xl font-bold text-left text-[#010E26] uppercase mb-4">
+            <h3 className="text-sm sm:text-xl font-bold text-left text-[#010E26] uppercase mb-4">
               fill out the form, and we'll contact you.
             </h3>
 
@@ -109,13 +109,13 @@ const Contact = () => {
             <div className="mb-6">
               <img src="src/assets/JPG/haytham.jpg" alt="Haytham" className="w-full h-auto" />
             </div>
-            <p className="italic text-justify text-xl text-[#666666] mb-4">
+            <p className="italic text-justify text-sm sm:text-xl text-[#666666] mb-4">
               Did you know that 4 out of 5 customers switch brands due to poor customer experience
               and design? <br />
               At Landmark, we specialize in crafting innovative and trendy visuals that not only
               captivate but also make your products and projects unforgettable.
             </p>
-            <h4 className="font-bold text-xl uppercase">HAYTHAM GUERMAH</h4>
+            <h4 className="font-bold text-sm sm:text-xl uppercase">HAYTHAM GUERMAH</h4>
             <p className="font-medium italic text-xs">FOUNDER & CEO OF @LANDMARK</p>
           </div>
         </div>

@@ -36,8 +36,8 @@ const Projects = () => {
       <div className="container w-[90%] m-auto">
         {/* Section Title */}
         <div className="mb-12 text-left" style={{ fontFamily: 'BioRhyme_Expanded' }}>
-          <h2 className="text-2xl  text-[#263973] uppercase">PROJECT HIGHLIGHTS</h2>
-          <p className="text-2xl  text-[#263973] mt-2">"CASE STUDIES"</p>
+          <h2 className="text-sm sm:text-xl  text-[#263973] uppercase">PROJECT HIGHLIGHTS</h2>
+          <p className="text-sm sm:text-xl  text-[#263973] mt-2">"CASE STUDIES"</p>
         </div>
 
         {/* Projects Grid */}
@@ -52,8 +52,8 @@ const Projects = () => {
               </h3>
               <p className="font-['Jost'] font-normal text-[#010E26] mb-6">{project.description}</p>
               <div>
-                <p className="text-4xl text-blue-500 font-bold font-['Jost']">{project.result}</p>
-                <p className="font-['Jost'] w-4/12">{project.statLabel}</p>
+                <p className="text-2xl sm:text-4xl text-blue-500 font-bold font-['Jost']">{project.result}</p>
+                <p className="font-['Jost'] mt-2 w-4/12">{project.statLabel}</p>
               </div>
             </div>
           ))}
@@ -62,7 +62,7 @@ const Projects = () => {
         {/* View All Button */}
         <div className="text-left mt-12">
           <a
-            href="#"
+            href="/projects"
             className="inline-block border-2 border-gray-800 px-8 py-3 font-['Jost'] uppercase hover:bg-gray-800 hover:text-white transition-colors"
           >
             View All Works

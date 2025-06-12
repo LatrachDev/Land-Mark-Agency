@@ -53,7 +53,7 @@ const Faq = () => {
     <section className="px-4 sm:px-10 py-16 bg-white">
       <div className="container w-[90%] m-auto">
         <div className="mb-12">
-          <h2 className="text-xl text-[#263973] uppercase text-left" style={{ fontFamily: 'BioRhyme_Expanded' }}>
+          <h2 className="text-sm sm:text-xl text-[#263973] uppercase text-left" style={{ fontFamily: 'BioRhyme_Expanded' }}>
             FAQ’s
           </h2>
         </div>
@@ -69,7 +69,7 @@ const Faq = () => {
                 className="cursor-pointer w-full text-left flex justify-between items-center py-4"
                 aria-expanded={openIndex === index}
               >
-                <h3 className="text-lg font-bold uppercase">
+                <h3 className="text-sm sm:text-xl font-bold uppercase">
                   {faq.title}
                 </h3>
                 <svg
@@ -91,7 +91,7 @@ const Faq = () => {
 
               {openIndex === index && (
                 <div className="pl-4">
-                  <p className="text-lg mb-4">{faq.content}</p>
+                  <p className="text-sm sm:text-xl mb-4">{faq.content}</p>
                   <ul className="space-y-2 pl-5 list-disc">
                     {faq.items.map((item, i) => (
                       <li key={i}>{item}</li>

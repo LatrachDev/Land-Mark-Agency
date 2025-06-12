@@ -4,6 +4,8 @@ import Nav from '../components/Nav';
 import Mission from '../components/Mission';
 import Footer from '../components/Footer';
 import { Helmet } from "react-helmet";
+import '@fortawesome/fontawesome-free/css/all.min.css'; 
+import { LinkedinFilled, InstagramOutlined }from "@ant-design/icons" ;
 
 const teamMembers = [
   {
@@ -11,16 +13,16 @@ const teamMembers = [
     role: 'Fondateur et Directeur Artistique de Landmark',
     description: 'Je suis là pour vous garantir des résultats de qualité et un impact mesurable sur le succès de votre projet.',
     imgSrc: './src/assets/Team/team1.jpg',
-    linkedin: 'https://www.linkedin.com/in/haytham-guemmah',
-    instagram: 'https://www.instagram.com/haythamguemmah',
+    linkedin: 'https://www.linkedin.com/company/landmark-agency-official/posts/?feedView=all',
+    instagram: 'https://www.instagram.com/haythamark/',
   },
   {
     name: 'Mohammed LATRACH',
     role: 'Développeur web',
     description: 'Je suis là pour vous aider à renforcer votre présence en ligne grâce à la création de sites web responsives, conçus pour augmenter vos ventes en ligne.',
     imgSrc: './src/assets/Team/team2.png',
-    linkedin: 'https://www.linkedin.com/in/mohammed-latrach',
-    instagram: 'https://www.instagram.com/mohammedlatrach',
+    linkedin: 'https://www.linkedin.com/in/latrachdev1',
+    instagram: 'https://www.instagram.com/mohammed_latrach',
   },
   {
     name: 'HAJAR HAJAR',
@@ -88,13 +90,13 @@ export default function AboutPage() {
         <Mission className="text-[#263973] mx-auto py-16 px-4 sm:px-10 w-[90%] m-auto font-medium" />
 
         <section className="mx-auto py-16 px-4 sm:px-10 w-[90%] m-auto">
-          <h2 className="text-xl tracking-[0.2em] mb-6 uppercase pl-0 text-[#263973]" style={{ fontFamily: 'BioRhyme_Expanded' }}>
+          <h2 className="text-sm sm:text-xl tracking-[0.2em] mb-6 uppercase pl-0 text-[#263973]" style={{ fontFamily: 'BioRhyme_Expanded' }}>
             Équipe landmark
           </h2>
 
           {/* Team Members */}
           <section className="flex flex-wrap gap-6 justify-between pt-16">
-            {teamMembers.map(({ name, role, description, imgSrc, linkedin, instagram }) => (
+            {teamMembers.map(({ name, role, description, imgSrc, linkedin, instagram, github }) => (
               <article key={name} className="w-full sm:w-[48%] lg:w-[25%] text-left">
                 <div className="w-full">
                   <img src={imgSrc} alt={`Photo de ${name}`} className="w-full h-auto" />
@@ -103,10 +105,10 @@ export default function AboutPage() {
                 <p className="text-[#666666] text-sm">{description}</p>
                 <div className="flex gap-4 mt-4">
                   <a href={linkedin} target="_blank" rel="noopener noreferrer" className="text-[#0e76a8]">
-                    <i className="fab fa-linkedin fa-lg"></i>
+                    <LinkedinFilled className="hover:opacity-70 transition-opacity cursor-pointer" />
                   </a>
                   <a href={instagram} target="_blank" rel="noopener noreferrer" className="text-[#E1306C]">
-                    <i className="fab fa-instagram fa-lg"></i>
+                    <InstagramOutlined className="hover:opacity-70 transition-opacity cursor-pointer" />
                   </a>
                 </div>
               </article>

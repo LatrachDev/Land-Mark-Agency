@@ -12,10 +12,10 @@ const Footer = () => {
         <div className="flex flex-col lg:flex-row gap-8 md:gap-12">
           {/* Left Section */}
           <div className="lg:w-7/12">
-            <h2 className="text-xl sm:text-4xl font-bold uppercase mb-4 md:mb-6 tracking-wide text-left">
+            <h2 className="text-xl sm:text-2xl md:text-4xl font-bold uppercase mb-4 md:mb-6 tracking-wide text-left">
               READY TO GET STARTED?
             </h2>
-            <p className="text-base md:text-lg text-left lg:text-justify w-full lg:w-10/12 mb-6 md:mb-8 tracking-wider uppercase font-light">
+            <p className="text-sm md:text-lg text-left lg:text-justify w-full lg:w-10/12 mb-6 md:mb-8 tracking-wider uppercase font-light">
               Through a customer satisfaction survey. 96% of our clients express strong satisfaction and would confidently recommend our services to others.
             </p>
             <div className="text-left">
