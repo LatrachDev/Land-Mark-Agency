@@ -67,7 +67,7 @@ export default function AboutPage() {
         <meta name="description" content="Learn about LandMark's story, our team, and our mission to deliver exceptional marketing and creative solutions." />
       </Helmet>
 
-      <body className="font-['Jost']">
+      <section className="font-['Jost']">
         {/* Banner Promotion */}
         <Promotion />
 
@@ -117,7 +117,7 @@ export default function AboutPage() {
         </section>
 
         <Footer />
-      </body>
+      </section>
     </>
   );
 }

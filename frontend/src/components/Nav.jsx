@@ -17,8 +17,13 @@ const Nav = () => {
   ];
 
   return (
-    <nav className="w-[90%] m-auto">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-4">
+    // <nav className="w-[90%] m-auto">
+    <nav className={`w-full sticky top-0 z-50 backdrop-blur-sm ${
+    isHome ? 'bg-transparent' : 'bg-white/60'
+    } transition-colors duration-300`}>
+      
+      <div className="w-[90%] m-auto">
+      {/* <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-4"> */}
         <div className="flex justify-between items-center">
           {/* Logo */}
           <Link to="/" className="flex items-center">

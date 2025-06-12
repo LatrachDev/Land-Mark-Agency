@@ -14,7 +14,7 @@ export default function ServicesPage() {
         <meta name="description" content="Explore our services in branding, web development, marketing, photography, and more." />
       </Helmet>
 
-      <body className="font-['Jost']">
+      <section className="font-['Jost']">
         {/* Banner Promotion */}
         <Promotion />
 
@@ -91,7 +91,7 @@ export default function ServicesPage() {
         <Reviews />
         <Contact />
         <Footer />
-      </body>
+      </section>
     </>
   );
 }

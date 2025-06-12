@@ -98,7 +98,7 @@ export default function PortfolioPage() {
         <meta name="description" content="Discover our creative work and successful projects in branding, web development, and marketing at LandMark." />
       </Helmet>
       
-      <body className="font-['Jost']">
+      <section className="font-['Jost']">
         {/* Banner Promotion */}
         <Promotion />
 
@@ -189,7 +189,7 @@ export default function PortfolioPage() {
 
         <Contact />
         <Footer />
-      </body>
+      </section>
     </>
   );
 }
