@@ -5,8 +5,20 @@ import ServicesPage from '../pages/ServicesPage';
 import Blog from '../pages/Blog';
 import Portfolio from '../pages/Portfolio';
 import Contact from '../pages/ContactPage';
+import ProtectedRoute from '../components/ProtectedRoute';
+import NotFound from '../pages/NotFound';
+import Login from '../pages/Login';
+import Dashboard from '../pages/Dashboard';
+import { LOGIN_PATH, DASHBOARD_PATH, ADMIN_TEAM, ADMIN_INBOX, ADMIN_PROJECTS, ADMIN_PORTFOLIO, ADMIN_CONTENT } from '../config/routes';
+import TeamPage from '../pages/TeamPage';
+import ProjectsPage from '../pages/ProjectsPage';
+import ContentPage from '../pages/ContentPage';
+import PortfolioPage from '../pages/PortfolioPage';
+import InboxPage from '../pages/InboxPage';
 
 function RoutesList() {
+  // console.log("login path", LOGIN_PATH, DASHBOARD_PATH);
+
   return (
     <Routes>
       <Route path="/" element={<Home />} />
@@ -15,6 +27,26 @@ function RoutesList() {
       <Route path="/services" element={<ServicesPage />} />
       <Route path="/blog" element={<Blog />} />
       <Route path="/contact" element={<Contact />} />
+
+      <Route path={LOGIN_PATH} element={<Login />} />
+      
+      {/* <Route element={<ProtectedRoute />}>
+        <Route path={DASHBOARD_PATH} element={<Dashboard />} />
+      </Route> */}
+
+      <Route element={<ProtectedRoute />}>
+        <Route path={DASHBOARD_PATH} element={<Dashboard />} />
+        <Route path={ADMIN_TEAM} element={<TeamPage />} />
+        <Route path={ADMIN_PROJECTS} element={<ProjectsPage />} />
+        <Route path={ADMIN_CONTENT} element={<ContentPage />} />
+        <Route path={ADMIN_PORTFOLIO} element={<PortfolioPage />} />
+        <Route path={ADMIN_INBOX} element={<InboxPage />} />
+      </Route>
+
+
+      {/* 404 Not Found route */}
+      <Route path="*" element={<NotFound />} />
+    
     </Routes>
   );
 }
