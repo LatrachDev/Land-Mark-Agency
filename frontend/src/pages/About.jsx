@@ -33,7 +33,7 @@ const teamMembers = [
     instagram: 'https://www.instagram.com/hajarhajar',
   },
   {
-    name: 'Haytham Guemmah',
+    name: 'Imad Boushaba',
     role: 'Fondateur et Directeur Artistique de Landmark',
     description: 'Je suis là pour vous garantir des résultats de qualité et un impact mesurable sur le succès de votre projet.',
     imgSrc: './src/assets/Team/team4.png',
