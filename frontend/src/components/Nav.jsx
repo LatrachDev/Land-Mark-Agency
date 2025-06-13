@@ -26,11 +26,11 @@ const Nav = () => {
       {/* <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-4"> */}
         <div className="flex justify-between items-center">
           {/* Logo */}
-          <Link to="/" className="flex items-center">
+          <Link to="/" className="flex items-center pt-4 sm:px-6">
             <img
               src={isHome ? whiteLogo : mainLogo}
               alt="Landmark"
-              className="sm:w-[200px] w-40"
+              className="w-40"
             />
           </Link>
 
@@ -52,13 +52,13 @@ const Nav = () => {
                 </Link>
               ))}
             </div>
-            <button
+            <Link to="/contact"
               className={`bg-transparent ${
                 isHome ? 'text-white border-white' : 'text-black border-black'
               } border text-sm md:text-base px-4 py-1.5 transition-all duration-300 hover:border-blue-600 whitespace-nowrap`}
             >
               CONSULTATION GRATUITE
-            </button>
+            </Link>
           </div>
 
           {/* Mobile Button - Show when space is limited */}

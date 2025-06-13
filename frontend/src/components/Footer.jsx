@@ -1,6 +1,7 @@
 import React from 'react';
 import '@fortawesome/fontawesome-free/css/all.min.css'; 
 import { FacebookFilled, BehanceOutlined, LinkedinFilled, InstagramOutlined }from "@ant-design/icons" ;
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
@@ -19,9 +20,9 @@ const Footer = () => {
               Through a customer satisfaction survey. 96% of our clients express strong satisfaction and would confidently recommend our services to others.
             </p>
             <div className="text-left">
-              <a href="#" className="inline-block border border-white text-white px-8 py-3 md:px-10 md:py-4 uppercase font-normal text-sm tracking-wider hover:bg-white hover:text-black transition-colors">
+              <Link to="/contact" className="inline-block border border-white text-white px-8 py-3 md:px-10 md:py-4 uppercase font-normal text-sm tracking-wider hover:bg-white hover:text-black transition-colors">
                 GET IN TOUCH
-              </a>
+              </Link>
             </div>
           </div>
 
@@ -75,14 +76,11 @@ const Footer = () => {
                 NAVIGATION
               </p>
               <ul className="space-y-2 mt-6 md:mt-10 text-left">
-                {['WORK', 'SERVICES', 'ABOUT US', 'CONTACT US', 'BLOG'].map((link, index) => (
-                  <li key={index}>
-                    <a href="#" className="font-semibold text-sm border-b-2 border-transparent hover:opacity-70 hover:border-[#445ef2] transition-opacity block w-fit" >
-                      {link}
-                    </a>
-
-                  </li>
-                ))}
+                  <li> <Link to="/portfolio" className="font-semibold text-sm border-b-2 border-transparent hover:opacity-70 hover:border-[#445ef2] transition-opacity block w-fit" > WORK </Link> </li>
+                  <li> <Link to="/services" className="font-semibold text-sm border-b-2 border-transparent hover:opacity-70 hover:border-[#445ef2] transition-opacity block w-fit" > SERVICES </Link> </li>
+                  <li> <Link to="/about" className="font-semibold text-sm border-b-2 border-transparent hover:opacity-70 hover:border-[#445ef2] transition-opacity block w-fit" > ABOUT US </Link> </li>
+                  <li> <Link to="/contact" className="font-semibold text-sm border-b-2 border-transparent hover:opacity-70 hover:border-[#445ef2] transition-opacity block w-fit" > CONTACT US </Link> </li>
+                  <li> <Link to="/blog" className="font-semibold text-sm border-b-2 border-transparent hover:opacity-70 hover:border-[#445ef2] transition-opacity block w-fit" > BLOG </Link> </li>
               </ul>
             </div>
           </div>
