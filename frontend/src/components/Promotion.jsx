@@ -46,7 +46,7 @@ const Promotion = () => {
           <span className="text-left sm:w-full text-xs sm:text-sm font-bold">
             ÉCONOMISEZ 25% SUR TOUS NOS SERVICES AVANT LE
           </span>
-          <span className="sm:bg-gray-700 px-2 py-1 w-[170px] text-center inline-block">
+          <span className="sm:bg-gray-700 ml-2 px-2 py-1 w-[170px] text-center inline-block">
             {timeLeft}
           </span>
         </div>

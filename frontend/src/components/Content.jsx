@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Content = () => {
   return (
@@ -34,14 +35,10 @@ const Content = () => {
           ))}
         </div>
 
-        {/* View All Button */}
-        <div className="text-left mt-16">
-          <a
-            href="/portfolio"
-            className="inline-block border-2 border-gray-800 px-8 py-3 font-['Jost'] uppercase hover:bg-gray-800 hover:text-white transition-colors"
-          >
-            VIEW ALL WORKS
-          </a>
+        <div className="text-left text-xs sm:text-sm md:text-xl mt-12">
+          <Link to="/portfolio" className="inline-block border-2 border-gray-800 px-8 py-3 font-['Jost'] uppercase hover:bg-gray-800 hover:text-white transition-colors">
+            View All Works
+          </Link>
         </div>
       </div>
     </section>
