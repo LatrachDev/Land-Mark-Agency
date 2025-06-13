@@ -29,10 +29,6 @@ function RoutesList() {
       <Route path="/contact" element={<Contact />} />
 
       <Route path={LOGIN_PATH} element={<Login />} />
-      
-      {/* <Route element={<ProtectedRoute />}>
-        <Route path={DASHBOARD_PATH} element={<Dashboard />} />
-      </Route> */}
 
       <Route element={<ProtectedRoute />}>
         <Route path={DASHBOARD_PATH} element={<Dashboard />} />
@@ -42,7 +38,6 @@ function RoutesList() {
         <Route path={ADMIN_PORTFOLIO} element={<PortfolioPage />} />
         <Route path={ADMIN_INBOX} element={<InboxPage />} />
       </Route>
-
 
       {/* 404 Not Found route */}
       <Route path="*" element={<NotFound />} />
