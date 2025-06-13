@@ -3,45 +3,32 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-use App\Http\Controllers\Admin\BlogController;
-use App\Http\Controllers\Admin\ContactController;
-use App\Http\Controllers\Admin\ContentController;
-use App\Http\Controllers\Admin\ProjectController;
-use App\Http\Controllers\Admin\TeamController;
-
+use App\Http\Controllers\Api\V1\Admin\BlogController as AdminBlogController;
+use App\Http\Controllers\Api\V1\Admin\ContactController as AdminContactController;
+use App\Http\Controllers\Api\V1\Admin\ContentController as AdminContentController;
+use App\Http\Controllers\Api\V1\Admin\ProjectController as AdminProjectController;
+use App\Http\Controllers\Api\V1\Admin\TeamController as AdminTeamController;
 use App\Http\Controllers\Auth\AdminLoginController;
 
 /*
 |--------------------------------------------------------------------------
 | API Routes
 |--------------------------------------------------------------------------
-|
-| Here is where you can register API routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "api" middleware group. Make something great!
-|
 */
 
+// Authenticated admin user info
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+// Admin login route (NO auth middleware)
+Route::post('/admin/login', [AdminLoginController::class, 'login']);
 
-// Route::prefix('admin')->group(function () {
-//     Route::resource('blogs', BlogController::class);
-//     Route::resource('contacts', ContactController::class);
-//     Route::resource('contents', ContentController::class);
-//     Route::resource('projects', ProjectController::class);
-//     Route::resource('teams', TeamController::class);
-// });
-
-
-Route::middleware('auth:sanctum')->prefix('admin')->group(function () {
-    Route::resource('blogs', BlogController::class);
-    Route::resource('contacts', ContactController::class);
-    Route::resource('contents', ContentController::class);
-    Route::resource('projects', ProjectController::class);
-    Route::resource('teams', TeamController::class);
+// Protected admin routes (secured by sanctum)
+Route::middleware('auth:sanctum')->prefix('v1/admin')->group(function () {
+    Route::apiResource('blogs', AdminBlogController::class);
+    Route::apiResource('contacts', AdminContactController::class);
+    Route::apiResource('contents', AdminContentController::class);
+    Route::apiResource('projects', AdminProjectController::class);
+    Route::apiResource('teams', AdminTeamController::class);
 });
-
-Route::post('admin/login', [AdminLoginController::class, 'login']);

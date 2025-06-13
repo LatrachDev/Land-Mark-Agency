@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Api\V1\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class ProjectController extends Controller
+class ContactController extends Controller
 {
     /**
      * Display a listing of the resource.
