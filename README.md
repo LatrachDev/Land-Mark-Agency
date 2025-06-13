@@ -76,7 +76,7 @@ src/
 
 ```bash
 git clone https://github.com/LatrachDev/Land-Mark-Agency.git
-cd landmark-agency
+cd Land-Mark-Agency/frontend
 npm install
 ```
 
@@ -91,21 +91,26 @@ Visit `http://localhost:5173` to view the app.
 ---
 
 ## 🧪 Technologies Used
-
+# Front-end
 - React JS (Vite)
 - Tailwind CSS
 - HTML5 & JSX
 - CSS3
+# Back-end
+- Laravel 
+# Web design
 - Figma (for UI/UX design)
-- Git & GitHub for version control
+# Other tools
+- Git
+- GitHub for version control
+- Jira for task management
 
 ---
 
 ## 📌 Project Status
 
 ✅ MVP complete  
-🔄 Ongoing improvements:  
-- Dark/Light mode toggle  
+🔄 Ongoing improvements:   
 - Contact form backend integration  
 - SEO optimization  
 - Accessibility audit
@@ -132,10 +137,10 @@ Pull requests are welcome! For major changes, please open an issue first to disc
 
 ## 📄 License
 
-MIT License © 2025 [Your Name]
+MIT License © 2025 [MOHAMMED LATRACH]
 
 ---
 
 ## 📬 Contact
 
-For questions or collaborations, reach out to [youremail@example.com].
+For questions or collaborations, reach out to [m.latrach.youcode@gmail.com].
