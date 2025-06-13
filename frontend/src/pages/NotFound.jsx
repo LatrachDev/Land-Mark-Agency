@@ -19,12 +19,12 @@ const NotFound = () => {
           <p className="text-gray-600 mb-6">
             Désolé, la page que vous recherchez n'existe pas ou a été déplacée.
           </p>
-          <Link
-            to="/"
+          <a
+            href="/"
             className="inline-block bg-[#445ef2] text-white font-bold px-6 py-3 rounded-lg hover:bg-[#3344b5] transition duration-300"
           >
             Retour à l'accueil
-          </Link>
+          </a>
         </div>
       </div>
     </>
