@@ -16,8 +16,8 @@ This React-based web application was originally migrated from a Blade-based (Lar
 
 - ⚛️ **React JS (Vite)**
 - 🎨 **Tailwind CSS**
+- 👨🏻‍💻 **Laravel**
 - 🧩 Modular component structure (reusable components)
-- 🌗 Dark/Light mode design system (in progress)
 - ✅ Follows accessibility best practices and W3C standards
 
 ---
@@ -91,16 +91,16 @@ Visit `http://localhost:5173` to view the app.
 ---
 
 ## 🧪 Technologies Used
-# Front-end
+### Front-end
 - React JS (Vite)
 - Tailwind CSS
 - HTML5 & JSX
 - CSS3
-# Back-end
+### Back-end
 - Laravel 
-# Web design
+### Web design
 - Figma (for UI/UX design)
-# Other tools
+### Other tools
 - Git
 - GitHub for version control
 - Jira for task management
