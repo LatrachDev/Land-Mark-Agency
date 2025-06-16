@@ -81,7 +81,7 @@ class ProjectController extends Controller
         $data = $request->validate([
             'title' => 'required|string|max:255',
             'description' => 'required|string',
-            'image' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
             'view_percent' => 'required|integer|min:0|max:100',
         ]);
 
