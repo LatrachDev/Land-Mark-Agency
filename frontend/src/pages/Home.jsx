@@ -14,6 +14,7 @@ import { Helmet } from "react-helmet";
 
 function Home() {
 
+
   return (
     <div className="font-[Jost]">
 
