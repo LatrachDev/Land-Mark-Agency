@@ -15,10 +15,10 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->text('description');
+            $table->text('post');
+            $table->string('image');
             $table->string('linkedin')->nullable();
             $table->string('instagram')->nullable();
-            $table->string('behance')->nullable();
-            $table->string('github')->nullable();
             $table->timestamps();
         });
     }
