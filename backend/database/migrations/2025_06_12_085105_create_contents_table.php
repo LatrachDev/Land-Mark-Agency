@@ -13,9 +13,10 @@ return new class extends Migration
     {
         Schema::create('contents', function (Blueprint $table) {
             $table->id();
-            $table->string('image');
+            $table->string('video');
+            $table->string('thumbnail');
             $table->string('title');
-            $table->unsignedTinyInteger('view_percent')->default(0);
+            $table->string('views');
             $table->timestamps();
         });
     }
