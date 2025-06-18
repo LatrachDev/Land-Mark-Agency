@@ -1,6 +1,6 @@
 import { Helmet } from 'react-helmet';
 import { useNavigate } from 'react-router-dom';
-import { ADMIN_TEAM, ADMIN_INBOX, ADMIN_PROJECTS, ADMIN_PORTFOLIO, ADMIN_CONTENT } from '../config/routes';
+import { ADMIN_TEAM, ADMIN_INBOX, ADMIN_PROJECTS, ADMIN_BLOG, ADMIN_CONTENT } from '../config/routes';
 import { useEffect, useState, useRef } from 'react';
 
 export default function ContentPage() {
@@ -342,7 +342,7 @@ export default function ContentPage() {
       title: 'Gestion du portfolio',
       desc: 'Ajoutez ou mettez à jour vos réalisations.',
       icon: '🖼️',
-      path: ADMIN_PORTFOLIO,
+      path: ADMIN_BLOG,
     },
     {
       title: 'Boîte de réception',

@@ -9,11 +9,11 @@ import ProtectedRoute from '../components/ProtectedRoute';
 import NotFound from '../pages/NotFound';
 import Login from '../pages/Login';
 import Dashboard from '../pages/Dashboard';
-import { LOGIN_PATH, DASHBOARD_PATH, ADMIN_TEAM, ADMIN_INBOX, ADMIN_PROJECTS, ADMIN_PORTFOLIO, ADMIN_CONTENT } from '../config/routes';
+import { LOGIN_PATH, DASHBOARD_PATH, ADMIN_TEAM, ADMIN_INBOX, ADMIN_PROJECTS, ADMIN_BLOG, ADMIN_CONTENT } from '../config/routes';
 import TeamPage from '../pages/TeamPage';
 import ProjectsPage from '../pages/ProjectsPage';
 import ContentPage from '../pages/ContentPage';
-import PortfolioPage from '../pages/PortfolioPage';
+import BlogPage from '../pages/BlogPage';
 import InboxPage from '../pages/InboxPage';
 
 function RoutesList() {
@@ -35,7 +35,7 @@ function RoutesList() {
         <Route path={ADMIN_TEAM} element={<TeamPage />} />
         <Route path={ADMIN_PROJECTS} element={<ProjectsPage />} />
         <Route path={ADMIN_CONTENT} element={<ContentPage />} />
-        <Route path={ADMIN_PORTFOLIO} element={<PortfolioPage />} />
+        <Route path={ADMIN_BLOG} element={<BlogPage />} />
         <Route path={ADMIN_INBOX} element={<InboxPage />} />
       </Route>
 
