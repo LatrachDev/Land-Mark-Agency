@@ -1,13 +1,134 @@
 import { Helmet } from 'react-helmet';
 import { useNavigate } from 'react-router-dom';
 import { ADMIN_TEAM, ADMIN_INBOX, ADMIN_PROJECTS, ADMIN_PORTFOLIO, ADMIN_CONTENT } from '../config/routes';
+import { useEffect, useState } from 'react';
+import MessageModal from '../components/MessageModal';
 
 export default function InboxPage() {
   const navigate = useNavigate();
+  const [messages, setMessages] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [selectedMessages, setSelectedMessages] = useState([]);
+  const [modalMessage, setModalMessage] = useState(null);
 
   const handleLogout = () => {
     localStorage.clear();
     navigate('/');
+  };
+
+  const fetchMessages = async () => {
+    setIsLoading(true);
+    try {
+      const token = localStorage.getItem("token");
+      const response = await fetch('http://127.0.0.1:8000/api/v1/admin/contacts', {
+        headers: {
+          'Authorization': `Bearer ${token}`
+        }
+      });
+      
+      const data = await response.json();
+      if (response.ok) {
+        setMessages(data.data || []);
+      }
+    } catch (error) {
+      console.error('Error fetching messages:', error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchMessages();
+  }, []);
+
+  const toggleSelectMessage = (id) => {
+    setSelectedMessages(prev => 
+      prev.includes(id) 
+        ? prev.filter(msgId => msgId !== id) 
+        : [...prev, id]
+    );
+  };
+
+  const toggleSelectAll = () => {
+    if (selectedMessages.length === messages.length) {
+      setSelectedMessages([]);
+    } else {
+      setSelectedMessages(messages.map(msg => msg.id));
+    }
+  };
+
+  const handleViewMessage = async (message) => {
+    setModalMessage(message);
+    setSelectedMessages([]); // Deselect on view
+
+    // Mark as read only if it's unread
+    if (!message.read_at) {
+      try {
+        const token = localStorage.getItem("token");
+        await fetch('http://127.0.0.1:8000/api/v1/admin/contacts/mark-as-read/', {
+          method: 'PUT',
+          headers: {
+            'Authorization': `Bearer ${token}`,
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ ids: [message.id] })
+        });
+        fetchMessages(); // Refresh list to update read status
+      } catch (error) {
+        console.error('Error marking message as read:', error);
+      }
+  }
+  };
+
+
+  const markAsRead = async (ids) => {
+    try {
+      const token = localStorage.getItem("token");
+      await fetch('http://127.0.0.1:8000/api/v1/admin/contacts/mark-as-read/', {
+        method: 'PUT',
+        headers: {
+          'Authorization': `Bearer ${token}`,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ ids })
+      });
+      fetchMessages();
+      setSelectedMessages([]); // Clear selection after marking as read
+    } catch (error) {
+      console.error('Error marking as read:', error);
+    }
+  };
+
+  const deleteMessages = async (ids) => {
+  try {
+    const token = localStorage.getItem("token");
+
+    if (ids.length === 1) {
+      // DELETE a single message using destroy()
+    
+      await fetch(`http://127.0.0.1:8000/api/v1/admin/contacts/${ids[0]}`, {
+        method: 'DELETE',
+        headers: {
+          'Authorization': `Bearer ${token}`,
+        },
+      });
+    } else {
+      // DELETE multiple messages
+      await fetch('http://127.0.0.1:8000/api/v1/admin/contacts/delete-multiple', {
+        method: 'DELETE',
+        headers: {
+          'Authorization': `Bearer ${token}`,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ ids })
+      });
+    }
+
+    fetchMessages();
+    setSelectedMessages([]);
+  } catch (error) {
+    console.error('Error deleting messages:', error);
+  }
   };
 
   const adminCards = [
@@ -51,6 +172,15 @@ export default function InboxPage() {
       </Helmet>
 
       <div className="font-['Jost'] bg-[#f5f7fa] min-h-screen">
+
+        {/* Modal popup */}
+        {modalMessage && (
+          <MessageModal 
+            message={modalMessage} 
+            onClose={() => setModalMessage(null)} 
+          />
+        )}
+
         {/* Header */}
         <div className="w-[90%] m-auto pt-10 flex justify-between items-center">
           <img
@@ -62,7 +192,7 @@ export default function InboxPage() {
             onClick={handleLogout}
             className="bg-[#010e26] text-white px-4 py-2 rounded-lg hover:bg-[#081d45] transition"
           >
-            Logout
+            Déconnexion
           </button>
         </div>
 
@@ -98,61 +228,101 @@ export default function InboxPage() {
           <div className="flex justify-between items-center mb-6">
             <h2 className="text-xl font-bold text-[#010e26]">Messages Reçus</h2>
             <div className="flex space-x-3">
-              <button className="bg-gray-200 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-300 transition">
+              <button 
+                onClick={() => markAsRead(selectedMessages)}
+                disabled={selectedMessages.length === 0}
+                className="bg-gray-200 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-300 transition disabled:opacity-50"
+              >
                 Marquer comme lu
               </button>
-              <button className="bg-red-100 text-red-700 px-4 py-2 rounded-lg hover:bg-red-200 transition">
+              <button 
+                onClick={() => deleteMessages(selectedMessages)}
+                disabled={selectedMessages.length === 0}
+                className="bg-red-100 text-red-700 px-4 py-2 rounded-lg hover:bg-red-200 transition disabled:opacity-50"
+              >
                 Supprimer sélection
               </button>
             </div>
           </div>
 
-          <div className="overflow-x-auto">
-            <table className="min-w-full divide-y divide-gray-200">
-              <thead className="bg-gray-50">
-                <tr>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    <input type="checkbox" className="rounded" />
-                  </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">De</th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Sujet</th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Message</th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Date</th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
-                </tr>
-              </thead>
-              <tbody className="bg-white divide-y divide-gray-200">
-                {[
-                  { from: 'client1@example.com', subject: 'Demande de devis', message: 'Bonjour, je souhaiterais obtenir un devis pour...', date: '2023-07-15', read: false },
-                  { from: 'client2@example.com', subject: 'Question sur nos services', message: 'Quelles sont vos disponibilités pour...', date: '2023-07-14', read: true },
-                  { from: 'partenaire@example.com', subject: 'Proposition de collaboration', message: 'Nous aimerions discuter d\'un possible partenariat...', date: '2023-07-12', read: true },
-                  { from: 'info@example.com', subject: 'Confirmation de rendez-vous', message: 'Nous confirmons notre rendez-vous du...', date: '2023-07-10', read: false },
-                ].map((message, index) => (
-                  <tr key={index} className={message.read ? '' : 'bg-blue-50'}>
-                    <td className="px-6 py-4 whitespace-nowrap">
-                      <input type="checkbox" className="rounded" />
-                    </td>
-                    <td className="px-6 py-4 whitespace-nowrap">
-                      <div className="text-sm font-medium text-gray-900">{message.from}</div>
-                    </td>
-                    <td className="px-6 py-4 whitespace-nowrap">
-                      <div className="text-sm font-medium text-gray-900">{message.subject}</div>
-                    </td>
-                    <td className="px-6 py-4">
-                      <div className="text-sm text-gray-900 truncate max-w-xs">{message.message}</div>
-                    </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                      {message.date}
-                    </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                      <button className="text-blue-600 hover:text-blue-900 mr-3">Voir</button>
-                      <button className="text-red-600 hover:text-red-900">Supprimer</button>
-                    </td>
+          {isLoading ? (
+            <div className="flex justify-center items-center py-12">
+              <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-[#010e26]"></div>
+            </div>
+          ) : messages.length === 0 ? (
+            <div className="text-center py-12 text-gray-500">
+              Aucun message trouvé
+            </div>
+          ) : (
+            <div className="overflow-x-auto">
+              <table className="min-w-full divide-y divide-gray-200">
+                <thead className="bg-gray-50">
+                  <tr>
+                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      <input 
+                        type="checkbox" 
+                        checked={selectedMessages.length === messages.length && messages.length > 0}
+                        onChange={toggleSelectAll}
+                        className="rounded"
+                      />
+                    </th>
+                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Nom</th>
+                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Email</th>
+                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Téléphone</th>
+                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Entreprise</th>
+                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Message</th>
+                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Date</th>
+                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+                </thead>
+                <tbody className="bg-white divide-y divide-gray-200">
+                  {messages.map((message) => (
+                    <tr key={message.id} className={message.read_at ? '' : 'bg-blue-50'}>
+                      <td className="px-6 py-4 whitespace-nowrap">
+                        <input 
+                          type="checkbox" 
+                          checked={selectedMessages.includes(message.id)}
+                          onChange={() => toggleSelectMessage(message.id)}
+                          className="rounded"
+                        />
+                      </td>
+                      <td className="px-6 py-4 whitespace-nowrap">
+                        <div className="text-sm font-medium text-gray-900">{message.full_name}</div>
+                      </td>
+                      <td className="px-6 py-4 whitespace-nowrap">
+                        <div className="text-sm text-gray-900">{message.email}</div>
+                      </td>
+                      <td className="px-6 py-4 whitespace-nowrap">
+                        <div className="text-sm text-gray-900">{message.phone_number || '-'}</div>
+                      </td>
+                      <td className="px-6 py-4 whitespace-nowrap">
+                        <div className="text-sm text-gray-900">{message.company_name || '-'}</div>
+                      </td>
+                      <td className="px-6 py-4">
+                        <div className="text-sm text-gray-900 truncate max-w-xs">{message.message}</div>
+                      </td>
+                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                        {new Date(message.created_at).toLocaleDateString()}
+                      </td>
+                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                        
+                        <button onClick={() => handleViewMessage(message)} className="text-blue-600 hover:text-blue-900 mr-3">
+                          Voir
+                        </button>
+
+                        <button 
+                          onClick={() => deleteMessages([message.id])}
+                          className="text-red-600 hover:text-red-900"
+                        >
+                          Supprimer
+                        </button>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          )}
         </section>
       </div>
     </>
