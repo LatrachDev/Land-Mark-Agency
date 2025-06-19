@@ -1,5 +1,6 @@
 import { Helmet } from 'react-helmet';
 import { useNavigate } from 'react-router-dom';
+import { ADMIN_TEAM, ADMIN_INBOX, ADMIN_PROJECTS, ADMIN_BLOG, ADMIN_CONTENT } from '../config/routes';
 import Footer from '../components/Footer';
 
 export default function Dashboard() {
@@ -15,31 +16,31 @@ export default function Dashboard() {
       title: 'Gestion d’équipe',
       desc: 'Ajoutez, modifiez ou supprimez les membres de l’équipe.',
       icon: '👥',
-      path: '/admin/team',
+      path: ADMIN_TEAM,
     },
     {
       title: 'Gestion des projets',
       desc: 'Suivez, ajoutez ou archivez les projets de l’agence.',
       icon: '📁',
-      path: '/admin/projects',
+      path: ADMIN_PROJECTS,
     },
     {
       title: 'Création de contenu',
       desc: 'Gérez les articles, textes, et médias publiés.',
       icon: '✍️',
-      path: '/admin/content',
+      path: ADMIN_CONTENT,
     },
     {
-      title: 'Gestion du portfolio',
-      desc: 'Ajoutez ou mettez à jour vos réalisations.',
+      title: 'Gestion du blog',
+      desc: 'Ajoutez ou mettez à jour vos blogs.',
       icon: '🖼️',
-      path: '/admin/portfolio',
+      path: ADMIN_BLOG,
     },
     {
       title: 'Boîte de réception',
       desc: 'Consultez les messages envoyés via le formulaire de contact.',
       icon: '📨',
-      path: '/admin/inbox',
+      path: ADMIN_INBOX,
     },
   ];
 

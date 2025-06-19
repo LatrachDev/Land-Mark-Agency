@@ -271,8 +271,8 @@ export default function ProjectsPage() {
       path: ADMIN_CONTENT,
     },
     {
-      title: 'Gestion du portfolio',
-      desc: 'Ajoutez ou mettez à jour vos réalisations.',
+      title: 'Gestion du blog',
+      desc: 'Ajoutez ou mettez à jour vos blogs.',
       icon: '🖼️',
       path: ADMIN_BLOG,
     },

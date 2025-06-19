@@ -339,8 +339,8 @@ export default function ContentPage() {
       active: true
     },
     {
-      title: 'Gestion du portfolio',
-      desc: 'Ajoutez ou mettez à jour vos réalisations.',
+      title: 'Gestion du blog',
+      desc: 'Ajoutez ou mettez à jour vos blogs.',
       icon: '🖼️',
       path: ADMIN_BLOG,
     },
