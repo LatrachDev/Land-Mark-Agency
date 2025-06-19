@@ -10,6 +10,7 @@ use App\Http\Controllers\Api\V1\Admin\ContentController as AdminContentControlle
 use App\Http\Controllers\Api\V1\Admin\ProjectController as AdminProjectController;
 use App\Http\Controllers\Api\V1\Admin\TeamController as AdminTeamController;
 use App\Http\Controllers\Auth\AdminLoginController;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,6 +24,10 @@ use App\Http\Controllers\Auth\AdminLoginController;
 // });
 
 Route::post('/contact', [ContactController::class, 'store']);
+Route::get('/', [HomeController::class, 'home']);
+Route::get('/portfolio', [HomeController::class, 'porftolio']);
+Route::get('/about', [HomeController::class, 'teamMembers']);
+Route::get('/blog', [HomeController::class, 'blog']);
 
 // Admin login route (NO auth middleware)
 Route::post('/admin/login', [AdminLoginController::class, 'login']);
