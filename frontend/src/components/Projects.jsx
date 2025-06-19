@@ -1,67 +1,68 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
-const projects = [
-  {
-    title: 'BRAND DESIGN',
-    subtitle: '"EXTENT MEDIA"',
-    image: 'src/assets/JPG/projects/01-01.jpg',
-    alt: 'Extent Media Logo',
-    description: 'Project brief and all aspects of this project in short words to help understand what we worked on.',
-    result: '45%',
-    statLabel: 'Website views after rebranding',
-  },
-  {
-    title: 'UI & UX DESIGN',
-    subtitle: '"GROWMAX"',
-    image: 'src/assets/JPG/projects/08-15.jpg',
-    alt: 'GrowMax Website',
-    description: 'Project brief and all aspects of this project in short words to help understand what we worked on.',
-    result: '15%',
-    statLabel: 'Website views after rebranding',
-  },
-  {
-    title: 'PACKAGING DESIGN',
-    subtitle: '"AL GHOSNE"',
-    image: 'src/assets/JPG/projects/02-1.jpg',
-    alt: 'Al Ghosne Packaging',
-    description: 'Project brief and all aspects of this project in short words to help understand what we worked on.',
-    result: '45%',
-    statLabel: 'Website views after rebranding',
-  },
-];
-
 const Projects = () => {
+  const [threeProjects, setThreeProjects] = useState([]);
+
+  useEffect(() => {
+    fetch('http://127.0.0.1:8000/api/home', {
+      headers: {
+        'Accept': 'application/json'
+      }
+    })
+      .then(res => {
+        if (!res.ok) throw new Error('Network response was not ok');
+        return res.json();
+      })
+      .then(data => {
+        if (data.threeProjects) {
+          setThreeProjects(data.threeProjects);
+        }
+      })
+      .catch(error => {
+        console.error('Failed to fetch projects:', error);
+      });
+  }, []);
+
   return (
     <section className="mx-auto px-4 sm:px-10 py-16 bg-white">
       <div className="container w-[90%] m-auto">
         {/* Section Title */}
         <div className="mb-12 text-left" style={{ fontFamily: 'BioRhyme_Expanded' }}>
-          <h2 className="text-sm sm:text-xl  text-[#263973] uppercase">PROJECT HIGHLIGHTS</h2>
-          <p className="text-sm sm:text-xl  text-[#263973] mt-2">"CASE STUDIES"</p>
+          <h2 className="text-sm sm:text-xl text-[#263973] uppercase">PROJECT HIGHLIGHTS</h2>
+          <p className="text-sm sm:text-xl text-[#263973] mt-2">"CASE STUDIES"</p>
         </div>
 
         {/* Projects Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {projects.map((project, index) => (
-            <div key={index} className="flex flex-col">
-              <div className="mb-4 rounded-lg overflow-hidden">
-                <img src={project.image} alt={project.alt} className="w-full" />
+          {threeProjects.map((project) => (
+            <div key={project.id} className="flex flex-col group">
+              {/* Square image container */}
+              <div className="mb-4 rounded-lg overflow-hidden aspect-square bg-gray-100 relative">
+                <img 
+                  src={`http://127.0.0.1:8000/storage/${project.image}`}
+                  alt={project.title}
+                  className="w-full h-full object-cover absolute inset-0 transition-transform duration-300 group-hover:scale-105"
+                />
               </div>
+              
               <h3 className="text-xl font-bold font-['Jost'] mb-2">
-                {project.title} <span className="italic">{project.subtitle}</span>
+                {project.title}
               </h3>
-              <p className="font-['Jost'] font-normal text-[#010E26] mb-6">{project.description}</p>
-              <div>
-                <p className="text-2xl sm:text-4xl text-blue-500 font-bold font-['Jost']">{project.result}</p>
-                <p className="font-['Jost'] mt-2 w-4/12">{project.statLabel}</p>
-              </div>
+              <p className="font-['Jost'] font-normal text-[#010E26] mb-3 line-clamp-2">
+                {project.description}
+              </p>
+    
+              <p className="sm:text-2xl text-2xl text-blue-500 font-bold font-['Jost']">
+                {project.view_percent} <span className='text-sm'>views</span>
+              </p>
+   
             </div>
           ))}
         </div>
 
         {/* View All Button */}
-        <div className="text-left text-xs sm:text-sm md:text-xl mt-12">
+        <div className="text-left text-xs sm:text-sm lg:text-xl mt-12">
           <Link to="/portfolio" className="inline-block border-2 border-gray-800 px-8 py-3 font-['Jost'] uppercase hover:bg-gray-800 hover:text-white transition-colors">
             View All Works
           </Link>
