@@ -24,7 +24,7 @@ use App\Http\Controllers\HomeController;
 // });
 
 Route::post('/contact', [ContactController::class, 'store']);
-Route::get('/', [HomeController::class, 'home']);
+Route::get('/home', [HomeController::class, 'home']);
 Route::get('/portfolio', [HomeController::class, 'porftolio']);
 Route::get('/about', [HomeController::class, 'teamMembers']);
 Route::get('/blog', [HomeController::class, 'blog']);
