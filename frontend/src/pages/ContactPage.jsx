@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Helmet } from "react-helmet";
+import Nav from '../components/Nav';
 
 function ContactPage() {
   const [formData, setFormData] = useState({
@@ -79,10 +80,12 @@ function ContactPage() {
         <meta name="description" content="Contactez LandMark, une agence de marketing à service complet appartenant à Haytham Guemmah." />
       </Helmet>
 
+      <Nav />
+
       <section className="px-4 sm:px-10 py-8 bg-[#eeeeee]">
         <div className="container w-[90%] m-auto">
           <div className="mb-12">
-            <h2 style={{ fontFamily: 'BioRhyme_Expanded' }} className="text-xl font-['BioRhyme_Expanded'] text-[#263973] uppercase text-left">
+            <h2 style={{ fontFamily: 'BioRhyme_Expanded' }} className="text-sm sm:text-xl font-['BioRhyme_Expanded'] text-[#263973] uppercase text-left">
               Contactez-nous
             </h2>
           </div>

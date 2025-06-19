@@ -40,7 +40,7 @@ const Promotion = () => {
   }, []);
 
   return (
-    <div className="bg-blue-600 py-4 px-4 sm:px-20 text-white w-full flex flex-col sm:flex-row items-center">
+    <div className="bg-blue-600 sticky py-4 px-4 sm:px-20 text-white w-full flex flex-col sm:flex-row items-center">
       <div className="flex-1 flex items-center justify-between gap-1 sm:gap-2 text-xs sm:text-base">
         <div className="w-8/12">
           <span className="text-left sm:w-full text-xs sm:text-sm font-bold">

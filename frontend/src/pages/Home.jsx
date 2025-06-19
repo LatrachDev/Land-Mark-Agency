@@ -11,6 +11,7 @@ import Blog from '../components/Blog';
 import FAQ from '../components/FAQ';
 import Footer from '../components/Footer';
 import { Helmet } from "react-helmet";
+import Empty from '../components/Empty';
 
 function Home() {
 
@@ -25,8 +26,10 @@ function Home() {
     
     {/* <div className=""> */}
       <Promotion />
-      <div className="bg-[url('src/assets/BG/Asset7.png')] w-full bg-cover bg-no-repeat">
-        <Nav />
+      <Nav />
+      <div className="bg-[url('src/assets/BG/Asset7.png')] sm:-mt-25 -mt-22 w-full bg-cover bg-no-repeat">
+      <Empty />
+
         <Hero />
         <Mission className='mx-auto py-16 px-4 sm:px-10 w-[90%] m-auto text-white' />
       </div>
