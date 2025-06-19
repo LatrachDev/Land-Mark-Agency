@@ -81,11 +81,11 @@ class BlogController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        // $blog = Blog::find($id);
+        $blog = Blog::find($id);
 
-        // if (!$blog) {
-        //     return response()->json(['message' => 'Blog not found'], 404);
-        // }
+        if (!$blog) {
+            return response()->json(['message' => 'Blog not found'], 404);
+        }
 
         $data = $request->validate([
             'title' => 'required|string|max:255',
