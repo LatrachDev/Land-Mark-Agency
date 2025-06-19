@@ -165,16 +165,15 @@ export default function PortfolioPage() {
                               videoRefs.current[index].play();
                             }}
                           >
-                            <div className="bg-white bg-opacity-80 rounded-full p-4 shadow-lg transition-transform hover:scale-110">
-                              <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                className="h-10 w-10 text-blue-600"
-                                fill="currentColor"
-                                viewBox="0 0 20 20"
-                              >
-                                <path d="M6 4l10 6-10 6V4z" />
-                              </svg>
-                            </div>
+                            
+                                   <svg
+                                    className="w-16 h-16 text-white opacity-80 hover:scale-110 transition-transform drop-shadow-lg"
+                                    fill="currentColor"
+                                    viewBox="0 0 24 24"
+                                  >
+                                    <path d="M8 5v14l11-7z" />
+                                  </svg>
+                            
                           </div>
                         </>
                       )}

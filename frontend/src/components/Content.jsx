@@ -1,11 +1,7 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
-import Reel1 from '../assets/video/Reel1.mp4';
-import Reel2 from '../assets/video/Reel2.mp4';
-import Reel3 from '../assets/video/Reel3.mp4';
-
-const VideoCard = ({ src, onVideoPlay, thumbnail }) => {
+const VideoCard = ({ videoUrl, onVideoPlay, thumbnailUrl, title, views }) => {
   const videoRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
 
@@ -22,15 +18,12 @@ const VideoCard = ({ src, onVideoPlay, thumbnail }) => {
       setIsPlaying(false);
     };
 
-    // Handle fullscreen change to maintain aspect ratio
     const handleFullscreenChange = () => {
       if (video) {
         if (document.fullscreenElement) {
-          // In fullscreen, maintain original aspect ratio
           video.style.objectFit = 'contain';
           video.style.backgroundColor = 'black';
         } else {
-          // Normal view, show full video without cropping
           video.style.objectFit = 'contain';
           video.style.backgroundColor = 'transparent';
         }
@@ -57,7 +50,6 @@ const VideoCard = ({ src, onVideoPlay, thumbnail }) => {
     };
   }, []);
 
-  // Expose pause method to parent component
   useEffect(() => {
     return () => {
       if (videoRef.current) {
@@ -73,13 +65,11 @@ const VideoCard = ({ src, onVideoPlay, thumbnail }) => {
     const video = videoRef.current;
     
     if (video && video.paused) {
-      // If video is paused, clicking anywhere should start it
       onVideoPlay(videoRef);
       video.play().catch(error => {
         console.error('Error playing video:', error);
       });
     } else if (video && isPlaying) {
-      // If video is playing, any click should pause it
       video.pause();
     }
   };
@@ -87,33 +77,35 @@ const VideoCard = ({ src, onVideoPlay, thumbnail }) => {
   const handlePlayButtonClick = (e) => {
     e.preventDefault();
     e.stopPropagation();
-    
-    // This will trigger the video click handler
     handleVideoClick(e);
   };
 
-  // Method to pause this video (called from parent)
   const pauseVideo = () => {
     if (videoRef.current && !videoRef.current.paused) {
       videoRef.current.pause();
     }
   };
 
-  // Expose pauseVideo method to parent
   useEffect(() => {
     if (videoRef.current) {
       videoRef.current.pauseVideo = pauseVideo;
     }
   }, []);
 
+  const formatViews = (num) => {
+    const n = Number(num);
+    if (n >= 1_000_000) return (n / 1_000_000).toFixed(1).replace(/\.0$/, '') + 'm';
+    if (n >= 1_000) return (n / 1_000).toFixed(1).replace(/\.0$/, '') + 'k';
+    return n.toString();
+  };
+
   return (
     <div className="flex flex-col">
       <div className="mb-8 relative group">
-        {/* Thumbnail overlay - shows when video is paused */}
-        {!isPlaying && thumbnail && (
+        {!isPlaying && thumbnailUrl && (
           <div className="absolute inset-0 z-10">
             <img 
-              src={thumbnail} 
+              src={thumbnailUrl} 
               alt="Video thumbnail"
               className="w-full h-full object-cover"
             />
@@ -122,7 +114,7 @@ const VideoCard = ({ src, onVideoPlay, thumbnail }) => {
         
         <video
           ref={videoRef}
-          src={src}
+          src={videoUrl}
           className="w-full h-auto object-contain cursor-pointer"
           onClick={handleVideoClick}
           playsInline
@@ -130,11 +122,11 @@ const VideoCard = ({ src, onVideoPlay, thumbnail }) => {
           controlsList="nodownload nofullscreen noremoteplayback"
           disablePictureInPicture
           onContextMenu={(e) => e.preventDefault()}
+          poster={thumbnailUrl}
         >
           Your browser does not support the video tag.
         </video>
         
-        {/* Play button overlay - shows when video is paused */}
         <div 
           className="absolute inset-0 flex items-center justify-center pointer-events-none z-20"
           style={{ display: isPlaying ? 'none' : 'flex' }}
@@ -153,13 +145,10 @@ const VideoCard = ({ src, onVideoPlay, thumbnail }) => {
           </div>
         </div>
       </div>
-      <h3 className="text-xl font-bold font-['Jost'] mb-8">PROJECT NAME</h3>
+      <h3 className="text-xl font-bold font-['Jost'] mb-3">{title}</h3>
       <div>
-        <p className="text-2xl sm:text-4xl text-blue-500 font-bold font-['Jost']">45%</p>
-        <p className="font-['Jost'] mt-2">
-          Website views
-          <br />
-          after rebranding
+        <p className="text-2xl sm:text-4xl text-blue-500 font-bold font-['Jost']">
+          {formatViews(views)} <span className='text-sm'>views</span>
         </p>
       </div>
     </div>
@@ -168,13 +157,32 @@ const VideoCard = ({ src, onVideoPlay, thumbnail }) => {
 
 const Content = () => {
   const activeVideoRef = useRef(null);
+  const [threeContents, setThreeContents] = useState([]);
+
+  useEffect(() => {
+    fetch('http://127.0.0.1:8000/api/home', {
+      headers: {
+        'Accept': 'application/json'
+      }
+    })
+      .then(res => {
+        if (!res.ok) throw new Error('Network response was not ok');
+        return res.json();
+      })
+      .then(data => {
+        if (data.threeContents) {
+          setThreeContents(data.threeContents);
+        }
+      })
+      .catch(error => {
+        console.error('Failed to fetch content:', error);
+      });
+  }, []);
 
   const handleVideoPlay = (newVideoRef) => {
-    // If there's already a video playing, pause it
     if (activeVideoRef.current && activeVideoRef.current !== newVideoRef.current) {
       activeVideoRef.current.pause();
     }
-    // Set the new active video
     activeVideoRef.current = newVideoRef.current;
   };
 
@@ -191,21 +199,16 @@ const Content = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <VideoCard 
-            src={Reel1} 
-            onVideoPlay={handleVideoPlay} 
-            // thumbnail="src/assets/JPG/thumbnail.png" 
-          />
-          <VideoCard 
-            src={Reel2} 
-            onVideoPlay={handleVideoPlay} 
-            // thumbnail="src/assets/JPG/thumbnail.png" 
-          />
-          <VideoCard 
-            src={Reel3} 
-            onVideoPlay={handleVideoPlay} 
-            // thumbnail="src/assets/JPG/thumbnail.png" 
-          />
+          {threeContents.map((content, index) => (
+            <VideoCard 
+              key={content.id}
+              videoUrl={`http://127.0.0.1:8000/storage/${content.video}`}
+              thumbnailUrl={`http://127.0.0.1:8000/storage/${content.thumbnail}`}
+              title={content.title}
+              views={content.views}
+              onVideoPlay={handleVideoPlay}
+            />
+          ))}
         </div>
 
         <div className="text-left text-xs sm:text-sm md:text-xl mt-12">

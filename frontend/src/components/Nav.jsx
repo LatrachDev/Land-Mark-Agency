@@ -26,7 +26,7 @@ const Nav = () => {
       {/* <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-4"> */}
         <div className="flex justify-between items-center">
           {/* Logo */}
-          <Link to="/" className="flex items-center pt-4 sm:px-6">
+          <Link to="/" className="flex items-center py-4 sm:px-6">
             <img
               src={isHome ? whiteLogo : mainLogo}
               alt="Landmark"
