@@ -1,56 +1,30 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Link } from 'react-router-dom';
 import { Navigation } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 
-const blogPosts = [
-  {
-    id: 1,
-    title: 'PROJECT NAME',
-    image: 'src/assets/JPG/haytham.jpg',
-    description: 'Project brief and all aspects of this projects in short words to help understand what we worked on while the project.'
-  },
-  {
-    id: 2,
-    title: 'PROJECT NAME',
-    image: 'src/assets/JPG/haytham.jpg',
-    description: 'Project brief and all aspects of this projects in short words to help understand what we worked on while the project.'
-  },
-  {
-    id: 3,
-    title: 'PROJECT NAME',
-    image: 'src/assets/JPG/haytham.jpg',
-    description: 'Project brief and all aspects of this projects in short words to help understand what we worked on while the project.'
-  },
-  {
-    id: 4,
-    title: 'PROJECT NAME',
-    image: 'src/assets/JPG/haytham.jpg',
-    description: 'Project brief and all aspects of this projects in short words to help understand what we worked on while the project.'
-  },
-  {
-    id: 5,
-    title: 'PROJECT NAME',
-    image: 'src/assets/JPG/haytham.jpg',
-    description: 'Project brief and all aspects of this projects in short words to help understand what we worked on while the project.'
-  },
-  {
-    id: 6,
-    title: 'PROJECT NAME',
-    image: 'src/assets/JPG/haytham.jpg',
-    description: 'Project brief and all aspects of this projects in short words to help understand what we worked on while the project.'
-  },
-  {
-    id: 7,
-    title: 'PROJECT NAME',
-    image: 'src/assets/JPG/haytham.jpg',
-    description: 'Project brief and all aspects of this projects in short words to help understand what we worked on while the project.'
-  }
-];
-
 const Blog = () => {
+  const [blogs, setBlogs] = useState([]);
+
+  useEffect(() => {
+    fetch('http://127.0.0.1:8000/api/home', {
+      headers: {
+        'Accept': 'application/json'
+      }
+    })
+      .then(res => res.json())
+      .then(data => {
+        setBlogs(data.blogs || []);
+      })
+      .catch(error => {
+        console.error('Failed to fetch blogs:', error);
+      });
+  }, []);
+
+  const baseURL = 'http://127.0.0.1:8000/storage/';
+
   return (
     <section className="px-4 sm:px-10 py-16 bg-white">
       <div className="container w-[90%] m-auto">
@@ -71,12 +45,12 @@ const Blog = () => {
           }}
           className="pb-12"
         >
-          {blogPosts.map((post) => (
+          {blogs.map((post) => (
             <SwiperSlide key={post.id} className="flex flex-col">
               <div className="mb-8 overflow-hidden">
                 <img
-                  src={post.image}
-                  alt="Blog Visual"
+                  src={baseURL + post.image}
+                  alt={post.title}
                   className="w-full h-auto object-cover transition-transform duration-500 hover:scale-105"
                 />
               </div>
@@ -87,7 +61,10 @@ const Blog = () => {
         </Swiper>
 
         <div className="text-left">
-          <Link to="blog" className="inline-block mt-5 border-2 border-gray-800 px-8 py-3 font-['Jost'] uppercase hover:bg-gray-800 hover:text-white transition-colors">
+          <Link
+            to="blog"
+            className="inline-block mt-5 border-2 border-gray-800 px-8 py-3 font-['Jost'] uppercase hover:bg-gray-800 hover:text-white transition-colors"
+          >
             read more
           </Link>
         </div>
