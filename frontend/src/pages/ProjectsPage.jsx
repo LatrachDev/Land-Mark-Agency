@@ -131,7 +131,7 @@ export default function ProjectsPage() {
     } else {
       setFormData(prev => ({
         ...prev,
-        [name]: value
+        [name]: type === 'number' ? parseInt(value) || 0 : value
       }));
     }
   };
@@ -369,22 +369,18 @@ export default function ProjectsPage() {
                   
                   <div>
                     <label className="block text-sm font-medium text-[#010e26] mb-2">
-                      Pourcentage de vues ({formData.view_percent}%)
+                      Nombre de vues *
                     </label>
                     <input
-                      type="range"
+                      type="number"
                       name="view_percent"
-                      min="0"
-                      max="100"
-                      value={formData.view_percent}
+                      // value={formData.view_percent}
                       onChange={handleInputChange}
-                      className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer"
+                      required
+                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#010e26]"
+                      placeholder="Entrez le nombre de vues"
+                      min="0"
                     />
-                    <div className="flex justify-between text-xs text-gray-500 mt-1">
-                      <span>0%</span>
-                      <span>50%</span>
-                      <span>100%</span>
-                    </div>
                   </div>
                 </div>
 
@@ -473,22 +469,18 @@ export default function ProjectsPage() {
                   
                   <div>
                     <label className="block text-sm font-medium text-[#010e26] mb-2">
-                      Pourcentage de vues ({formData.view_percent}%)
+                      Nombre de vues *
                     </label>
                     <input
-                      type="range"
+                      type="number"
                       name="view_percent"
-                      min="0"
-                      max="100"
                       value={formData.view_percent}
                       onChange={handleInputChange}
-                      className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer"
+                      required
+                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#010e26]"
+                      placeholder="Entrez le nombre de vues"
+                      min="0"
                     />
-                    <div className="flex justify-between text-xs text-gray-500 mt-1">
-                      <span>0%</span>
-                      <span>50%</span>
-                      <span>100%</span>
-                    </div>
                   </div>
                 </div>
 
@@ -577,8 +569,9 @@ export default function ProjectsPage() {
                   <p className="text-sm text-gray-600 mb-3">{project.description}</p>
                   <div className="flex justify-between items-center">
                     <div>
-                      <span className="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded">{project.view_percent}%</span>
-                      <span className="text-xs ml-2 text-gray-500">Website views</span>
+                      <span className="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded">
+                        {project.view_percent.toLocaleString()} vues
+                      </span>
                     </div>
 
                     <div className="flex gap-2">

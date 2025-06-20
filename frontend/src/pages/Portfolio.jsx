@@ -25,19 +25,41 @@ export default function PortfolioPage() {
   }, []);
 
   const handlePlay = (index) => {
-    // Pause the currently playing video if there is one
     if (currentlyPlaying !== null && currentlyPlaying !== index) {
       videoRefs.current[currentlyPlaying]?.pause();
     }
-    // Set the new currently playing video
     setCurrentlyPlaying(index);
   };
 
   const handlePause = (index) => {
-    // If the paused video was the currently playing one, clear the state
     if (currentlyPlaying === index) {
       setCurrentlyPlaying(null);
     }
+  };
+
+  // Format view count function for projects
+  const formatViewCount = (count) => {
+    if (!count) return '0';
+    
+    if (count >= 1000000000) {
+      return `+${(count / 1000000000).toFixed(1)}b`;
+    }
+    if (count >= 1000000) {
+      return `+${(count / 1000000).toFixed(1)}m`;
+    }
+    if (count >= 1000) {
+      return `+${(count / 1000).toFixed(1)}k`;
+    }
+    return `+${count}`;
+  };
+
+  // Format view count function for content videos
+  const formatVideoViews = (num) => {
+    const n = Number(num);
+    if (n >= 1000000000) return `+${(n / 1000000000).toFixed(1)}b`;
+    if (n >= 1000000) return `+${(n / 1000000).toFixed(1)}m`;
+    if (n >= 1000) return `+${(n / 1000).toFixed(1)}k`;
+    return `+${n}`;
   };
 
   return (
@@ -80,29 +102,28 @@ export default function PortfolioPage() {
             </div>
 
             {/* Projects Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {projects.map((project, index) => {
-              const imageUrl = `http://127.0.0.1:8000/storage/${project.image}`;
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {projects.map((project, index) => {
+                const imageUrl = `http://127.0.0.1:8000/storage/${project.image}`;
 
-              return (
-                <div key={index} className="flex flex-col mb-10">
-                  <div className="mb-4 rounded-lg overflow-hidden">
-                    <img src={imageUrl} alt="Project image" className="w-full" />
+                return (
+                  <div key={index} className="flex flex-col mb-10">
+                    <div className="mb-4 rounded-lg overflow-hidden">
+                      <img src={imageUrl} alt="Project image" className="w-full transition-transform duration-300 ease-in-out transform hover:scale-105" />
+                    </div>
+                    <h3 className="text-sm sm:text-xl font-bold font-['Jost'] mb-2">
+                      {project.title}
+                    </h3>
+                    <p className="font-['Jost'] text-sm sm:text-base font-normal text-[#010E26] mb-3">
+                      {project.description}
+                    </p>
+                    <p className="sm:text-2xl text-2xl text-blue-500 font-bold font-['Jost']">
+                      {formatViewCount(project.view_percent)} <span className='text-sm'>views</span>
+                    </p>
                   </div>
-                  <h3 className="text-sm sm:text-xl font-bold font-['Jost'] mb-2">
-                    {project.title}
-                  </h3>
-                  <p className="font-['Jost'] text-sm sm:text-base font-normal text-[#010E26] mb-3">
-                    {project.description}
-                  </p>
-                  <p className="sm:text-2xl text-2xl text-blue-500 font-bold font-['Jost']">
-                    {project.view_percent} <span className='text-sm'>views</span>
-                  </p>
-                </div>
-              );
-            })}
-          </div>
-
+                );
+              })}
+            </div>
           </div>
         </section>
         
@@ -121,13 +142,6 @@ export default function PortfolioPage() {
                 const videoUrl = `http://127.0.0.1:8000/storage/${item.video}`;
                 const thumbnailUrl = `http://127.0.0.1:8000/storage/${item.thumbnail}`;
 
-                const formatViews = (num) => {
-                  const n = Number(num);
-                  if (n >= 1_000_000) return (n / 1_000_000).toFixed(1).replace(/\.0$/, '') + 'm';
-                  if (n >= 1_000) return (n / 1_000).toFixed(1).replace(/\.0$/, '') + 'k';
-                  return n.toString();
-                };
-
                 return (
                   <div key={index} className="flex flex-col mb-5">
                     <div className="mb-6 relative w-full aspect-video">
@@ -144,7 +158,6 @@ export default function PortfolioPage() {
                         Your browser does not support the video tag.
                       </video>
 
-                      {/* Thumbnail overlay - only shown when video is not playing */}
                       {currentlyPlaying !== index && (
                         <>
                           <img
@@ -157,7 +170,6 @@ export default function PortfolioPage() {
                             }}
                           />
 
-                          {/* Play Icon */}
                           <div
                             id={`icon-${index}`}
                             className="absolute inset-0 flex items-center justify-center z-10 cursor-pointer"
@@ -165,15 +177,13 @@ export default function PortfolioPage() {
                               videoRefs.current[index].play();
                             }}
                           >
-                            
-                                   <svg
-                                    className="w-16 h-16 text-white opacity-80 hover:scale-110 transition-transform drop-shadow-lg"
-                                    fill="currentColor"
-                                    viewBox="0 0 24 24"
-                                  >
-                                    <path d="M8 5v14l11-7z" />
-                                  </svg>
-                            
+                            <svg
+                              className="w-16 h-16 text-white opacity-80 hover:scale-110 transition-transform drop-shadow-lg"
+                              fill="currentColor"
+                              viewBox="0 0 24 24"
+                            >
+                              <path d="M8 5v14l11-7z" />
+                            </svg>
                           </div>
                         </>
                       )}
@@ -181,7 +191,7 @@ export default function PortfolioPage() {
 
                     <h3 className="text-sm sm:text-xl font-bold font-['Jost'] mb-3">{item.title}</h3>
                     <p className="sm:text-2xl text-2xl text-blue-500 font-bold font-['Jost']">
-                      {formatViews(item.views)} <span className='text-sm'>views</span>
+                      {formatVideoViews(item.views)} <span className='text-sm'>views</span>
                     </p>
                   </div>
                 );

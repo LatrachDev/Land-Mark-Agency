@@ -120,8 +120,8 @@ function ContactPage() {
                               onChange={() => handleInterestChange(item)}
                               className="absolute opacity-0 w-full h-full cursor-pointer peer"
                             />
-                            <span className={`inline-block border-2 border-black px-4 py-1 text-sm ${
-                              formData.interests.includes(item) ? 'bg-black text-white' : ''
+                            <span className={`inline-block border-1 border-black px-4 py-1 text-sm ${
+                              formData.interests.includes(item) ? 'bg-[#445EF2] text-white' : ''
                             }`}>
                               {item}
                             </span>
