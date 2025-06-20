@@ -1,4 +1,5 @@
 <?php
+use App\Http\Controllers\Api\V1\Admin\BlogController;
 use App\Http\Controllers\ContactController;
 
 use Illuminate\Http\Request;
@@ -28,6 +29,8 @@ Route::get('/home', [HomeController::class, 'home']);
 Route::get('/portfolio', [HomeController::class, 'porftolio']);
 Route::get('/about', [HomeController::class, 'teamMembers']);
 Route::get('/blog', [HomeController::class, 'blog']);
+Route::get('/blog/{id}', [HomeController::class, 'showBlog']);
+
 
 // Admin login route (NO auth middleware)
 Route::post('/admin/login', [AdminLoginController::class, 'login']);

@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('projects', function (Blueprint $table) {
             $table->id();
             $table->string('image');
+            $table->string('landing');
             $table->string('title');
             $table->text('description');
             $table->unsignedTinyInteger('view_percent')->default(0); 

@@ -47,14 +47,22 @@ class HomeController extends Controller
 
     public function blog()
     {
-        $marketingBlogs = Blog::where('category', 'MARKETING')->get();
-        $brandingBlogs = Blog::where('category', 'BRANDING')->get();
-        $contentsBlogs = Blog::where('category', 'CONTENTS')->get();
+        $blogs = Blog::all();
 
         return response()->json([
-            'marketingBlogs' => $marketingBlogs,
-            'brandingBlogs' => $brandingBlogs,
-            'contentsBlogs' => $contentsBlogs
+            'blogs' => $blogs,
+
         ], 200);
     }
+    public function showBlog(string $id)
+    {
+        $blog = Blog::find($id);
+    
+        if (!$blog) {
+            return response()->json(['message' => 'Blog not found'], 404);
+        }
+    
+        return response()->json($blog);
+    }
 }
+

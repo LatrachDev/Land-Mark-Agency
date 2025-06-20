@@ -38,6 +38,7 @@ class ProjectController extends Controller
             'title' => 'required|string|max:255',
             'description' => 'required|string',
             'image' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+            'landing' => 'required|image|mimes:jpeg,png,jpg|max:2048',
             'view_percent' => 'required|integer|min:0|max:100',
         ]);
 
@@ -46,6 +47,14 @@ class ProjectController extends Controller
             $path = $request->file('image')->store('projects', 'public');
 
             $data['image'] = $path;
+
+        }
+
+        if ($request->hasFile('landing')) {
+
+            $path = $request->file('landing')->store('projects', 'public');
+
+            $data['landing'] = $path;
 
         }
 
@@ -64,7 +73,7 @@ class ProjectController extends Controller
     {
         //
     }
-
+    
     /**
      * Show the form for editing the specified resource.
      */
@@ -82,6 +91,7 @@ class ProjectController extends Controller
             'title' => 'required|string|max:255',
             'description' => 'required|string',
             'image' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
+            'landing' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
             'view_percent' => 'required|integer|min:0|max:100',
         ]);
 
@@ -93,6 +103,15 @@ class ProjectController extends Controller
             }
 
             $path = $request->file('image')->store('projects', 'public');
+            $data['image'] = $path;
+        }
+
+        if ($request->hasFile('landing')) {
+            if ($project->landing && Storage::disk('public')->exists($project->landing)) {
+                Storage::disk('public')->delete($project->landing);
+            }
+
+            $path = $request->file('landing')->store('projects', 'public');
             $data['image'] = $path;
         }
 
@@ -114,6 +133,7 @@ class ProjectController extends Controller
 
         // Delete image file if needed
         Storage::disk('public')->delete($project->image);
+        Storage::disk('public')->delete($project->landing);
 
         $project->delete();
 
