@@ -50,7 +50,7 @@ const Services = () => {
         DES SOLUTIONS COMPLÈTES POUR BOOSTER VOTRE MARQUE ET VOTRE VISIBILITÉ
       </h3>
 
-      <p className="text-[#666666] text-sm sm:text-xl font-bold text-left max-w-2xl mb-12">
+      <p className="text-[#666666] text-sm sm:text-xl font-bold text-left w-[90%] mb-12">
         Que vous souhaitiez renforcer votre présence en ligne, bâtir une identité de marque forte ou
         captiver votre audience avec du contenu créatif, nous offrons des solutions complètes et adaptées.
       </p>

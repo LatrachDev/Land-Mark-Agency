@@ -17,6 +17,7 @@ const Blog = () => {
       .then(res => res.json())
       .then(data => {
         setBlogs(data.blogs || []);
+        console.log('data.blogs', data.blogs)
       })
       .catch(error => {
         console.error('Failed to fetch blogs:', error);

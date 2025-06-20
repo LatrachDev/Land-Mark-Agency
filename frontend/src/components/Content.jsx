@@ -147,7 +147,7 @@ const VideoCard = ({ videoUrl, onVideoPlay, thumbnailUrl, title, views }) => {
       </div>
       <h3 className="text-xl font-bold font-['Jost'] mb-3">{title}</h3>
       <div>
-        <p className="text-2xl sm:text-4xl text-blue-500 font-bold font-['Jost']">
+        <p className="sm:text-2xl text-2xl text-blue-500 font-bold font-['Jost']">
           {formatViews(views)} <span className='text-sm'>views</span>
         </p>
       </div>

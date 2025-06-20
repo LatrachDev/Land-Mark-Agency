@@ -4,6 +4,22 @@ import { Link } from 'react-router-dom';
 const Projects = () => {
   const [threeProjects, setThreeProjects] = useState([]);
 
+  // Function to format view count
+  const formatViewCount = (count) => {
+    if (!count) return '0';
+    
+    if (count >= 1000000000) {
+      return `+${(count / 1000000000).toFixed(1)}b`;
+    }
+    if (count >= 1000000) {
+      return `+${(count / 1000000).toFixed(1)}m`;
+    }
+    if (count >= 1000) {
+      return `+${(count / 1000).toFixed(1)}k`;
+    }
+    return `+${count}`;
+  };
+
   useEffect(() => {
     fetch('http://127.0.0.1:8000/api/home', {
       headers: {
@@ -54,9 +70,8 @@ const Projects = () => {
               </p>
     
               <p className="sm:text-2xl text-2xl text-blue-500 font-bold font-['Jost']">
-                {project.view_percent} <span className='text-sm'>views</span>
+                {formatViewCount(project.view_percent)} <span className='text-sm'>views</span>
               </p>
-   
             </div>
           ))}
         </div>

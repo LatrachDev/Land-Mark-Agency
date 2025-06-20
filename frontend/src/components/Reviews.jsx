@@ -52,7 +52,7 @@ const Reviews = () => {
             OUR BEST CLIENTS REVIEWS
           </h2>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {reviews.map((review, index) => (
             <div key={index} className="bg-gray-100 p-8 rounded-lg">
               <div className="text-6xl text-indigo-900 font-serif mb-4">
