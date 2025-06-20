@@ -15,6 +15,7 @@ import ProjectsPage from '../pages/ProjectsPage';
 import ContentPage from '../pages/ContentPage';
 import BlogPage from '../pages/BlogPage';
 import InboxPage from '../pages/InboxPage';
+import BlogDetailPage from '../pages/BlogDetailPage';
 
 function RoutesList() {
   // console.log("login path", LOGIN_PATH, DASHBOARD_PATH);
@@ -26,6 +27,7 @@ function RoutesList() {
       <Route path="/about" element={<About />} />
       <Route path="/services" element={<ServicesPage />} />
       <Route path="/blog" element={<Blog />} />
+      <Route path="/blog/:id" element={<BlogDetailPage />} />
       <Route path="/contact" element={<Contact />} />
 
       <Route path={LOGIN_PATH} element={<Login />} />
