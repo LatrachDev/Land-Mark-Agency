@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
-    <footer className="bg-[url('src/assets/BG/Asset7.png')] bg-cover bg-center w-full text-white font-['Jost'] pt-12 md:pt-20 pb-6 md:pb-10 px-4 sm:px-10">
+    <footer className="bg-[url('src/assets/BG/Asset7.png')] bg-cover bg-center w-full text-white font-['Jost'] pt-12 md:pt-20 pb-6 md:pb-10 px-4 sm:px-10 z-30">
       <div className=" mx-auto flex flex-col w-[90%]">
         {/* Logo */}
         <img className="w-48 md:w-64 mb-12 md:mb-20" src="src/assets/Logotype/White.png" alt="Landmark logo"/>

@@ -17,7 +17,7 @@ const Blog = () => {
       .then(res => res.json())
       .then(data => {
         setBlogs(data.blogs || []);
-        console.log('data.blogs', data.blogs)
+        console.log('data.blogs', data.blogs);
       })
       .catch(error => {
         console.error('Failed to fetch blogs:', error);
@@ -25,6 +25,12 @@ const Blog = () => {
   }, []);
 
   const baseURL = 'http://127.0.0.1:8000/storage/';
+
+  // Truncate description to a preview
+  const truncateText = (text, maxLength = 100) => {
+    if (!text) return '';
+    return text.length > maxLength ? text.slice(0, maxLength) + '...' : text;
+  };
 
   return (
     <section className="px-4 sm:px-10 py-16 bg-white">
@@ -48,22 +54,30 @@ const Blog = () => {
         >
           {blogs.map((post) => (
             <SwiperSlide key={post.id} className="flex flex-col">
-              <div className="mb-8 overflow-hidden">
+              <div className="mb-4 overflow-hidden rounded-lg">
                 <img
                   src={baseURL + post.image}
                   alt={post.title}
-                  className="w-full h-auto object-cover transition-transform duration-500 hover:scale-105"
+                  className="w-full h-48 object-cover rounded transition-transform duration-500 hover:scale-105"
                 />
               </div>
-              <h3 className="text-sm sm:text-xl font-bold font-['Jost'] mb-4">{post.title}</h3>
-              <p className="font-['Jost'] text-sm sm:text-xl mb-4">{post.description}</p>
+              <h3 className="text-sm sm:text-xl font-bold font-['Jost'] mb-2">{post.title}</h3>
+              <p className="font-['Jost'] text-sm sm:text-base mb-2 text-gray-600">
+                {truncateText(post.description, 100)}
+              </p>
+              <Link
+                to={`/blog/${post.id}`}
+                className="text-blue-600 text-sm font-medium hover:underline"
+              >
+                Read More
+              </Link>
             </SwiperSlide>
           ))}
         </Swiper>
 
         <div className="text-left">
           <Link
-            to="blog"
+            to="/blog"
             className="inline-block mt-5 border-2 border-gray-800 px-8 py-3 font-['Jost'] uppercase hover:bg-gray-800 hover:text-white transition-colors"
           >
             read more
