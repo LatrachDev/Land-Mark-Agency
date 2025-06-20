@@ -7,13 +7,14 @@ import { Navigation } from 'swiper/modules';
 import Footer from '../components/Footer';
 import { Helmet } from "react-helmet";
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 function BlogPage() {
   const [blogData, setBlogData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    fetch('http://127.0.0.1:8000/api/home', {
+    fetch('http://127.0.0.1:8000/api/blog', {
       headers: {
         'Accept': 'application/json'
       }
@@ -52,6 +53,12 @@ function BlogPage() {
         setIsLoading(false);
       });
   }, []);
+
+  // Function to truncate description
+  const truncateDescription = (text, maxLength = 100) => {
+    if (text.length <= maxLength) return text;
+    return text.substring(0, maxLength) + '...';
+  };
 
   return (
     <div className="font-[Jost]">
@@ -106,16 +113,32 @@ function BlogPage() {
                   navigation
                 >
                   {category.posts.map((post) => (
-                    <SwiperSlide key={post.id}>
-                      <div className="flex flex-col bg-white h-full">
+                    <SwiperSlide key={post.id} className="overflow-visible pb-8"> {/* Added pb-8 for shadow space */}
+                    <div className="flex flex-col bg-white h-full p-4 shadow-sm hover:shadow-lg transition-shadow duration-300 rounded-lg border border-gray-100 transform translate-z-0">
+                      <Link to={`/blog/${post.id}`} className="block overflow-hidden rounded-t-lg">
                         <img
                           src={post.image}
                           alt={post.title}
-                          className="w-full h-48 object-cover mb-4 rounded transition-transform duration-300 hover:scale-105"
+                          className="w-full h-48 object-cover rounded-t-lg hover:scale-105 transition-transform duration-300"
                         />
-                        <h3 className="text-xl sm:text-lg font-semibold mb-2">{post.title}</h3>
-                        <p className="text-gray-600 text-sm flex-grow">{post.description}</p>
+                      </Link>
+                      <div className="flex-grow p-3">
+                        <Link to={`/blog/${post.id}`} className="block">
+                          <h3 className="text-xl sm:text-lg font-semibold mb-2 hover:text-blue-500 transition-colors">
+                            {post.title}
+                          </h3>
+                        </Link>
+                        <p className="text-gray-600 text-sm mb-3 line-clamp-3">
+                          {truncateDescription(post.description)}
+                        </p>
+                        <Link 
+                          to={`/blog/${post.id}`} 
+                          className="text-blue-500 text-sm font-medium hover:underline inline-block"
+                        >
+                          Read More
+                        </Link>
                       </div>
+                    </div>
                     </SwiperSlide>
                   ))}
                 </Swiper>

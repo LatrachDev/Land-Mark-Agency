@@ -2,7 +2,6 @@ import { Helmet } from 'react-helmet';
 import { useNavigate } from 'react-router-dom';
 import { ADMIN_TEAM, ADMIN_INBOX, ADMIN_PROJECTS, ADMIN_BLOG, ADMIN_CONTENT } from '../config/routes';
 import { useEffect, useState } from 'react';
-import axios from 'axios';
 
 export default function ProjectsPage() {
   const [projects, setProjects] = useState([]);
@@ -20,7 +19,8 @@ export default function ProjectsPage() {
     title: '',
     description: '',
     view_percent: 0,
-    image: null
+    image: null,
+    landing: null
   });
   
   const navigate = useNavigate();
@@ -104,7 +104,8 @@ export default function ProjectsPage() {
       title: '',
       description: '',
       view_percent: 0,
-      image: null
+      image: null,
+      landing: null
     });
     setShowCreateForm(true);
   };
@@ -115,7 +116,8 @@ export default function ProjectsPage() {
       title: project.title,
       description: project.description,
       view_percent: project.view_percent,
-      image: null
+      image: null,
+      landing: null
     });
     setShowUpdateForm(true);
   };
@@ -149,6 +151,9 @@ export default function ProjectsPage() {
       formDataToSend.append('view_percent', formData.view_percent);
       if (formData.image) {
         formDataToSend.append('image', formData.image);
+      }
+      if (formData.landing) {
+        formDataToSend.append('landing', formData.landing);
       }
 
       console.log('Image file:', formData.image);
@@ -200,6 +205,10 @@ export default function ProjectsPage() {
       
       if (formData.image) {
         formDataToSend.append('image', formData.image);
+      }
+
+      if (formData.landing) {
+        formDataToSend.append('landing', formData.landing);
       }
 
       const response = await fetch(`http://127.0.0.1:8000/api/v1/admin/projects/${projectToEdit.id}`, {
@@ -369,19 +378,24 @@ export default function ProjectsPage() {
                   
                   <div>
                     <label className="block text-sm font-medium text-[#010e26] mb-2">
-                      Nombre de vues *
+                      Pourcentage de vues ({formData.view_percent}%)
                     </label>
                     <input
-                      type="number"
+                      type="range"
                       name="view_percent"
-                      // value={formData.view_percent}
-                      onChange={handleInputChange}
-                      required
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#010e26]"
-                      placeholder="Entrez le nombre de vues"
                       min="0"
+                      max="100"
+                      value={formData.view_percent}
+                      onChange={handleInputChange}
+                      className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer"
                     />
+                    <div className="flex justify-between text-xs text-gray-500 mt-1">
+                      <span>0%</span>
+                      <span>50%</span>
+                      <span>100%</span>
+                    </div>
                   </div>
+
                 </div>
 
                 <div>
@@ -412,6 +426,21 @@ export default function ProjectsPage() {
                     className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#010e26]"
                   />
                 </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-[#010e26] mb-2">
+                    Image Landing *
+                  </label>
+                  <input
+                    type="file"
+                    name="landing"
+                    onChange={handleInputChange}
+                    accept="image/*"
+                    required
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#010e26]"
+                  />
+                </div>
+
 
                 <div className="flex gap-3 pt-4">
                   <button
@@ -469,19 +498,24 @@ export default function ProjectsPage() {
                   
                   <div>
                     <label className="block text-sm font-medium text-[#010e26] mb-2">
-                      Nombre de vues *
+                      Pourcentage de vues ({formData.view_percent}%)
                     </label>
                     <input
-                      type="number"
+                      type="range"
                       name="view_percent"
+                      min="0"
+                      max="100"
                       value={formData.view_percent}
                       onChange={handleInputChange}
-                      required
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#010e26]"
-                      placeholder="Entrez le nombre de vues"
-                      min="0"
+                      className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer"
                     />
+                    <div className="flex justify-between text-xs text-gray-500 mt-1">
+                      <span>0%</span>
+                      <span>50%</span>
+                      <span>100%</span>
+                    </div>
                   </div>
+
                 </div>
 
                 <div>
@@ -506,6 +540,22 @@ export default function ProjectsPage() {
                   <input
                     type="file"
                     name="image"
+                    onChange={handleInputChange}
+                    accept="image/*"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#010e26]"
+                  />
+                  <p className="text-xs text-gray-500 mt-1">
+                    Laissez vide pour garder l'image actuelle
+                  </p>
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-[#010e26] mb-2">
+                    Nouvelle image Landing (optionnel)
+                  </label>
+                  <input
+                    type="file"
+                    name="landing"
                     onChange={handleInputChange}
                     accept="image/*"
                     className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#010e26]"
@@ -570,8 +620,9 @@ export default function ProjectsPage() {
                   <div className="flex justify-between items-center">
                     <div>
                       <span className="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded">
-                        {project.view_percent.toLocaleString()} vues
+                        {project.view_percent}%
                       </span>
+                      <span className="text-xs ml-2 text-gray-500">Website views</span>
                     </div>
 
                     <div className="flex gap-2">
