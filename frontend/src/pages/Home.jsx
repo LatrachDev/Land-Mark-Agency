@@ -12,6 +12,7 @@ import FAQ from '../components/FAQ';
 import Footer from '../components/Footer';
 import { Helmet } from "react-helmet";
 import Empty from '../components/Empty';
+import bgImage from '../assets/BG/Asset7.png';
 
 function Home() {
 
@@ -27,7 +28,7 @@ function Home() {
     {/* <div className=""> */}
       <Promotion />
       <Nav />
-      <div className="bg-[url('src/assets/BG/Asset7.png')] sm:-mt-25 -mt-22 w-full bg-cover bg-no-repeat">
+      <div style={{ backgroundImage: `url(${bgImage})` }} className=" sm:-mt-25 -mt-22 w-full bg-cover bg-no-repeat">
       <Empty />
 
         <Hero />

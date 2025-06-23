@@ -82,7 +82,7 @@ function Contact() {
       <section className="px-4 sm:px-10 py-8 bg-[#eeeeee]">
         <div className="container w-[90%] m-auto">
           <div className="mb-12">
-            <h2 style={{ fontFamily: 'BioRhyme_Expanded' }} className="text-xl font-['BioRhyme_Expanded'] text-[#263973] uppercase text-left">
+            <h2 style={{ fontFamily: 'bodoni' }} className="text-xl font-bold text-[#263973] uppercase text-left">
               Contactez-nous
             </h2>
           </div>

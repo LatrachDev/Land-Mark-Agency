@@ -42,7 +42,7 @@ const servicesData = [
 const Services = () => {
   return (
     <section id="services-section" className="bg-white py-16 px-4 sm:px-10 text-center w-[90%] m-auto">
-      <h2 className="text-sm sm:text-xl text-left text-[#263973] uppercase mb-6" style={{ fontFamily: 'BioRhyme_Expanded' }}>
+      <h2 className="text-sm sm:text-xl font-bold text-left text-[#263973] uppercase mb-6" style={{ fontFamily: 'bodoni' }}>
         SERVICES
       </h2>
 

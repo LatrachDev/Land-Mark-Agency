@@ -4,6 +4,7 @@ import Promotion from '../components/Promotion';
 import Nav from '../components/Nav';
 import Footer from '../components/Footer';
 import { Helmet } from "react-helmet";
+import whiteLogo from '../assets/Logotype/White.png';
 
 function BlogDetailPage() {
   const { id } = useParams();
@@ -17,6 +18,7 @@ function BlogDetailPage() {
         return res.json();
       })
       .then(data => {
+        console.log("Blog data:", data); 
         setBlog({
           ...data,
           image: `http://127.0.0.1:8000/storage/${data.image}`

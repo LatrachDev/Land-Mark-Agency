@@ -36,7 +36,7 @@ export default function ServicesPage() {
 
         {/* Services Section */}
         <section className="bg-white py-16 px-4 sm:px-10 text-center w-[90%] m-auto">
-          <h2 className="text-sm sm:text-xl font-normal text-left text-gray-900 uppercase mb-6 " style={{ fontFamily: 'BioRhyme_Expanded' }}>
+          <h2 className="text-sm sm:text-xl font-bold text-left text-gray-900 uppercase mb-6 " style={{ fontFamily: 'bodoni' }}>
             SERVICES
           </h2>
 

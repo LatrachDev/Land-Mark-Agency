@@ -5,6 +5,7 @@
   font-style: normal;
 }
 
+
 @font-face {
   font-family: 'Jost';
   src: url('./assets/fonts/Jost/Jost-400-Book.otf') format('truetype');
@@ -51,5 +52,26 @@
   font-family: 'BioRhyme_Expanded';
   src: url('./assets/fonts/BioRhymeExpanded-Regular.ttf') format('truetype');
   font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Bodoni';
+  src: url('./assets/fonts/Bodoni/BOD_R.TTF') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Bodoni';
+  src: url('./assets/fonts/Bodoni/BOD_B.TTF') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Bodoni';
+  src: url('./assets/fonts/Bodoni/BodoniMT.ttf') format('truetype');
+  font-weight: 500;
   font-style: normal;
 }

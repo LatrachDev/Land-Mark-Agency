@@ -107,9 +107,8 @@ export default function PortfolioPage() {
         <section className="mx-auto px-4 sm:px-10 py-16 bg-white">
           <div className="container w-[90%] m-auto">
             {/* Section Title */}
-            <div className="text-sm sm:text-xl text-left text-[#263973] uppercase mb-6" style={{ fontFamily: 'BioRhyme_Expanded' }}>
-              <h2 className="">PROJECT HIGHLIGHTS</h2>
-              <p className="">"CASE STUDIES"</p>
+            <div className="text-sm sm:text-xl font-bold text-left text-[#263973] uppercase mb-6" style={{ fontFamily: 'bodoni' }}>
+              <h2 className="">BRAND design</h2>
             </div>
 
             {/* Projects Grid */}
@@ -144,7 +143,7 @@ export default function PortfolioPage() {
                       {project.description}
                     </p>
                     <p className="sm:text-2xl text-2xl text-blue-500 font-bold font-['Jost']">
-                      {formatViewCount(project.view_percent)} <span className='text-sm'>views</span>
+                      {project.view_percent}% <span className='text-sm'>views</span>
                     </p>
                   </div>
                 );
@@ -205,7 +204,7 @@ export default function PortfolioPage() {
         <section className="px-4 sm:px-10 py-16 bg-white">
           <div className="container w-[90%] mx-auto">
             <div className="mb-12">
-              <h2 className="text-sm sm:text-xl text-[#263973] uppercase text-left" style={{ fontFamily: 'BioRhyme_Expanded' }}>
+              <h2 className="text-sm sm:text-xl text-[#263973] uppercase font-bold text-left" style={{ fontFamily: 'bodoni' }}>
                 CONTENT CREATION
               </h2>
             </div>

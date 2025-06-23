@@ -30,9 +30,8 @@ const Projects = () => {
     <section className="mx-auto px-4 sm:px-10 py-16 bg-white">
       <div className="container w-[90%] m-auto">
         {/* Section Title */}
-        <div className="mb-12 text-left" style={{ fontFamily: 'BioRhyme_Expanded' }}>
-          <h2 className="text-sm sm:text-xl text-[#263973] uppercase">PROJECT HIGHLIGHTS</h2>
-          <p className="text-sm sm:text-xl text-[#263973] mt-2">"CASE STUDIES"</p>
+        <div className="mb-12 font-bold text-left" style={{ fontFamily: 'bodoni' }}>
+          <h2 className="text-sm sm:text-xl text-[#263973] uppercase">Brand Design</h2>
         </div>
 
         {/* Projects Grid */}

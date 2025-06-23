@@ -7,6 +7,7 @@ export default {
       fontFamily: {
         jost: ['Jost', ...defaultTheme.fontFamily.sans],
         bio: ['BioRhyme_Expanded', ...defaultTheme.fontFamily.sans],
+        bodoni : ['Bodoni', ...defaultTheme.fontFamily.sans],
       },
     },
   },

@@ -24,7 +24,7 @@ const Mission = (props) => {
 
   return (
     <div className="container" {...props}>
-      <h2 style={{ fontFamily: 'BioRhyme_Expanded' }} className="text-sm sm:text-xl tracking-[0.2em] mb-6 uppercase pl-0">
+      <h2 style={{ fontFamily: 'bodoni' }} className="text-sm font-bold sm:text-xl tracking-[0.2em] mb-6 uppercase pl-0">
         Notre Mission
       </h2>
 

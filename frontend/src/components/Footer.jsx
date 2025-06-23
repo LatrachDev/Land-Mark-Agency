@@ -2,13 +2,15 @@ import React from 'react';
 import '@fortawesome/fontawesome-free/css/all.min.css'; 
 import { FacebookFilled, BehanceOutlined, LinkedinFilled, InstagramOutlined }from "@ant-design/icons" ;
 import { Link } from 'react-router-dom';
+import whiteLogo from '../assets/Logotype/White.png';
+import bgFooter from '../assets/BG/Asset7.png';
 
 const Footer = () => {
   return (
-    <footer className="bg-[url('src/assets/BG/Asset7.png')] bg-cover bg-center w-full text-white font-['Jost'] pt-12 md:pt-20 pb-6 md:pb-10 px-4 sm:px-10 z-30">
+    <footer  style={{ backgroundImage: `url(${bgFooter})` }} className=" bg-cover bg-center w-full text-white font-['Jost'] pt-12 md:pt-20 pb-6 md:pb-10 px-4 sm:px-10 z-30">
       <div className=" mx-auto flex flex-col w-[90%]">
         {/* Logo */}
-        <img className="w-48 md:w-64 mb-12 md:mb-20" src="src/assets/Logotype/White.png" alt="Landmark logo"/>
+        <img className="w-48 md:w-64 mb-12 md:mb-20" src={whiteLogo} alt="Landmark logo"/>
 
         <div className="flex flex-col lg:flex-row gap-8 md:gap-12">
           {/* Left Section */}
@@ -30,7 +32,7 @@ const Footer = () => {
           <div className="lg:w-5/12 flex flex-col md:flex-row lg:flex-col gap-8 md:gap-12">
             {/* Social Media */}
             <div className="w-full md:w-1/2 lg:w-full">
-              <p className="uppercase mb-3 text-sm tracking-wider text-left" style={{ fontFamily: 'BioRhyme_Expanded' }}>
+              <p className="uppercase font-bold mb-3 text-sm tracking-wider text-left" style={{ fontFamily: 'bodoni' }}>
                 FOLLOW US FOR DAILY CONTENT
               </p>
               <div className="flex md:justify-start space-x-6 text-xl mt-6 md:mt-10">
@@ -72,7 +74,7 @@ const Footer = () => {
 
             {/* Navigation */}
             <div className="w-full md:w-1/2 lg:w-full">
-              <p className="uppercase mb-3 text-sm tracking-wider text-left" style={{ fontFamily: 'BioRhyme_Expanded' }}>
+              <p className="uppercase mb-3 font-bold text-sm tracking-wider text-left" style={{ fontFamily: 'bodoni' }}>
                 NAVIGATION
               </p>
               <ul className="space-y-2 mt-6 md:mt-10 text-left">

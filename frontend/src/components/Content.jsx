@@ -191,10 +191,10 @@ const Content = () => {
       <div className="container w-[90%] mx-auto">
         <div className="mb-12">
           <h2
-            className="text-sm sm:text-xl text-[#263973] uppercase text-left"
-            style={{ fontFamily: 'BioRhyme_Expanded' }}
+            className="text-sm sm:text-xl text-[#263973] font-bold uppercase text-left"
+            style={{ fontFamily: 'bodoni' }}
           >
-            CONTENT CREATION
+            Création de contenu
           </h2>
         </div>
 
