@@ -12,7 +12,7 @@ return new class extends Migration
     public function up()
     {
         Schema::table('contacts', function (Blueprint $table) {
-            $table->text('interests')->nullable()->after('message');
+            $table->json('interests')->nullable()->after('message');
             $table->timestamp('read_at')->nullable()->after('interests');
         });
     }

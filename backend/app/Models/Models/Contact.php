@@ -11,11 +11,14 @@ class Contact extends Model
 
     protected $fillable = [
         "full_name",
-        "email",
         "phone_number",
         "company_name",
         "message",
         "message",
         "interests",
+    ];
+
+    protected $casts = [
+        'interests' => 'array',
     ];
 }

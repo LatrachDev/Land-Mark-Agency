@@ -12,8 +12,7 @@ class ContactController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'full_name' => 'required|string|max:255',
-            'email' => 'required|email|max:255',
-            'phone_number' => 'nullable|string|max:20',
+            'phone_number' => 'required|string|max:20',
             'company_name' => 'nullable|string|max:255',
             'message' => 'required|string',
             'interests' => 'nullable|array',
@@ -21,18 +20,18 @@ class ContactController extends Controller
 
         if ($validator->fails()) {
             return response()->json([
-                'message' => 'Validation error',
+                'message' => 'Veuillez remplir tous les champs',
                 'errors' => $validator->errors()
             ], 422);
         }
 
         $contact = Contact::create([
             'full_name' => $request->full_name,
-            'email' => $request->email,
             'phone_number' => $request->phone_number,
             'company_name' => $request->company_name,
             'message' => $request->message,
-            'interests' => json_encode($request->interests ?? []),
+            // 'interests' => json_encode($request->interests ?? []),
+            'interests' => $request->interests ?? [],
         ]);
 
         return response()->json([

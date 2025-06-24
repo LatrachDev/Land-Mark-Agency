@@ -15,6 +15,13 @@ export default function InboxPage() {
     localStorage.clear();
     navigate('/');
   };
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (!token) {
+      navigate('/');
+    }
+  }, [navigate]);
+
 
   const fetchMessages = async () => {
     setIsLoading(true);
@@ -29,6 +36,7 @@ export default function InboxPage() {
       const data = await response.json();
       if (response.ok) {
         setMessages(data.data || []);
+        console.log("hahia data dyal contact: ", data.data)
       }
     } catch (error) {
       console.error('Error fetching messages:', error);
@@ -267,11 +275,11 @@ export default function InboxPage() {
                       />
                     </th>
                     <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Nom</th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Email</th>
                     <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Téléphone</th>
                     <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Entreprise</th>
                     <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Message</th>
                     <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Date</th>
+                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Intérêts</th>
                     <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
                   </tr>
                 </thead>
@@ -290,9 +298,6 @@ export default function InboxPage() {
                         <div className="text-sm font-medium text-gray-900">{message.full_name}</div>
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap">
-                        <div className="text-sm text-gray-900">{message.email}</div>
-                      </td>
-                      <td className="px-6 py-4 whitespace-nowrap">
                         <div className="text-sm text-gray-900">{message.phone_number || '-'}</div>
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap">
@@ -301,12 +306,27 @@ export default function InboxPage() {
                       <td className="px-6 py-4">
                         <div className="text-sm text-gray-900 truncate max-w-xs">{message.message}</div>
                       </td>
+                      
                       <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                         {new Date(message.created_at).toLocaleDateString()}
                       </td>
+                      
+                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                        {Array.isArray(message.interests)
+                          ? message.interests.map((interest, i) => (
+                              <span
+                                key={i}
+                                className="inline-block bg-[#445EF2] text-white text-xs font-medium mr-2 px-2 py-1 rounded"
+                              >
+                                {interest}
+                              </span>
+                            ))
+                          : '-'}
+                      </td>
+
                       <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                         
-                        <button onClick={() => handleViewMessage(message)} className="text-blue-600 hover:text-blue-900 mr-3">
+                        <button onClick={() => handleViewMessage(message)} className="text-[#445EF2] hover:text-blue-900 mr-3">
                           Voir
                         </button>
 
