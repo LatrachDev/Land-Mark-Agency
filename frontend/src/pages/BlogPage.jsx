@@ -61,6 +61,14 @@ export default function BlogPage() {
   ];
 
   useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (!token) {
+      navigate('/');
+    }
+  }, [navigate]);
+  
+
+  useEffect(() => {
     fetchBlogs();
   }, []);
 
@@ -421,7 +429,7 @@ export default function BlogPage() {
           <div className="flex justify-between pt-2 border-t">
             <button
               onClick={() => handleEdit(blog)}
-              className="text-blue-600 hover:text-blue-800 px-2 py-1 rounded text-sm font-medium"
+              className="text-[#445EF2] hover:text-blue-800 px-2 py-1 rounded text-sm font-medium"
             >
               Éditer
             </button>

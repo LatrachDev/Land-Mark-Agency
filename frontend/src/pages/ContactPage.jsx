@@ -1,11 +1,9 @@
 import { useState } from 'react';
 import { Helmet } from "react-helmet";
-import Nav from '../components/Nav';
 
 function ContactPage() {
   const [formData, setFormData] = useState({
     full_name: '',
-    email: '',
     phone_number: '',
     company_name: '',
     message: '',
@@ -60,12 +58,12 @@ function ContactPage() {
       setSubmitStatus({ success: true, message: 'Message envoyé avec succès!' });
       setFormData({
         full_name: '',
-        email: '',
         phone_number: '',
         company_name: '',
         message: '',
         interests: []
       });
+      console.log("Submitting form data:", formData);
     } catch (error) {
       setSubmitStatus({ success: false, message: error.message });
     } finally {
@@ -80,12 +78,10 @@ function ContactPage() {
         <meta name="description" content="Contactez LandMark, une agence de marketing à service complet appartenant à Haytham Guemmah." />
       </Helmet>
 
-      <Nav />
-
       <section className="px-4 sm:px-10 py-8 bg-[#eeeeee]">
         <div className="container w-[90%] m-auto">
           <div className="mb-12">
-            <h2 style={{ fontFamily: 'bodoni' }} className="text-sm sm:text-xl font-bold font-['bodoni'] text-[#263973] uppercase text-left">
+            <h2 style={{ fontFamily: 'bodoni' }} className="text-xl sm:text-2xl font-bold text-[#263973] uppercase text-left">
               Contactez-nous
             </h2>
           </div>
@@ -94,7 +90,8 @@ function ContactPage() {
             {/* Form Section */}
             <div className="w-full lg:w-8/12">
               <h3 className="text-xl font-bold text-left text-[#010E26] uppercase mb-4">
-                Remplissez le formulaire et nous vous contacterons.
+                remplissez le formulaire,
+                et nous vous contacterons.
               </h3>
 
               <div className="lg:w-7/12">
@@ -107,11 +104,11 @@ function ContactPage() {
                 <form onSubmit={handleSubmit} className="space-y-6">
                   {/* Interests */}
                   <div className="mb-6">
-                    <h4 className="font-medium text-[#010E26] mb-2">
-                      JE SUIS INTÉRESSÉ PAR :
+                    <h4 className="font-medium uppercase text-[#010E26] mb-2">
+                      je suis intéressé par :
                     </h4>
-                    <div className="flex flex-wrap gap-2 mb-4">
-                      {["BRANDING", "WEBSITE DESIGN", "CONTENT CREATION", "PACKAGING", "OTHER"].map(
+                    <div className="flex flex-wrap gap-2 uppercase mb-4">
+                      {["BRANDING", "développement de sites Web", "Création de contenu", "Étude de marche", "OTHER"].map(
                         (item) => (
                           <label key={item} className="relative">
                             <input
@@ -136,29 +133,21 @@ function ContactPage() {
                     <div>
                       <input
                         name="full_name"
-                        placeholder="Nom complet"
+                        placeholder="Nom et Prénom"
                         type="text"
                         value={formData.full_name}
                         onChange={handleChange}
                         className="w-full p-3 border-b-2 border-gray-400 bg-transparent focus:border-[#010E26] focus:outline-none"
-                        required
+                        
                       />
                     </div>
                     <div>
-                      <input
-                        name="email"
-                        placeholder="Email"
-                        type="email"
-                        value={formData.email}
-                        onChange={handleChange}
-                        className="w-full p-3 border-b-2 border-gray-400 bg-transparent focus:border-[#010E26] focus:outline-none"
-                        required
-                      />
+          
                     </div>
                     <div>
                       <input
                         name="phone_number"
-                        placeholder="Numéro de téléphone"
+                        placeholder="Numéro De Téléphone"
                         type="tel"
                         value={formData.phone_number}
                         onChange={handleChange}
@@ -168,7 +157,7 @@ function ContactPage() {
                     <div>
                       <input
                         name="company_name"
-                        placeholder="Nom de l'entreprise"
+                        placeholder="Nom de l'Entreprise (Optionnel)*"
                         type="text"
                         value={formData.company_name}
                         onChange={handleChange}
@@ -178,11 +167,11 @@ function ContactPage() {
                     <div>
                       <textarea
                         name="message"
-                        placeholder="Parlez-nous de votre entreprise"
+                        placeholder="Parlez-Nous De Votre Entreprise"
                         value={formData.message}
                         onChange={handleChange}
                         className="w-full p-3 border-b-2 border-gray-400 bg-transparent h-24 focus:border-[#010E26] focus:outline-none"
-                        required
+                        
                       ></textarea>
                     </div>
 
@@ -204,8 +193,8 @@ function ContactPage() {
                 <img src="src/assets/JPG/haytham.jpg" alt="Haytham" className="w-full h-auto rounded-lg shadow-md" />
               </div>
               <p className="italic text-justify text-xl text-[#666666] mb-4">
-                Saviez-vous que 4 clients sur 5 changent de marque en raison d'une mauvaise expérience client et d'un mauvais design ? <br />
-                Chez Landmark, nous nous spécialisons dans la création de visuels innovants et tendance qui captivent et rendent vos produits et projets inoubliables.
+                Saviez-vous que 4 clients sur 5 changent de marque a cause d'une male expérience ou d'un design médiocres ? <br />
+                Chez Landmark, nous sommes spécialisés dans la création de visuels innovants et tendance qui non seulement captivent, mais rendent également vos produits et projets inoubliables.
               </p>
               <h4 className="font-bold text-xl uppercase">HAYTHAM GUERMAH</h4>
               <p className="font-medium italic text-xs">FONDATEUR & PDG DE @LANDMARK</p>

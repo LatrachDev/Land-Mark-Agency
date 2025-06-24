@@ -13,6 +13,7 @@ export default function ProjectsPage() {
   const [isDeleting, setIsDeleting] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
+  const [errors, setErrors] = useState({});
   
   // Form states
   const [formData, setFormData] = useState({
@@ -25,6 +26,13 @@ export default function ProjectsPage() {
   
   const navigate = useNavigate();
 
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (!token) {
+      navigate('/');
+    }
+  }, [navigate]);
+  
   useEffect(() => {
     fetchProjects();
   }, []);
@@ -107,6 +115,7 @@ export default function ProjectsPage() {
       image: null,
       landing: null
     });
+    setErrors({});
     setShowCreateForm(true);
   };
 
@@ -119,6 +128,7 @@ export default function ProjectsPage() {
       image: null,
       landing: null
     });
+    setErrors({});
     setShowUpdateForm(true);
   };
 
@@ -141,6 +151,7 @@ export default function ProjectsPage() {
   const handleCreateSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setErrors({});
 
     try {
       const token = localStorage.getItem("token");
@@ -156,8 +167,6 @@ export default function ProjectsPage() {
         formDataToSend.append('landing', formData.landing);
       }
 
-      console.log('Image file:', formData.image);
-
       const response = await fetch('http://127.0.0.1:8000/api/v1/admin/projects', {
         method: 'POST',
         headers: {
@@ -167,9 +176,14 @@ export default function ProjectsPage() {
         body: formDataToSend
       });
 
+      const data = await response.json();
+
       if (!response.ok) {
-        const data = await response.json();
-        console.error(data.message || "Création échouée !");
+        if (response.status === 422 && data.errors) {
+          setErrors(data.errors);
+        } else {
+          console.error(data.message || "Création échouée !");
+        }
         return;
       }
 
@@ -179,7 +193,8 @@ export default function ProjectsPage() {
         title: '',
         description: '',
         view_percent: 0,
-        image: null
+        image: null,
+        landing: null
       });
     } catch (err) {
       console.error("Erreur lors de la création :", err);
@@ -193,6 +208,7 @@ export default function ProjectsPage() {
     if (!projectToEdit) return;
     
     setIsSubmitting(true);
+    setErrors({});
 
     try {
       const token = localStorage.getItem("token");
@@ -220,9 +236,14 @@ export default function ProjectsPage() {
         body: formDataToSend
       });
 
+      const data = await response.json();
+
       if (!response.ok) {
-        const data = await response.json();
-        console.error(data.message || "Mise à jour échouée !");
+        if (response.status === 422 && data.errors) {
+          setErrors(data.errors);
+        } else {
+          console.error(data.message || "Mise à jour échouée !");
+        }
         return;
       }
 
@@ -233,7 +254,8 @@ export default function ProjectsPage() {
         title: '',
         description: '',
         view_percent: 0,
-        image: null
+        image: null,
+        landing: null
       });
     } catch (err) {
       console.error("Erreur lors de la mise à jour :", err);
@@ -246,11 +268,13 @@ export default function ProjectsPage() {
     setShowCreateForm(false);
     setShowUpdateForm(false);
     setProjectToEdit(null);
+    setErrors({});
     setFormData({
       title: '',
       description: '',
       view_percent: 0,
-      image: null
+      image: null,
+      landing: null
     });
   };
 
@@ -311,7 +335,7 @@ export default function ProjectsPage() {
             onClick={handleLogout}
             className="bg-[#010e26] text-white px-4 py-2 rounded-lg hover:bg-[#081d45] transition"
           >
-            Logout
+            Déconnexion
           </button>
         </div>
 
@@ -370,10 +394,13 @@ export default function ProjectsPage() {
                       name="title"
                       value={formData.title}
                       onChange={handleInputChange}
-                      required
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#010e26]"
+                      
+                      className={`w-full px-3 py-2 border ${errors.title ? 'border-red-500' : 'border-gray-300'} rounded-lg focus:outline-none focus:ring-2 focus:ring-[#010e26]`}
                       placeholder="Entrez le titre du projet"
                     />
+                    {errors.title && (
+                      <p className="mt-1 text-sm text-red-600">{errors.title[0]}</p>
+                    )}
                   </div>
                   
                   <div>
@@ -394,8 +421,10 @@ export default function ProjectsPage() {
                       <span>50%</span>
                       <span>100%</span>
                     </div>
+                    {errors.view_percent && (
+                      <p className="mt-1 text-sm text-red-600">{errors.view_percent[0]}</p>
+                    )}
                   </div>
-
                 </div>
 
                 <div>
@@ -406,11 +435,14 @@ export default function ProjectsPage() {
                     name="description"
                     value={formData.description}
                     onChange={handleInputChange}
-                    required
+                    
                     rows="3"
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#010e26]"
+                    className={`w-full px-3 py-2 border ${errors.description ? 'border-red-500' : 'border-gray-300'} rounded-lg focus:outline-none focus:ring-2 focus:ring-[#010e26]`}
                     placeholder="Décrivez le projet..."
                   />
+                  {errors.description && (
+                    <p className="mt-1 text-sm text-red-600">{errors.description[0]}</p>
+                  )}
                 </div>
 
                 <div>
@@ -422,9 +454,12 @@ export default function ProjectsPage() {
                     name="image"
                     onChange={handleInputChange}
                     accept="image/*"
-                    required
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#010e26]"
+                    
+                    className={`w-full px-3 py-2 border ${errors.image ? 'border-red-500' : 'border-gray-300'} rounded-lg focus:outline-none focus:ring-2 focus:ring-[#010e26]`}
                   />
+                  {errors.image && (
+                    <p className="mt-1 text-sm text-red-600">{errors.image[0]}</p>
+                  )}
                 </div>
 
                 <div>
@@ -436,11 +471,13 @@ export default function ProjectsPage() {
                     name="landing"
                     onChange={handleInputChange}
                     accept="image/*"
-                    required
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#010e26]"
+                    
+                    className={`w-full px-3 py-2 border ${errors.landing ? 'border-red-500' : 'border-gray-300'} rounded-lg focus:outline-none focus:ring-2 focus:ring-[#010e26]`}
                   />
+                  {errors.landing && (
+                    <p className="mt-1 text-sm text-red-600">{errors.landing[0]}</p>
+                  )}
                 </div>
-
 
                 <div className="flex gap-3 pt-4">
                   <button
@@ -490,10 +527,13 @@ export default function ProjectsPage() {
                       name="title"
                       value={formData.title}
                       onChange={handleInputChange}
-                      required
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#010e26]"
+                      
+                      className={`w-full px-3 py-2 border ${errors.title ? 'border-red-500' : 'border-gray-300'} rounded-lg focus:outline-none focus:ring-2 focus:ring-[#010e26]`}
                       placeholder="Entrez le titre du projet"
                     />
+                    {errors.title && (
+                      <p className="mt-1 text-sm text-red-600">{errors.title[0]}</p>
+                    )}
                   </div>
                   
                   <div>
@@ -514,8 +554,10 @@ export default function ProjectsPage() {
                       <span>50%</span>
                       <span>100%</span>
                     </div>
+                    {errors.view_percent && (
+                      <p className="mt-1 text-sm text-red-600">{errors.view_percent[0]}</p>
+                    )}
                   </div>
-
                 </div>
 
                 <div>
@@ -526,11 +568,14 @@ export default function ProjectsPage() {
                     name="description"
                     value={formData.description}
                     onChange={handleInputChange}
-                    required
+                    
                     rows="3"
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#010e26]"
+                    className={`w-full px-3 py-2 border ${errors.description ? 'border-red-500' : 'border-gray-300'} rounded-lg focus:outline-none focus:ring-2 focus:ring-[#010e26]`}
                     placeholder="Décrivez le projet..."
                   />
+                  {errors.description && (
+                    <p className="mt-1 text-sm text-red-600">{errors.description[0]}</p>
+                  )}
                 </div>
 
                 <div>
@@ -542,8 +587,11 @@ export default function ProjectsPage() {
                     name="image"
                     onChange={handleInputChange}
                     accept="image/*"
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#010e26]"
+                    className={`w-full px-3 py-2 border ${errors.image ? 'border-red-500' : 'border-gray-300'} rounded-lg focus:outline-none focus:ring-2 focus:ring-[#010e26]`}
                   />
+                  {errors.image && (
+                    <p className="mt-1 text-sm text-red-600">{errors.image[0]}</p>
+                  )}
                   <p className="text-xs text-gray-500 mt-1">
                     Laissez vide pour garder l'image actuelle
                   </p>
@@ -558,8 +606,11 @@ export default function ProjectsPage() {
                     name="landing"
                     onChange={handleInputChange}
                     accept="image/*"
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#010e26]"
+                    className={`w-full px-3 py-2 border ${errors.landing ? 'border-red-500' : 'border-gray-300'} rounded-lg focus:outline-none focus:ring-2 focus:ring-[#010e26]`}
                   />
+                  {errors.landing && (
+                    <p className="mt-1 text-sm text-red-600">{errors.landing[0]}</p>
+                  )}
                   <p className="text-xs text-gray-500 mt-1">
                     Laissez vide pour garder l'image actuelle
                   </p>
@@ -569,7 +620,7 @@ export default function ProjectsPage() {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition disabled:opacity-50 flex items-center"
+                    className="bg-[#445EF2] text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition disabled:opacity-50 flex items-center"
                   >
                     {isSubmitting ? (
                       <>
@@ -628,7 +679,7 @@ export default function ProjectsPage() {
                     <div className="flex gap-2">
                       <button 
                         onClick={() => handleEditClick(project)} 
-                        className="text-blue-600 hover:text-blue-800 px-2 py-1 rounded text-sm font-medium"
+                        className="text-[#445EF2] hover:text-blue-800 px-2 py-1 rounded text-sm font-medium"
                       >
                         Éditer
                       </button>
