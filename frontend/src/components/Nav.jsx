@@ -60,7 +60,7 @@ const Nav = () => {
   const shouldUseDarkColors = scrolled || !isHome;
 
   const navLinks = [
-    { name: 'HOME', path: '/' },
+    { name: 'ACCUEIL', path: '/' },
     { name: 'PORTFOLIO', path: '/portfolio' },
     { name: 'SERVICES', path: '/services' },
     { name: 'À PROPOS DE NOUS', path: '/about' },
@@ -101,7 +101,7 @@ const Nav = () => {
                     <span
                       className={`absolute bottom-0 left-0 ${
                         location.pathname === link.path ? 'w-full' : 'w-0'
-                      } h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full`}
+                      } h-0.5 bg-[#445EF2] transition-all duration-300 group-hover:w-full`}
                     ></span>
                   </Link>
                 ))}
@@ -109,7 +109,7 @@ const Nav = () => {
               <Link to="/contact"
                 className={`bg-transparent ${
                   shouldUseDarkColors ? 'text-black border-black' : 'text-white border-white'
-                } border text-sm md:text-base px-4 py-1.5 transition-all duration-300 hover:border-blue-600 whitespace-nowrap`}
+                } border text-sm md:text-base px-4 py-1.5 transition-all duration-300 hover:border-[#445EF2] whitespace-nowrap`}
               >
                 CONSULTATION GRATUITE
               </Link>
@@ -145,28 +145,28 @@ const Nav = () => {
       {menuOpen && (
         <div className="xl:hidden fixed inset-0 z-40 bg-white">
           <div className="flex flex-col justify-center items-center h-full px-8">
-            <div className="flex flex-col space-y-8 text-center">
+            <div className="flex flex-col mt-30 space-y-8 text-center">
               {navLinks.map(link => (
                 <Link
                   key={link.path}
                   to={link.path}
-                  className={`text-2xl relative block group text-black ${
+                  className={`text-xl sm:text-2xl relative block group text-black ${
                     location.pathname === link.path ? 'font-semibold' : ''
-                  } hover:text-blue-600 transition-colors duration-300`}
+                  } hover:text-[#445EF2] transition-colors duration-300`}
                   onClick={() => setMenuOpen(false)}
                 >
                   {link.name}
                   <span
                     className={`absolute bottom-0 left-1/2 transform -translate-x-1/2 ${
                       location.pathname === link.path ? 'w-full' : 'w-0'
-                    } h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full`}
+                    } h-0.5 bg-[#445EF2] transition-all duration-300 group-hover:w-full`}
                   ></span>
                 </Link>
               ))}
 
               <Link
                 to="/contact"
-                className="bg-transparent text-black border-black border text-lg px-6 py-3 transition-all duration-300 hover:bg-blue-600 hover:border-blue-600 hover:text-white mt-8"
+                className="bg-transparent text-black border-black border text-sm sm:text-xl px-6 py-3 transition-all duration-300 hover:bg-[#445EF2] hover:border-[#445EF2] hover:text-white mt-8"
                 onClick={() => setMenuOpen(false)}
               >
                 CONSULTATION GRATUITE

@@ -28,6 +28,13 @@ export default function ContentPage() {
   const navigate = useNavigate();
 
   useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (!token) {
+      navigate('/');
+    }
+  }, [navigate]);
+  
+  useEffect(() => {
     fetchContents();
   }, []);
 
@@ -91,8 +98,9 @@ export default function ContentPage() {
         },
       });
 
+      const data = await response.json();
+
       if (!response.ok) {
-        const data = await response.json();
         setErrors(data.errors || { message: data.message || "Échec de la suppression !" });
         return;
       }
@@ -122,8 +130,8 @@ export default function ContentPage() {
       video: null,
       thumbnail: null
     });
-    setShowCreateForm(true);
     setErrors({});
+    setShowCreateForm(true);
   };
 
   const handleEditClick = (content) => {
@@ -134,8 +142,8 @@ export default function ContentPage() {
       video: null,
       thumbnail: null
     });
-    setShowUpdateForm(true);
     setErrors({});
+    setShowUpdateForm(true);
   };
 
   const handleInputChange = (e) => {
@@ -174,18 +182,20 @@ export default function ContentPage() {
       
       formDataToSend.append('title', formData.title);
       formDataToSend.append('views', formData.views);
-      if (formData.video) {
-        formDataToSend.append('video', formData.video);
-      } else {
-        setErrors(prev => ({ ...prev, video: 'Veuillez sélectionner une vidéo' }));
+      
+      if (!formData.video) {
+        setErrors(prev => ({ ...prev, video: ['Veuillez sélectionner une vidéo'] }));
+        setIsSubmitting(false);
         return;
       }
-      if (formData.thumbnail) {
-        formDataToSend.append('thumbnail', formData.thumbnail);
-      } else {
-        setErrors(prev => ({ ...prev, thumbnail: 'Veuillez sélectionner une miniature' }));
+      formDataToSend.append('video', formData.video);
+      
+      if (!formData.thumbnail) {
+        setErrors(prev => ({ ...prev, thumbnail: ['Veuillez sélectionner une miniature'] }));
+        setIsSubmitting(false);
         return;
       }
+      formDataToSend.append('thumbnail', formData.thumbnail);
 
       const response = await fetch('http://127.0.0.1:8000/api/v1/admin/contents', {
         method: 'POST',
@@ -199,7 +209,11 @@ export default function ContentPage() {
       const data = await response.json();
 
       if (!response.ok) {
-        setErrors(data.errors || { message: data.message || "Échec de la création !" });
+        if (response.status === 422 && data.errors) {
+          setErrors(data.errors);
+        } else {
+          setErrors({ message: data.message || "Échec de la création !" });
+        }
         return;
       }
 
@@ -253,7 +267,11 @@ export default function ContentPage() {
       const data = await response.json();
 
       if (!response.ok) {
-        setErrors(data.errors || { message: data.message || "Échec de la mise à jour !" });
+        if (response.status === 422 && data.errors) {
+          setErrors(data.errors);
+        } else {
+          setErrors({ message: data.message || "Échec de la mise à jour !" });
+        }
         return;
       }
 
@@ -278,13 +296,13 @@ export default function ContentPage() {
     setShowCreateForm(false);
     setShowUpdateForm(false);
     setContentToEdit(null);
+    setErrors({});
     setFormData({
       title: '',
       views: '',
       video: null,
       thumbnail: null
     });
-    setErrors({});
   };
 
   const handleLogout = () => {
@@ -435,11 +453,13 @@ export default function ContentPage() {
                     name="title"
                     value={formData.title}
                     onChange={handleInputChange}
-                    required
+                    
                     className={`w-full px-3 py-2 border ${errors.title ? 'border-red-500' : 'border-gray-300'} rounded-lg focus:outline-none focus:ring-2 focus:ring-[#010e26]`}
                     placeholder="Entrez le titre du reel"
                   />
-                  {errors.title && <p className="mt-1 text-sm text-red-600">{errors.title}</p>}
+                  {errors.title && (
+                    <p className="mt-1 text-sm text-red-600">{errors.title[0]}</p>
+                  )}
                 </div>
 
                 <div>
@@ -451,11 +471,13 @@ export default function ContentPage() {
                     name="views"
                     value={formData.views}
                     onChange={handleInputChange}
-                    required
+                    
                     className={`w-full px-3 py-2 border ${errors.views ? 'border-red-500' : 'border-gray-300'} rounded-lg focus:outline-none focus:ring-2 focus:ring-[#010e26]`}
                     placeholder="Entrez le nombre de vues"
                   />
-                  {errors.views && <p className="mt-1 text-sm text-red-600">{errors.views}</p>}
+                  {errors.views && (
+                    <p className="mt-1 text-sm text-red-600">{errors.views[0]}</p>
+                  )}
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -468,10 +490,12 @@ export default function ContentPage() {
                       name="video"
                       onChange={handleInputChange}
                       accept="video/*"
-                      required
+                      
                       className={`w-full px-3 py-2 border ${errors.video ? 'border-red-500' : 'border-gray-300'} rounded-lg focus:outline-none focus:ring-2 focus:ring-[#010e26]`}
                     />
-                    {errors.video && <p className="mt-1 text-sm text-red-600">{errors.video}</p>}
+                    {errors.video && (
+                      <p className="mt-1 text-sm text-red-600">{errors.video[0]}</p>
+                    )}
                   </div>
                   
                   <div>
@@ -483,10 +507,12 @@ export default function ContentPage() {
                       name="thumbnail"
                       onChange={handleInputChange}
                       accept="image/*"
-                      required
+                      
                       className={`w-full px-3 py-2 border ${errors.thumbnail ? 'border-red-500' : 'border-gray-300'} rounded-lg focus:outline-none focus:ring-2 focus:ring-[#010e26]`}
                     />
-                    {errors.thumbnail && <p className="mt-1 text-sm text-red-600">{errors.thumbnail}</p>}
+                    {errors.thumbnail && (
+                      <p className="mt-1 text-sm text-red-600">{errors.thumbnail[0]}</p>
+                    )}
                   </div>
                 </div>
 
@@ -537,11 +563,13 @@ export default function ContentPage() {
                     name="title"
                     value={formData.title}
                     onChange={handleInputChange}
-                    required
+                    
                     className={`w-full px-3 py-2 border ${errors.title ? 'border-red-500' : 'border-gray-300'} rounded-lg focus:outline-none focus:ring-2 focus:ring-[#010e26]`}
                     placeholder="Entrez le titre du reel"
                   />
-                  {errors.title && <p className="mt-1 text-sm text-red-600">{errors.title}</p>}
+                  {errors.title && (
+                    <p className="mt-1 text-sm text-red-600">{errors.title[0]}</p>
+                  )}
                 </div>
 
                 <div>
@@ -557,7 +585,9 @@ export default function ContentPage() {
                     className={`w-full px-3 py-2 border ${errors.views ? 'border-red-500' : 'border-gray-300'} rounded-lg focus:outline-none focus:ring-2 focus:ring-[#010e26]`}
                     placeholder="Entrez le nombre de vues"
                   />
-                  {errors.views && <p className="mt-1 text-sm text-red-600">{errors.views}</p>}
+                  {errors.views && (
+                    <p className="mt-1 text-sm text-red-600">{errors.views[0]}</p>
+                  )}
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -570,8 +600,11 @@ export default function ContentPage() {
                       name="video"
                       onChange={handleInputChange}
                       accept="video/*"
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#010e26]"
+                      className={`w-full px-3 py-2 border ${errors.video ? 'border-red-500' : 'border-gray-300'} rounded-lg focus:outline-none focus:ring-2 focus:ring-[#010e26]`}
                     />
+                    {errors.video && (
+                      <p className="mt-1 text-sm text-red-600">{errors.video[0]}</p>
+                    )}
                     <p className="text-xs text-gray-500 mt-1">
                       Laissez vide pour garder la vidéo actuelle
                     </p>
@@ -586,8 +619,11 @@ export default function ContentPage() {
                       name="thumbnail"
                       onChange={handleInputChange}
                       accept="image/*"
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#010e26]"
+                      className={`w-full px-3 py-2 border ${errors.thumbnail ? 'border-red-500' : 'border-gray-300'} rounded-lg focus:outline-none focus:ring-2 focus:ring-[#010e26]`}
                     />
+                    {errors.thumbnail && (
+                      <p className="mt-1 text-sm text-red-600">{errors.thumbnail[0]}</p>
+                    )}
                     <p className="text-xs text-gray-500 mt-1">
                       Laissez vide pour garder la miniature actuelle
                     </p>
@@ -598,7 +634,7 @@ export default function ContentPage() {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition disabled:opacity-50 flex items-center"
+                    className="bg-[#445EF2] text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition disabled:opacity-50 flex items-center"
                   >
                     {isSubmitting ? (
                       <>
@@ -685,7 +721,7 @@ export default function ContentPage() {
                     <div className="flex gap-2">
                       <button 
                         onClick={() => handleEditClick(content)} 
-                        className="text-blue-600 hover:text-blue-800 px-2 py-1 rounded text-sm font-medium"
+                        className="text-[#445EF2] hover:text-blue-800 px-2 py-1 rounded text-sm font-medium"
                       >
                         Éditer
                       </button>

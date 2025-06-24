@@ -48,7 +48,7 @@ function BlogDetailPage() {
       <main className="mx-auto w-[90%] max-w-5xl px-4 sm:px-6 mt-20 md:mt-40">
         <article className="bg-white p-6 sm:p-10 rounded-xl shadow-md transition-all duration-300">
           <header className="mb-10">
-            <span className="text-sm text-blue-600 uppercase font-semibold tracking-wide">
+            <span className="text-sm text-[#445EF2] uppercase font-semibold tracking-wide">
               {blog.category}
             </span>
 

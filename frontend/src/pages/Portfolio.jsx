@@ -107,7 +107,7 @@ export default function PortfolioPage() {
         <section className="mx-auto px-4 sm:px-10 py-16 bg-white">
           <div className="container w-[90%] m-auto">
             {/* Section Title */}
-            <div className="text-sm sm:text-xl font-bold text-left text-[#263973] uppercase mb-6" style={{ fontFamily: 'bodoni' }}>
+            <div className="text-xl sm:text-2xl font-bold text-left text-[#263973] uppercase mb-6" style={{ fontFamily: 'bodoni' }}>
               <h2 className="">BRAND design</h2>
             </div>
 
@@ -170,7 +170,7 @@ export default function PortfolioPage() {
                     {isLongDescription && (
                       <button
                         onClick={() => setIsExpanded(!isExpanded)}
-                        className="text-blue-600 text-sm mt-1 sm:hidden"
+                        className="text-[#445EF2] text-sm mt-1 sm:hidden"
                       >
                         {isExpanded ? 'Show less' : 'Read more'}
                       </button>
@@ -204,7 +204,7 @@ export default function PortfolioPage() {
         <section className="px-4 sm:px-10 py-16 bg-white">
           <div className="container w-[90%] mx-auto">
             <div className="mb-12">
-              <h2 className="text-sm sm:text-xl text-[#263973] uppercase font-bold text-left" style={{ fontFamily: 'bodoni' }}>
+              <h2 className="text-xl sm:text-2xl text-[#263973] uppercase font-bold text-left" style={{ fontFamily: 'bodoni' }}>
                 CONTENT CREATION
               </h2>
             </div>

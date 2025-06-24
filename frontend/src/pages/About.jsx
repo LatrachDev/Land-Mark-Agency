@@ -108,7 +108,7 @@ export default function AboutPage() {
         <Mission className="text-[#263973] mx-auto py-16 px-4 sm:px-10 w-[90%] m-auto font-medium" />
 
         <section className="mx-auto py-16 px-4 sm:px-10 w-[90%] m-auto">
-          <h2 className="text-sm font-bold sm:text-xl tracking-[0.2em] mb-6 uppercase pl-0 text-[#263973]" style={{ fontFamily: 'bodoni' }}>
+          <h2 className="text-xl sm:text-2xl font-bold tracking-[0.2em] mb-6 uppercase pl-0 text-[#263973]" style={{ fontFamily: 'bodoni' }}>
             Équipe landmark
           </h2>
 

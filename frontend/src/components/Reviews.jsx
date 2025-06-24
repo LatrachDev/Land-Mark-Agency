@@ -3,7 +3,7 @@ import React from 'react';
 const reviews = [
   {
     quote:
-      'Project brief and all aspects of this project in short words to help understand what we worked on.',
+      ' Une agence qui comprend vite, travaille bien et livre mieux que ce qu’on imaginait. Très satisfait du résultat final. ',
     clientName: 'Mohammed Azzimani',
     company: 'Al Andalous Pack',
     avatar: 'src/assets/reviews/azzimani.jpg',
@@ -11,7 +11,7 @@ const reviews = [
   },
   {
     quote:
-      'Project brief and all aspects of this project in short words to help understand what we worked on.',
+      ' On a attendu un peu plus que prévu parce que l’équipe voulait vraiment bien faire les choses. Et honnêtement, le résultat final est super. ',
     clientName: 'Khaoula Touijer',
     company: 'Growmax',
     avatar: 'src/assets/reviews/logo-for-profiles.png',
@@ -19,7 +19,7 @@ const reviews = [
   },
   {
     quote:
-      'Project brief and all aspects of this project in short words to help understand what we worked on.',
+      ' Tout simplement had l’agence homa les meilleurs avec qui j’ai travaillé. machaellah wahed la créativité 3endhom WOW. ',
     clientName: 'Amina Bitari',
     company: 'Minari',
     avatar: 'src/assets/reviews/MINARI-prophile-12.png',
@@ -48,8 +48,8 @@ const Reviews = () => {
     <section className="bg-white mx-auto px-4 sm:px-10 py-16">
       <div className="container w-[90%] m-auto">
         <div className="mb-12">
-          <h2 className="text-sm sm:text-xl font-bold text-[#263973] uppercase text-left" style={{ fontFamily: 'bodoni' }}>
-            OUR BEST CLIENTS REVIEWS
+          <h2 className="text-xl sm:text-2xl font-bold text-[#263973] uppercase text-left" style={{ fontFamily: 'bodoni' }}>
+            NOS MEILLEURES AVIS CLIENTS
           </h2>
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">

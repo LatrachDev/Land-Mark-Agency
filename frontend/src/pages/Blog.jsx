@@ -87,7 +87,7 @@ function BlogPage() {
         <div className="container w-[90%] mx-auto space-y-20">
           
           <div className="mb-12">
-            <h2 className="text-sm font-bold sm:text-xl text-[#263973] uppercase text-left" style={{ fontFamily: 'bodoni' }}>
+            <h2 className="text-xl sm:text-2xl font-bold text-[#263973] uppercase text-left" style={{ fontFamily: 'bodoni' }}>
               Latest blog
             </h2>
           </div>

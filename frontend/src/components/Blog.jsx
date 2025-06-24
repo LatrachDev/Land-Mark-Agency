@@ -36,7 +36,7 @@ const Blog = () => {
     <section className="px-4 sm:px-10 py-16 bg-white">
       <div className="container w-[90%] m-auto">
         <div className="mb-12">
-          <h2 className="text-sm sm:text-xl font-bold text-[#263973] uppercase text-left" style={{ fontFamily: 'bodoni' }}>
+          <h2 className="text-xl sm:text-2xl font-bold text-[#263973] uppercase text-left" style={{ fontFamily: 'bodoni' }}>
             Latest blog
           </h2>
         </div>
@@ -67,7 +67,7 @@ const Blog = () => {
               </p>
               <Link
                 to={`/blog/${post.id}`}
-                className="text-blue-600 text-sm font-medium hover:underline"
+                className="text-[#445EF2] text-sm font-medium hover:underline"
               >
                 Read More
               </Link>

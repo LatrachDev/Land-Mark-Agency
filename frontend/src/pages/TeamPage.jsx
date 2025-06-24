@@ -30,6 +30,13 @@ export default function TeamPage() {
     fetchTeamMembers();
   }, []);
 
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (!token) {
+      navigate('/');
+    }
+  }, [navigate]);
+  
   const fetchTeamMembers = async () => {
     setIsLoading(true);
     try {
@@ -315,7 +322,7 @@ export default function TeamPage() {
             onClick={handleLogout}
             className="bg-[#010e26] text-white px-4 py-2 rounded-lg hover:bg-[#081d45] transition"
           >
-            Logout
+            Déconnexion
           </button>
         </div>
 
@@ -590,7 +597,7 @@ export default function TeamPage() {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition disabled:opacity-50 flex items-center"
+                    className="bg-[#445EF2] text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition disabled:opacity-50 flex items-center"
                   >
                     {isSubmitting ? (
                       <>
@@ -643,7 +650,7 @@ export default function TeamPage() {
                     )}
                   </div>
                   <h3 className="font-bold text-lg mb-1">{member.name}</h3>
-                  <p className="text-sm text-blue-600 mb-2">{member.post}</p>
+                  <p className="text-sm text-[#445EF2] mb-2">{member.post}</p>
                   <p className="text-sm text-gray-600 mb-3 line-clamp-2">{member.description}</p>
                   
                   <div className="flex space-x-3 mb-3">
@@ -676,7 +683,7 @@ export default function TeamPage() {
                   <div className="flex gap-2">
                     <button 
                       onClick={() => handleEditClick(member)} 
-                      className="text-blue-600 hover:text-blue-800 px-2 py-1 rounded text-sm font-medium"
+                      className="text-[#445EF2] hover:text-blue-800 px-2 py-1 rounded text-sm font-medium"
                     >
                       Éditer
                     </button>

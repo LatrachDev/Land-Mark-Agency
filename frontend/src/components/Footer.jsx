@@ -16,14 +16,14 @@ const Footer = () => {
           {/* Left Section */}
           <div className="lg:w-7/12">
             <h2 className="text-xl sm:text-2xl md:text-4xl font-bold uppercase mb-4 md:mb-6 tracking-wide text-left">
-              READY TO GET STARTED?
+              Prêt à commencer ?
             </h2>
             <p className="text-sm md:text-lg text-left lg:text-justify w-full lg:w-10/12 mb-6 md:mb-8 tracking-wider uppercase font-light">
-              Through a customer satisfaction survey. 96% of our clients express strong satisfaction and would confidently recommend our services to others.
+              Grâce à une enquête de satisfaction client, 92 % de nos clients expriment une grande satisfaction et recommanderaient en toute confiance nos services à d’autres.
             </p>
             <div className="text-left">
               <Link to="/contact" className="inline-block border border-white text-white px-8 py-3 md:px-10 md:py-4 uppercase font-normal text-sm tracking-wider hover:bg-white hover:text-black transition-colors">
-                GET IN TOUCH
+                Contactez-nous
               </Link>
             </div>
           </div>
@@ -33,7 +33,7 @@ const Footer = () => {
             {/* Social Media */}
             <div className="w-full md:w-1/2 lg:w-full">
               <p className="uppercase font-bold mb-3 text-sm tracking-wider text-left" style={{ fontFamily: 'bodoni' }}>
-                FOLLOW US FOR DAILY CONTENT
+                suivez-nous pour du contenu quotidien
               </p>
               <div className="flex md:justify-start space-x-6 text-xl mt-6 md:mt-10">
                 <a

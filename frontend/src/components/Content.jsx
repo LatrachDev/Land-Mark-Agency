@@ -191,7 +191,7 @@ const Content = () => {
       <div className="container w-[90%] mx-auto">
         <div className="mb-12">
           <h2
-            className="text-sm sm:text-xl text-[#263973] font-bold uppercase text-left"
+            className="text-xl sm:text-2xl text-[#263973] font-bold uppercase text-left"
             style={{ fontFamily: 'bodoni' }}
           >
             Création de contenu
@@ -216,7 +216,7 @@ const Content = () => {
             to="/portfolio"
             className="inline-block border-2 border-gray-800 px-8 py-3 font-['Jost'] uppercase hover:bg-gray-800 hover:text-white transition-colors"
           >
-            View All Works
+            voir tous les projets
           </Link>
         </div>
       </div>

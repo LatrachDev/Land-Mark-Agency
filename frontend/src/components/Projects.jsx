@@ -31,7 +31,7 @@ const Projects = () => {
       <div className="container w-[90%] m-auto">
         {/* Section Title */}
         <div className="mb-12 font-bold text-left" style={{ fontFamily: 'bodoni' }}>
-          <h2 className="text-sm sm:text-xl text-[#263973] uppercase">Brand Design</h2>
+          <h2 className="text-xl sm:text-2xl text-[#263973] uppercase">Brand Design</h2>
         </div>
 
         {/* Projects Grid */}
@@ -70,7 +70,7 @@ const Projects = () => {
             to="/portfolio"
             className="inline-block border-2 border-gray-800 px-8 py-3 font-['Jost'] uppercase hover:bg-gray-800 hover:text-white transition-colors"
           >
-            View All Works
+            voir tous les projets
           </Link>
         </div>
 
@@ -93,7 +93,7 @@ const Projects = () => {
                     {isLongDescription && (
                       <button
                         onClick={() => setIsExpanded(!isExpanded)}
-                        className="text-blue-600 text-sm mt-1 sm:hidden"
+                        className="text-[#445EF2] text-sm mt-1 sm:hidden"
                       >
                         {isExpanded ? 'Show less' : 'Read more'}
                       </button>

@@ -7,7 +7,7 @@ export default function MessageModal({ message, onClose }) {
       <div className="bg-white rounded-xl shadow-lg p-6 w-[90%] max-w-xl relative">
         <button 
           onClick={onClose} 
-          className="absolute top-2 right-4 text-gray-500 hover:text-gray-800 text-xl"
+          className="absolute top-2 cursor-pointer right-4 text-gray-500 hover:text-gray-800 text-xl"
         >
           ✕
         </button>
@@ -26,6 +26,23 @@ export default function MessageModal({ message, onClose }) {
         <p className="text-sm text-gray-500 mb-4">
           <strong>Date:</strong> {new Date(message.created_at).toLocaleString()}
         </p>
+
+        {Array.isArray(message.interests) && message.interests.length > 0 && (
+          <div className="my-4">
+            <h4 className="font-semibold text-sm text-gray-700 uppercase mb-2">Intérêts :</h4>
+            <div className="flex flex-wrap gap-2">
+              {message.interests.map((interest, index) => (
+                <span
+                  key={index}
+                  className="inline-block bg-[#445EF2] text-white text-xs font-medium px-2 py-1 rounded"
+                >
+                  {interest}
+                </span>
+              ))}
+            </div>
+          </div>
+        )}
+
 
         <hr className="mb-4" />
 

@@ -2,6 +2,8 @@ import { Helmet } from 'react-helmet';
 import { useNavigate } from 'react-router-dom';
 import { ADMIN_TEAM, ADMIN_INBOX, ADMIN_PROJECTS, ADMIN_BLOG, ADMIN_CONTENT } from '../config/routes';
 import Footer from '../components/Footer';
+import { useEffect } from 'react';
+
 
 export default function Dashboard() {
   const navigate = useNavigate();
@@ -10,6 +12,14 @@ export default function Dashboard() {
     localStorage.clear();
     navigate('/');
   };
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (!token) {
+      navigate('/');
+    }
+  }, [navigate]);
+  
 
   const cards = [
     {
@@ -64,7 +74,7 @@ export default function Dashboard() {
             onClick={handleLogout}
             className="bg-[#010e26] text-white px-4 py-2 rounded-lg hover:bg-[#081d45] transition"
           >
-            Logout
+            Déconnexion
           </button>
         </div>
 
