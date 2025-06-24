@@ -12,7 +12,7 @@ import FAQ from '../components/FAQ';
 import Footer from '../components/Footer';
 import { Helmet } from "react-helmet";
 import Empty from '../components/Empty';
-import bgImage from '../assets/BG/Asset7.png';
+import bgImage from '../assets/BG/Web-Site-bg-black.jpg';
 
 function Home() {
 

@@ -8,6 +8,7 @@ import Footer from '../components/Footer';
 import { Helmet } from "react-helmet";
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import WebSiteBG from '../assets/BG/maskBg.png';
 
 function BlogPage() {
   const [blogData, setBlogData] = useState([]);
@@ -61,7 +62,7 @@ function BlogPage() {
   };
 
   return (
-    <div className="font-[Jost]">
+    <div className="font-[Jost] bg-cover bg-no-repeat" style={{ backgroundImage: `url(${WebSiteBG})`, backgroundPosition: 'left 0px top -250px' }}>
       <Helmet>
         <title>Blog | LandMark</title>
         <meta name="description" content="Read our latest insights on branding, marketing, web development, and digital trends from LandMark." />
@@ -69,85 +70,87 @@ function BlogPage() {
       
       <Promotion />
       <Nav />
+      <section className='w-full flex flex-col justify-center px-4 sm:px-10 relative'>
 
-      <section className="mx-auto px-4 sm:px-10 mt-20 md:mt-40 w-[90%]">
-        <h1 className="text-[#010e26] text-xl sm:text-2xl md:text-4xl font-bold uppercase tracking-wide mb-4 md:mb-6">
-          <span className="text-[#445ef2]">93%</span> de nos clients se disent <br />
-          pleinement satisfaits et prêts à <br />
-          recommander nos services
-        </h1>
-        <p className="text-[#010e26] uppercase mb-10 md:mb-20 text-base sm:text-lg md:text-xl tracking-normal">
-          Faites comme eux, choisissez l'excellence et rejoignez une communauté <br />
-          qui nous fait confiance pour transformer leurs ambitions en réussites.
-        </p>
-      </section>
-
-      {/* Blog Sections */}
-      <section className="px-4 sm:px-10 pb-16 bg-white">
-        <div className="container w-[90%] mx-auto space-y-20">
-          
-          <div className="mb-12">
-            <h2 className="text-xl sm:text-2xl font-bold text-[#263973] uppercase text-left" style={{ fontFamily: 'bodoni' }}>
-              Latest blog
-            </h2>
+        <div className="relative z-10 mt-20 md:mt-40">
+          <div className="mx-auto w-[90%]">
+            <h1 className="text-[#010e26] text-xl sm:text-2xl md:text-4xl font-bold uppercase tracking-wide mb-4 md:mb-6">
+              Des articles pour vous inspirer
+            </h1>
+            <p className="text-[#010e26] uppercase mb-10 md:mb-20 text-base sm:text-lg md:text-xl tracking-normal">
+              Découvrez tous nos contenus en un seul endroit.
+            </p>
           </div>
 
-          {isLoading ? (
-            <div className="text-center py-10">Loading blog posts...</div>
-          ) : blogData.length > 0 ? (
-            blogData.map((category, index) => (
-              <div key={index}>
-                <h2 className="text-sm sm:text-xl text-[#263973] uppercase mb-6 text-left font-bold">
-                  {category.category}
+          {/* Blog Sections */}
+          <section className=" pb-16 ">
+            <div className="container w-[90%] mx-auto space-y-20">
+              
+              <div className="mb-12">
+                <h2 className="text-xl sm:text-2xl font-bold text-[#263973] uppercase text-left" style={{ fontFamily: 'bodoni' }}>
+                  Découvrez tous nos articles de blog
                 </h2>
-
-                <Swiper
-                  modules={[Navigation]}
-                  spaceBetween={30}
-                  slidesPerView={1}
-                  breakpoints={{
-                    640: { slidesPerView: 2 },
-                    768: { slidesPerView: 3 },
-                    1024: { slidesPerView: 4 },
-                  }}
-                  navigation
-                >
-                  {category.posts.map((post) => (
-                    <SwiperSlide key={post.id} className="overflow-visible pb-8"> {/* Added pb-8 for shadow space */}
-                    <div className="flex flex-col bg-white h-full p-4 shadow-sm hover:shadow-lg transition-shadow duration-300 rounded-lg border border-gray-100 transform translate-z-0">
-                      <Link to={`/blog/${post.id}`} className="block overflow-hidden rounded-t-lg">
-                        <img
-                          src={post.image}
-                          alt={post.title}
-                          className="w-full h-48 object-cover rounded-t-lg hover:scale-105 transition-transform duration-300"
-                        />
-                      </Link>
-                      <div className="flex-grow p-3">
-                        <Link to={`/blog/${post.id}`} className="block">
-                          <h3 className="text-xl sm:text-lg font-semibold mb-2 hover:text-blue-500 transition-colors">
-                            {post.title}
-                          </h3>
-                        </Link>
-                        <p className="text-gray-600 text-sm mb-3 line-clamp-3">
-                          {truncateDescription(post.description)}
-                        </p>
-                        <Link 
-                          to={`/blog/${post.id}`} 
-                          className="text-blue-500 text-sm font-medium hover:underline inline-block"
-                        >
-                          Read More
-                        </Link>
-                      </div>
-                    </div>
-                    </SwiperSlide>
-                  ))}
-                </Swiper>
               </div>
-            ))
-          ) : (
-            <div className="text-center py-10">No blog posts available</div>
-          )}
+
+              {isLoading ? (
+                <div className="text-center py-10 w-full">Loading blog posts...</div>
+              ) : blogData.length > 0 ? (
+                blogData.map((category, index) => (
+                  <div key={index}>
+                    <h2 className="text-sm sm:text-sm text-[#010E26] uppercase mb-6 text-left font-bold">
+                      {category.category}
+                    </h2>
+
+                    <Swiper
+                      modules={[Navigation]}
+                      spaceBetween={30}
+                      slidesPerView={1}
+                      breakpoints={{
+                        640: { slidesPerView: 1 },
+                        768: { slidesPerView: 2 },
+                        1024: { slidesPerView: 3 },
+                      }}
+                      navigation
+                    >
+                      {category.posts.map((post) => (
+                        <SwiperSlide key={post.id} className="overflow-visible pb-8">
+                        <div className="flex flex-col bg-white h-full p-4 shadow-sm hover:shadow-lg transition-shadow duration-300 rounded-lg border border-gray-100 transform translate-z-0">
+                          <Link to={`/blog/${post.id}`} className="block overflow-hidden rounded-t-lg">
+                            <img
+                              src={post.image}
+                              alt={post.title}
+                              className="w-full h-48 object-cover rounded-t-lg hover:scale-105 transition-transform duration-300"
+                            />
+                          </Link>
+                          <div className="flex-grow p-3">
+                            <Link to={`/blog/${post.id}`} className="block">
+                              <h3 className="text-xl sm:text-lg font-semibold mb-2 hover:text-blue-500 transition-colors">
+                                {post.title}
+                              </h3>
+                            </Link>
+                            <p className="text-gray-600 text-sm mb-3 line-clamp-3">
+                              {truncateDescription(post.description)}
+                            </p>
+                            <Link 
+                              to={`/blog/${post.id}`} 
+                              className="text-blue-500 text-sm font-medium hover:underline inline-block"
+                            >
+                              Read More
+                            </Link>
+                          </div>
+                        </div>
+                        </SwiperSlide>
+                      ))}
+                    </Swiper>
+                  </div>
+                ))
+              ) : (
+                <div className="text-center py-10">No blog posts available</div>
+              )}
+            </div>
+          </section>
         </div>
+
       </section>
       <Footer />
     </div>
