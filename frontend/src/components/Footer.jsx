@@ -3,7 +3,7 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 import { FacebookFilled, BehanceOutlined, LinkedinFilled, InstagramOutlined }from "@ant-design/icons" ;
 import { Link } from 'react-router-dom';
 import whiteLogo from '../assets/Logotype/White.png';
-import bgFooter from '../assets/BG/Asset7.png';
+import bgFooter from '../assets/BG/Web-Site-BG-black.jpg';
 
 const Footer = () => {
   return (

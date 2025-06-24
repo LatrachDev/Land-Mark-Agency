@@ -25,13 +25,13 @@ const Nav = () => {
       setScrolled(scrollY > scrollThreshold);
     };
 
-    // Also check on resize to handle screen size changes
     const handleResize = () => {
-      handleScroll(); // Re-check scroll position on resize
+      handleScroll();
     };
 
     window.addEventListener('scroll', handleScroll);
     window.addEventListener('resize', handleResize);
+    handleScroll(); // Initialize scroll state
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
@@ -39,12 +39,10 @@ const Nav = () => {
     };
   }, []);
 
-  // Close menu when route changes
   useEffect(() => {
     setMenuOpen(false);
   }, [location]);
 
-  // Prevent body scroll when menu is open
   useEffect(() => {
     if (menuOpen) {
       document.body.style.overflow = 'hidden';
@@ -70,7 +68,7 @@ const Nav = () => {
   return (
     <>
       <nav className={`w-full sticky top-0 z-50 backdrop-blur-sm ${
-        shouldUseDarkColors ? 'bg-white/60' : 'bg-transparent'
+        shouldUseDarkColors ? 'bg-white/0' : 'bg-transparent'
       } transition-colors duration-300`}>
         
         <div className="w-[90%] m-auto">
