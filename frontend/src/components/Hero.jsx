@@ -4,35 +4,37 @@ const Hero = () => {
   return (
     <div className="container px-4 sm:px-10 mx-auto mt-24 md:mt-40 w-[90%] m-auto">
       <div className="max-w-full">
-        <div className="flex justify-start items-center">
-          <h1 className="text-2xl sm:text-3xl md:text-4xl font-jost font-bold mb-4 md:mb-6">
-            <div className="w-full relative mb-2">
-              <div className="absolute inset-0 bg-gradient-to-r from-[#263973] to-[#445EF2] h-4 sm:h-5 md:h-6 mt-6 sm:mt-8 md:mt-10 w-full"></div>
-              <div className="relative z-10 px-0 py-2 sm:py-3 md:py-4">
-                <span className="text-white text-xl sm:text-2xl md:text-4xl font-bold uppercase tracking-wide">
-                  L'adoption ou l'adaptation au changement
-                </span>
-              </div>
-            </div>
-            <div className="text-white text-xl sm:text-2xl md:text-4xl mb-8 md:mb-12">
-              UNE DÉCISION QUI VOUS RESSEMBLE
-            </div>
-          </h1>
+
+        <div className="flex flex-col text-white justify-start items-start">
+           
+        <div className="mt-6 sm:mt-8 md:mt-10 mb-8">
+          <p className="inline-block bg-gradient-to-r from-[#263973] to-[#445EF2] text-xs sm:text-xl font-bold uppercase tracking-wide text-white px-2 py-1">
+            L’adoption ou l’adaptation au changement une décision qui vous ressemble
+          </p>
         </div>
 
-        <p className="text-gray-300 mb-10 md:mb-20 text-base sm:text-lg md:text-2xl tracking-normal">
-          Développez la notoriété de votre marque, augmentez vos ventes <br />
-          et créez un lien fort avec votre clientéle.
+
+          <h1 className="text-['100px'] sm:text-2xl md:text-3xl font-jost font-bold sm:max-w-[80%] mb-4 md:mb-6 uppercase">
+            grace a notre Expertise, notre 
+            agence marketing et recommandée 
+            par 92% de nos clients
+          </h1>
+
+        </div>
+
+        <p className="text-gray-300 font-light mb-10 md:mb-20 text-sm sm:text-xl tracking-normal uppercase">
+          Attirez plus de clients, boostez vos ventes et fidélisez vos clients.
         </p>
 
         <div className="flex flex-col text-center sm:flex-row gap-4 sm:gap-6 md:gap-8">
-          <Link to="/contact" className="bg-blue-600 text-white px-4 py-2 sm:px-5 sm:py-2.5 md:px-6 md:py-3 transition-all duration-300 hover:bg-blue-700 hover:scale-105 text-sm sm:text-base md:text-lg">
+          <Link to="/contact" className="bg-[#445EF2] text-white px-4 py-2 sm:px-5 sm:py-2.5 md:px-6 md:py-3 transition-all duration-300 hover:bg-blue-700 hover:scale-105 text-sm sm:text-base md:text-lg">
             DEMANDEZ VOTRE FACTURE
           </Link>
           <Link to="/portfolio" className="border border-white text-white px-4 py-2 sm:px-5 sm:py-2.5 md:px-6 md:py-3 transition-all duration-300 hover:bg-white hover:text-black hover:scale-105 text-sm sm:text-base md:text-lg">
             VOIR LE PORTFOLIO
           </Link>
         </div>
+
       </div>
     </div>
   );
