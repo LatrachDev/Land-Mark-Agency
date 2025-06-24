@@ -5,6 +5,7 @@ import Footer from '../components/Footer';
 import Services from '../components/Services';
 import { Helmet } from "react-helmet";
 import { useEffect, useState, useRef } from 'react';
+import WebSiteBG from '../assets/BG/maskBg.png';
 
 export default function PortfolioPage() {
   const [projects, setProjects] = useState([]);
@@ -48,7 +49,6 @@ export default function PortfolioPage() {
     setSelectedProject(null);
   };
 
-  // Format view count function for projects
   const formatViewCount = (count) => {
     if (!count) return '0';
     
@@ -64,7 +64,6 @@ export default function PortfolioPage() {
     return `+${count}`;
   };
 
-  // Format view count function for content videos
   const formatVideoViews = (num) => {
     const n = Number(num);
     if (n >= 1000000000) return `+${(n / 1000000000).toFixed(1)}b`;
@@ -74,37 +73,38 @@ export default function PortfolioPage() {
   };
 
   return (
-    <>
+    <div className="font-['Jost'] relative min-h-screen">
+      {/* Background with gradient overlay */}
+      <div 
+        className="absolute top-0 left-0 w-full bg-cover bg-no-repeat"
+        style={{ 
+          backgroundImage: `linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,0.3) 90%, rgba(255,255,255,1) 100%), url(${WebSiteBG})`,
+          backgroundPosition: 'left 0px top -100px',
+          height: '40%'
+        }}
+      ></div>
+      
       <Helmet>
         <title>Portfolio | LandMark</title>
         <meta name="description" content="Discover our creative work and successful projects in branding, web development, and marketing at LandMark." />
       </Helmet>
       
-      <section className="font-['Jost']">
-        {/* Banner Promotion */}
-        <Promotion />
+      <Promotion />
+      <Nav />
 
-        {/* Navbar */}
-        <Nav />
-
+      <div className="relative z-10">
         {/* Main Section */}
         <section className="mx-auto px-4 sm:px-10 mt-20 md:mt-40 w-[90%] m-auto">
           <h1 className="text-[#010e26] text-xl sm:text-2xl md:text-4xl font-bold uppercase tracking-wide mb-4 md:mb-6">
-            <span className="text-[#445ef2]">93%</span> de nos clients se disent <br />
-            pleinement satisfaits et prêts à <br />
-            recommander nos services
+            Découvrez ce qu'on a réalisé pour eux… et ce qu'on peut faire pour vous
           </h1>
-          <p className="text-[#010e26] uppercase mb-10 md:mb-20 text-base sm:text-lg md:text-xl tracking-normal">
-            Faites comme eux, choisissez l'excellence et rejoignez une communauté <br />
-            qui nous fait confiance pour transformer leurs ambitions en réussites.
+          <p className="text-[#010e26] uppercase mb-10 md:mb-20 text-base sm:text-sm tracking-normal">
+            Faites comme eux, choisissez l'excellence et rejoignez une communauté qui nous fait confiance pour transformer leurs ambitions en réussites.
           </p>
         </section>
-
-        {/* Services Section */}
-        <Services />
-        
+    
         {/* Projects Grid */}
-        <section className="mx-auto px-4 sm:px-10 py-16 bg-white">
+        <section className="mx-auto px-4 sm:px-10 py-16 ">
           <div className="container w-[90%] m-auto">
             {/* Section Title */}
             <div className="text-xl sm:text-2xl font-bold text-left text-[#263973] uppercase mb-6" style={{ fontFamily: 'bodoni' }}>
@@ -152,6 +152,9 @@ export default function PortfolioPage() {
           </div>
         </section>
 
+        {/* Services Section */}
+        <Services />
+        
         {/* Project Detail Modal */}
         {selectedProject && (
           <div className="fixed inset-0 backdrop-blur-sm bg-black/60 flex items-start justify-center z-50 pt-10 pb-10 overflow-y-auto">
@@ -193,12 +196,10 @@ export default function PortfolioPage() {
                   alt={selectedProject.title}
                   className="w-full h-auto mb-6 rounded-md"
                 />
-                {/* You can add more details here */}
               </div>
             </div>
           </div>
         )}
-
 
         {/* Content */}
         <section className="px-4 sm:px-10 py-16 bg-white">
@@ -275,7 +276,7 @@ export default function PortfolioPage() {
 
         <Contact />
         <Footer />
-      </section>
-    </>
+      </div>
+    </div>
   );
 }

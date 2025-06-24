@@ -40,10 +40,12 @@ function BlogPage() {
           }, {});
 
           // Convert to array format matching your original structure
-          const formattedData = Object.entries(groupedBlogs).map(([category, posts]) => ({
-            category: `EN RELATION AVEC LE ${category}`,
+            const formattedData = Object.entries(groupedBlogs).map(([category, posts]) => ({
+            category: category === 'CONTENT'
+              ? 'EN RELATION AVEC LA CRÉATION DE CONTENUE'
+              : `EN RELATION AVEC LE ${category}`,
             posts: posts
-          }));
+            }));
 
           setBlogData(formattedData);
         }
@@ -62,7 +64,17 @@ function BlogPage() {
   };
 
   return (
-    <div className="font-[Jost] bg-cover bg-no-repeat" style={{ backgroundImage: `url(${WebSiteBG})`, backgroundPosition: 'left 0px top -250px' }}>
+    <div className="font-[Jost] relative min-h-screen">
+      {/* Background with gradient overlay */}
+      <div 
+        className="absolute top-0 left-0 w-full bg-cover bg-no-repeat"
+        style={{ 
+          backgroundImage: `linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,0.3) 60%, rgba(255,255,255,1) 100%), url(${WebSiteBG})`,
+          backgroundPosition: 'left 0px top -50px',
+          height: '50%'
+        }}
+      ></div>
+      
       <Helmet>
         <title>Blog | LandMark</title>
         <meta name="description" content="Read our latest insights on branding, marketing, web development, and digital trends from LandMark." />

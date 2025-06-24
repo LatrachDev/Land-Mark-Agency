@@ -41,7 +41,7 @@ const servicesData = [
 
 const Services = () => {
   return (
-    <section id="services-section" className="bg-white py-16 px-4 sm:px-10 text-center w-[90%] m-auto">
+    <section id="services-section" className=" py-16 px-4 sm:px-10 text-center w-[90%] m-auto">
       <h2 className="text-xl sm:text-2xl font-bold text-left text-[#263973] uppercase mb-6" style={{ fontFamily: 'bodoni' }}>
         SERVICES
       </h2>

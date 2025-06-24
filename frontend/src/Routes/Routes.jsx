@@ -9,13 +9,14 @@ import ProtectedRoute from '../components/ProtectedRoute';
 import NotFound from '../pages/NotFound';
 import Login from '../pages/Login';
 import Dashboard from '../pages/Dashboard';
-import { LOGIN_PATH, DASHBOARD_PATH, ADMIN_TEAM, ADMIN_INBOX, ADMIN_PROJECTS, ADMIN_BLOG, ADMIN_CONTENT } from '../config/routes';
+import { LOGIN_PATH, DASHBOARD_PATH, ADMIN_TEAM, ADMIN_INBOX, ADMIN_PROJECTS, ADMIN_BLOG, ADMIN_CONTENT, ADMIN_SERVICES } from '../config/routes';
 import TeamPage from '../pages/TeamPage';
 import ProjectsPage from '../pages/ProjectsPage';
 import ContentPage from '../pages/ContentPage';
 import BlogPage from '../pages/BlogPage';
 import InboxPage from '../pages/InboxPage';
 import BlogDetailPage from '../pages/BlogDetailPage';
+import ServicesController from '../pages/ServicesController';
 
 function RoutesList() {
   // console.log("login path", LOGIN_PATH, DASHBOARD_PATH);
@@ -39,6 +40,8 @@ function RoutesList() {
         <Route path={ADMIN_CONTENT} element={<ContentPage />} />
         <Route path={ADMIN_BLOG} element={<BlogPage />} />
         <Route path={ADMIN_INBOX} element={<InboxPage />} />
+        <Route path={ADMIN_INBOX} element={<InboxPage />} />
+        <Route path={ADMIN_SERVICES} element={<ServicesController />} />
       </Route>
 
       {/* 404 Not Found route */}

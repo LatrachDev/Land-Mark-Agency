@@ -1,28 +1,62 @@
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 import Promotion from '../components/Promotion';
 import Nav from '../components/Nav';
 import Reviews from '../components/Reviews';
 import Contact from '../components/Contact';
 import Footer from '../components/Footer';
 import { Helmet } from "react-helmet";
+import WebSiteBG from '../assets/BG/maskBg.png'; // Add this line
+
+const baseURL = "http://127.0.0.1:8000/storage/";
 
 export default function ServicesPage() {
+  const [services, setServices] = useState([]);
+
+  useEffect(() => {
+    axios.get('http://127.0.0.1:8000/api/services')
+      .then(response => {
+        setServices(response.data.services);
+      })
+      .catch(error => {
+        console.error("Failed to fetch services:", error);
+      });
+  }, []);
+
+  const groupedServices = {
+    A: services.filter(service => service.category === 'A'),
+    B: services.filter(service => service.category === 'B'),
+    C: services.filter(service => service.category === 'C')
+  };
+
+  const categoryTitles = {
+    A: "A.nalyser le marché",
+    B: "b.rand design",
+    C: "c.réation de contenu"
+  };
+
   return (
     <>
-
       <Helmet>
         <title>Services | LandMark</title>
         <meta name="description" content="Explore our services in branding, web development, marketing, photography, and more." />
       </Helmet>
 
-      <section className="font-['Jost']">
-        {/* Banner Promotion */}
-        <Promotion />
+      <section className="font-['Jost'] relative min-h-screen">
+        {/* 🔵 Background style (same as Portfolio) */}
+        <div 
+          className="absolute top-0 left-0 w-full bg-cover bg-no-repeat z-0"
+          style={{ 
+            backgroundImage: `linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,0.3) 90%, rgba(255,255,255,1) 100%), url(${WebSiteBG})`,
+            backgroundPosition: 'left 0px top -100px',
+            height: '40%'
+          }}
+        ></div>
 
-        {/* Navbar */}
+        <Promotion />
         <Nav />
 
-        {/* Main Section */}
-        <section className="mx-auto px-4 sm:px-10 mt-20 md:mt-40 w-[90%] m-auto">
+        <section className="relative z-10 mx-auto px-4 sm:px-10 mt-20 md:mt-40 w-[90%] m-auto">
           <h1 className="text-[#010e26] text-xl sm:text-2xl md:text-4xl font-bold uppercase tracking-wide mb-4 md:mb-6">
             <span className="text-[#445ef2]">93%</span> de nos clients se disent <br />
             pleinement satisfaits et prêts à <br />
@@ -34,9 +68,9 @@ export default function ServicesPage() {
           </p>
         </section>
 
-        {/* Services Section */}
-        <section className="bg-white py-16 px-4 sm:px-10 text-center w-[90%] m-auto">
-          <h2 className="text-xl sm:text-2xl font-bold text-left text-gray-900 uppercase mb-6 " style={{ fontFamily: 'bodoni' }}>
+        {/* Services */}
+        <section className=" py-16 px-4 sm:px-10 text-center w-[90%] m-auto relative z-10">
+          <h2 className="text-xl sm:text-2xl font-bold text-left text-gray-900 uppercase mb-6" style={{ fontFamily: 'bodoni' }}>
             SERVICES
           </h2>
 
@@ -47,40 +81,23 @@ export default function ServicesPage() {
             Que vous souhaitiez renforcer votre présence en ligne, bâtir une identité de marque forte ou captiver votre audience avec du contenu créatif, nous offrons des solutions complètes et adaptées.
           </p>
 
-          {/* Section Blocks */}
-          {[
-            { title: "A.nalyser le marche" },
-            { title: "b.rand design" },
-            { title: "c.reation de contenu" },
-          ].map((section, idx) => (
+          {['A', 'B', 'C'].map((category, idx) => (
             <div key={idx}>
-              <h3 className="font-bold uppercase text-left text-xl sm:text-2xl md:text-4xl mt-28">
-                {section.title}
+              <h3 className="font-bold text-[#010E26] uppercase text-left text-xl sm:text-2xl md:text-4xl mt-28">
+                {categoryTitles[category]}
               </h3>
-              <section className="flex flex-wrap gap-6 justify-between mt-10">
-                {[
-                  {
-                    title: "étude de marché",
-                    desc: "Une voie claire & ciblée pour lancer votre entreprise.",
-                    img: "src/assets/JPG/ABC/A1.png",
-                  },
-                  {
-                    title: "Connaître votre clientèle",
-                    desc: "Create & Launch a Brand that Lasts in the Market.",
-                    img: "src/assets/JPG/ABC/A2.png",
-                  },
-                  {
-                    title: "Évaluez vos concurrents",
-                    desc: "Create & Launch a Brand that Lasts in the Market.",
-                    img: "src/assets/JPG/ABC/A1.png",
-                  },
-                ].map((card, i) => (
-                  <div key={i} className="w-full sm:w-[48%] lg:w-[25%] text-left font-bold">
+              <section className="flex flex-wrap gap-5 justify-between mt-10">
+                {groupedServices[category].map((service, i) => (
+                  <div key={i} className="w-full sm:w-[45%] lg:w-[30%] text-left font-bold">
                     <div className="w-full">
-                      <img src={card.img} alt="marcher" className="w-full h-auto" />
+                      <img
+                        src={baseURL + service.image}
+                        alt={service.title}
+                        className="w-full h-auto"
+                      />
                     </div>
-                    <p className="text-[#010e26] uppercase mt-10 mb-1">{card.title}</p>
-                    <p className="text-[#666666] text-sm">{card.desc}</p>
+                    <p className="text-[#010e26] uppercase mt-10 mb-1">{service.title}</p>
+                    <p className="text-[#666666] text-sm">{service.description}</p>
                   </div>
                 ))}
               </section>

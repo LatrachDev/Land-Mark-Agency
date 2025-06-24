@@ -7,6 +7,7 @@ import { Helmet } from "react-helmet";
 import '@fortawesome/fontawesome-free/css/all.min.css'; 
 import { LinkedinFilled, InstagramOutlined }from "@ant-design/icons" ;
 import { data } from 'react-router-dom';
+import WebSiteBG from '../assets/BG/maskBg.png';
 
 // const teamMembers = [
 //   {
@@ -44,7 +45,7 @@ import { data } from 'react-router-dom';
 //   {
 //     name: 'SOUFIAN SOUFIAN',
 //     role: 'Imprimeur',
-//     description: "Votre imprimeur, je vous propose une large gamme de supports et d'outils d’impression pour vous aider à faire forte impression auprès de vos clients.",
+//     description: "Votre imprimeur, je vous propose une large gamme de supports et d'outils d'impression pour vous aider à faire forte impression auprès de vos clients.",
 //     imgSrc: './src/assets/Team/team5.png',
 //     linkedin: 'https://www.linkedin.com/in/soufian-soufian',
 //     instagram: 'https://www.instagram.com/soufiansoufian',
@@ -78,14 +79,23 @@ export default function AboutPage() {
   }, []);
 
   return (
-    <>
-    
+    <div className="font-['Jost'] relative min-h-screen">
+      {/* Background with gradient overlay */}
+      <div 
+        className="absolute top-0 left-0 w-full bg-cover bg-no-repeat"
+        style={{ 
+          backgroundImage: `linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,0.3) 60%, rgba(255,255,255,1) 100%), url(${WebSiteBG})`,
+          backgroundPosition: 'left -130px top -110px',
+          height: '50%'
+        }}
+      ></div>
+      
       <Helmet>
         <title>About Us | LandMark</title>
         <meta name="description" content="Learn about LandMark's story, our team, and our mission to deliver exceptional marketing and creative solutions." />
       </Helmet>
 
-      <section className="font-['Jost']">
+      <section className="relative z-10">
         {/* Banner Promotion */}
         <Promotion />
 
@@ -95,20 +105,60 @@ export default function AboutPage() {
         {/* Main Content */}
         <main className="mx-auto px-4 sm:px-10 mt-20 md:mt-40 w-[90%] m-auto">
           <h1 className="text-[#010e26] text-xl sm:text-2xl md:text-4xl font-bold uppercase tracking-wide mb-4 md:mb-6">
-            <span className="text-[#445ef2]">93%</span> de nos clients se disent <br />
-            pleinement satisfaits et prêts à <br />
-            recommander nos services
+            LANDMARK est plus qu'une agence de marketing digital, c'est un espace où la créativité et la performance se rejoignent pour donner vie à des marques fortes.
           </h1>
-          <p className="text-[#010e26] uppercase mb-10 md:mb-20 text-base sm:text-lg md:text-xl tracking-normal">
-            Faites comme eux, choisissez l’excellence et rejoignez une communauté <br />
-            qui nous fait confiance pour transformer leurs ambitions en réussites.
-          </p>
         </main>
 
         <Mission className="text-[#263973] mx-auto py-16 px-4 sm:px-10 w-[90%] m-auto font-medium" />
 
         <section className="mx-auto py-16 px-4 sm:px-10 w-[90%] m-auto">
           <h2 className="text-xl sm:text-2xl font-bold tracking-[0.2em] mb-6 uppercase pl-0 text-[#263973]" style={{ fontFamily: 'bodoni' }}>
+            À propos de Landmark
+          </h2>
+
+          <p className="mb-6 leading-relaxed text-[#666666]">
+            <strong className="font-semibold text-[#666666]">
+              Landmark est une agence de marketing digital basée à Oujda, au Maroc,
+              qui aide les marques à se faire remarquer et à se développer.
+            </strong>{' '}
+            Nous créons des identités visuelles fortes, des contenus percutants et des
+            stratégies de communication sur mesure pour attirer le bon public et
+            augmenter l'engagement.
+          </p>
+
+          <p className="mb-6 leading-relaxed text-[#666666]">
+            <strong className="font-semibold text-[#666666]">
+              Notre objectif est simple : transformer des idées en marques mémorables
+              et efficaces.
+            </strong>{' '}
+            Grâce à notre vision claire et notre capacité d'adaptation, nous
+            accompagnons nos clients dans un monde en constante évolution. Que vous
+            lanciez votre projet ou que vous souhaitiez améliorer votre présence en
+            ligne, nous sommes là pour vous guider à chaque étape.
+          </p>
+
+          <div className="mb-6 text-[#666666]">
+            <strong className="font-semibold text-[#666666]">Nos services incluent :</strong>
+            <ul className="list-disc list-inside mt-2 space-y-1">
+              <li>Création d'identité de marque (logo, charte graphique)</li>
+              <li>Conception de sites web</li>
+              <li>Gestion des réseaux sociaux</li>
+              <li>Publicité digitale (Meta Ads, Google Ads)</li>
+              <li>Photographie et vidéos promotionnelles</li>
+            </ul>
+          </div>
+
+          <p className="leading-relaxed text-[#666666]">
+            <strong className="font-semibold text-[#666666]">
+              Ce qui fait notre différence ? Une vraie écoute, une équipe créative, et
+              une approche sur mesure.
+            </strong>{' '}
+            Que vous soyez une petite entreprise locale ou une marque ambitieuse,
+            Landmark est là pour vous aider à grandir.
+          </p>
+
+
+          <h2 className="text-xl mt-20 sm:text-2xl font-bold tracking-[0.2em] mb-6 uppercase pl-0 text-[#263973]" style={{ fontFamily: 'bodoni' }}>
             Équipe landmark
           </h2>
 
@@ -141,7 +191,7 @@ export default function AboutPage() {
               <p className="text-[#010e26] uppercase mt-10 mb-1 font-bold">{name}</p>
               <p className="text-[#666666] text-sm">{description}</p>
 
-              <div className="flex gap-4 mt-4">
+              <div className="flex gap-2 mt-2 mb-5">
                 {linkedin && (
                   <a href={linkedin} target="_blank" rel="noopener noreferrer" className="text-[#0e76a8]">
                     <LinkedinFilled className="hover:opacity-70 transition-opacity cursor-pointer" />
@@ -161,6 +211,6 @@ export default function AboutPage() {
 
         <Footer />
       </section>
-    </>
+    </div>
   );
 }

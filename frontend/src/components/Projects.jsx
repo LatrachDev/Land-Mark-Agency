@@ -103,7 +103,7 @@ const Projects = () => {
 
                 <button
                   onClick={closeProjectModal}
-                  className="text-gray-500 hover:text-gray-700 text-2xl ml-4"
+                  className="text-gray-500 cursor-pointer hover:text-gray-700 text-2xl ml-4"
                 >
                   &times;
                 </button>

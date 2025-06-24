@@ -7,6 +7,7 @@ import {
   ADMIN_BLOG,
   ADMIN_CONTENT,
   ADMIN_INBOX,
+  ADMIN_SERVICES
 } from '../config/routes';
 
 export default function BlogPage() {
@@ -57,6 +58,12 @@ export default function BlogPage() {
       desc: 'Consultez les messages envoyés via le formulaire de contact.',
       icon: '📨',
       path: ADMIN_INBOX,
+    },
+    {
+      title: 'Gestion des services',
+      desc: 'Ajoutez, modifiez ou supprimez les services proposés par l\'agence.',
+      icon: '🛠️',
+      path: ADMIN_SERVICES,
     },
   ];
 

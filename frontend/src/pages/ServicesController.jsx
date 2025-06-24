@@ -1,31 +1,34 @@
 import { Helmet } from 'react-helmet';
 import { useNavigate } from 'react-router-dom';
-import { ADMIN_TEAM, ADMIN_INBOX, ADMIN_PROJECTS, ADMIN_BLOG, ADMIN_CONTENT, ADMIN_SERVICES } from '../config/routes';
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState } from 'react';
+import { ADMIN_TEAM, ADMIN_INBOX, ADMIN_PROJECTS, ADMIN_CONTENT, ADMIN_BLOG, ADMIN_SERVICES } from '../config/routes';
 
-export default function ContentPage() {
-  const [contents, setContents] = useState([]);
+export default function ServicesController() {
+  const [services, setServices] = useState([]);
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [showCreateForm, setShowCreateForm] = useState(false);
   const [showUpdateForm, setShowUpdateForm] = useState(false);
-  const [contentToDelete, setContentToDelete] = useState(null);
-  const [contentToEdit, setContentToEdit] = useState(null);
+  const [serviceToDelete, setServiceToDelete] = useState(null);
+  const [serviceToEdit, setServiceToEdit] = useState(null);
   const [isDeleting, setIsDeleting] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [errors, setErrors] = useState({});
-  const [playingVideoId, setPlayingVideoId] = useState(null);
-  const videoRefs = useRef({});
   
   // Form states
   const [formData, setFormData] = useState({
     title: '',
-    views: '',
-    video: null,
-    thumbnail: null
+    description: '',
+    image: null,
+    currentImage: null,
+    category: 'A',
   });
   
   const navigate = useNavigate();
+
+  useEffect(() => {
+    fetchServices();
+  }, []);
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -34,15 +37,11 @@ export default function ContentPage() {
     }
   }, [navigate]);
   
-  useEffect(() => {
-    fetchContents();
-  }, []);
-
-  const fetchContents = async () => {
+  const fetchServices = async () => {
     setIsLoading(true);
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch('http://127.0.0.1:8000/api/v1/admin/contents', {
+      const response = await fetch('http://127.0.0.1:8000/api/v1/admin/services', {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -54,43 +53,34 @@ export default function ContentPage() {
       const data = await response.json();
 
       if (!response.ok) {
-        console.error('Erreur de récupération:', data.message || 'Échec de la récupération');
+        console.error('Fetch error:', data.message || 'Fetching failed');
+        setErrors({ general: data.message || 'Erreur lors du chargement des services' });
         return;
       }
 
-      setContents(data);
-      console.log('Contenus récupérés:', data);
+      setServices(data);
+      setErrors({});
 
     } catch (err) {
-      console.error('Erreur lors de la récupération des contenus:', err);
+      console.error('Error fetching services:', err);
+      setErrors({ general: 'Erreur réseau lors du chargement des services' });
     } finally {
       setIsLoading(false);
     }
   }
 
-  const formatViews = (views) => {
-    if (!views) return '0 vues';
-    const num = parseInt(views);
-    if (num >= 1000000) {
-      return `${(num / 1000000).toFixed(1)}m vues`;
-    } else if (num >= 1000) {
-      return `${(num / 1000).toFixed(1)}k vues`;
-    }
-    return `${num} vues`;
-  };
-
-  const handleDeleteClick = (content) => {
-    setContentToDelete(content);
+  const handleDeleteClick = (service) => {
+    setServiceToDelete(service);
     setShowDeleteModal(true);
   };
 
   const handleConfirmDelete = async () => {
-    if (!contentToDelete) return;
+    if (!serviceToDelete) return;
     
     setIsDeleting(true);
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch(`http://127.0.0.1:8000/api/v1/admin/contents/${contentToDelete.id}`, {
+      const response = await fetch(`http://127.0.0.1:8000/api/v1/admin/services/${serviceToDelete.id}`, {
         method: 'DELETE',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -98,20 +88,20 @@ export default function ContentPage() {
         },
       });
 
-      const data = await response.json();
-
       if (!response.ok) {
-        setErrors(data.errors || { message: data.message || "Échec de la suppression !" });
+        const data = await response.json();
+        console.error(data.message || "Suppression échouée !");
+        setErrors({ general: data.message || "Erreur lors de la suppression" });
         return;
       }
 
-      fetchContents();
+      fetchServices();
       setShowDeleteModal(false);
-      setContentToDelete(null);
+      setServiceToDelete(null);
       setErrors({});
     } catch (err) {
       console.error("Erreur lors de la suppression :", err);
-      setErrors({ message: "Erreur lors de la suppression" });
+      setErrors({ general: "Erreur réseau lors de la suppression" });
     } finally {
       setIsDeleting(false);
     }
@@ -119,28 +109,30 @@ export default function ContentPage() {
 
   const handleCancelDelete = () => {
     setShowDeleteModal(false);
-    setContentToDelete(null);
+    setServiceToDelete(null);
     setErrors({});
   };
 
   const handleCreateClick = () => {
     setFormData({
       title: '',
-      views: '',
-      video: null,
-      thumbnail: null
+      description: '',
+      image: null,
+      currentImage: null,
+      category: 'A',
     });
     setErrors({});
     setShowCreateForm(true);
   };
 
-  const handleEditClick = (content) => {
-    setContentToEdit(content);
+  const handleEditClick = (service) => {
+    setServiceToEdit(service);
     setFormData({
-      title: content.title,
-      views: content.views,
-      video: null,
-      thumbnail: null
+      title: service.title,
+      description: service.description,
+      image: null,
+      currentImage: service.image,
+      category: service.category,
     });
     setErrors({});
     setShowUpdateForm(true);
@@ -164,40 +156,65 @@ export default function ContentPage() {
     // Clear error when user starts typing
     if (errors[name]) {
       setErrors(prev => {
-        const newErrors = { ...prev };
+        const newErrors = {...prev};
         delete newErrors[name];
         return newErrors;
       });
     }
   };
 
+  const validateForm = () => {
+    const newErrors = {};
+    
+    if (!formData.title.trim()) {
+      newErrors.title = 'Le titre est requis';
+    } else if (formData.title.length > 255) {
+      newErrors.title = 'Le titre ne doit pas dépasser 255 caractères';
+    }
+    
+    if (!formData.description.trim()) {
+      newErrors.description = 'La description est requise';
+    }
+    
+    // Only validate image for creation, not for update
+    if (showCreateForm && !formData.image) {
+      newErrors.image = "L'image est requise";
+    }
+    
+    // If there's an image, validate its type and size
+    if (formData.image) {
+      const validTypes = ['image/jpeg', 'image/png', 'image/gif'];
+      if (!validTypes.includes(formData.image.type)) {
+        newErrors.image = "Format d'image non supporté (seuls JPG, PNG et GIF sont acceptés)";
+      }
+      if (formData.image.size > 2 * 1024 * 1024) { // 2MB
+        newErrors.image = "L'image ne doit pas dépasser 2MB";
+      }
+    }
+    
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
   const handleCreateSubmit = async (e) => {
     e.preventDefault();
+    
+    if (!validateForm()) return;
+    
     setIsSubmitting(true);
-    setErrors({});
 
     try {
       const token = localStorage.getItem("token");
       const formDataToSend = new FormData();
       
       formDataToSend.append('title', formData.title);
-      formDataToSend.append('views', formData.views);
-      
-      if (!formData.video) {
-        setErrors(prev => ({ ...prev, video: ['Veuillez sélectionner une vidéo'] }));
-        setIsSubmitting(false);
-        return;
+      formDataToSend.append('description', formData.description);
+      formDataToSend.append('category', formData.category);
+      if (formData.image) {
+        formDataToSend.append('image', formData.image);
       }
-      formDataToSend.append('video', formData.video);
-      
-      if (!formData.thumbnail) {
-        setErrors(prev => ({ ...prev, thumbnail: ['Veuillez sélectionner une miniature'] }));
-        setIsSubmitting(false);
-        return;
-      }
-      formDataToSend.append('thumbnail', formData.thumbnail);
 
-      const response = await fetch('http://127.0.0.1:8000/api/v1/admin/contents', {
+      const response = await fetch('http://127.0.0.1:8000/api/v1/admin/services', {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -209,25 +226,33 @@ export default function ContentPage() {
       const data = await response.json();
 
       if (!response.ok) {
-        if (response.status === 422 && data.errors) {
-          setErrors(data.errors);
+        if (response.status === 422) {
+          // Handle validation errors from server
+          const serverErrors = {};
+          Object.entries(data.errors).forEach(([field, messages]) => {
+            serverErrors[field] = messages.join(' ');
+          });
+          setErrors(serverErrors);
         } else {
-          setErrors({ message: data.message || "Échec de la création !" });
+          console.error(data.message || "Création échouée !");
+          setErrors({ general: data.message || "Une erreur s'est produite lors de la création." });
         }
         return;
       }
 
-      fetchContents();
+      fetchServices();
       setShowCreateForm(false);
       setFormData({
         title: '',
-        views: '',
-        video: null,
-        thumbnail: null
+        description: '',
+        image: null,
+        currentImage: null,
+        category: 'A',
       });
+      setErrors({});
     } catch (err) {
       console.error("Erreur lors de la création :", err);
-      setErrors({ message: "Erreur lors de la création" });
+      setErrors({ general: "Une erreur réseau s'est produite." });
     } finally {
       setIsSubmitting(false);
     }
@@ -235,27 +260,27 @@ export default function ContentPage() {
 
   const handleUpdateSubmit = async (e) => {
     e.preventDefault();
-    if (!contentToEdit) return;
+    if (!serviceToEdit) return;
+    
+    if (!validateForm()) return;
     
     setIsSubmitting(true);
-    setErrors({});
 
     try {
       const token = localStorage.getItem("token");
       const formDataToSend = new FormData();
       
       formDataToSend.append('title', formData.title);
-      formDataToSend.append('views', formData.views);
+      formDataToSend.append('description', formData.description);
+      formDataToSend.append('category', formData.category);
       formDataToSend.append('_method', 'PUT');
       
-      if (formData.video) {
-        formDataToSend.append('video', formData.video);
-      }
-      if (formData.thumbnail) {
-        formDataToSend.append('thumbnail', formData.thumbnail);
+      // Only append image if a new one was provided
+      if (formData.image) {
+        formDataToSend.append('image', formData.image);
       }
 
-      const response = await fetch(`http://127.0.0.1:8000/api/v1/admin/contents/${contentToEdit.id}`, {
+      const response = await fetch(`http://127.0.0.1:8000/api/v1/admin/services/${serviceToEdit.id}`, {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -267,26 +292,34 @@ export default function ContentPage() {
       const data = await response.json();
 
       if (!response.ok) {
-        if (response.status === 422 && data.errors) {
-          setErrors(data.errors);
+        if (response.status === 422) {
+          // Handle validation errors from server
+          const serverErrors = {};
+          Object.entries(data.errors).forEach(([field, messages]) => {
+            serverErrors[field] = messages.join(' ');
+          });
+          setErrors(serverErrors);
         } else {
-          setErrors({ message: data.message || "Échec de la mise à jour !" });
+          console.error(data.message || "Mise à jour échouée !");
+          setErrors({ general: data.message || "Une erreur s'est produite lors de la mise à jour." });
         }
         return;
       }
 
-      fetchContents();
+      fetchServices();
       setShowUpdateForm(false);
-      setContentToEdit(null);
+      setServiceToEdit(null);
       setFormData({
         title: '',
-        views: '',
-        video: null,
-        thumbnail: null
+        description: '',
+        image: null,
+        currentImage: null,
+        category: 'A',
       });
+      setErrors({});
     } catch (err) {
       console.error("Erreur lors de la mise à jour :", err);
-      setErrors({ message: "Erreur lors de la mise à jour" });
+      setErrors({ general: "Une erreur réseau s'est produite." });
     } finally {
       setIsSubmitting(false);
     }
@@ -295,45 +328,20 @@ export default function ContentPage() {
   const handleCancelForm = () => {
     setShowCreateForm(false);
     setShowUpdateForm(false);
-    setContentToEdit(null);
-    setErrors({});
+    setServiceToEdit(null);
     setFormData({
       title: '',
-      views: '',
-      video: null,
-      thumbnail: null
+      description: '',
+      image: null,
+      currentImage: null,
+      category: 'A',
     });
+    setErrors({});
   };
 
   const handleLogout = () => {
     localStorage.clear();
     navigate('/');
-  };
-
-  const togglePlayVideo = (contentId) => {
-    if (playingVideoId === contentId) {
-      // Pause the currently playing video
-      if (videoRefs.current[contentId]) {
-        videoRefs.current[contentId].pause();
-      }
-      setPlayingVideoId(null);
-    } else {
-      // Pause any currently playing video
-      if (playingVideoId && videoRefs.current[playingVideoId]) {
-        videoRefs.current[playingVideoId].pause();
-      }
-      
-      // Play the new video
-      if (videoRefs.current[contentId]) {
-        videoRefs.current[contentId].play()
-          .then(() => setPlayingVideoId(contentId))
-          .catch(err => console.error("Error playing video:", err));
-      }
-    }
-  };
-
-  const handleVideoEnded = (contentId) => {
-    setPlayingVideoId(null);
   };
 
   const adminCards = [
@@ -351,10 +359,9 @@ export default function ContentPage() {
     },
     {
       title: 'Création de contenu',
-      desc: 'Gérez les vidéos et reels publiés.',
+      desc: 'Gérez les articles, textes, et médias publiés.',
       icon: '✍️',
       path: ADMIN_CONTENT,
-      active: true
     },
     {
       title: 'Gestion du blog',
@@ -373,13 +380,23 @@ export default function ContentPage() {
       desc: 'Ajoutez, modifiez ou supprimez les services proposés par l\'agence.',
       icon: '🛠️',
       path: ADMIN_SERVICES,
+      active: true
     },
   ];
+
+  const getCategoryName = (category) => {
+    switch(category) {
+      case 'A': return 'Catégorie A';
+      case 'B': return 'Catégorie B';
+      case 'C': return 'Catégorie C';
+      default: return category;
+    }
+  };
 
   return (
     <>
       <Helmet>
-        <title>Création de Contenu | LandMark</title>
+        <title>Gestion des Services | LandMark</title>
       </Helmet>
 
       <div className="font-['Jost'] bg-[#f5f7fa] min-h-screen">
@@ -401,10 +418,10 @@ export default function ContentPage() {
         {/* Welcome Section */}
         <section className="w-[90%] m-auto mt-10 mb-6">
           <h1 className="text-2xl md:text-4xl font-bold text-[#010e26] uppercase tracking-wide mb-4">
-            Gestion des Reels
+            Gestion des Services
           </h1>
           <p className="text-[#666] text-base md:text-lg">
-            Gérez les vidéos et reels publiés sur votre site.
+            Ajoutez, modifiez ou supprimez les services proposés par votre agence.
           </p>
         </section>
 
@@ -425,100 +442,93 @@ export default function ContentPage() {
           ))}
         </section>
 
-        {/* Content Management */}
+        {/* Services Content */}
         <section className="w-[90%] m-auto bg-white rounded-2xl shadow-md p-6 mb-20">
           <div className="flex justify-between items-center mb-6">
-            <h2 className="text-xl font-bold text-[#010e26]">Liste des Reels</h2>
+            <h2 className="text-xl font-bold text-[#010e26]">Liste des Services</h2>
             
             <button 
               onClick={handleCreateClick} 
               className="bg-[#010e26] text-white px-4 py-2 rounded-lg hover:bg-[#081d45] transition"
             >
-              + Nouveau Reel
+              + Nouveau Service
             </button>
           </div>
 
-          {/* Error Message */}
-          {errors.message && (
-            <div className="mb-6 p-4 bg-red-100 border border-red-400 text-red-700 rounded">
-              {errors.message}
+          {/* Error message for general errors */}
+          {errors.general && (
+            <div className="p-4 mb-6 bg-red-100 text-red-700 rounded-lg">
+              {errors.general}
             </div>
           )}
 
           {/* Create Form */}
           {showCreateForm && (
             <div className="mb-8 p-6 bg-gray-50 rounded-xl border">
-              <h3 className="text-lg font-bold text-[#010e26] mb-4">Ajouter un nouveau reel</h3>
+              <h3 className="text-lg font-bold text-[#010e26] mb-4">Ajouter un nouveau service</h3>
               <form onSubmit={handleCreateSubmit} className="space-y-4">
                 <div>
                   <label className="block text-sm font-medium text-[#010e26] mb-2">
-                    Titre *
+                    Titre du service *
                   </label>
                   <input
                     type="text"
                     name="title"
                     value={formData.title}
                     onChange={handleInputChange}
-                    
                     className={`w-full px-3 py-2 border ${errors.title ? 'border-red-500' : 'border-gray-300'} rounded-lg focus:outline-none focus:ring-2 focus:ring-[#010e26]`}
-                    placeholder="Entrez le titre du reel"
+                    placeholder="Entrez le titre du service"
                   />
-                  {errors.title && (
-                    <p className="mt-1 text-sm text-red-600">{errors.title[0]}</p>
-                  )}
+                  {errors.title && <p className="mt-1 text-sm text-red-600">{errors.title}</p>}
                 </div>
-
+                
                 <div>
                   <label className="block text-sm font-medium text-[#010e26] mb-2">
-                    Nombre de vues *
+                    Description *
                   </label>
-                  <input
-                    type="number"
-                    name="views"
-                    value={formData.views}
+                  <textarea
+                    name="description"
+                    value={formData.description}
                     onChange={handleInputChange}
-                    
-                    className={`w-full px-3 py-2 border ${errors.views ? 'border-red-500' : 'border-gray-300'} rounded-lg focus:outline-none focus:ring-2 focus:ring-[#010e26]`}
-                    placeholder="Entrez le nombre de vues"
+                    rows="4"
+                    className={`w-full px-3 py-2 border ${errors.description ? 'border-red-500' : 'border-gray-300'} rounded-lg focus:outline-none focus:ring-2 focus:ring-[#010e26]`}
+                    placeholder="Décrivez le service en détail..."
                   />
-                  {errors.views && (
-                    <p className="mt-1 text-sm text-red-600">{errors.views[0]}</p>
-                  )}
+                  {errors.description && <p className="mt-1 text-sm text-red-600">{errors.description}</p>}
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-sm font-medium text-[#010e26] mb-2">
-                      Vidéo *
+                      Catégorie *
                     </label>
-                    <input
-                      type="file"
-                      name="video"
+                    <select
+                      name="category"
+                      value={formData.category}
                       onChange={handleInputChange}
-                      accept="video/*"
-                      
-                      className={`w-full px-3 py-2 border ${errors.video ? 'border-red-500' : 'border-gray-300'} rounded-lg focus:outline-none focus:ring-2 focus:ring-[#010e26]`}
-                    />
-                    {errors.video && (
-                      <p className="mt-1 text-sm text-red-600">{errors.video[0]}</p>
-                    )}
+                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#010e26]"
+                    >
+                      <option value="A">Catégorie A</option>
+                      <option value="B">Catégorie B</option>
+                      <option value="C">Catégorie C</option>
+                    </select>
                   </div>
                   
                   <div>
                     <label className="block text-sm font-medium text-[#010e26] mb-2">
-                      Miniature *
+                      Image du service *
                     </label>
                     <input
                       type="file"
-                      name="thumbnail"
+                      name="image"
                       onChange={handleInputChange}
                       accept="image/*"
-                      
-                      className={`w-full px-3 py-2 border ${errors.thumbnail ? 'border-red-500' : 'border-gray-300'} rounded-lg focus:outline-none focus:ring-2 focus:ring-[#010e26]`}
+                      className={`w-full px-3 py-2 border ${errors.image ? 'border-red-500' : 'border-gray-300'} rounded-lg focus:outline-none focus:ring-2 focus:ring-[#010e26]`}
                     />
-                    {errors.thumbnail && (
-                      <p className="mt-1 text-sm text-red-600">{errors.thumbnail[0]}</p>
-                    )}
+                    {errors.image && <p className="mt-1 text-sm text-red-600">{errors.image}</p>}
+                    <p className="text-xs text-gray-500 mt-1">
+                      Formats acceptés: JPG, PNG, GIF. Taille max: 2MB
+                    </p>
                   </div>
                 </div>
 
@@ -537,7 +547,7 @@ export default function ContentPage() {
                         Création...
                       </>
                     ) : (
-                      'Créer le reel'
+                      'Ajouter le service'
                     )}
                   </button>
                   <button
@@ -554,84 +564,86 @@ export default function ContentPage() {
           )}
 
           {/* Update Form */}
-          {showUpdateForm && contentToEdit && (
+          {showUpdateForm && serviceToEdit && (
             <div className="mb-8 p-6 bg-blue-50 rounded-xl border border-blue-200">
               <h3 className="text-lg font-bold text-[#010e26] mb-4">
-                Modifier le reel: {contentToEdit.title}
+                Modifier le service: {serviceToEdit.title}
               </h3>
               <form onSubmit={handleUpdateSubmit} className="space-y-4">
                 <div>
                   <label className="block text-sm font-medium text-[#010e26] mb-2">
-                    Titre *
+                    Titre du service *
                   </label>
                   <input
                     type="text"
                     name="title"
                     value={formData.title}
                     onChange={handleInputChange}
-                    
                     className={`w-full px-3 py-2 border ${errors.title ? 'border-red-500' : 'border-gray-300'} rounded-lg focus:outline-none focus:ring-2 focus:ring-[#010e26]`}
-                    placeholder="Entrez le titre du reel"
+                    placeholder="Entrez le titre du service"
                   />
-                  {errors.title && (
-                    <p className="mt-1 text-sm text-red-600">{errors.title[0]}</p>
-                  )}
+                  {errors.title && <p className="mt-1 text-sm text-red-600">{errors.title}</p>}
                 </div>
-
+                
                 <div>
                   <label className="block text-sm font-medium text-[#010e26] mb-2">
-                    Nombre de vues *
+                    Description *
                   </label>
-                  <input
-                    type="number"
-                    name="views"
-                    value={formData.views}
+                  <textarea
+                    name="description"
+                    value={formData.description}
                     onChange={handleInputChange}
-                    required
-                    className={`w-full px-3 py-2 border ${errors.views ? 'border-red-500' : 'border-gray-300'} rounded-lg focus:outline-none focus:ring-2 focus:ring-[#010e26]`}
-                    placeholder="Entrez le nombre de vues"
+                    rows="4"
+                    className={`w-full px-3 py-2 border ${errors.description ? 'border-red-500' : 'border-gray-300'} rounded-lg focus:outline-none focus:ring-2 focus:ring-[#010e26]`}
+                    placeholder="Décrivez le service en détail..."
                   />
-                  {errors.views && (
-                    <p className="mt-1 text-sm text-red-600">{errors.views[0]}</p>
-                  )}
+                  {errors.description && <p className="mt-1 text-sm text-red-600">{errors.description}</p>}
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-sm font-medium text-[#010e26] mb-2">
-                      Nouvelle vidéo (optionnel)
+                      Catégorie *
                     </label>
-                    <input
-                      type="file"
-                      name="video"
+                    <select
+                      name="category"
+                      value={formData.category}
                       onChange={handleInputChange}
-                      accept="video/*"
-                      className={`w-full px-3 py-2 border ${errors.video ? 'border-red-500' : 'border-gray-300'} rounded-lg focus:outline-none focus:ring-2 focus:ring-[#010e26]`}
-                    />
-                    {errors.video && (
-                      <p className="mt-1 text-sm text-red-600">{errors.video[0]}</p>
-                    )}
-                    <p className="text-xs text-gray-500 mt-1">
-                      Laissez vide pour garder la vidéo actuelle
-                    </p>
+                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#010e26]"
+                    >
+                      <option value="A">Catégorie A</option>
+                      <option value="B">Catégorie B</option>
+                      <option value="C">Catégorie C</option>
+                    </select>
                   </div>
                   
                   <div>
                     <label className="block text-sm font-medium text-[#010e26] mb-2">
-                      Nouvelle miniature (optionnel)
+                      Nouvelle image (optionnel)
                     </label>
+                    
+                    {/* Show current image if exists */}
+                    {formData.currentImage && (
+                      <div className="mb-3">
+                        <p className="text-sm text-gray-600 mb-1">Image actuelle:</p>
+                        <img 
+                          src={`http://127.0.0.1:8000/storage/${formData.currentImage}`} 
+                          alt="Current service" 
+                          className="h-20 w-auto rounded"
+                        />
+                      </div>
+                    )}
+                    
                     <input
                       type="file"
-                      name="thumbnail"
+                      name="image"
                       onChange={handleInputChange}
                       accept="image/*"
-                      className={`w-full px-3 py-2 border ${errors.thumbnail ? 'border-red-500' : 'border-gray-300'} rounded-lg focus:outline-none focus:ring-2 focus:ring-[#010e26]`}
+                      className={`w-full px-3 py-2 border ${errors.image ? 'border-red-500' : 'border-gray-300'} rounded-lg focus:outline-none focus:ring-2 focus:ring-[#010e26]`}
                     />
-                    {errors.thumbnail && (
-                      <p className="mt-1 text-sm text-red-600">{errors.thumbnail[0]}</p>
-                    )}
+                    {errors.image && <p className="mt-1 text-sm text-red-600">{errors.image}</p>}
                     <p className="text-xs text-gray-500 mt-1">
-                      Laissez vide pour garder la miniature actuelle
+                      Laissez vide pour garder l'image actuelle
                     </p>
                   </div>
                 </div>
@@ -667,88 +679,67 @@ export default function ContentPage() {
             </div>
           )}
 
-          {/* Contents Grid */}
+          {/* Services Grid */}
           {isLoading ? (
             <div className="flex flex-col items-center justify-center py-20">
               <div className="relative">
                 <div className="w-16 h-16 border-4 border-gray-200 border-t-[#010e26] rounded-full animate-spin"></div>
               </div>
-              <p className="mt-4 text-[#666] text-lg">Chargement des reels...</p>
+              <p className="mt-4 text-[#666] text-lg">Chargement des services...</p>
             </div>
-          ) : contents.data && contents.data.length > 0 ? (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {contents.data?.map((content) => (
-                <div key={content.id} className="border rounded-lg p-4 hover:shadow-md transition">
-                  <div className="relative pb-[125%] bg-black rounded mb-4 overflow-hidden">
-                    {/* Video Element (hidden when not playing) */}
-                    <video
-                      ref={el => videoRefs.current[content.id] = el}
-                      src={content.video ? `http://127.0.0.1:8000/storage/${content.video}` : ''}
-                      className={`absolute h-full w-full object-contain bg-black ${playingVideoId === content.id ? 'block' : 'hidden'}`}
-                      onClick={() => togglePlayVideo(content.id)}
-                      onEnded={() => handleVideoEnded(content.id)}
-                      controls={playingVideoId === content.id}
-                    />
-                    
-                    {/* Thumbnail (hidden when video is playing) */}
-                    {playingVideoId !== content.id && (
-                      <>
-                        {content.thumbnail ? (
-                          <img
-                            src={`http://127.0.0.1:8000/storage/${content.thumbnail}`}
-                            alt={content.title}
-                            className="absolute h-full w-full object-cover"
-                          />
-                        ) : (
-                          <div className="absolute h-full w-full flex items-center justify-center text-gray-300">
-                            Pas de miniature
-                          </div>
-                        )}
-                        <div className="absolute inset-0 flex items-center justify-center">
-                          <button 
-                            onClick={() => togglePlayVideo(content.id)}
-                            className="bg-black bg-opacity-50 rounded-full p-3 text-white hover:bg-opacity-70 transition"
-                          >
-                            <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
-                              <path d="M8 5v14l11-7z"/>
-                            </svg>
-                          </button>
-                        </div>
-                      </>
+          ) : services && services.length > 0 ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {services?.map((service) => (
+                <div key={service.id} className="border rounded-lg p-4 hover:shadow-md transition">
+                  <div className="h-40 bg-gray-200 rounded mb-4 overflow-hidden">
+                    {service.image ? (
+                      <img
+                        src={`http://127.0.0.1:8000/storage/${service.image}`}
+                        alt={service.title}
+                        className="h-full w-full object-cover"
+                      />
+                    ) : (
+                      <div className="h-full w-full flex items-center justify-center text-gray-500">
+                        Pas d'image
+                      </div>
                     )}
                   </div>
+                  <div className="flex justify-between items-start mb-2">
+                    <h3 className="font-bold text-lg">{service.title}</h3>
+                    <span className={`px-2 py-1 text-xs rounded-full 
+                      ${service.category === 'A' ? 'bg-blue-100 text-blue-800' : 
+                        service.category === 'B' ? 'bg-green-100 text-green-800' : 
+                        'bg-purple-100 text-purple-800'}`}>
+                      {getCategoryName(service.category)}
+                    </span>
+                  </div>
+                  <p className="text-sm text-gray-600 mb-3 line-clamp-3">{service.description}</p>
                   
-                  <div className="flex justify-between items-start">
-                    <div>
-                      <h3 className="font-bold text-lg mb-1 line-clamp-1">{content.title}</h3>
-                      <p className="text-sm text-gray-600">{formatViews(content.views)}</p>
-                    </div>
-                    
-                    <div className="flex gap-2">
-                      <button 
-                        onClick={() => handleEditClick(content)} 
-                        className="text-[#445EF2] hover:text-blue-800 px-2 py-1 rounded text-sm font-medium"
-                      >
-                        Éditer
-                      </button>
-                      <button 
-                        onClick={() => handleDeleteClick(content)} 
-                        className="text-red-600 hover:text-red-800 px-2 py-1 rounded text-sm font-medium"
-                      >
-                        Supprimer
-                      </button>
-                    </div>
+                  <div className="flex gap-2">
+                    <button 
+                      onClick={() => handleEditClick(service)} 
+                      className="text-[#445EF2] hover:text-blue-800 px-2 py-1 rounded text-sm font-medium"
+                    >
+                      Éditer
+                    </button>
+
+                    <button 
+                      onClick={() => handleDeleteClick(service)} 
+                      className="text-red-600 hover:text-red-800 px-2 py-1 rounded text-sm font-medium"
+                    >
+                      Supprimer
+                    </button>
                   </div>
                 </div>
               ))}
             </div>
           ) : (
             <div className="flex flex-col items-center justify-center py-20">
-              <div className="text-6xl mb-4">🎥</div>
-              <h3 className="text-xl font-bold text-[#010e26] mb-2">Aucun reel trouvé</h3>
+              <div className="text-6xl mb-4">🛠️</div>
+              <h3 className="text-xl font-bold text-[#010e26] mb-2">Aucun service trouvé</h3>
               <p className="text-[#666] text-center">
-                Vous n'avez pas encore ajouté de reels.<br/>
-                Cliquez sur "Nouveau Reel" pour commencer.
+                Vous n'avez pas encore ajouté de services.<br/>
+                Cliquez sur "Nouveau Service" pour commencer.
               </p>
             </div>
           )}
@@ -770,18 +761,18 @@ export default function ContentPage() {
                 </h3>
                 
                 <p className="text-[#666] mb-2">
-                  Êtes-vous sûr de vouloir supprimer le reel
+                  Êtes-vous sûr de vouloir supprimer le service
                 </p>
                 <p className="text-[#010e26] font-semibold mb-6">
-                  "{contentToDelete?.title}" ?
+                  "{serviceToDelete?.title}" ?
                 </p>
                 <p className="text-sm text-red-600 mb-8">
                   Cette action est irréversible.
                 </p>
                 
-                {errors.message && (
-                  <div className="mb-4 p-2 bg-red-100 border border-red-400 text-red-700 rounded text-sm">
-                    {errors.message}
+                {errors.general && (
+                  <div className="p-3 mb-4 bg-red-100 text-red-700 rounded-lg">
+                    {errors.general}
                   </div>
                 )}
                 

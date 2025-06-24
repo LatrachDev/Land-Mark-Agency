@@ -1,6 +1,6 @@
 import { Helmet } from 'react-helmet';
 import { useNavigate } from 'react-router-dom';
-import { ADMIN_TEAM, ADMIN_INBOX, ADMIN_PROJECTS, ADMIN_BLOG, ADMIN_CONTENT } from '../config/routes';
+import { ADMIN_TEAM, ADMIN_INBOX, ADMIN_PROJECTS, ADMIN_BLOG, ADMIN_CONTENT, ADMIN_SERVICES } from '../config/routes';
 import { useEffect, useState } from 'react';
 import MessageModal from '../components/MessageModal';
 
@@ -170,6 +170,12 @@ export default function InboxPage() {
       icon: '📨',
       path: ADMIN_INBOX,
       active: true
+    },
+    {
+      title: 'Gestion des services',
+      desc: 'Ajoutez, modifiez ou supprimez les services proposés par l\'agence.',
+      icon: '🛠️',
+      path: ADMIN_SERVICES,
     },
   ];
 

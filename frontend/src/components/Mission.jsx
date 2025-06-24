@@ -62,12 +62,12 @@ const Mission = (props) => {
             <div className="absolute inset-0 flex items-center justify-center bg-black/20">
               <button
                 onClick={handlePlayClick}
-                className="w-28 h-28 cursor-pointer rounded-full flex items-center justify-center hover:bg-black/40 transition-all"
+                className="md:w-28 md:h-28 w-16 h-16 cursor-pointer rounded-full flex items-center justify-center hover:bg-black/40 transition-all"
               >
                 <img
                   src="src/assets/Services/videoIcon2.svg"
                   alt="Play video"
-                  className="w-20 h-20 rounded-full"
+                  className="md:w-20 md:h-20 w-12 h-12 rounded-full"
                 />
               </button>
             </div>
