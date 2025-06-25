@@ -10,8 +10,10 @@ use App\Http\Controllers\Api\V1\Admin\ContactController as AdminContactControlle
 use App\Http\Controllers\Api\V1\Admin\ContentController as AdminContentController;
 use App\Http\Controllers\Api\V1\Admin\ProjectController as AdminProjectController;
 use App\Http\Controllers\Api\V1\Admin\TeamController as AdminTeamController;
+use App\Http\Controllers\Api\V1\Admin\ServicesController as AdminServicesController;
 use App\Http\Controllers\Auth\AdminLoginController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ServicesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,11 +27,13 @@ use App\Http\Controllers\HomeController;
 // });
 
 Route::post('/contact', [ContactController::class, 'store']);
+Route::get('/services', [ServicesController::class, 'services']);
 Route::get('/home', [HomeController::class, 'home']);
 Route::get('/portfolio', [HomeController::class, 'porftolio']);
 Route::get('/about', [HomeController::class, 'teamMembers']);
 Route::get('/blog', [HomeController::class, 'blog']);
 Route::get('/blog/{id}', [HomeController::class, 'showBlog']);
+Route::get('/services/{id}', [ServicesController::class, 'show']);
 
 
 // Admin login route (NO auth middleware)
@@ -42,6 +46,7 @@ Route::middleware('auth:sanctum')->prefix('v1/admin')->group(function () {
     Route::apiResource('contents', AdminContentController::class);
     Route::apiResource('projects', AdminProjectController::class);
     Route::apiResource('teams', AdminTeamController::class);
+    Route::apiResource('services', AdminServicesController::class);
     
     // Route::apiResource('contacts', AdminContactController::class);
 

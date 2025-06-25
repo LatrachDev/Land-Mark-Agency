@@ -14,4 +14,15 @@ class ServicesController extends Controller
             'services' => $services
         ], 200);
     }
+
+    public function show(string $id)
+    {
+        $service  = Service::find($id);
+
+        if (!$service) {
+            return response()->json(['message' => 'Service not found'], 404);
+        }
+
+        return response()->json($service);
+    }
 }
