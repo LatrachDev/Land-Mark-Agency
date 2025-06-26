@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Promotion from '../components/Promotion';
 import Nav from '../components/Nav';
@@ -6,12 +7,13 @@ import Reviews from '../components/Reviews';
 import Contact from '../components/Contact';
 import Footer from '../components/Footer';
 import { Helmet } from "react-helmet";
-import WebSiteBG from '../assets/BG/maskBg.png'; // Add this line
+import WebSiteBG from '../assets/BG/maskBg.png';
 
 const baseURL = "http://127.0.0.1:8000/storage/";
 
 export default function ServicesPage() {
   const [services, setServices] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     axios.get('http://127.0.0.1:8000/api/services')
@@ -43,7 +45,7 @@ export default function ServicesPage() {
       </Helmet>
 
       <section className="font-['Jost'] relative min-h-screen">
-        {/* 🔵 Background style (same as Portfolio) */}
+        {/* 🔵 Background style */}
         <div 
           className="absolute top-0 left-0 w-full bg-cover bg-no-repeat z-0"
           style={{ 
@@ -69,7 +71,7 @@ export default function ServicesPage() {
         </section>
 
         {/* Services */}
-        <section className=" py-16 px-4 sm:px-10 text-center w-[90%] m-auto relative z-10">
+        <section className="py-16 px-4 sm:px-10 text-center w-[90%] m-auto relative z-10">
           <h2 className="text-xl sm:text-2xl font-bold text-left text-gray-900 uppercase mb-6" style={{ fontFamily: 'bodoni' }}>
             SERVICES
           </h2>
@@ -88,16 +90,29 @@ export default function ServicesPage() {
               </h3>
               <section className="flex flex-wrap gap-5 justify-between mt-10">
                 {groupedServices[category].map((service, i) => (
-                  <div key={i} className="w-full sm:w-[45%] lg:w-[30%] text-left font-bold">
-                    <div className="w-full">
-                      <img
-                        src={baseURL + service.image}
-                        alt={service.title}
-                        className="w-full h-auto"
-                      />
+                  <div
+                    key={i} onClick={() => navigate(`/services/${service.id}`)}
+                    className="text-[#010e26] w-full sm:w-[45%] lg:w-[30%] text-left font-bold group relative overflow-hidden rounded-lg shadow-md transition-transform duration-300 hover:scale-[1.01] bg-white cursor-pointer hover:text-[#445EF2]"
+                  >
+                    <img
+                      src={baseURL + service.image}
+                      alt={service.title}
+                      className="w-full h-56 object-cover"
+                    />
+                    <div className="p-5">
+                      <p className=" uppercase mb-1">{service.title}</p>
+                      <p className="text-[#666666] text-sm">{service.description.slice(0, 100)}...</p>
                     </div>
-                    <p className="text-[#010e26] uppercase mt-10 mb-1">{service.title}</p>
-                    <p className="text-[#666666] text-sm">{service.description}</p>
+
+                    {/* Hover Overlay */}
+                    {/* <div className="absolute inset-0  bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <button
+                        onClick={() => navigate(`/services/${service.id}`)}
+                        className="bg-white text-[#263973] font-semibold px-4 py-2 rounded-lg shadow hover:bg-[#445EF2] hover:text-white transition-colors duration-300"
+                      >
+                        View Details
+                      </button>
+                    </div> */}
                   </div>
                 ))}
               </section>
