@@ -41,7 +41,7 @@ export default function ServicesController() {
     setIsLoading(true);
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch('http://127.0.0.1:8000/api/v1/admin/services', {
+      const response = await fetch(`${import.meta.env.VITE_API_BASE_URL_V1}/admin/services`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -80,7 +80,7 @@ export default function ServicesController() {
     setIsDeleting(true);
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch(`http://127.0.0.1:8000/api/v1/admin/services/${serviceToDelete.id}`, {
+      const response = await fetch(`${import.meta.env.VITE_API_BASE_URL_V1}/admin/services/${serviceToDelete.id}`, {
         method: 'DELETE',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -214,7 +214,7 @@ export default function ServicesController() {
         formDataToSend.append('image', formData.image);
       }
 
-      const response = await fetch('http://127.0.0.1:8000/api/v1/admin/services', {
+      const response = await fetch(`${import.meta.env.VITE_API_BASE_URL_V1}/admin/services`, {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -280,7 +280,7 @@ export default function ServicesController() {
         formDataToSend.append('image', formData.image);
       }
 
-      const response = await fetch(`http://127.0.0.1:8000/api/v1/admin/services/${serviceToEdit.id}`, {
+      const response = await fetch(`${import.meta.env.VITE_API_BASE_URL_V1}/admin/services/${serviceToEdit.id}`, {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`,

@@ -16,7 +16,7 @@ export default function ServicesPage() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios.get('http://127.0.0.1:8000/api/services')
+    axios.get(`${import.meta.env.VITE_API_BASE_URL}services`)
       .then(response => {
         setServices(response.data.services);
       })

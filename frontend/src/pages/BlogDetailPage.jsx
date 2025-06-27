@@ -40,7 +40,7 @@ const formatBlogText = (text) => {
 };
 
   useEffect(() => {
-    fetch(`http://127.0.0.1:8000/api/blog/${id}`)
+    fetch(`${import.meta.env.VITE_API_BASE_URL}blog/${id}`)
       .then(res => {
         if (!res.ok) throw new Error('Network response was not ok');
         return res.json();

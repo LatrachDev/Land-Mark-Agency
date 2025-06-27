@@ -41,7 +41,7 @@ export default function ProjectsPage() {
     setIsLoading(true);
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch('http://127.0.0.1:8000/api/v1/admin/projects', {
+      const response = await fetch(`${import.meta.env.VITE_API_BASE_URL_V1}/admin/projects`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -78,7 +78,7 @@ export default function ProjectsPage() {
     setIsDeleting(true);
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch(`http://127.0.0.1:8000/api/v1/admin/projects/${projectToDelete.id}`, {
+      const response = await fetch(`${import.meta.env.VITE_API_BASE_URL_V1}/admin/projects/${projectToDelete.id}`, {
         method: 'DELETE',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -167,7 +167,7 @@ export default function ProjectsPage() {
         formDataToSend.append('landing', formData.landing);
       }
 
-      const response = await fetch('http://127.0.0.1:8000/api/v1/admin/projects', {
+      const response = await fetch(`${import.meta.env.VITE_API_BASE_URL_V1}/admin/projects`, {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -227,7 +227,7 @@ export default function ProjectsPage() {
         formDataToSend.append('landing', formData.landing);
       }
 
-      const response = await fetch(`http://127.0.0.1:8000/api/v1/admin/projects/${projectToEdit.id}`, {
+      const response = await fetch(`${import.meta.env.VITE_API_BASE_URL_V1}/admin/projects/${projectToEdit.id}`, {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`,

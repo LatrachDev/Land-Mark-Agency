@@ -65,7 +65,7 @@ export default function AboutPage() {
   const [teamMembers, setTeamMembers] = useState([]);
 
   useEffect(() => {
-    fetch('http://127.0.0.1:8000/api/about', {
+    fetch(`${import.meta.env.VITE_API_BASE_URL}about`, {
       headers: {
         'Accept': 'application/json'
       }

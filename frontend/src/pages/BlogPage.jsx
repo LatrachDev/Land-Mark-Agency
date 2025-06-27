@@ -85,7 +85,7 @@ export default function BlogPage() {
       console.log('rahna hna db');
       const token = localStorage.getItem("token");
       console.log('jbna token');
-      const response = await fetch('http://127.0.0.1:8000/api/v1/admin/blogs', {
+      const response = await fetch(`${import.meta.env.VITE_API_BASE_URL_V1}/admin/blogs`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -144,11 +144,11 @@ export default function BlogPage() {
 
     try {
       const token = localStorage.getItem("token");
-      let url = 'http://127.0.0.1:8000/api/v1/admin/blogs';
+      let url = `${import.meta.env.VITE_API_BASE_URL_V1}/admin/blogs`;
       let method = 'POST';
 
       if (editingId) {
-        url = `http://127.0.0.1:8000/api/v1/admin/blogs/${editingId}`;
+        url = `${import.meta.env.VITE_API_BASE_URL_V1}/admin/blogs/${editingId}`;
         formData.append('_method', 'PUT');
       }
 
@@ -201,7 +201,7 @@ export default function BlogPage() {
     setIsDeleting(true);
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch(`http://127.0.0.1:8000/api/v1/admin/blogs/${blogToDelete.id}`, {
+      const response = await fetch(`${import.meta.env.VITE_API_BASE_URL_V1}/admin/blogs/${blogToDelete.id}`, {
         method: 'DELETE',
         headers: {
           'Authorization': `Bearer ${token}`,

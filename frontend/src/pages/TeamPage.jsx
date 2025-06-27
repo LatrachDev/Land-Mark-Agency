@@ -41,7 +41,7 @@ export default function TeamPage() {
     setIsLoading(true);
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch('http://127.0.0.1:8000/api/v1/admin/teams', {
+      const response = await fetch(`${import.meta.env.VITE_API_BASE_URL_V1}/admin/teams`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -78,7 +78,7 @@ export default function TeamPage() {
     setIsDeleting(true);
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch(`http://127.0.0.1:8000/api/v1/admin/teams/${memberToDelete.id}`, {
+      const response = await fetch(`${import.meta.env.VITE_API_BASE_URL_V1}/admin/teams/${memberToDelete.id}`, {
         method: 'DELETE',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -165,7 +165,7 @@ export default function TeamPage() {
       formDataToSend.append('linkedin', formData.linkedin);
       formDataToSend.append('instagram', formData.instagram);
 
-      const response = await fetch('http://127.0.0.1:8000/api/v1/admin/teams', {
+      const response = await fetch(`${import.meta.env.VITE_API_BASE_URL_V1}/admin/teams`, {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -218,7 +218,7 @@ export default function TeamPage() {
         formDataToSend.append('image', formData.image);
       }
 
-      const response = await fetch(`http://127.0.0.1:8000/api/v1/admin/teams/${memberToEdit.id}`, {
+      const response = await fetch(`${import.meta.env.VITE_API_BASE_URL_V1}/admin/teams/${memberToEdit.id}`, {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`,

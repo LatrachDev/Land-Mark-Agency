@@ -9,7 +9,7 @@ const Projects = () => {
 
 
   useEffect(() => {
-    fetch('http://127.0.0.1:8000/api/home')
+    fetch(`${import.meta.env.VITE_API_BASE_URL}home`)
       .then(res => res.json())
       .then(data => {
         if (data.threeProjects) {

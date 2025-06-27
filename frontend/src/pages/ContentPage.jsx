@@ -42,7 +42,7 @@ export default function ContentPage() {
     setIsLoading(true);
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch('http://127.0.0.1:8000/api/v1/admin/contents', {
+      const response = await fetch(`${import.meta.env.VITE_API_BASE_URL_V1}/admin/contents`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -90,7 +90,7 @@ export default function ContentPage() {
     setIsDeleting(true);
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch(`http://127.0.0.1:8000/api/v1/admin/contents/${contentToDelete.id}`, {
+      const response = await fetch(`${import.meta.env.VITE_API_BASE_URL_V1}/admin/contents/${contentToDelete.id}`, {
         method: 'DELETE',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -197,7 +197,7 @@ export default function ContentPage() {
       }
       formDataToSend.append('thumbnail', formData.thumbnail);
 
-      const response = await fetch('http://127.0.0.1:8000/api/v1/admin/contents', {
+      const response = await fetch(`${import.meta.env.VITE_API_BASE_URL_V1}/admin/contents`, {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -255,7 +255,7 @@ export default function ContentPage() {
         formDataToSend.append('thumbnail', formData.thumbnail);
       }
 
-      const response = await fetch(`http://127.0.0.1:8000/api/v1/admin/contents/${contentToEdit.id}`, {
+      const response = await fetch(`${import.meta.env.VITE_API_BASE_URL_V1}/${contentToEdit.id}`, {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`,

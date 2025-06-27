@@ -27,7 +27,7 @@ export default function InboxPage() {
     setIsLoading(true);
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch('http://127.0.0.1:8000/api/v1/admin/contacts', {
+      const response = await fetch(`${import.meta.env.VITE_API_BASE_URL_V1}/admin/contacts`, {
         headers: {
           'Authorization': `Bearer ${token}`
         }
@@ -73,7 +73,7 @@ export default function InboxPage() {
     if (!message.read_at) {
       try {
         const token = localStorage.getItem("token");
-        await fetch('http://127.0.0.1:8000/api/v1/admin/contacts/mark-as-read/', {
+        await fetch(`${import.meta.env.VITE_API_BASE_URL_V1}/admin/contacts/mark-as-read/`, {
           method: 'PUT',
           headers: {
             'Authorization': `Bearer ${token}`,
@@ -92,7 +92,7 @@ export default function InboxPage() {
   const markAsRead = async (ids) => {
     try {
       const token = localStorage.getItem("token");
-      await fetch('http://127.0.0.1:8000/api/v1/admin/contacts/mark-as-read/', {
+      await fetch(`${import.meta.env.VITE_API_BASE_URL_V1}/admin/contacts/mark-as-read/`, {
         method: 'PUT',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -114,7 +114,7 @@ export default function InboxPage() {
     if (ids.length === 1) {
       // DELETE a single message using destroy()
     
-      await fetch(`http://127.0.0.1:8000/api/v1/admin/contacts/${ids[0]}`, {
+      await fetch(`${import.meta.env.VITE_API_BASE_URL_V1}/admin/contacts/${ids[0]}`, {
         method: 'DELETE',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -122,7 +122,7 @@ export default function InboxPage() {
       });
     } else {
       // DELETE multiple messages
-      await fetch('http://127.0.0.1:8000/api/v1/admin/contacts/delete-multiple', {
+      await fetch(`${import.meta.env.VITE_API_BASE_URL_V1}/admin/contacts/delete-multiple`, {
         method: 'DELETE',
         headers: {
           'Authorization': `Bearer ${token}`,

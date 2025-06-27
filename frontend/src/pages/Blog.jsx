@@ -15,7 +15,7 @@ function BlogPage() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    fetch('http://127.0.0.1:8000/api/blog', {
+    fetch(`${import.meta.env.VITE_API_BASE_URL}blog`, {
       headers: {
         'Accept': 'application/json'
       }
