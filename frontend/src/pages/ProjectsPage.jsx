@@ -2,6 +2,7 @@ import { Helmet } from 'react-helmet';
 import { useNavigate } from 'react-router-dom';
 import { ADMIN_TEAM, ADMIN_INBOX, ADMIN_PROJECTS, ADMIN_BLOG, ADMIN_CONTENT, ADMIN_SERVICES } from '../config/routes';
 import { useEffect, useState } from 'react';
+import mainLogo from '../assets/Logotype/Main.png';
 
 export default function ProjectsPage() {
   const [projects, setProjects] = useState([]);
@@ -333,7 +334,7 @@ export default function ProjectsPage() {
         {/* Header */}
         <div className="w-[90%] m-auto pt-10 flex justify-between items-center">
           <img
-            src={'/src/assets/Logotype/Main.png'} 
+            src={mainLogo} 
             alt="Landmark"
             className="h-10 md:min-w-[200px] md:h-14"
           />

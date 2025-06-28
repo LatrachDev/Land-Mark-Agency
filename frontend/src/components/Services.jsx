@@ -1,38 +1,44 @@
 import React from 'react';
+import marketingIcon from '../assets/Services/marketingIcon.svg';
+import designIcon from '../assets/Services/designIcon.svg';
+import creationIcon from '../assets/Services/creation.svg';
+import seoIcon from '../assets/Services/seo.svg';
+import uxIcon from '../assets/Services/ux.svg';
+import photographyIcon from '../assets/Services/photography.svg';
 
 const servicesData = [
   {
-    icon: 'src/assets/Services/marketingIcon.svg',
+    icon: marketingIcon,
     alt: 'Marketing Icon',
     title: 'ANALYSER LE MARCHÉ',
     description: 'Une voie claire & ciblée pour lancer votre entreprise.',
   },
   {
-    icon: 'src/assets/Services/designIcon.svg',
+    icon: designIcon,
     alt: 'Branding Icon',
     title: 'BRANDING DESIGN',
     description: 'Créez & lancez une marque qui se démarque sur le marché.',
   },
   {
-    icon: 'src/assets/Services/creation.svg',
+    icon: creationIcon,
     alt: 'Content Creation Icon',
     title: 'CRÉATION DE CONTENU',
     description: 'Grandissez & évoluez avec du contenu qui augmente les interactions.',
   },
   {
-    icon: 'src/assets/Services/seo.svg',
+    icon: seoIcon,
     alt: 'SEO Icon',
     title: 'SEO & SEA',
     description: 'Booster & Optimiser le classement de votre Site Web',
   },
   {
-    icon: 'src/assets/Services/ux.svg',
+    icon: uxIcon,
     alt: 'UI UX Icon',
     title: 'UI & UX DESIGN',
     description: 'Créez & Développez une interface qui capte vos utilisateurs.',
   },
   {
-    icon: 'src/assets/Services/photography.svg',
+    icon: photographyIcon,
     alt: 'Photography Icon',
     title: 'PHOTOGRAPHIE',
     description: 'Capturez & présentez des visuels qui inspirent et engagent.',

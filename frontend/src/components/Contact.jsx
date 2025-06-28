@@ -1,5 +1,6 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { Helmet } from "react-helmet";
+import haythamImage from '../assets/JPG/haytham.jpg';
 
 function Contact() {
   const [formData, setFormData] = useState({
@@ -190,7 +191,7 @@ function Contact() {
             {/* Image & Info Section */}
             <div className="lg:w-4/12">
               <div className="mb-6">
-                <img src="src/assets/JPG/haytham.jpg" alt="Haytham" className="w-full h-auto rounded-lg shadow-md" />
+                <img src={haythamImage} alt="Haytham" className="w-full h-auto rounded-lg shadow-md" />
               </div>
               <p className="italic text-justify text-xl text-[#666666] mb-4">
                 Saviez-vous que 4 clients sur 5 changent de marque a cause d'une male expérience ou d'un design médiocres ? <br />

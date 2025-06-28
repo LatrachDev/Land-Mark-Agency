@@ -1,4 +1,7 @@
 import React, { useRef, useState } from 'react';
+import videoSrc from '../assets/video/LandmarkVideoHd.mp4';
+import thumbnailSrc from '../assets/JPG/ThumbnailMission.jpg';
+import videoIconSrc from '../assets/Services/videoIcon2.svg';
 
 const Mission = (props) => {
   const videoRef = useRef(null);
@@ -32,8 +35,8 @@ const Mission = (props) => {
         {/* Video Element */}
         <video
           ref={videoRef}
-          src="src/assets/video/LandmarkVideoHd.mp4"
-          poster="src/assets/JPG/ThumbnailMission.jpg"
+          src={videoSrc}
+          poster={thumbnailSrc}
           controls={isPlaying}
           className="w-full h-full object-cover"
           style={{
@@ -52,7 +55,7 @@ const Mission = (props) => {
             {/* Thumbnail Image - only shown when paused or not playing */}
             {isPaused && (
               <img
-                src="src/assets/JPG/ThumbnailMission.jpg"
+                src={thumbnailSrc}
                 alt="Video thumbnail"
                 className="absolute inset-0 w-full h-full object-cover"
               />
@@ -65,7 +68,7 @@ const Mission = (props) => {
                 className="md:w-28 md:h-28 w-16 h-16 cursor-pointer rounded-full flex items-center justify-center hover:bg-black/40 transition-all"
               >
                 <img
-                  src="src/assets/Services/videoIcon2.svg"
+                  src={videoIconSrc}
                   alt="Play video"
                   className="md:w-20 md:h-20 w-12 h-12 rounded-full"
                 />

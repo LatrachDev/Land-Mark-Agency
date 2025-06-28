@@ -1,29 +1,33 @@
 import React from 'react';
+import azzimaniImage from '../assets/reviews/azzimani.jpg';
+import logoForProfilesImage from '../assets/reviews/logo-for-profiles.png';
+import minariProfileImage from '../assets/reviews/MINARI-prophile-12.png';
+import googleLogoImage from '../assets/reviews/google-logo.png';
 
 const reviews = [
   {
     quote:
-      ' Une agence qui comprend vite, travaille bien et livre mieux que ce qu’on imaginait. Très satisfait du résultat final. ',
+      ' Une agence qui comprend vite, travaille bien et livre mieux que ce qu'on imaginait. Très satisfait du résultat final. ',
     clientName: 'Mohammed Azzimani',
     company: 'Al Andalous Pack',
-    avatar: 'src/assets/reviews/azzimani.jpg',
-    platformLogo: 'src/assets/reviews/google-logo.png',
+    avatar: azzimaniImage,
+    platformLogo: googleLogoImage,
   },
   {
     quote:
-      ' On a attendu un peu plus que prévu parce que l’équipe voulait vraiment bien faire les choses. Et honnêtement, le résultat final est super. ',
+      ' On a attendu un peu plus que prévu parce que l'équipe voulait vraiment bien faire les choses. Et honnêtement, le résultat final est super. ',
     clientName: 'Khaoula Touijer',
     company: 'Growmax',
-    avatar: 'src/assets/reviews/logo-for-profiles.png',
-    platformLogo: 'src/assets/reviews/google-logo.png',
+    avatar: logoForProfilesImage,
+    platformLogo: googleLogoImage,
   },
   {
     quote:
-      ' Tout simplement had l’agence homa les meilleurs avec qui j’ai travaillé. machaellah wahed la créativité 3endhom WOW. ',
+      ' Tout simplement had l'agence homa les meilleurs avec qui j'ai travaillé. machaellah wahed la créativité 3endhom WOW. ',
     clientName: 'Amina Bitari',
     company: 'Minari',
-    avatar: 'src/assets/reviews/MINARI-prophile-12.png',
-    platformLogo: 'src/assets/reviews/google-logo.png',
+    avatar: minariProfileImage,
+    platformLogo: googleLogoImage,
   },
 ];
 
