@@ -107,7 +107,7 @@ const Nav = () => {
               <Link to="/contact"
                 className={`bg-transparent ${
                   shouldUseDarkColors ? 'text-black border-black' : 'text-white border-white'
-                } border text-sm md:text-base px-4 py-1.5 transition-all duration-300 hover:border-[#445EF2] whitespace-nowrap`}
+                } border text-sm md:text-base px-4 py-1.5 transition-all duration-300 hover:border-[#445EF2] hover:bg-[#445EF2] whitespace-nowrap`}
               >
                 CONSULTATION GRATUITE
               </Link>
