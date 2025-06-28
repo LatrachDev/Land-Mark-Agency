@@ -7,7 +7,7 @@ import googleLogoImage from '../assets/reviews/google-logo.png';
 const reviews = [
   {
     quote:
-      ' Une agence qui comprend vite, travaille bien et livre mieux que ce qu'on imaginait. Très satisfait du résultat final. ',
+      " Une agence qui comprend vite, travaille bien et livre mieux que ce qu'on imaginait. Très satisfait du résultat final. ",
     clientName: 'Mohammed Azzimani',
     company: 'Al Andalous Pack',
     avatar: azzimaniImage,
@@ -15,7 +15,7 @@ const reviews = [
   },
   {
     quote:
-      ' On a attendu un peu plus que prévu parce que l'équipe voulait vraiment bien faire les choses. Et honnêtement, le résultat final est super. ',
+      " On a attendu un peu plus que prévu parce que l'équipe voulait vraiment bien faire les choses. Et honnêtement, le résultat final est super. ",
     clientName: 'Khaoula Touijer',
     company: 'Growmax',
     avatar: logoForProfilesImage,
@@ -23,7 +23,7 @@ const reviews = [
   },
   {
     quote:
-      ' Tout simplement had l'agence homa les meilleurs avec qui j'ai travaillé. machaellah wahed la créativité 3endhom WOW. ',
+      " Tout simplement had l'agence homa les meilleurs avec qui j'ai travaillé. machaellah wahed la créativité 3endhom WOW. ",
     clientName: 'Amina Bitari',
     company: 'Minari',
     avatar: minariProfileImage,
@@ -93,4 +93,4 @@ const Reviews = () => {
   );
 };
 
-export default Reviews;
+export default Reviews;
