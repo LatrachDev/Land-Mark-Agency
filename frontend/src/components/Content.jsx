@@ -160,7 +160,7 @@ const Content = () => {
   const [threeContents, setThreeContents] = useState([]);
 
   useEffect(() => {
-    fetch(`${import.meta.env.VITE_API_BASE_URL}home`, {
+    fetch(`${import.meta.env.VITE_API_BASE_URL}api/home`, {
       headers: {
         'Accept': 'application/json'
       }
@@ -202,8 +202,8 @@ const Content = () => {
           {threeContents.map((content, index) => (
             <VideoCard 
               key={content.id}
-              videoUrl={`http://127.0.0.1:8000/storage/${content.video}`}
-              thumbnailUrl={`http://127.0.0.1:8000/storage/${content.thumbnail}`}
+              videoUrl={`https://api.landmark.ma/public/storage/${content.video}`}
+              thumbnailUrl={`https://api.landmark.ma/public/storage/${content.thumbnail}`}
               title={content.title}
               views={content.views}
               onVideoPlay={handleVideoPlay}

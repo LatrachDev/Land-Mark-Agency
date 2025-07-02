@@ -403,7 +403,7 @@ export default function ServicesController() {
         {/* Header */}
         <div className="w-[90%] m-auto pt-10 flex justify-between items-center">
           <img
-            src={'/src/assets/Logotype/Main.png'} 
+            src={'/assets/Main-DSltj7B2.png'} 
             alt="Landmark"
             className="h-10 md:min-w-[200px] md:h-14"
           />
@@ -627,7 +627,7 @@ export default function ServicesController() {
                       <div className="mb-3">
                         <p className="text-sm text-gray-600 mb-1">Image actuelle:</p>
                         <img 
-                          src={`http://127.0.0.1:8000/storage/${formData.currentImage}`} 
+                          src={`https://api.landmark.ma/public/storage/${formData.currentImage}`} 
                           alt="Current service" 
                           className="h-20 w-auto rounded"
                         />
@@ -694,7 +694,7 @@ export default function ServicesController() {
                   <div className="h-40 bg-gray-200 rounded mb-4 overflow-hidden">
                     {service.image ? (
                       <img
-                        src={`http://127.0.0.1:8000/storage/${service.image}`}
+                        src={`https://api.landmark.ma/public/storage/${service.image}`}
                         alt={service.title}
                         className="h-full w-full object-cover"
                       />

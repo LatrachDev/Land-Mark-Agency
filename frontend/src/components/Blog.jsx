@@ -9,7 +9,7 @@ const Blog = () => {
   const [blogs, setBlogs] = useState([]);
 
   useEffect(() => {
-    fetch(`${import.meta.env.VITE_API_BASE_URL}home`, {
+    fetch(`${import.meta.env.VITE_API_BASE_URL}api/home`, {
       headers: {
         'Accept': 'application/json'
       }
@@ -17,14 +17,14 @@ const Blog = () => {
       .then(res => res.json())
       .then(data => {
         setBlogs(data.blogs || []);
-        console.log('data.blogs', data.blogs);
+        // console.log('data.blogs', data.blogs);
       })
       .catch(error => {
         console.error('Failed to fetch blogs:', error);
       });
   }, []);
 
-  const baseURL = 'http://127.0.0.1:8000/storage/';
+  const baseURL = 'https://api.landmark.ma/public/storage/';
 
   // Truncate description to a preview
   const truncateText = (text, maxLength = 100) => {
@@ -69,7 +69,7 @@ const Blog = () => {
                 to={`/blog/${post.id}`}
                 className="text-[#445EF2] text-sm font-medium hover:underline"
               >
-                Read More
+                Lire la suite
               </Link>
             </SwiperSlide>
           ))}
@@ -80,7 +80,7 @@ const Blog = () => {
             to="/blog"
             className="inline-block mt-5 border-2 border-gray-800 px-8 py-3 font-['Jost'] uppercase hover:bg-gray-800 hover:text-white transition-colors"
           >
-            read more
+            Lire la suite
           </Link>
         </div>
       </div>

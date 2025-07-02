@@ -36,7 +36,7 @@ function ServiceDetailPage() {
   };
 
   useEffect(() => {
-    fetch(`${import.meta.env.VITE_API_BASE_URL}services/${id}`)
+    fetch(`${import.meta.env.VITE_API_BASE_URL}api/services/${id}`)
       .then(res => {
         if (!res.ok) throw new Error('Network error');
         return res.json();
@@ -44,7 +44,7 @@ function ServiceDetailPage() {
       .then(data => {
         setService({
           ...data,
-          image: `http://127.0.0.1:8000/storage/${data.image}`,
+          image: `https://api.landmark.ma/public/storage/${data.image}`,
         });
         setIsLoading(false);
       })

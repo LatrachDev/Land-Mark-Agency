@@ -9,14 +9,14 @@ import Footer from '../components/Footer';
 import { Helmet } from "react-helmet";
 import WebSiteBG from '../assets/BG/maskBg.png';
 
-const baseURL = "http://127.0.0.1:8000/storage/";
+const baseURL = "https://api.landmark.ma/public/storage/";
 
 export default function ServicesPage() {
   const [services, setServices] = useState([]);
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios.get(`${import.meta.env.VITE_API_BASE_URL}services`)
+    axios.get(`${import.meta.env.VITE_API_BASE_URL}api/services`)
       .then(response => {
         setServices(response.data.services);
       })

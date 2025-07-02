@@ -15,7 +15,7 @@ function BlogPage() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    fetch(`${import.meta.env.VITE_API_BASE_URL}blog`, {
+    fetch(`${import.meta.env.VITE_API_BASE_URL}api/blog`, {
       headers: {
         'Accept': 'application/json'
       }
@@ -34,7 +34,7 @@ function BlogPage() {
             }
             acc[category].push({
               ...blog,
-              image: `http://127.0.0.1:8000/storage/${blog.image}`
+              image: `https://api.landmark.ma/public/storage/${blog.image}`
             });
             return acc;
           }, {});
@@ -147,7 +147,7 @@ function BlogPage() {
                               to={`/blog/${post.id}`} 
                               className="text-blue-500 text-sm font-medium hover:underline inline-block"
                             >
-                              Read More
+                              Lire la suite
                             </Link>
                           </div>
                         </div>

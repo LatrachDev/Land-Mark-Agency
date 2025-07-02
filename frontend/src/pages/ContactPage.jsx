@@ -41,7 +41,7 @@ function ContactPage() {
     setIsSubmitting(true);
     
     try {
-      const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}contact`, {
+      const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}api/contact`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -75,7 +75,7 @@ function ContactPage() {
   return (
     <div className="font-[Jost]">
       <Helmet>
-        <title>Contact | LandMark</title>
+        <title>Landmark | Marketing Agency</title>
         <meta name="description" content="Contactez LandMark, une agence de marketing à service complet appartenant à Haytham Guemmah." />
       </Helmet>
 

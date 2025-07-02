@@ -65,7 +65,7 @@ export default function AboutPage() {
   const [teamMembers, setTeamMembers] = useState([]);
 
   useEffect(() => {
-    fetch(`${import.meta.env.VITE_API_BASE_URL}about`, {
+    fetch(`${import.meta.env.VITE_API_BASE_URL}api/about`, {
       headers: {
         'Accept': 'application/json'
       }
@@ -73,7 +73,7 @@ export default function AboutPage() {
     .then(res => res.json())
     .then(data => {
       setTeamMembers(data.teamMembers);
-      console.log('Fetched team members:', data.teamMembers);
+      // console.log('Fetched team members:', data.teamMembers);
     })
     .catch(error => console.error('Error fetching team members:', error));
   }, []);
@@ -169,7 +169,7 @@ export default function AboutPage() {
             <article key={id} className="w-full sm:w-[48%] lg:w-[30%] text-left">
               <div className="w-full relative overflow-hidden rounded-lg group">
                 <img
-                  src={`http://127.0.0.1:8000/storage/${image}`}
+                  src={`https://api.landmark.ma/public/storage/${image}`}
                   alt={`Photo de ${name}`}
                   className="w-full h-auto transform transition-transform duration-500 group-hover:scale-110 group-hover:brightness-50"
                 />

@@ -59,7 +59,7 @@ export default function TeamPage() {
       }
 
       setTeamMembers(data);
-      console.log('Fetched team members:', data);
+      // console.log('Fetched team members:', data);
 
     } catch (err) {
       console.error('Error fetching team members:', err);
@@ -646,7 +646,7 @@ export default function TeamPage() {
                   <div className="h-40 bg-gray-200 rounded mb-4 overflow-hidden">
                     {member.image ? (
                       <img
-                        src={`http://127.0.0.1:8000/storage/${member.image}`}
+                        src={`https://api.landmark.ma/public/storage/${member.image}`}
                         alt={member.name}
                         className="h-full w-full object-cover"
                       />

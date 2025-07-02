@@ -41,7 +41,7 @@ function Contact() {
     setIsSubmitting(true);
     
     try {
-      const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}contact`, {
+      const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}api/contact`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -64,7 +64,7 @@ function Contact() {
         message: '',
         interests: []
       });
-      console.log("Submitting form data:", formData);
+      // console.log("Submitting form data:", formData);
     } catch (error) {
       setSubmitStatus({ success: false, message: error.message });
     } finally {
@@ -74,10 +74,7 @@ function Contact() {
 
   return (
     <div className="font-[Jost]">
-      <Helmet>
-        <title>Contact | LandMark</title>
-        <meta name="description" content="Contactez LandMark, une agence de marketing à service complet appartenant à Haytham Guemmah." />
-      </Helmet>
+
 
       <section className="px-4 sm:px-10 py-8 bg-[#eeeeee]">
         <div className="container w-[90%] m-auto">

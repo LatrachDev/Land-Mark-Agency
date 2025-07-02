@@ -36,7 +36,7 @@ export default function InboxPage() {
       const data = await response.json();
       if (response.ok) {
         setMessages(data.data || []);
-        console.log("hahia data dyal contact: ", data.data)
+        // console.log("hahia data dyal contact: ", data.data)
       }
     } catch (error) {
       console.error('Error fetching messages:', error);
@@ -198,7 +198,7 @@ export default function InboxPage() {
         {/* Header */}
         <div className="w-[90%] m-auto pt-10 flex justify-between items-center">
           <img
-            src={'/src/assets/Logotype/Main.png'} 
+            src={'/assets/Main-DSltj7B2.png'} 
             alt="Landmark"
             className="h-10 md:min-w-[200px] md:h-14"
           />

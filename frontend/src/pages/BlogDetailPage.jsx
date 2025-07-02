@@ -40,16 +40,16 @@ const formatBlogText = (text) => {
 };
 
   useEffect(() => {
-    fetch(`${import.meta.env.VITE_API_BASE_URL}blog/${id}`)
+    fetch(`${import.meta.env.VITE_API_BASE_URL}api/blog/${id}`)
       .then(res => {
         if (!res.ok) throw new Error('Network response was not ok');
         return res.json();
       })
       .then(data => {
-        console.log("Blog data:", data); 
+        // console.log("Blog data:", data); 
         setBlog({
           ...data,
-          image: `http://127.0.0.1:8000/storage/${data.image}`
+          image: `https://api.landmark.ma/public/storage/${data.image}`
         });
         setIsLoading(false);
       })

@@ -59,7 +59,7 @@ export default function ContentPage() {
       }
 
       setContents(data);
-      console.log('Contenus récupérés:', data);
+      // console.log('Contenus récupérés:', data);
 
     } catch (err) {
       console.error('Erreur lors de la récupération des contenus:', err);
@@ -386,7 +386,7 @@ export default function ContentPage() {
         {/* Header */}
         <div className="w-[90%] m-auto pt-10 flex justify-between items-center">
           <img
-            src={'/src/assets/Logotype/Main.png'} 
+            src={'/assets/Main-DSltj7B2.png'} 
             alt="Landmark"
             className="h-10 md:min-w-[200px] md:h-14"
           />
@@ -683,7 +683,7 @@ export default function ContentPage() {
                     {/* Video Element (hidden when not playing) */}
                     <video
                       ref={el => videoRefs.current[content.id] = el}
-                      src={content.video ? `http://127.0.0.1:8000/storage/${content.video}` : ''}
+                      src={content.video ? `https://api.landmark.ma/public/storage/${content.video}` : ''}
                       className={`absolute h-full w-full object-contain bg-black ${playingVideoId === content.id ? 'block' : 'hidden'}`}
                       onClick={() => togglePlayVideo(content.id)}
                       onEnded={() => handleVideoEnded(content.id)}
@@ -695,7 +695,7 @@ export default function ContentPage() {
                       <>
                         {content.thumbnail ? (
                           <img
-                            src={`http://127.0.0.1:8000/storage/${content.thumbnail}`}
+                            src={`https://api.landmark.ma/public/storage/${content.thumbnail}`}
                             alt={content.title}
                             className="absolute h-full w-full object-cover"
                           />

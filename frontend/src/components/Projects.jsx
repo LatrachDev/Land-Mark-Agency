@@ -9,7 +9,7 @@ const Projects = () => {
 
 
   useEffect(() => {
-    fetch(`${import.meta.env.VITE_API_BASE_URL}home`)
+    fetch(`${import.meta.env.VITE_API_BASE_URL}api/home`)
       .then(res => res.json())
       .then(data => {
         if (data.threeProjects) {
@@ -41,7 +41,7 @@ const Projects = () => {
     
               <div className="mb-4 rounded-lg overflow-hidden aspect-square bg-gray-100 relative cursor-pointer" onClick={() => openProjectModal(project)}>
                 <img
-                  src={`http://127.0.0.1:8000/storage/${project.image}`}
+                  src={`https://api.landmark.ma/public/storage/${project.image}`}
                   alt={project.title}
                   className="w-full h-full object-cover absolute inset-0 transition-all duration-300 group-hover:scale-105"
                 />
@@ -58,7 +58,7 @@ const Projects = () => {
                 {project.description}
               </p>
               <p className="sm:text-2xl text-2xl text-blue-500 font-bold font-['Jost'] mb-4">
-                {project.view_percent}% views
+                {project.view_percent}% <br /> <span className='text-[#010E26] text-xs font-light w-[30%]'>Website views after rebranding</span>
               </p>
             </div>
           ))}
@@ -85,7 +85,7 @@ const Projects = () => {
                 <div className="w-full">
                   <h2 className="text-2xl font-bold">{selectedProject.title}</h2>
 
-                  {/* Description with "Read more" */}
+                  {/* Description with "Lire la suite" */}
                   <div className="mt-2 text-gray-600">
                     <p className={`transition-all ${!isExpanded && isLongDescription ? 'line-clamp-3 sm:line-clamp-none' : ''}`}>
                       {selectedProject.description}
@@ -95,7 +95,7 @@ const Projects = () => {
                         onClick={() => setIsExpanded(!isExpanded)}
                         className="text-[#445EF2] text-sm mt-1 sm:hidden"
                       >
-                        {isExpanded ? 'Show less' : 'Read more'}
+                        {isExpanded ? 'Show less' : 'Lire la suite'}
                       </button>
                     )}
                   </div>
@@ -112,7 +112,7 @@ const Projects = () => {
               {/* Modal Content */}
               <div className="p-6 overflow-y-auto max-h-[calc(100vh-160px)]">
                 <img
-                  src={`http://127.0.0.1:8000/storage/${selectedProject.landing}`}
+                  src={`https://api.landmark.ma/public/storage/${selectedProject.landing}`}
                   alt={selectedProject.title}
                   className="w-full h-auto mb-6 rounded-md"
                 />

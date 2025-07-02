@@ -17,7 +17,7 @@ export default function PortfolioPage() {
   const isLongDescription = selectedProject?.description?.length > 150;
 
   useEffect(() => {
-    fetch(`${import.meta.env.VITE_API_BASE_URL}portfolio`)
+    fetch(`${import.meta.env.VITE_API_BASE_URL}api/portfolio`)
       .then(res => res.json())
       .then(data => {
         setProjects(data.allProjects);
@@ -114,7 +114,7 @@ export default function PortfolioPage() {
             {/* Projects Grid */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {projects.map((project, index) => {
-                const imageUrl = `http://127.0.0.1:8000/storage/${project.image}`;
+                const imageUrl = `https://api.landmark.ma/public/storage/${project.image}`;
 
                 return (
                   <div key={index} className="flex flex-col mb-10 group">
@@ -142,8 +142,8 @@ export default function PortfolioPage() {
                     <p className="font-['Jost'] text-sm sm:text-base font-normal text-[#010E26] mb-3 line-clamp-2">
                       {project.description}
                     </p>
-                    <p className="sm:text-2xl text-2xl text-blue-500 font-bold font-['Jost']">
-                      {project.view_percent}% <span className='text-sm'>views</span>
+                    <p className="sm:text-2xl text-2xl text-blue-500 font-bold font-['Jost'] mb-4">
+                      {project.view_percent}% <br /> <span className='text-[#010E26] text-xs font-light w-[30%]'>Website views after rebranding</span>
                     </p>
                   </div>
                 );
@@ -165,7 +165,7 @@ export default function PortfolioPage() {
                 <div className="w-full">
                   <h2 className="text-2xl font-bold">{selectedProject.title}</h2>
 
-                  {/* Description with "Read more" */}
+                  {/* Description with "Lire la suite" */}
                   <div className="mt-2 text-gray-600">
                     <p className={`transition-all ${!isExpanded && isLongDescription ? 'line-clamp-3 sm:line-clamp-none' : ''}`}>
                       {selectedProject.description}
@@ -175,7 +175,7 @@ export default function PortfolioPage() {
                         onClick={() => setIsExpanded(!isExpanded)}
                         className="text-[#445EF2] text-sm mt-1 sm:hidden"
                       >
-                        {isExpanded ? 'Show less' : 'Read more'}
+                        {isExpanded ? 'Show less' : 'Lire la suite'}
                       </button>
                     )}
                   </div>
@@ -192,7 +192,7 @@ export default function PortfolioPage() {
               {/* Modal Content */}
               <div className="p-6 overflow-y-auto max-h-[calc(100vh-160px)]">
                 <img
-                  src={`http://127.0.0.1:8000/storage/${selectedProject.landing}`}
+                  src={`https://api.landmark.ma/public/storage/${selectedProject.landing}`}
                   alt={selectedProject.title}
                   className="w-full h-auto mb-6 rounded-md"
                 />
@@ -213,8 +213,8 @@ export default function PortfolioPage() {
             {/* Content Grid */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {contents.map((item, index) => {
-                const videoUrl = `http://127.0.0.1:8000/storage/${item.video}`;
-                const thumbnailUrl = `http://127.0.0.1:8000/storage/${item.thumbnail}`;
+                const videoUrl = `https://api.landmark.ma/public/storage/${item.video}`;
+                const thumbnailUrl = `https://api.landmark.ma/public/storage/${item.thumbnail}`;
 
                 return (
                   <div key={index} className="flex flex-col mb-5">

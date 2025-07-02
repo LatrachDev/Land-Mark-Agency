@@ -59,7 +59,7 @@ export default function ProjectsPage() {
       }
 
       setProjects(data);
-      console.log('Fetched projects:', data);
+      // console.log('Fetched projects:', data);
 
     } catch (err) {
       console.error('Error fetching projects:', err);
@@ -668,7 +668,7 @@ export default function ProjectsPage() {
                 <div key={project.id} className="border rounded-lg p-4 hover:shadow-md transition">
                   <div className="h-40 bg-gray-200 rounded mb-4 overflow-hidden">
                     <img
-                      src={`http://127.0.0.1:8000/storage/${project.image}`}
+                      src={`https://api.landmark.ma/public/storage/${project.image}`}
                       alt={`Projet ${project.id}`}
                       className="h-full w-full object-cover"
                     />

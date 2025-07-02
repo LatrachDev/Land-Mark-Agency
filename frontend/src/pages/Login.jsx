@@ -15,7 +15,7 @@ function Login() {
     setError('');
 
     try {
-      const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}admin/login`, {
+      const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}api/admin/login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

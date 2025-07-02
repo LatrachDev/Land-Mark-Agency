@@ -37,7 +37,7 @@ const Footer = () => {
               </p>
               <div className="flex md:justify-start space-x-6 text-xl mt-6 md:mt-10">
                 <a
-                  href="https://facebook.com/yourpage"
+                  href="https://www.facebook.com/landmarkagency.official"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Facebook"
@@ -45,7 +45,7 @@ const Footer = () => {
                   <FacebookFilled className="hover:opacity-70 transition-opacity cursor-pointer" />
                 </a>
                 <a
-                  href="https://instagram.com/yourprofile"
+                  href="https://www.instagram.com/landmark_agency/"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Instagram"
@@ -53,7 +53,7 @@ const Footer = () => {
                   <InstagramOutlined className="hover:opacity-70 transition-opacity cursor-pointer" />
                 </a>
                 <a
-                  href="https://linkedin.com/in/yourprofile"
+                  href="https://www.linkedin.com/company/landmarkagency"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="LinkedIn"
@@ -61,7 +61,7 @@ const Footer = () => {
                   <LinkedinFilled className="hover:opacity-70 transition-opacity cursor-pointer" />
                 </a>
                 <a
-                  href="https://behance.net/yourprofile"
+                  href="https://www.behance.net/landmarkagency"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Behance"

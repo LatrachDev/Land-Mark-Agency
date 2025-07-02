@@ -82,9 +82,7 @@ export default function BlogPage() {
   const fetchBlogs = async () => {
     setIsLoading(true);
     try {
-      console.log('rahna hna db');
       const token = localStorage.getItem("token");
-      console.log('jbna token');
       const response = await fetch(`${import.meta.env.VITE_API_BASE_URL_V1}/admin/blogs`, {
         method: 'GET',
         headers: {
@@ -93,11 +91,8 @@ export default function BlogPage() {
           'Authorization': `Bearer ${token}`
         },
       });
-      console.log('dzna 3la fetch db');
       
       const data = await response.json();
-      
-      console.log('hada data dyalna chno fiha', data);
 
       if (!response.ok) {
         console.error('Erreur de récupération:', data.message || 'Échec de la récupération');
@@ -243,7 +238,7 @@ export default function BlogPage() {
       {/* Header */}
       <div className="w-[90%] m-auto pt-10 flex justify-between items-center">
         <img
-          src={'/src/assets/Logotype/Main.png'} 
+          src={'/assets/Main-DSltj7B2.png'} 
           alt="Landmark"
           className="h-10 md:min-w-[200px] md:h-14"
         />
@@ -421,7 +416,7 @@ export default function BlogPage() {
         <div className="relative pb-[56.25%] bg-gray-100">
           {blog.image && (
             <img
-              src={`http://127.0.0.1:8000/storage/${blog.image}`}
+              src={`https://api.landmark.ma/public/storage/${blog.image}`}
               alt={blog.title}
               className="absolute h-full w-full object-cover"
             />
