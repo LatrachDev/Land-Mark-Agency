@@ -21,6 +21,7 @@ function Home() {
     <div className="font-[Jost]">
 
     <Helmet>
+      <title>Landmark | Marketing Agency</title>
       <meta name="description" content="Welcome to LandMark, a full-service marketing agency owned by Haytham Guemmah." />
     </Helmet>
     

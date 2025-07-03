@@ -103,16 +103,6 @@ export default function ServicesPage() {
                       <p className=" uppercase mb-1">{service.title}</p>
                       <p className="text-[#666666] text-sm">{service.description.slice(0, 100)}...</p>
                     </div>
-
-                    {/* Hover Overlay */}
-                    {/* <div className="absolute inset-0  bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      <button
-                        onClick={() => navigate(`/services/${service.id}`)}
-                        className="bg-white text-[#263973] font-semibold px-4 py-2 rounded-lg shadow hover:bg-[#445EF2] hover:text-white transition-colors duration-300"
-                      >
-                        View Details
-                      </button>
-                    </div> */}
                   </div>
                 ))}
               </section>

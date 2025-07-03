@@ -51,7 +51,7 @@ const Promotion = () => {
             {timeLeft}
           </span>
         </div>
-        <Link to={'contact'} className="bg-gray-100 text-center font-bold hover:bg-gray-200 hover:scale-105 text-black px-3 sm:px-4 py-1 cursor-pointer text-xs sm:text-sm transition-colors">
+        <Link to={'/contact'} className="bg-gray-100 text-center font-bold hover:bg-gray-200 hover:scale-105 duration-300 text-black px-3 sm:px-4 py-1 cursor-pointer text-xs sm:text-sm transition-colors">
           Économisez maintenant
         </Link>
       </div>

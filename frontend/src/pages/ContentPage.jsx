@@ -255,7 +255,7 @@ export default function ContentPage() {
         formDataToSend.append('thumbnail', formData.thumbnail);
       }
 
-      const response = await fetch(`${import.meta.env.VITE_API_BASE_URL_V1}/${contentToEdit.id}`, {
+      const response = await fetch(`${import.meta.env.VITE_API_BASE_URL_V1}/admin/contents/${contentToEdit.id}`, {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`,

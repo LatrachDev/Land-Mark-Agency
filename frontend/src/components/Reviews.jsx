@@ -1,5 +1,5 @@
 import React from 'react';
-import azzimaniImage from '../assets/reviews/azzimani.jpg';
+import andaloussImage from '../assets/reviews/andalouss.png';
 import logoForProfilesImage from '../assets/reviews/logo-for-profiles.png';
 import minariProfileImage from '../assets/reviews/MINARI-prophile-12.png';
 import googleLogoImage from '../assets/reviews/google-logo.png';
@@ -10,7 +10,7 @@ const reviews = [
       " Une agence qui comprend vite, travaille bien et livre mieux que ce qu'on imaginait. Très satisfait du résultat final. ",
     clientName: 'Mohammed Azzimani',
     company: 'Al Andalous Pack',
-    avatar: azzimaniImage,
+    avatar: andaloussImage, 
     platformLogo: googleLogoImage,
   },
   {
