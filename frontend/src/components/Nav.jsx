@@ -59,7 +59,7 @@ const Nav = () => {
 
   const navLinks = [
     { name: 'ACCUEIL', path: '/' },
-    { name: 'PORTFOLIO', path: '/portfolio' },
+    { name: 'PROJETS', path: '/portfolio' },
     { name: 'SERVICES', path: '/services' },
     { name: 'À PROPOS DE NOUS', path: '/about' },
     { name: 'BLOG', path: '/blog' },

@@ -12,6 +12,7 @@ function ContactPage() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
+  const [showSuccess, setShowSuccess] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -56,7 +57,10 @@ function ContactPage() {
         throw new Error(data.message || 'Erreur lors de l\'envoi');
       }
 
-      setSubmitStatus({ success: true, message: 'Message envoyé avec succès!' });
+      // Show success animation
+      setShowSuccess(true);
+      
+      // Reset form data
       setFormData({
         full_name: '',
         phone_number: '',
@@ -64,12 +68,18 @@ function ContactPage() {
         message: '',
         interests: []
       });
+      
       console.log("Submitting form data:", formData);
     } catch (error) {
       setSubmitStatus({ success: false, message: error.message });
     } finally {
       setIsSubmitting(false);
     }
+  };
+
+  const resetForm = () => {
+    setShowSuccess(false);
+    setSubmitStatus(null);
   };
 
   return (
@@ -90,102 +100,153 @@ function ContactPage() {
           <div className="flex flex-col-reverse lg:flex-row gap-8">
             {/* Form Section */}
             <div className="w-full lg:w-8/12">
-              <h3 className="text-xl font-bold text-left text-[#010E26] uppercase mb-4">
-                remplissez le formulaire,
-                et nous vous contacterons.
-              </h3>
+              {!showSuccess ? (
+                <div className="transition-all duration-500 ease-in-out">
+                  <h3 className="text-xl font-bold text-left text-[#010E26] uppercase mb-4">
+                    remplissez le formulaire,
+                    et nous vous contacterons.
+                  </h3>
 
-              <div className="lg:w-7/12">
-                {submitStatus && (
-                  <div className={`mb-4 p-4 rounded ${submitStatus.success ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'}`}>
-                    {submitStatus.message}
+                  <div className="lg:w-7/12">
+                    {submitStatus && !submitStatus.success && (
+                      <div className="mb-4 p-4 rounded bg-red-100 text-red-700">
+                        {submitStatus.message}
+                      </div>
+                    )}
+
+                    <form onSubmit={handleSubmit} className="space-y-6">
+                      {/* Interests */}
+                      <div className="mb-6">
+                        <h4 className="font-medium uppercase text-[#010E26] mb-2">
+                          je suis intéressé par :
+                        </h4>
+                        <div className="flex flex-wrap gap-2 uppercase mb-4">
+                          {["BRANDING", "développement de sites Web", "Création de contenu", "Étude de marche", "OTHER"].map(
+                            (item) => (
+                              <label key={item} className="relative">
+                                <input
+                                  type="checkbox"
+                                  checked={formData.interests.includes(item)}
+                                  onChange={() => handleInterestChange(item)}
+                                  className="absolute opacity-0 w-full h-full cursor-pointer peer"
+                                />
+                                <span className={`inline-block border-1 border-black px-4 py-1 text-sm transition-all duration-200 ${
+                                  formData.interests.includes(item) ? 'bg-[#445EF2] text-white' : 'hover:bg-gray-100'
+                                }`}>
+                                  {item}
+                                </span>
+                              </label>
+                            )
+                          )}
+                        </div>
+                      </div>
+
+                      {/* Fields */}
+                      <div className="space-y-4">
+                        <div>
+                          <input
+                            name="full_name"
+                            placeholder="Nom et Prénom"
+                            type="text"
+                            value={formData.full_name}
+                            onChange={handleChange}
+                            className="w-full p-3 border-b-2 border-gray-400 bg-transparent focus:border-[#010E26] focus:outline-none transition-colors duration-200"
+                            required
+                          />
+                        </div>
+                        <div>
+                          <input
+                            name="phone_number"
+                            placeholder="Numéro De Téléphone"
+                            type="tel"
+                            value={formData.phone_number}
+                            onChange={handleChange}
+                            className="w-full p-3 border-b-2 border-gray-400 bg-transparent focus:border-[#010E26] focus:outline-none transition-colors duration-200"
+                          />
+                        </div>
+                        <div>
+                          <input
+                            name="company_name"
+                            placeholder="Nom de l'Entreprise (Optionnel)*"
+                            type="text"
+                            value={formData.company_name}
+                            onChange={handleChange}
+                            className="w-full p-3 border-b-2 border-gray-400 bg-transparent focus:border-[#010E26] focus:outline-none transition-colors duration-200"
+                          />
+                        </div>
+                        <div>
+                          <textarea
+                            name="message"
+                            placeholder="Parlez-Nous De Votre Entreprise"
+                            value={formData.message}
+                            onChange={handleChange}
+                            className="w-full p-3 border-b-2 border-gray-400 bg-transparent h-24 focus:border-[#010E26] focus:outline-none transition-colors duration-200"
+                            required
+                          ></textarea>
+                        </div>
+
+                        <button
+                          type="submit"
+                          disabled={isSubmitting}
+                          className="bg-[#010E26] text-white px-8 py-3 uppercase font-medium hover:bg-gray-700 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed transform hover:scale-105"
+                        >
+                          {isSubmitting ? 'Envoi en cours...' : 'ENVOYER'}
+                        </button>
+                      </div>
+                    </form>
                   </div>
-                )}
-
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  {/* Interests */}
-                  <div className="mb-6">
-                    <h4 className="font-medium uppercase text-[#010E26] mb-2">
-                      je suis intéressé par :
-                    </h4>
-                    <div className="flex flex-wrap gap-2 uppercase mb-4">
-                      {["BRANDING", "développement de sites Web", "Création de contenu", "Étude de marche", "OTHER"].map(
-                        (item) => (
-                          <label key={item} className="relative">
-                            <input
-                              type="checkbox"
-                              checked={formData.interests.includes(item)}
-                              onChange={() => handleInterestChange(item)}
-                              className="absolute opacity-0 w-full h-full cursor-pointer peer"
-                            />
-                            <span className={`inline-block border-1 border-black px-4 py-1 text-sm ${
-                              formData.interests.includes(item) ? 'bg-[#445EF2] text-white' : ''
-                            }`}>
-                              {item}
-                            </span>
-                          </label>
-                        )
-                      )}
+                </div>
+              ) : (
+                // Success Message
+                <div className="lg:w-7/12 animate-fade-in">
+                  <div className="text-center py-12">
+                    {/* Animated Success Icon */}
+                    <div className="mx-auto mb-6 w-20 h-20 bg-green-500 rounded-full flex items-center justify-center animate-bounce-in relative">
+                      {/* Success Icon with Checkmark */}
+                      <div className="relative">
+                        <svg 
+                          className="w-12 h-12 text-white animate-check-draw" 
+                          fill="currentColor" 
+                          viewBox="0 0 24 24"
+                        >
+                          <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" strokeWidth={2} fill="none" strokeLinecap="round" strokeLinejoin="round"/>
+                        </svg>
+                        {/* Animated checkmark overlay */}
+                        <svg 
+                          className="absolute inset-0 w-12 h-12 text-white" 
+                          fill="none" 
+                          stroke="currentColor" 
+                          viewBox="0 0 24 24"
+                        >
+                          <path 
+                            strokeLinecap="round" 
+                            strokeLinejoin="round" 
+                            strokeWidth={3} 
+                            d="M9 12l2 2 4-4"
+                            className="animate-check-path"
+                          />
+                        </svg>
+                      </div>
                     </div>
-                  </div>
-
-                  {/* Fields */}
-                  <div className="space-y-4">
-                    <div>
-                      <input
-                        name="full_name"
-                        placeholder="Nom et Prénom"
-                        type="text"
-                        value={formData.full_name}
-                        onChange={handleChange}
-                        className="w-full p-3 border-b-2 border-gray-400 bg-transparent focus:border-[#010E26] focus:outline-none"
-                        
-                      />
-                    </div>
-                    <div>
-          
-                    </div>
-                    <div>
-                      <input
-                        name="phone_number"
-                        placeholder="Numéro De Téléphone"
-                        type="tel"
-                        value={formData.phone_number}
-                        onChange={handleChange}
-                        className="w-full p-3 border-b-2 border-gray-400 bg-transparent focus:border-[#010E26] focus:outline-none"
-                      />
-                    </div>
-                    <div>
-                      <input
-                        name="company_name"
-                        placeholder="Nom de l'Entreprise (Optionnel)*"
-                        type="text"
-                        value={formData.company_name}
-                        onChange={handleChange}
-                        className="w-full p-3 border-b-2 border-gray-400 bg-transparent focus:border-[#010E26] focus:outline-none"
-                      />
-                    </div>
-                    <div>
-                      <textarea
-                        name="message"
-                        placeholder="Parlez-Nous De Votre Entreprise"
-                        value={formData.message}
-                        onChange={handleChange}
-                        className="w-full p-3 border-b-2 border-gray-400 bg-transparent h-24 focus:border-[#010E26] focus:outline-none"
-                        
-                      ></textarea>
-                    </div>
-
+                    
+                    {/* Success Text */}
+                    <h3 className="text-3xl font-bold text-[#010E26] uppercase mb-4 animate-slide-up">
+                      Message Envoyé!
+                    </h3>
+                    <p className="text-lg text-[#666666] mb-8 animate-slide-up-delay">
+                      Merci pour votre message. Notre équipe vous contactera dans les plus brefs délais.
+                    </p>
+                    
+                    {/* Home Button */}
                     <button
-                      type="submit"
-                      disabled={isSubmitting}
-                      className="bg-[#010E26] text-white px-8 py-3 uppercase font-medium hover:bg-gray-700 transition-colors disabled:opacity-50"
+                      onClick={() => window.location.href = '/'}
+                      className="bg-[#445EF2] text-white px-8 py-3 uppercase font-medium hover:bg-blue-600 transition-all duration-200 transform hover:scale-105 animate-slide-up-delay-2"
                     >
-                      {isSubmitting ? 'Envoi en cours...' : 'ENVOYER'}
+                      Retour à l'accueil
                     </button>
                   </div>
-                </form>
-              </div>
+                </div>
+              )}
             </div>
 
             {/* Image & Info Section */}
@@ -194,7 +255,7 @@ function ContactPage() {
                 <img src={haythamImage} alt="Haytham" className="w-full h-auto rounded-lg shadow-md" />
               </div>
               <p className="italic text-justify text-xl text-[#666666] mb-4">
-                Saviez-vous que 4 clients sur 5 changent de marque a cause d'une male expérience ou d'un design médiocres ? <br />
+                Saviez-vous que 4 clients sur 5 changent de marque a cause d'une mauvaise expérience ou d'un design médiocres ? <br />
                 Chez Landmark, nous sommes spécialisés dans la création de visuels innovants et tendance qui non seulement captivent, mais rendent également vos produits et projets inoubliables.
               </p>
               <h4 className="font-bold text-xl uppercase">HAYTHAM GUERMAH</h4>
@@ -203,6 +264,85 @@ function ContactPage() {
           </div>
         </div>
       </section>
+
+      {/* CSS Animations */}
+      <style jsx>{`
+        @keyframes fadeIn {
+          from {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        
+        @keyframes bounceIn {
+          0% {
+            transform: scale(0);
+            opacity: 0;
+          }
+          50% {
+            transform: scale(1.1);
+          }
+          100% {
+            transform: scale(1);
+            opacity: 1;
+          }
+        }
+        
+        @keyframes slideUp {
+          from {
+            opacity: 0;
+            transform: translateY(30px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        
+        @keyframes checkDraw {
+          0% {
+            stroke-dasharray: 0 20;
+            stroke-dashoffset: 0;
+          }
+          100% {
+            stroke-dasharray: 20 0;
+            stroke-dashoffset: -20;
+          }
+        }
+        
+        .animate-fade-in {
+          animation: fadeIn 0.6s ease-out;
+        }
+        
+        .animate-bounce-in {
+          animation: bounceIn 0.8s ease-out;
+        }
+        
+        .animate-slide-up {
+          animation: slideUp 0.6s ease-out 0.3s both;
+        }
+        
+        .animate-slide-up-delay {
+          animation: slideUp 0.6s ease-out 0.5s both;
+        }
+        
+        .animate-slide-up-delay-2 {
+          animation: slideUp 0.6s ease-out 0.7s both;
+        }
+        
+        .animate-check-draw {
+          animation: checkDraw 0.6s ease-out 0.4s both;
+        }
+        
+        .animate-check-path {
+          stroke-dasharray: 20;
+          stroke-dashoffset: 20;
+        }
+      `}</style>
     </div>
   );
 }

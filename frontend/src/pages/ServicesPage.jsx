@@ -60,7 +60,7 @@ export default function ServicesPage() {
 
         <section className="relative z-10 mx-auto px-4 sm:px-10 mt-20 md:mt-40 w-[90%] m-auto">
           <h1 className="text-[#010e26] text-xl sm:text-2xl md:text-4xl font-bold uppercase tracking-wide mb-4 md:mb-6">
-            <span className="text-[#445ef2]">93%</span> de nos clients se disent <br />
+            <span className="text-[#445ef2]">92%</span> de nos clients se disent <br />
             pleinement satisfaits et prêts à <br />
             recommander nos services
           </h1>

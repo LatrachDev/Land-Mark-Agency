@@ -15,29 +15,26 @@ const faqData = [
     ],
   },
   {
-    title: 'BRANDING DESIGN',
+    title: 'BRAND DESIGN',
     content:
-      'Une Voie Claire & Ciblée Pour Lancer Votre Entreprise.',
+      'Créer & lancer une marque durable sur le marché.',
     items: [
-      "Se plonger dans l'étude de marché",
-      'Connaître votre clientèle',
-      'Évaluez vos concurrents',
-      'Trouvez vos points forts et corrigez vos points faibles',
-      'Identifier les lacunes du marché',
-      'Se démarquer',
+      "Brand Design",
+      'Élaboration de charte graphique',
+      'Conception UI/UX',
+      'Conception de sites web (UI & UI design)',
+      'Conception packaging',
     ],
   },
   {
     title: 'CRÉATION DE CONTENU',
     content:
-      'Une Voie Claire & Ciblée Pour Lancer Votre Entreprise.',
+      'Grandissez & évoluez avec du contenu qui augmente les interactions.',
     items: [
-      "Se plonger dans l'étude de marché",
-      'Connaître votre clientèle',
-      'Évaluez vos concurrents',
-      'Trouvez vos points forts et corrigez vos points faibles',
-      'Identifier les lacunes du marché',
-      'Se démarquer',
+      "Où que soit votre public, vous serez présent.",
+      'Narration visuelle.',
+      'Créer - Publier - Répéter.',
+      'Analyse des données et résultats',
     ],
   },
 ];

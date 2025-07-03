@@ -5,37 +5,9 @@ const Projects = () => {
   const [threeProjects, setThreeProjects] = useState([]);
   const [selectedProject, setSelectedProject] = useState(null);
   const [isExpanded, setIsExpanded] = useState(false);
-  const [viewportHeight, setViewportHeight] = useState(window.innerHeight);
   const modalRef = useRef(null);
 
   const isLongDescription = selectedProject?.description?.length > 150;
-
-  // Handle dynamic viewport height changes (mobile URL bar)
-  useEffect(() => {
-    const handleResize = () => {
-      setViewportHeight(window.innerHeight);
-    };
-
-    const handleVisualViewportChange = () => {
-      if (window.visualViewport) {
-        setViewportHeight(window.visualViewport.height);
-      }
-    };
-
-    window.addEventListener('resize', handleResize);
-    
-    // Listen for visual viewport changes (better for mobile)
-    if (window.visualViewport) {
-      window.visualViewport.addEventListener('resize', handleVisualViewportChange);
-    }
-
-    return () => {
-      window.removeEventListener('resize', handleResize);
-      if (window.visualViewport) {
-        window.visualViewport.removeEventListener('resize', handleVisualViewportChange);
-      }
-    };
-  }, []);
 
   // Fetch projects
   useEffect(() => {
@@ -52,21 +24,12 @@ const Projects = () => {
   useEffect(() => {
     if (selectedProject) {
       document.body.style.overflow = 'hidden';
-      document.body.style.position = 'fixed';
-      document.body.style.width = '100%';
-      document.body.style.height = '100%';
     } else {
       document.body.style.overflow = 'auto';
-      document.body.style.position = 'static';
-      document.body.style.width = 'auto';
-      document.body.style.height = 'auto';
     }
 
     return () => {
       document.body.style.overflow = 'auto';
-      document.body.style.position = 'static';
-      document.body.style.width = 'auto';
-      document.body.style.height = 'auto';
     };
   }, [selectedProject]);
 
@@ -140,34 +103,25 @@ const Projects = () => {
         {/* Project Modal */}
         {selectedProject && (
           <div
-            className="fixed inset-0 backdrop-blur-sm bg-black/60 flex items-center justify-center z-50"
+            className="fixed inset-0 backdrop-blur-sm bg-black/60 flex items-center justify-center z-50 overflow-y-auto"
             onClick={handleOverlayClick}
             style={{
-              height: `${viewportHeight}px`,
-              top: 0,
-              left: 0,
-              right: 0,
-              bottom: 'auto',
-              padding: '1rem',
-              boxSizing: 'border-box'
+              paddingTop: 'max(env(safe-area-inset-top), 1rem)',
+              paddingBottom: 'max(env(safe-area-inset-bottom), 1rem)',
             }}
           >
             <div
               ref={modalRef}
-              className="bg-white rounded-lg w-full max-w-6xl relative overflow-hidden flex flex-col"
-              style={{
-                maxHeight: `${viewportHeight - 32}px`, // 32px for padding (1rem top + 1rem bottom)
-                height: 'auto'
-              }}
+              className="bg-white rounded-lg w-[90%] max-w-6xl relative overflow-hidden flex flex-col max-h-[calc(100vh-2rem)]"
               onClick={(e) => e.stopPropagation()}
             >
               {/* Modal Header */}
-              <div className="sticky top-0 bg-white px-6 py-4 border-b flex justify-between items-start z-10 flex-shrink-0">
-                <div className="flex-1 pr-4">
-                  <h2 className="text-xl sm:text-2xl font-bold">{selectedProject.title}</h2>
+              <div className="sticky top-0 bg-white px-6 py-2 border-b flex justify-between items-start z-10">
+                <div className="w-full">
+                  <h2 className="text-2xl font-bold">{selectedProject.title}</h2>
 
                   <div className="mt-2 text-gray-600">
-                    <p className={`text-sm sm:text-base transition-all ${!isExpanded && isLongDescription ? 'line-clamp-3 sm:line-clamp-none' : ''}`}>
+                    <p className={`transition-all ${!isExpanded && isLongDescription ? 'line-clamp-3 sm:line-clamp-none' : ''}`}>
                       {selectedProject.description}
                     </p>
                     {isLongDescription && (
@@ -183,14 +137,14 @@ const Projects = () => {
 
                 <button
                   onClick={closeProjectModal}
-                  className="text-gray-500 cursor-pointer hover:text-gray-700 text-2xl flex-shrink-0"
+                  className="text-gray-500 cursor-pointer hover:text-gray-700 text-2xl ml-4"
                 >
                   &times;
                 </button>
               </div>
 
               {/* Modal Content */}
-              <div className="p-6 overflow-y-auto flex-1 min-h-0">
+              <div className="p-6 overflow-y-auto max-h-[calc(100vh-160px)]">
                 <img
                   src={`https://api.landmark.ma/public/storage/${selectedProject.landing}`}
                   alt={selectedProject.title}

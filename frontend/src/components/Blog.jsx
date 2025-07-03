@@ -37,7 +37,7 @@ const Blog = () => {
       <div className="container w-[90%] m-auto">
         <div className="mb-12">
           <h2 className="text-xl sm:text-2xl font-bold text-[#263973] uppercase text-left" style={{ fontFamily: 'bodoni' }}>
-            Latest blog
+            Dernier Blog
           </h2>
         </div>
 

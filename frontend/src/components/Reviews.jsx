@@ -53,7 +53,7 @@ const Reviews = () => {
       <div className="container w-[90%] m-auto">
         <div className="mb-12">
           <h2 className="text-xl sm:text-2xl font-bold text-[#263973] uppercase text-left" style={{ fontFamily: 'bodoni' }}>
-            NOS MEILLEURES AVIS CLIENTS
+            AVIS CLIENTS
           </h2>
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">

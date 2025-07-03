@@ -16,7 +16,7 @@ const servicesData = [
   {
     icon: designIcon,
     alt: 'Branding Icon',
-    title: 'BRANDING DESIGN',
+    title: 'BRAND DESIGN',
     description: 'Créez & lancez une marque qui se démarque sur le marché.',
   },
   {
@@ -29,7 +29,7 @@ const servicesData = [
     icon: seoIcon,
     alt: 'SEO Icon',
     title: 'SEO & SEA',
-    description: 'Booster & Optimiser le classement de votre Site Web',
+    description: 'Boostez & Optimiser le classement de votre Site Web',
   },
   {
     icon: uxIcon,

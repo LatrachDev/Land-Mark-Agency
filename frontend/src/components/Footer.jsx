@@ -19,7 +19,7 @@ const Footer = () => {
               Prêt à commencer ?
             </h2>
             <p className="text-sm md:text-lg text-left lg:text-justify w-full lg:w-10/12 mb-6 md:mb-8 tracking-wider uppercase font-light">
-              Grâce à une enquête de satisfaction client, 92 % de nos clients expriment une grande satisfaction et recommanderaient en toute confiance nos services à d’autres.
+              Grâce à une enquête de satisfaction client, 92 % de nos clients expriment une grande satisfaction et recommandent en toute confiance nos services à d’autres.
             </p>
             <div className="text-left">
               <Link to="/contact" className="inline-block border border-white text-white px-8 py-3 md:px-10 md:py-4 uppercase font-normal text-sm tracking-wider hover:bg-white hover:text-black transition-colors">
@@ -78,10 +78,10 @@ const Footer = () => {
                 NAVIGATION
               </p>
               <ul className="space-y-2 mt-6 md:mt-10 text-left">
-                  <li> <Link to="/portfolio" className="font-semibold text-sm border-b-2 border-transparent hover:opacity-70 hover:border-[#445ef2] transition-opacity block w-fit" > WORK </Link> </li>
+                  <li> <Link to="/portfolio" className="font-semibold text-sm border-b-2 border-transparent hover:opacity-70 hover:border-[#445ef2] transition-opacity block w-fit" > PROJET </Link> </li>
                   <li> <Link to="/services" className="font-semibold text-sm border-b-2 border-transparent hover:opacity-70 hover:border-[#445ef2] transition-opacity block w-fit" > SERVICES </Link> </li>
-                  <li> <Link to="/about" className="font-semibold text-sm border-b-2 border-transparent hover:opacity-70 hover:border-[#445ef2] transition-opacity block w-fit" > ABOUT US </Link> </li>
-                  <li> <Link to="/contact" className="font-semibold text-sm border-b-2 border-transparent hover:opacity-70 hover:border-[#445ef2] transition-opacity block w-fit" > CONTACT US </Link> </li>
+                  <li> <Link to="/about" className="font-semibold text-sm border-b-2 border-transparent hover:opacity-70 hover:border-[#445ef2] transition-opacity block w-fit uppercase" > à propos de nous </Link> </li>
+                  <li> <Link to="/contact" className="font-semibold text-sm border-b-2 border-transparent hover:opacity-70 hover:border-[#445ef2] transition-opacity block w-fit uppercase" > Contactez-nous </Link> </li>
                   <li> <Link to="/blog" className="font-semibold text-sm border-b-2 border-transparent hover:opacity-70 hover:border-[#445ef2] transition-opacity block w-fit" > BLOG </Link> </li>
               </ul>
             </div>
@@ -90,7 +90,7 @@ const Footer = () => {
 
         {/* Copyright */}
         <div className="mt-8 md:mt-12 text-sm md:text-base lg:text-xl">
-          Copyright © 2025 all rights reserved
+          Copyright © 2025 tous droits réservés
         </div>
       </div>
     </footer>
