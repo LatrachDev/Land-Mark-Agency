@@ -54,13 +54,15 @@ const Blog = () => {
         >
           {blogs.map((post) => (
             <SwiperSlide key={post.id} className="flex flex-col">
-              <div className="mb-4 overflow-hidden rounded-lg">
-                <img
-                  src={baseURL + post.image}
-                  alt={post.title}
-                  className="w-full h-48 object-cover rounded transition-transform duration-500 hover:scale-105"
-                />
-              </div>
+              
+              <Link to={`/blog/${post.id}`} >
+                <div className="mb-4 overflow-hidden rounded-lg">
+                  <img
+                    src={baseURL + post.image}
+                    alt={post.title}
+                    className="w-full h-48 object-cover rounded transition-transform duration-500 hover:scale-105"
+                  />
+                </div>
               <h3 className="text-sm sm:text-xl font-bold font-['Jost'] mb-2">{post.title}</h3>
               <p className="font-['Jost'] text-sm sm:text-base mb-2 text-gray-600">
                 {truncateText(post.description, 100)}
@@ -68,9 +70,10 @@ const Blog = () => {
               <Link
                 to={`/blog/${post.id}`}
                 className="text-[#445EF2] text-sm font-medium hover:underline"
-              >
+                >
                 Lire la suite
               </Link>
+            </Link>
             </SwiperSlide>
           ))}
         </Swiper>

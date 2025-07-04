@@ -84,8 +84,9 @@ function ContactPage() {
 
   return (
     <div className="font-[Jost]">
+      
       <Helmet>
-        <title>Landmark | Marketing Agency</title>
+        <title>Contact | LandMark</title>
         <meta name="description" content="Contactez LandMark, une agence de marketing à service complet appartenant à Haytham Guemmah." />
       </Helmet>
 

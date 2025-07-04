@@ -83,9 +83,7 @@ function Contact() {
 
   return (
     <div className="font-[Jost]">
-      <Helmet>
-        <title>Contact | LandMark</title>
-      </Helmet>
+
 
       <section className="px-4 sm:px-10 py-8 bg-[#eeeeee]">
         <div className="container w-[90%] m-auto">

@@ -9,7 +9,9 @@ const Promotion = () => {
     let endTime = localStorage.getItem('promoEndTime');
     if (!endTime) {
       const futureDate = new Date();
-      futureDate.setDate(futureDate.getDate() + 3); // 3 days from now
+      futureDate.setDate(futureDate.getDate() + 7); // 7 days from now
+      futureDate.setHours(futureDate.getHours() + 4); // add 4 hours
+      futureDate.setMinutes(futureDate.getMinutes() + 36); // add 36 minutes
       endTime = futureDate.getTime();
       localStorage.setItem('promoEndTime', endTime);
     } else {
@@ -22,7 +24,7 @@ const Promotion = () => {
 
       if (distance < 0) {
         clearInterval(interval);
-        setTimeLeft('EXPIRED');
+        setTimeLeft('EXPIRÉ');
         localStorage.removeItem('promoEndTime');
         return;
       }
