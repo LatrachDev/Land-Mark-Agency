@@ -270,7 +270,7 @@ export default function PortfolioPage() {
     <div className="font-['Jost'] relative min-h-screen">
       <Helmet>
         <title>Projets | LandMark</title>
-        <meta name="description" content="Discover our creative work and successful projects in branding, web development, and marketing at LandMark." />
+        <meta name="description" content="Découvrez les projets de Landmark: brand design, création site web, vidéos courtes(instagram, tiktok) et contenus visuels réalisés pour des clients divers au Maroc." />
       </Helmet>
 
       {!selectedProject && (

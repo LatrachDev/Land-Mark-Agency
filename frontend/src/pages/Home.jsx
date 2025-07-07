@@ -20,7 +20,7 @@ function Home() {
     <div className="font-[Jost]">
       <Helmet>
         <title>Landmark | Marketing Agency</title>
-        <meta name="description" content="Welcome to LandMark, a full-service marketing agency owned by Haytham Guemmah." />
+        <meta name="description" content="Agence marketing digital au Maroc, Landmark vous accompagne en branding, contenu et stratégie à Oujda, Casablanca et Tanger." />
       </Helmet>
       
       <Promotion />

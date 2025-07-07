@@ -92,7 +92,7 @@ export default function AboutPage() {
       
       <Helmet>
         <title>About Us | LandMark</title>
-        <meta name="description" content="Learn about LandMark's story, our team, and our mission to deliver exceptional marketing and creative solutions." />
+        <meta name="description" content="Agence de marketing digital spécialisée dans l’immobilier, les écoles privées et les marques de cosmétiques. Stratégies sur mesure, branding fort et résultats concrets." />
       </Helmet>
 
       <section className="relative z-10">

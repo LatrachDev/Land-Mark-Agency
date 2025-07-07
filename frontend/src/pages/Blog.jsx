@@ -77,7 +77,7 @@ function BlogPage() {
       
       <Helmet>
         <title>Blog | LandMark</title>
-        <meta name="description" content="Read our latest insights on branding, marketing, web development, and digital trends from LandMark." />
+        <meta name="description" content="Lisez nos dernières informations sur l'image de marque, le marketing, le développement Web et les tendances numériques de LandMark." />
       </Helmet>
       
       <Promotion />

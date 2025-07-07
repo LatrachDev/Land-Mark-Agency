@@ -41,7 +41,7 @@ export default function ServicesPage() {
     <>
       <Helmet>
         <title>Services | LandMark</title>
-        <meta name="description" content="Explore our services in branding, web development, marketing, photography, and more." />
+        <meta name="description" content="Spécialiste du marketing digital au Maroc, Landmark vous accompagne en branding, création de contenu et l’étude de marché pour votre projet." />
       </Helmet>
 
       <section className="font-['Jost'] relative min-h-screen">
