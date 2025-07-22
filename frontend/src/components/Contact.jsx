@@ -116,7 +116,7 @@ function Contact() {
                           je suis intéressé par :
                         </h4>
                         <div className="flex flex-wrap gap-2 uppercase mb-4">
-                          {["BRANDING", "développement de sites Web", "Création de contenu", "Étude de marche", "OTHER"].map(
+                          {["BRANDING", "développement de sites Web", "Création de contenu", "Étude de marche", "AUTRES"].map(
                             (item) => (
                               <label key={item} className="relative">
                                 <input

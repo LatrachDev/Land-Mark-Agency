@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Helmet } from "react-helmet";
 import haythamImage from '../assets/JPG/haytham.jpg';
+import Nav from '../components/Nav';
 
 function ContactPage() {
   const [formData, setFormData] = useState({
@@ -90,6 +91,7 @@ function ContactPage() {
         <meta name="description" content="Contactez LandMark, une agence de marketing à service complet appartenant à Haytham Guemmah." />
       </Helmet>
 
+      <Nav />
       <section className="px-4 sm:px-10 py-8 bg-[#eeeeee]">
         <div className="container w-[90%] m-auto">
           <div className="mb-12">
@@ -122,7 +124,7 @@ function ContactPage() {
                           je suis intéressé par :
                         </h4>
                         <div className="flex flex-wrap gap-2 uppercase mb-4">
-                          {["BRANDING", "développement de sites Web", "Création de contenu", "Étude de marche", "OTHER"].map(
+                          {["BRANDING", "développement de sites Web", "Création de contenu", "Étude de marche", "AUTRES"].map(
                             (item) => (
                               <label key={item} className="relative">
                                 <input

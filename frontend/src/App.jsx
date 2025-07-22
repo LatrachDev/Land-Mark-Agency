@@ -5,14 +5,17 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 import SmoothFollower from './components/SmoothFollower';
 import './App.css';
 import './fonts.css';
+import usePageTracking from './hooks/usePageTracking';
 
 function App() {
+  usePageTracking();
+
   return (
-    <BrowserRouter>
+    <>
       <SmoothFollower /> 
       <ScrollToTop />
       <RoutesList />
-    </BrowserRouter>
+    </>
   );
 }
 

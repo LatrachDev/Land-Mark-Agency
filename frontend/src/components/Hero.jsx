@@ -16,7 +16,7 @@ const Hero = () => {
 
           <h1 className="text-['100px'] sm:text-2xl md:text-3xl font-jost font-bold sm:max-w-[80%] mb-4 md:mb-6 uppercase">
             grace a notre Expertise, notre 
-            agence marketing et recommandée 
+            agence marketing est recommandée 
             par 92% de nos clients
           </h1>
 
