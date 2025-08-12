@@ -41,7 +41,7 @@ export default function ServicesPage() {
     <>
       <Helmet>
         <title>Services | LandMark</title>
-        <meta name="description" content="Spécialiste du marketing digital au Maroc, Landmark vous accompagne en branding, création de contenu et l’étude de marché pour votre projet." />
+        <meta name="description" content="La vidéo UGC (User-Generated Content) est aujourd’hui le format le plus crédible et efficace pour engager ton audience. Découvre pourquoi et comment l’intégrer à ta stratégie de contenu." />
       </Helmet>
 
       <section className="font-['Jost'] relative min-h-screen">
