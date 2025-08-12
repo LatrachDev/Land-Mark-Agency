@@ -15,6 +15,7 @@ import { Helmet } from "react-helmet";
 import Empty from '../components/Empty';
 import bgImage from '../assets/BG/Web-Site-bg-black.jpg';
 import { Link } from 'react-router-dom';
+import ImageSlider from '../components/ImageSlider';
 
 function Home() {
   return (
@@ -35,6 +36,7 @@ function Home() {
         <Mission className='mx-auto py-16 px-4 sm:px-10 w-[90%] m-auto text-white' />
       </div>
       <Services />
+      <ImageSlider />
       <Projects />
       <Content />
       <Reviews />

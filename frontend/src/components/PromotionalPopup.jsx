@@ -1,8 +1,20 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import eagleCard from '../assets/JPG/eaglecard.png';
 
 const PromotionalPopup = () => {
-  const [isVisible, setIsVisible] = useState(true);
+  const [isVisible, setIsVisible] = useState(false);
+  const POPUP_STORAGE_KEY = 'promotional-popup-shown';
+
+  useEffect(() => {
+    // Check if the popup has been shown before
+    const hasBeenShown = localStorage.getItem(POPUP_STORAGE_KEY);
+    
+    if (!hasBeenShown) {
+      setIsVisible(true);
+      // Mark as shown in localStorage
+      localStorage.setItem(POPUP_STORAGE_KEY, 'true');
+    }
+  }, []);
 
   const closePopup = () => {
     setIsVisible(false);
