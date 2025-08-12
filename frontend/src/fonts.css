@@ -75,3 +75,17 @@
   font-weight: 500;
   font-style: normal;
 }
+
+/* @font-face {
+  font-family: 'DMSans';
+  src: url('./assets/fonts/DM/DMSans-Italic-VariableFont_opsz,wght.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+} */
+
+@font-face {
+  font-family: 'DMSans';
+  src: url('./assets/fonts/DM/DMSans-VariableFont_opsz,wght.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}

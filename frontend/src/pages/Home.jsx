@@ -10,6 +10,7 @@ import Contact from '../components/Contact';
 import Blog from '../components/Blog';
 import FAQ from '../components/FAQ';
 import Footer from '../components/Footer';
+import PromotionalPopup from '../components/PromotionalPopup'; 
 import { Helmet } from "react-helmet";
 import Empty from '../components/Empty';
 import bgImage from '../assets/BG/Web-Site-bg-black.jpg';
@@ -22,6 +23,9 @@ function Home() {
         <title>Landmark | Marketing Agency</title>
         <meta name="description" content="Agence marketing digital au Maroc, Landmark vous accompagne en branding, contenu et stratégie à Oujda, Casablanca et Tanger." />
       </Helmet>
+      
+      {/* Add the promotional popup */}
+      <PromotionalPopup />
       
       <Promotion />
       <Nav />

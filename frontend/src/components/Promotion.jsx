@@ -47,7 +47,7 @@ const Promotion = () => {
       <div className="flex-1 flex items-start justify-between gap-1 sm:gap-2 text-xs sm:text-base">
         <div className="w-8/12">
           <span className="text-left mr-2 sm:w-full text-xs sm:text-sm font-bold uppercase">
-            -25 % sur tous nos services, Offre flash
+            -25 % sur tous nos services, Offre Limitée
           </span>
           <span className="sm:bg-gray-700 py-1 sm:w-[170px] text-center inline-block">
             {timeLeft}

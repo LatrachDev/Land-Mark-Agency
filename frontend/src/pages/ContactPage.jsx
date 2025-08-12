@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Helmet } from "react-helmet";
-import haythamImage from '../assets/JPG/haytham.jpg';
+import haythamImage from '../assets/JPG/haythamContact.jpg';
 import Nav from '../components/Nav';
 
 function ContactPage() {
@@ -92,10 +92,10 @@ function ContactPage() {
       </Helmet>
 
       <Nav />
-      <section className="px-4 sm:px-10 py-8 bg-[#eeeeee]">
+      <section className="px-4 sm:px-10 py-8 bg-[#010E26] text-[#f2f2f2]">
         <div className="container w-[90%] m-auto">
           <div className="mb-12">
-            <h2 style={{ fontFamily: 'bodoni' }} className="text-xl sm:text-2xl font-bold text-[#263973] uppercase text-left">
+            <h2 style={{ fontFamily: 'bodoni' }} className="text-xl sm:text-2xl font-bold text-[#f2f2f2] uppercase text-left">
               Contactez-nous
             </h2>
           </div>
@@ -105,7 +105,7 @@ function ContactPage() {
             <div className="w-full lg:w-8/12">
               {!showSuccess ? (
                 <div className="transition-all duration-500 ease-in-out">
-                  <h3 className="text-xl font-bold text-left text-[#010E26] uppercase mb-4">
+                  <h3 className="text-xl font-bold text-left text-[#f2f2f2] uppercase mb-4">
                     remplissez le formulaire,
                     et nous vous contacterons.
                   </h3>
@@ -120,7 +120,7 @@ function ContactPage() {
                     <form onSubmit={handleSubmit} className="space-y-6">
                       {/* Interests */}
                       <div className="mb-6">
-                        <h4 className="font-medium uppercase text-[#010E26] mb-2">
+                        <h4 className="font-medium uppercase text-[#f2f2f2] mb-2">
                           je suis intéressé par :
                         </h4>
                         <div className="flex flex-wrap gap-2 uppercase mb-4">
@@ -133,7 +133,7 @@ function ContactPage() {
                                   onChange={() => handleInterestChange(item)}
                                   className="absolute opacity-0 w-full h-full cursor-pointer peer"
                                 />
-                                <span className={`inline-block border-1 border-black px-4 py-1 text-sm transition-all duration-200 ${
+                                <span className={`inline-block border-1 border-white px-4 py-1 text-sm transition-all duration-200 ${
                                   formData.interests.includes(item) ? 'bg-[#445EF2] text-white' : 'hover:bg-gray-100'
                                 }`}>
                                   {item}
@@ -153,7 +153,7 @@ function ContactPage() {
                             type="text"
                             value={formData.full_name}
                             onChange={handleChange}
-                            className="w-full p-3 border-b-2 border-gray-400 bg-transparent focus:border-[#010E26] focus:outline-none transition-colors duration-200"
+                            className="w-full p-3 border-b-2 placeholder-[#f2f2f2] border-gray-400 bg-transparent focus:border-[#010E26] focus:outline-none transition-colors duration-200"
                             required
                           />
                         </div>
@@ -164,7 +164,7 @@ function ContactPage() {
                             type="tel"
                             value={formData.phone_number}
                             onChange={handleChange}
-                            className="w-full p-3 border-b-2 border-gray-400 bg-transparent focus:border-[#010E26] focus:outline-none transition-colors duration-200"
+                            className="w-full p-3 border-b-2 placeholder-[#f2f2f2] border-gray-400 bg-transparent focus:border-[#010E26] focus:outline-none transition-colors duration-200"
                           />
                         </div>
                         <div>
@@ -174,7 +174,7 @@ function ContactPage() {
                             type="text"
                             value={formData.company_name}
                             onChange={handleChange}
-                            className="w-full p-3 border-b-2 border-gray-400 bg-transparent focus:border-[#010E26] focus:outline-none transition-colors duration-200"
+                            className="w-full p-3 border-b-2 placeholder-[#f2f2f2] border-gray-400 bg-transparent focus:border-[#010E26] focus:outline-none transition-colors duration-200"
                           />
                         </div>
                         <div>
@@ -183,7 +183,7 @@ function ContactPage() {
                             placeholder="Parlez-Nous De Votre Entreprise"
                             value={formData.message}
                             onChange={handleChange}
-                            className="w-full p-3 border-b-2 border-gray-400 bg-transparent h-24 focus:border-[#010E26] focus:outline-none transition-colors duration-200"
+                            className="w-full p-3 border-b-2 placeholder-[#f2f2f2] border-gray-400 bg-transparent h-24 focus:border-[#010E26] focus:outline-none transition-colors duration-200"
                             required
                           ></textarea>
                         </div>
@@ -191,7 +191,7 @@ function ContactPage() {
                         <button
                           type="submit"
                           disabled={isSubmitting}
-                          className="bg-[#010E26] text-white px-8 py-3 uppercase font-medium hover:bg-gray-700 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed transform hover:scale-105"
+                          className="bg-[#f2f2f2] text-[#010E26] px-8 py-3 uppercase font-medium hover:bg-[#445EF2] hover:text-[#f2f2f2] transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed transform hover:scale-105"
                         >
                           {isSubmitting ? 'Envoi en cours...' : 'ENVOYER'}
                         </button>
@@ -253,11 +253,11 @@ function ContactPage() {
             </div>
 
             {/* Image & Info Section */}
-            <div className="lg:w-4/12">
+            <div className="lg:w-4/12 hidden lg:block">
               <div className="mb-6">
-                <img src={haythamImage} alt="Haytham" className="w-full h-auto rounded-lg shadow-md" />
+                <img src={haythamImage} alt="Haytham" className="w-full h-auto shadow-md" />
               </div>
-              <p className="italic text-justify text-xl text-[#666666] mb-4">
+              <p className="italic text-justify text-xl mb-4">
                 Saviez-vous que 4 clients sur 5 changent de marque a cause d'une mauvaise expérience ou d'un design médiocres ? <br />
                 Chez Landmark, nous sommes spécialisés dans la création de visuels innovants et tendance qui non seulement captivent, mais rendent également vos produits et projets inoubliables.
               </p>

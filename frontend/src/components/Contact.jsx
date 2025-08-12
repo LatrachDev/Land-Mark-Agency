@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Helmet } from "react-helmet";
-import haythamImage from '../assets/JPG/haytham.jpg';
+import haythamImage from '../assets/JPG/haythamContact.jpg';
 
 function Contact() {
   const [formData, setFormData] = useState({
@@ -85,10 +85,10 @@ function Contact() {
     <div className="font-[Jost]">
 
 
-      <section className="px-4 sm:px-10 py-8 bg-[#eeeeee]">
+      <section className="px-4 sm:px-10 py-8 bg-[#010E26]">
         <div className="container w-[90%] m-auto">
           <div className="mb-12">
-            <h2 style={{ fontFamily: 'bodoni' }} className="text-xl sm:text-2xl font-bold text-[#263973] uppercase text-left">
+            <h2 style={{ fontFamily: 'bodoni' }} className="text-xl sm:text-2xl font-bold text-[#f2f2f2] uppercase text-left">
               Contactez-nous
             </h2>
           </div>
@@ -98,8 +98,8 @@ function Contact() {
             <div className="w-full lg:w-8/12">
               {!showSuccess ? (
                 <>
-                  <h3 className="text-xl font-bold text-left text-[#010E26] uppercase mb-4">
-                    remplissez le formulaire, et nous vous contacterons.
+                  <h3 className="text-xl sm:text-2xl font-bold text-left text-[#f2f2f2] uppercase mb-4">
+                    remplissez le formulaire, <br /> et nous vous contacterons.
                   </h3>
 
                   <div className="lg:w-7/12">
@@ -112,7 +112,7 @@ function Contact() {
                     <form onSubmit={handleSubmit} className="space-y-6">
                       {/* Interests */}
                       <div className="mb-6">
-                        <h4 className="font-medium uppercase text-[#010E26] mb-2">
+                        <h4 className=" uppercase text-[#f2f2f2] mb-2">
                           je suis intéressé par :
                         </h4>
                         <div className="flex flex-wrap gap-2 uppercase mb-4">
@@ -125,7 +125,7 @@ function Contact() {
                                   onChange={() => handleInterestChange(item)}
                                   className="absolute opacity-0 w-full h-full cursor-pointer peer"
                                 />
-                                <span className={`inline-block border-1 border-black px-4 py-1 text-sm transition-all duration-200 ${
+                                <span className={`inline-block border-1 border-white text-[#f2f2f2] px-4 py-1 text-sm transition-all duration-200 ${
                                   formData.interests.includes(item) ? 'bg-[#445EF2] text-white' : 'hover:bg-gray-100'
                                 }`}>
                                   {item}
@@ -146,7 +146,7 @@ function Contact() {
                             type="text"
                             value={formData.full_name}
                             onChange={handleChange}
-                            className={`w-full p-3 border-b-2 ${errors.full_name ? 'border-red-500' : 'border-gray-400'} bg-transparent focus:outline-none transition-colors duration-200`}
+                            className={`text-[#f2f2f2] placeholder-[#f2f2f2] w-full p-3 border-b-2 ${errors.full_name ? 'border-red-500' : 'border-gray-400'} bg-transparent focus:outline-none transition-colors duration-200`}
                             
                           />
                           {errors.full_name && <p className="text-sm text-red-600 mt-1">{errors.full_name[0]}</p>}
@@ -160,7 +160,7 @@ function Contact() {
                             type="tel"
                             value={formData.phone_number}
                             onChange={handleChange}
-                            className={`w-full p-3 border-b-2 ${errors.phone_number ? 'border-red-500' : 'border-gray-400'} bg-transparent focus:outline-none transition-colors duration-200`}
+                            className={`text-[#f2f2f2] placeholder-[#f2f2f2] w-full p-3 border-b-2 ${errors.phone_number ? 'border-red-500' : 'border-gray-400'} bg-transparent focus:outline-none transition-colors duration-200`}
                           />
                           {errors.phone_number && <p className="text-sm text-red-600 mt-1">{errors.phone_number[0]}</p>}
                         </div>
@@ -173,7 +173,7 @@ function Contact() {
                             type="text"
                             value={formData.company_name}
                             onChange={handleChange}
-                            className={`w-full p-3 border-b-2 ${errors.company_name ? 'border-red-500' : 'border-gray-400'} bg-transparent focus:outline-none transition-colors duration-200`}
+                            className={`text-[#f2f2f2] placeholder-[#f2f2f2] w-full p-3 border-b-2 ${errors.company_name ? 'border-red-500' : 'border-gray-400'} bg-transparent focus:outline-none transition-colors duration-200`}
                           />
                           {errors.company_name && <p className="text-sm text-red-600 mt-1">{errors.company_name[0]}</p>}
                         </div>
@@ -185,7 +185,7 @@ function Contact() {
                             placeholder="Parlez-Nous De Votre Entreprise"
                             value={formData.message}
                             onChange={handleChange}
-                            className={`w-full p-3 border-b-2 ${errors.message ? 'border-red-500' : 'border-gray-400'} bg-transparent h-24 focus:outline-none transition-colors duration-200`}
+                            className={`text-[#f2f2f2] placeholder-[#f2f2f2] w-full p-3 border-b-2 ${errors.message ? 'border-red-500' : 'border-gray-400'} bg-transparent h-24 focus:outline-none transition-colors duration-200`}
                             
                           ></textarea>
                           {errors.message && <p className="text-sm text-red-600 mt-1">{errors.message[0]}</p>}
@@ -195,7 +195,7 @@ function Contact() {
                         <button
                           type="submit"
                           disabled={isSubmitting}
-                          className="bg-[#010E26] text-white px-8 py-3 uppercase font-medium hover:bg-gray-700 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed transform hover:scale-105"
+                          className="bg-[#f2f2f2] text-[#010E26] px-8 py-3 uppercase font-medium hover:bg-[#445EF2] hover:text-[#f2f2f2] transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed transform hover:scale-105"
                         >
                           {isSubmitting ? 'Envoi en cours...' : 'ENVOYER'}
                         </button>
@@ -212,7 +212,7 @@ function Contact() {
                         <path d="M9 12l2 2 4-4" strokeLinecap="round" strokeLinejoin="round" />
                       </svg>
                     </div>
-                    <h3 className="text-3xl font-bold text-[#010E26] uppercase mb-4 animate-slide-up">
+                    <h3 className="text-3xl font-bold text-[#f2f2f2] uppercase mb-4 animate-slide-up">
                       Message Envoyé!
                     </h3>
                     <p className="text-lg text-[#666666] mb-8 animate-slide-up-delay">
@@ -230,11 +230,11 @@ function Contact() {
             </div>
 
             {/* Image Section */}
-            <div className="lg:w-4/12">
+            <div className="lg:w-4/12 text-[#f2f2f2] hidden lg:block">
               <div className="mb-6">
-                <img src={haythamImage} alt="Haytham" className="w-full h-auto rounded-lg shadow-md" />
+                <img src={haythamImage} alt="Haytham" className="w-full h-auto shadow-md" />
               </div>
-              <p className="italic text-justify text-xl text-[#666666] mb-4">
+              <p className="italic text-justify text-xl mb-4">
                 Saviez-vous que 4 clients sur 5 changent de marque à cause d'une mauvaise expérience ou d'un design médiocre ? <br />
                 Chez Landmark, nous sommes spécialisés dans la création de visuels innovants et tendance qui captivent et rendent vos projets inoubliables.
               </p>
