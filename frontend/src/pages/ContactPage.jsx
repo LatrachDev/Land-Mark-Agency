@@ -2,6 +2,11 @@ import React, { useState } from 'react';
 import { Helmet } from "react-helmet";
 import haythamImage from '../assets/JPG/haythamContact.jpg';
 import Nav from '../components/Nav';
+import Footer from '../components/Footer';
+import Reviews from '../components/Reviews';
+import icon1 from '../assets/icones/1.png';
+import icon2 from '../assets/icones/2.png';
+import icon3 from '../assets/icones/3.png';
 
 function ContactPage() {
   const [formData, setFormData] = useState({
@@ -267,6 +272,56 @@ function ContactPage() {
           </div>
         </div>
       </section>
+
+      <section className="bg-white mx-auto px-4 sm:px-10 py-16">
+        <div className="container w-[90%] m-auto">
+          <div className="mb-12">
+            <h2 className="text-xl sm:text-3xl font-bold mb-4 text-[#263973] uppercase text-left" style={{ fontFamily: 'bodoni' }}>
+              Profitez de l’offre en <span className='text-[#445EF2]'>3 étapes.</span>
+            </h2>
+
+             <h3 className="text-sm sm:text-xl font-bold text-left text-gray-900 uppercase mb-4">
+              Des Solutions Complètes pour Booster Votre Marque et Votre Visibilité
+            </h3>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-15">
+            <div className="text-center">
+              <img className="w-36 mx-auto" src={icon1} alt="Remplissez le formulaire" />
+              <h3 className="text-[#010E26] font-bold uppercase" style={{ fontFamily: 'Jost' }}>
+                Remplissez le formulaire
+              </h3>
+              <p className="text-[#666] font-bold text-xs" style={{ fontFamily: 'Jost' }}>
+                Nom et Prénom <br /> Contact ...
+              </p>
+            </div>
+
+            <div className="text-center">
+              <img className="w-36 mx-auto" src={icon2} alt="Recevez l’appel d’un agent" />
+              <h3 className="text-[#010E26] font-bold uppercase" style={{ fontFamily: 'Jost' }}>
+                Recevez l’appel d’un agent
+              </h3>
+              <p className="text-[#666] font-bold text-xs" style={{ fontFamily: 'Jost' }}>
+                Un Appel de 10 min <br /> pour en parler
+              </p>
+            </div>
+
+            <div className="text-center">
+              <img className="w-36 mx-auto" src={icon3} alt="Confirmez Votre devis" />
+              <h3 className="text-[#010E26] font-bold uppercase" style={{ fontFamily: 'Jost' }}>
+                Confirmez Votre devis
+              </h3>
+              <p className="text-[#666] font-bold text-xs" style={{ fontFamily: 'Jost' }}>
+                Confirmez Votre <br /> Commande
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <Reviews />
+      <Footer />
 
       {/* CSS Animations */}
       <style jsx>{`

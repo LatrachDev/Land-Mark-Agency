@@ -57,19 +57,7 @@ export default function ServicesPage() {
 
         <Promotion />
         <Nav />
-
-        <section className="relative z-10 mx-auto px-4 sm:px-10 mt-20 md:mt-40 w-[90%] m-auto">
-          <h1 className="text-[#010e26] text-xl sm:text-2xl md:text-4xl font-bold uppercase tracking-wide mb-4 md:mb-6">
-            <span className="text-[#445ef2]">92%</span> de nos clients se disent <br />
-            pleinement satisfaits et prêts à <br />
-            recommander nos services
-          </h1>
-          <p className="text-[#010e26] uppercase mb-10 md:mb-20 text-base sm:text-lg md:text-xl tracking-normal">
-            Faites comme eux, choisissez l’excellence et rejoignez une communauté <br />
-            qui nous fait confiance pour transformer leurs ambitions en réussites.
-          </p>
-        </section>
-
+        
         {/* Services */}
         <section className="py-16 px-4 sm:px-10 text-center w-[90%] m-auto relative z-10">
           <h2 className="text-xl sm:text-2xl font-bold text-left text-gray-900 uppercase mb-6" style={{ fontFamily: 'bodoni' }}>
