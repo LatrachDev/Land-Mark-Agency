@@ -1,20 +1,21 @@
 import React, { useEffect, useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
-import Offers1 from "../assets/offers/offre1.png";
-import Offers2 from "../assets/offers/offre2.png";
-import Offers3 from "../assets/offers/offre3.png";
-import Offers4 from "../assets/offers/offre1.png";
+import Offers1 from "../assets/offers/offre4.png";
+import Offers2 from "../assets/offers/offre3.png";
+import Offers3 from "../assets/offers/offre2.png";
+import Offers4 from "../assets/offers/offre1.png"; 
 
 const ImageSlider = () => {
-  const [currentIndex, setCurrentIndex] = useState(1); // Start at first real slide
+  const [currentIndex, setCurrentIndex] = useState(1); 
   const [isTransitioning, setIsTransitioning] = useState(true);
   const navigate = useNavigate();
   const sliderRef = useRef(null);
 
   const images = [Offers1, Offers2, Offers3, Offers4];
-  const slides = [images[images.length - 1], ...images, images[0]]; // Clone first & last
+  
+  const slides = [images[images.length - 1], ...images, images[0]];
 
-  // Auto-slide every 4 seconds
+  // auto-slide every 4s
   useEffect(() => {
     const interval = setInterval(() => {
       nextSlide();
@@ -32,38 +33,42 @@ const ImageSlider = () => {
     setIsTransitioning(true);
   };
 
-  // Handle loop reset when reaching clones
+  // Reset to first/last real slide when reaching a clone
   useEffect(() => {
     if (currentIndex === slides.length - 1) {
-      setTimeout(() => {
+      // At the end clone → jump to first real slide
+      const timeout = setTimeout(() => {
         setIsTransitioning(false);
         setCurrentIndex(1);
       }, 500);
+      return () => clearTimeout(timeout);
     }
     if (currentIndex === 0) {
-      setTimeout(() => {
+      // At the start clone → jump to last real slide
+      const timeout = setTimeout(() => {
         setIsTransitioning(false);
         setCurrentIndex(slides.length - 2);
       }, 500);
+      return () => clearTimeout(timeout);
     }
-  }, [currentIndex]);
+  }, [currentIndex, slides.length]);
 
   // Swipe handling
-  let startX = 0;
-  let endX = 0;
+  const startX = useRef(0);
+  const endX = useRef(0);
 
   const handleTouchStart = (e) => {
-    startX = e.touches[0].clientX;
+    startX.current = e.touches[0].clientX;
   };
 
   const handleTouchMove = (e) => {
-    endX = e.touches[0].clientX;
+    endX.current = e.touches[0].clientX;
   };
 
   const handleTouchEnd = () => {
-    if (startX - endX > 50) {
+    if (startX.current - endX.current > 50) {
       nextSlide();
-    } else if (endX - startX > 50) {
+    } else if (endX.current - startX.current > 50) {
       prevSlide();
     }
   };
@@ -77,6 +82,7 @@ const ImageSlider = () => {
       onClick={() => navigate("/contact")}
     >
       <div
+        ref={sliderRef}
         className={`flex ${isTransitioning ? "transition-transform duration-500 ease-in-out" : ""}`}
         style={{
           transform: `translateX(-${currentIndex * 100}%)`,
