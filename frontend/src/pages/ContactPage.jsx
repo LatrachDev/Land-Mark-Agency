@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Helmet } from "react-helmet";
+import SEOHead from '../components/SEOHead';
 import haythamImage from '../assets/JPG/haythamContact.jpg';
 import Nav from '../components/Nav';
 import Footer from '../components/Footer';
@@ -19,6 +19,33 @@ function ContactPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
   const [showSuccess, setShowSuccess] = useState(false);
+
+  const contactStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "name": "Contact LandMark Agency",
+    "description": "Contactez LandMark, votre agence marketing digital au Maroc. Devis gratuit pour vos projets de branding, développement web et stratégie digitale.",
+    "url": "https://landmark.ma/contact",
+    "mainEntity": {
+      "@type": "Organization",
+      "name": "LandMark Agency",
+      "url": "https://landmark.ma",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+212-XXX-XXXXXX",
+        "contactType": "customer service",
+        "availableLanguage": ["French", "Arabic", "English"],
+        "areaServed": "MA"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Oujda",
+        "addressRegion": "Oriental",
+        "postalCode": "60000",
+        "addressCountry": "MA"
+      }
+    }
+  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -91,10 +118,14 @@ function ContactPage() {
   return (
     <div className="font-[Jost]">
       
-      <Helmet>
-        <title>Contact | LandMark</title>
-        <meta name="description" content="Contactez LandMark, une agence de marketing à service complet appartenant à Haytham Guemmah." />
-      </Helmet>
+      <SEOHead 
+        title="Contact LandMark - Agence Marketing Digital Maroc | Devis Gratuit"
+        description="Contactez LandMark, votre agence marketing digital au Maroc. Devis gratuit pour vos projets de branding, développement web et stratégie digitale. Oujda, Casablanca, Tanger."
+        keywords="contact agence marketing maroc, devis marketing digital, contact branding maroc, agence web oujda contact, marketing digital casablanca contact, LandMark contact, Haytham Guemmah contact"
+        ogUrl="https://landmark.ma/contact"
+        canonical="/contact"
+        structuredData={contactStructuredData}
+      />
 
       <Nav />
       <section className="px-4 sm:px-10 py-8 bg-[#010E26] text-[#f2f2f2]">

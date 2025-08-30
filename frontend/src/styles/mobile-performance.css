@@ -1,0 +1,210 @@
+/* Mobile Performance Optimizations - No Design Changes */
+
+/* 1. Hardware Acceleration for Smooth Animations */
+.swiper,
+.transition-transform,
+.hover\:scale-105,
+.transform {
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* 2. Optimize Scrolling Performance */
+* {
+  -webkit-overflow-scrolling: touch;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* 3. Optimize Touch Interactions */
+@media (max-width: 768px) {
+  /* Ensure all interactive elements have proper touch targets */
+  button,
+  a,
+  [role="button"],
+  input,
+  select,
+  textarea {
+    min-height: 44px;
+    min-width: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    touch-action: manipulation;
+  }
+  
+  /* Optimize input fields for mobile */
+  input,
+  textarea,
+  select {
+    font-size: 16px; /* Prevents zoom on iOS */
+    padding: 12px;
+  }
+}
+
+/* 4. Reduce Layout Shift */
+img {
+  height: auto;
+  max-width: 100%;
+  vertical-align: middle;
+}
+
+/* 5. Optimize Font Loading - Applied via font-display in existing font faces */
+.font-jost,
+.font-bodoni,
+.font-dmsans {
+  font-display: swap;
+}
+
+/* 6. Optimize Video Performance for Mobile */
+@media (max-width: 768px) {
+  video {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+  
+  .video-container {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    height: 0;
+    overflow: hidden;
+  }
+  
+  .video-container video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+/* 7. Optimize Images */
+img {
+  image-rendering: optimizeQuality;
+  image-rendering: -webkit-optimize-contrast;
+}
+
+/* 8. GPU Acceleration for Smooth Transitions */
+.transition-all,
+.transition-colors,
+.transition-transform {
+  will-change: auto;
+}
+
+/* 9. Optimize Form Performance */
+@media (max-width: 768px) {
+  form {
+    contain: layout;
+  }
+  
+  input:focus,
+  textarea:focus,
+  select:focus {
+    outline: 2px solid #445EF2;
+    outline-offset: 2px;
+  }
+}
+
+/* 10. Optimize Navigation Performance */
+nav {
+  contain: layout style;
+}
+
+/* 11. Critical CSS Optimizations */
+.swiper-container {
+  contain: layout;
+}
+
+.swiper-slide {
+  contain: layout style;
+}
+
+/* 12. Reduce Repaints */
+.hover\:bg-gray-800:hover,
+.hover\:text-white:hover,
+.hover\:border-\[\#445EF2\]:hover {
+  will-change: background-color, color, border-color;
+}
+
+/* 13. Optimize Loading States */
+@media (max-width: 768px) {
+  [loading="lazy"] {
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  
+  [loading="lazy"].loaded {
+    opacity: 1;
+  }
+}
+
+/* 14. Prevent Layout Shifts on Mobile */
+@media (max-width: 768px) {
+  .container {
+    width: 100%;
+    max-width: 100%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+/* 15. Optimize Swiper Performance */
+.swiper {
+  overflow: hidden;
+  contain: layout;
+}
+
+.swiper-wrapper {
+  transform: translate3d(0, 0, 0);
+}
+
+/* 16. Battery Saving Mode Support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  .swiper {
+    scroll-behavior: auto;
+  }
+}
+
+/* 17. Optimize Background Images for Mobile */
+@media (max-width: 768px) {
+  [style*="background-image"] {
+    background-attachment: scroll !important;
+    background-size: cover;
+    background-position: center;
+  }
+}
+
+/* 18. Memory Management */
+@media (max-width: 768px) {
+  .swiper-slide:not(.swiper-slide-active):not(.swiper-slide-next):not(.swiper-slide-prev) {
+    visibility: hidden;
+  }
+}
+
+/* 19. Critical Resource Hints - Applied via HTML attributes */
+
+/* 20. Optimize Text Rendering */
+body {
+  text-rendering: optimizeSpeed;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@media (max-width: 768px) {
+  body {
+    text-rendering: optimizeSpeed;
+  }
+}

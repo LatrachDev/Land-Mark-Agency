@@ -5,7 +5,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import { Navigation } from 'swiper/modules';
 import Footer from '../components/Footer';
-import { Helmet } from "react-helmet";
+import SEOHead from '../components/SEOHead';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import WebSiteBG from '../assets/BG/maskBg.png';
@@ -13,6 +13,24 @@ import WebSiteBG from '../assets/BG/maskBg.png';
 function BlogPage() {
   const [blogData, setBlogData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+
+  const blogStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "name": "LandMark Agency Blog",
+    "description": "Blog de LandMark Agency : conseils marketing digital, tendances branding, stratégies créatives et actualités du marketing au Maroc.",
+    "url": "https://landmark.ma/blog",
+    "publisher": {
+      "@type": "Organization",
+      "name": "LandMark Agency",
+      "url": "https://landmark.ma",
+      "logo": "https://landmark.ma/src/assets/Logotype/White.png"
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Haytham Guemmah"
+    }
+  };
 
   useEffect(() => {
     fetch(`${import.meta.env.VITE_API_BASE_URL}api/blog`, {
@@ -75,10 +93,14 @@ function BlogPage() {
         }}
       ></div>
       
-      <Helmet>
-        <title>Blog | LandMark</title>
-        <meta name="description" content="Lisez nos dernières informations sur l'image de marque, le marketing, le développement Web et les tendances numériques de LandMark." />
-      </Helmet>
+      <SEOHead 
+        title="Blog LandMark - Conseils Marketing Digital & Branding Maroc"
+        description="Blog de LandMark Agency : conseils marketing digital, tendances branding, stratégies créatives et actualités du marketing au Maroc. Restez informé des dernières innovations."
+        keywords="blog marketing digital maroc, conseils branding maroc, actualités marketing, tendances digitales maroc, stratégie contenu maroc, blog agence créative, LandMark blog"
+        ogUrl="https://landmark.ma/blog"
+        canonical="/blog"
+        structuredData={blogStructuredData}
+      />
       
       <Promotion />
       <Nav />

@@ -11,19 +11,66 @@ import Blog from '../components/Blog';
 import FAQ from '../components/FAQ';
 import Footer from '../components/Footer';
 import PromotionalPopup from '../components/PromotionalPopup'; 
-import { Helmet } from "react-helmet";
+import SEOHead from '../components/SEOHead';
 import Empty from '../components/Empty';
 import bgImage from '../assets/BG/Web-Site-bg-black.jpg';
 import { Link } from 'react-router-dom';
 import ImageSlider from '../components/ImageSlider';
 
 function Home() {
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "LandMark - Agence Marketing Digital au Maroc",
+    "description": "Page d'accueil de LandMark, agence marketing digital au Maroc spécialisée en branding, création de contenu et stratégie digitale.",
+    "url": "https://landmark.ma",
+    "mainEntity": {
+      "@type": "Organization",
+      "name": "LandMark Agency",
+      "url": "https://landmark.ma",
+      "logo": "https://landmark.ma/src/assets/Logotype/White.png",
+      "description": "Agence marketing digital au Maroc spécialisée en branding, création de contenu, développement web et stratégie digitale.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Oujda",
+        "addressRegion": "Oriental",
+        "postalCode": "60000",
+        "addressCountry": "MA"
+      },
+      "areaServed": ["Oujda", "Casablanca", "Tanger", "Maroc"],
+      "serviceType": [
+        "Marketing Digital",
+        "Branding",
+        "Développement Web",
+        "Création de Contenu",
+        "Photographie",
+        "Production Vidéo",
+        "Design Graphique"
+      ]
+    },
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Accueil",
+          "item": "https://landmark.ma"
+        }
+      ]
+    }
+  };
+
   return (
     <div className="font-[Jost]">
-      <Helmet>
-        <title>Landmark | Marketing Agency</title>
-        <meta name="description" content="Agence marketing digital au Maroc, Landmark vous accompagne en branding, contenu et stratégie à Oujda, Casablanca et Tanger." />
-      </Helmet>
+      <SEOHead 
+        title="LandMark - Agence Marketing Digital au Maroc | Branding & Stratégie Créative"
+        description="LandMark, agence marketing digital au Maroc spécialisée en branding, création de contenu, développement web et stratégie digitale. Oujda, Casablanca, Tanger - Votre partenaire créatif de confiance."
+        keywords="agence marketing digital maroc, branding maroc, création contenu maroc, développement web oujda, marketing digital casablanca, agence créative tanger, stratégie digitale maroc, LandMark agency, Haytham Guemmah"
+        ogUrl="https://landmark.ma/"
+        canonical="/"
+        structuredData={structuredData}
+      />
       
       {/* Add the promotional popup */}
       <PromotionalPopup />

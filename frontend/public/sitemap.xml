@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:news="http://www.google.com/schemas/sitemap-news/0.9"
+        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+
+  <!-- Homepage - Highest Priority -->
+  <url>
+    <loc>https://landmark.ma/</loc>
+    <lastmod>2025-08-30T12:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://landmark.ma/src/assets/Logotype/White.png</image:loc>
+      <image:title>LandMark Agency - Agence Marketing Digital Maroc</image:title>
+      <image:caption>Logo officiel de LandMark Agency, agence marketing digital au Maroc</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://landmark.ma/src/assets/BG/Web-Site-bg-black.jpg</image:loc>
+      <image:title>LandMark Agency Hero Background</image:title>
+      <image:caption>Image de fond principale du site LandMark Agency</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Services Pages - High Priority -->
+  <url>
+    <loc>https://landmark.ma/services</loc>
+    <lastmod>2025-08-30T10:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://landmark.ma/src/assets/BG/maskBg.png</image:loc>
+      <image:title>Services Marketing Digital LandMark</image:title>
+      <image:caption>Découvrez nos services marketing digital au Maroc</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Individual Service Pages (Dynamic - to be updated with real service IDs) -->
+  <url>
+    <loc>https://landmark.ma/services/1</loc>
+    <lastmod>2025-08-30T10:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://landmark.ma/services/2</loc>
+    <lastmod>2025-08-30T10:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://landmark.ma/services/3</loc>
+    <lastmod>2025-08-30T10:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Portfolio Page - High Priority -->
+  <url>
+    <loc>https://landmark.ma/portfolio</loc>
+    <lastmod>2025-08-30T09:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://landmark.ma/src/assets/BG/maskBg.png</image:loc>
+      <image:title>Portfolio LandMark Agency</image:title>
+      <image:caption>Portfolio de projets marketing digital et branding au Maroc</image:caption>
+    </image:image>
+  </url>
+
+  <!-- About Page -->
+  <url>
+    <loc>https://landmark.ma/about</loc>
+    <lastmod>2025-08-30T08:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://landmark.ma/src/assets/JPG/haythamContact.jpg</image:loc>
+      <image:title>Haytham Guemmah - Fondateur LandMark Agency</image:title>
+      <image:caption>Haytham Guemmah, fondateur de LandMark Agency, agence marketing digital au Maroc</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Blog Section - High Priority for Content Marketing -->
+  <url>
+    <loc>https://landmark.ma/blog</loc>
+    <lastmod>2025-08-30T14:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://landmark.ma/src/assets/BG/maskBg.png</image:loc>
+      <image:title>Blog Marketing Digital LandMark</image:title>
+      <image:caption>Blog conseils marketing digital et branding au Maroc</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Individual Blog Posts (Example - to be updated with real blog IDs) -->
+  <url>
+    <loc>https://landmark.ma/blog/1</loc>
+    <lastmod>2025-08-30T14:00:00+00:00</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://landmark.ma/blog/2</loc>
+    <lastmod>2025-08-29T10:00:00+00:00</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://landmark.ma/blog/3</loc>
+    <lastmod>2025-08-28T15:30:00+00:00</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- Contact Page - Important for Local SEO -->
+  <url>
+    <loc>https://landmark.ma/contact</loc>
+    <lastmod>2025-08-30T07:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://landmark.ma/src/assets/JPG/haythamContact.jpg</image:loc>
+      <image:title>Contact LandMark Agency Maroc</image:title>
+      <image:caption>Contactez LandMark Agency pour vos projets marketing digital au Maroc</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://landmark.ma/src/assets/icones/1.png</image:loc>
+      <image:title>Icône Contact Marketing</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://landmark.ma/src/assets/icones/2.png</image:loc>
+      <image:title>Icône Services Digital</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://landmark.ma/src/assets/icones/3.png</image:loc>
+      <image:title>Icône Branding</image:title>
+    </image:image>
+  </url>
+
+  <!-- Hidden Links Page (for internal use) -->
+  <url>
+    <loc>https://landmark.ma/espace-non-reference</loc>
+    <lastmod>2025-08-30T05:00:00+00:00</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.1</priority>
+  </url>
+
+  <!-- Location-Specific Landing Pages (for Local SEO) -->
+  <url>
+    <loc>https://landmark.ma/marketing-digital-oujda</loc>
+    <lastmod>2025-08-30T11:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://landmark.ma/agence-branding-casablanca</loc>
+    <lastmod>2025-08-30T11:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://landmark.ma/creation-site-web-tanger</loc>
+    <lastmod>2025-08-30T11:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Service Category Pages -->
+  <url>
+    <loc>https://landmark.ma/branding-maroc</loc>
+    <lastmod>2025-08-30T10:30:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://landmark.ma/developpement-web-maroc</loc>
+    <lastmod>2025-08-30T10:30:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://landmark.ma/creation-contenu-maroc</loc>
+    <lastmod>2025-08-30T10:30:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://landmark.ma/photographie-commerciale-maroc</loc>
+    <lastmod>2025-08-30T10:30:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://landmark.ma/video-marketing-maroc</loc>
+    <lastmod>2025-08-30T10:30:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- Additional Resource Pages -->
+  <url>
+    <loc>https://landmark.ma/devis-gratuit</loc>
+    <lastmod>2025-08-30T09:30:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://landmark.ma/portfolio-branding</loc>
+    <lastmod>2025-08-30T09:15:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://landmark.ma/portfolio-web-design</loc>
+    <lastmod>2025-08-30T09:15:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+</urlset>

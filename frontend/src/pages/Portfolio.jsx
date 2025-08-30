@@ -3,7 +3,7 @@ import Nav from '../components/Nav';
 import Contact from '../components/Contact';
 import Footer from '../components/Footer';
 import Services from '../components/Services';
-import { Helmet } from "react-helmet";
+import SEOHead from '../components/SEOHead';
 import { useEffect, useState, useRef } from 'react';
 import WebSiteBG from '../assets/BG/maskBg.png';
 
@@ -173,6 +173,31 @@ export default function PortfolioPage() {
   const modalRef = useRef(null);
   const activeVideoRef = useRef(null);
 
+  const portfolioStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Portfolio LandMark Agency",
+    "description": "Découvrez notre portfolio de projets marketing digital et créations visuelles réalisés au Maroc",
+    "url": "https://landmark.ma/portfolio",
+    "mainEntity": {
+      "@type": "ItemList", 
+      "name": "Projets Portfolio",
+      "numberOfItems": projects.length,
+      "itemListElement": projects.map((project, index) => ({
+        "@type": "CreativeWork",
+        "position": index + 1,
+        "name": project.title,
+        "description": project.description,
+        "image": `https://api.landmark.ma/public/storage/${project.image}`,
+        "creator": {
+          "@type": "Organization",
+          "name": "LandMark Agency"
+        },
+        "url": `https://landmark.ma/portfolio#project-${project.id}`
+      }))
+    }
+  };
+
   const isLongDescription = selectedProject?.description?.length > 150;
 
   // Handle viewport height (mobile safe zone)
@@ -268,10 +293,14 @@ export default function PortfolioPage() {
 
   return (
     <div className="font-['Jost'] relative min-h-screen">
-      <Helmet>
-        <title>Projets | LandMark</title>
-        <meta name="description" content="Découvrez les projets de Landmark: brand design, création site web, vidéos courtes(instagram, tiktok) et contenus visuels réalisés pour des clients divers au Maroc." />
-      </Helmet>
+      <SEOHead 
+        title="Portfolio LandMark - Projets Marketing Digital & Branding Maroc"
+        description="Découvrez notre portfolio de projets marketing digital et branding au Maroc. Réalisations créatives pour des marques ambitieuses à Oujda, Casablanca, Tanger : sites web, identités visuelles, contenus créatifs."
+        keywords="portfolio marketing digital maroc, projets branding maroc, réalisations créatives, portfolio agence web maroc, projets LandMark, créations visuelles maroc, design graphique portfolio"
+        ogUrl="https://landmark.ma/portfolio"
+        canonical="/portfolio"
+        structuredData={portfolioStructuredData}
+      />
 
       {!selectedProject && (
         <>

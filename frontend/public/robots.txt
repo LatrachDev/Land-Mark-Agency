@@ -1,0 +1,21 @@
+User-agent: *
+Allow: /
+
+# Disallow admin pages from search engines
+Disallow: /land-mark-login
+Disallow: /land-mark-dashboard
+Disallow: /admin/
+
+# Allow important pages
+Allow: /
+Allow: /services
+Allow: /portfolio
+Allow: /about
+Allow: /blog
+Allow: /contact
+
+# Sitemap location
+Sitemap: https://landmark.ma/sitemap.xml
+
+# Crawl delay (optional - 1 second)
+Crawl-delay: 1

@@ -1,4 +1,10 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from 'reac      <SEOHead 
+        title="Services Marketing Digital Maroc | LandMark Agency - Branding & Web"
+        description="Découvrez nos services marketing digital au Maroc : branding, développement web, création de contenu, photographie, design graphique. Solutions créatives sur mesure pour votre marque."
+        keywords="services marketing digital maroc, branding professionnel maroc, développement web maroc, création contenu digital, photographie commerciale maroc, design graphique, stratégie digitale"
+        ogUrl="https://landmark.ma/services"
+        canonical="/services"
+      />
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Promotion from '../components/Promotion';
@@ -14,27 +20,6 @@ const baseURL = "https://api.landmark.ma/public/storage/";
 export default function ServicesPage() {
   const [services, setServices] = useState([]);
   const navigate = useNavigate();
-
-  const servicesStructuredData = {
-    "@context": "https://schema.org",
-    "@type": "ItemList",
-    "name": "Services LandMark Agency",
-    "description": "Services marketing digital et créatifs proposés par LandMark Agency au Maroc",
-    "numberOfItems": services.length,
-    "itemListElement": services.map((service, index) => ({
-      "@type": "Service",
-      "position": index + 1,
-      "name": service.title,
-      "description": service.description,
-      "provider": {
-        "@type": "Organization",
-        "name": "LandMark Agency",
-        "url": "https://landmark.ma"
-      },
-      "areaServed": "Morocco",
-      "url": `https://landmark.ma/services/${service.id}`
-    }))
-  };
 
   useEffect(() => {
     axios.get(`${import.meta.env.VITE_API_BASE_URL}api/services`)
@@ -60,17 +45,13 @@ export default function ServicesPage() {
 
   return (
     <>
-      <SEOHead 
-        title="Services Marketing Digital Maroc | LandMark Agency - Branding & Web"
-        description="Découvrez nos services marketing digital au Maroc : branding, développement web, création de contenu, photographie, design graphique. Solutions créatives sur mesure pour votre marque."
-        keywords="services marketing digital maroc, branding professionnel maroc, développement web maroc, création contenu digital, photographie commerciale maroc, design graphique, stratégie digitale"
-        ogUrl="https://landmark.ma/services"
-        canonical="/services"
-        structuredData={servicesStructuredData}
-      />
+      <Helmet>
+        <title>Services | LandMark</title>
+        <meta name="description" content="La vidéo UGC (User-Generated Content) est aujourd’hui le format le plus crédible et efficace pour engager ton audience. Découvre pourquoi et comment l’intégrer à ta stratégie de contenu." />
+      </Helmet>
 
       <section className="font-['Jost'] relative min-h-screen">
-        {/* Background style */}
+        {/* 🔵 Background style */}
         <div 
           className="absolute top-0 left-0 w-full bg-cover bg-no-repeat z-0"
           style={{ 
@@ -83,7 +64,9 @@ export default function ServicesPage() {
         <Promotion />
         <Nav />
         
-        {/* Services Content */}
+        {/* Services */}
+        
+      
         <section className="text-left py-16 px-4 sm:px-10 w-[90%] m-auto relative z-10">
             <h1 className="sm:mt-24 mt-5 text-[#010e26] text-xl sm:text-2xl md:text-4xl font-bold uppercase tracking-wide mb-4 md:mb-6">
               DES SOLUTIONS COMPLÈTES POUR BOOSTER VOTRE MARQUE ET VOTRE VISIBILITÉ
@@ -104,18 +87,16 @@ export default function ServicesPage() {
               <section className="flex flex-wrap gap-5 justify-between mt-10">
                 {groupedServices[category].map((service, i) => (
                   <div
-                    key={i} 
-                    onClick={() => navigate(`/services/${service.id}`)}
+                    key={i} onClick={() => navigate(`/services/${service.id}`)}
                     className="text-[#010e26] w-full sm:w-[45%] lg:w-[30%] text-left font-bold group relative overflow-hidden rounded-lg shadow-md transition-transform duration-300 hover:scale-[1.01] bg-white cursor-pointer hover:text-[#445EF2]"
                   >
                     <img
                       src={baseURL + service.image}
                       alt={service.title}
                       className="w-full h-56 object-cover"
-                      loading="lazy"
                     />
                     <div className="p-5">
-                      <h4 className="uppercase mb-1">{service.title}</h4>
+                      <p className=" uppercase mb-1">{service.title}</p>
                       <p className="text-[#666666] text-sm">{service.description.slice(0, 100)}...</p>
                     </div>
                   </div>
