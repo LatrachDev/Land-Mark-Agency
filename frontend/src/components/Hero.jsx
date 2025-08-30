@@ -1,19 +1,44 @@
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+
+const Counter = ({ target, duration = 800 }) => {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    const startTime = performance.now();
+
+    const updateCounter = (currentTime) => {
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      const value = Math.floor(progress * target);
+
+      setCount(value);
+
+      if (progress < 1) {
+        requestAnimationFrame(updateCounter);
+      }
+    };
+
+    requestAnimationFrame(updateCounter);
+  }, [target, duration]);
+
+  return <span>{count}</span>;
+};
 
 const Hero = () => {
   return (
     <div className="container px-4 sm:px-6 lg:px-10 mx-auto mt-16 sm:mt-24 lg:mt-40 w-[90%] m-auto">
       <div className="max-w-full">
 
-       <div className="flex flex-col text-white justify-start items-start">
-        <h1 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-jost font-bold uppercase mt-10 sm:mt-4 lg:mt-8 mb-3 sm:mb-4 lg:mb-6 leading-tight">
-          Grace à notre expertise, notre agence marketing
-          <br />
-          <span className="inline-block bg-gradient-to-r from-[#263973] to-[#445EF2] px-1 sm:px-2 py-0.5 sm:py-1 mt-1 sm:mt-2">
-            est recommandée par 92% de nos clients
-          </span>
-        </h1>
-      </div>
+        <div className="flex flex-col text-white justify-start items-start">
+          <h1 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-jost font-bold uppercase mt-10 sm:mt-4 lg:mt-8 mb-3 sm:mb-4 lg:mb-6 leading-tight">
+            Grace à notre expertise, notre agence marketing
+            <br />
+            <span className="inline-block bg-gradient-to-r from-[#263973] to-[#445EF2] px-1 sm:px-2 py-0.5 sm:py-1 mt-1 sm:mt-2">
+              est recommandée par 92% de nos clients
+            </span>
+          </h1>
+        </div>
 
         <p className="text-[#f2f2f2] font-light mb-6 sm:mb-8 lg:mb-10 text-xs sm:text-sm md:text-base lg:text-xl tracking-normal uppercase">
           Attirez plus de clients, boostez vos ventes et fidélisez vos clients.
@@ -21,24 +46,29 @@ const Hero = () => {
 
         <div className="flex flex-row justify-between items-start gap-2 sm:gap-4 lg:gap-8 mb-6 sm:mb-8 lg:mb-10 text-white sm:w-10/12 md:w-full lg:w-8/12">
           <div className="flex-1 text-center sm:text-left">
-            <p className="font-bold text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl" style={{ fontFamily: 'bodoni' }}>+750</p>
+            <p className="font-bold text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl" style={{ fontFamily: 'bodoni' }}>
+              +<Counter target={750} duration={800} />
+            </p>
             <p className="text-[7px] sm:text-xs md:text-sm lg:text-xl leading-tight" style={{ fontFamily: 'DMSans' }}>Projets Réalisés</p>
           </div>
 
           <div className="bg-[#445EF2] w-0.5 sm:w-1 h-6 sm:h-8 lg:h-10 flex-shrink-0"></div>
           
           <div className="flex-1 text-center sm:text-left">
-            <p className="font-bold text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl" style={{ fontFamily: 'bodoni' }}>+10</p>
+            <p className="font-bold text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl" style={{ fontFamily: 'bodoni' }}>
+              +<Counter target={10} duration={800} />
+            </p>
             <p className="text-[7px] sm:text-xs md:text-sm lg:text-xl leading-tight" style={{ fontFamily: 'DMSans' }}>Clients Active</p>
           </div>
           
           <div className="bg-[#445EF2] w-0.5 sm:w-1 h-6 sm:h-8 lg:h-10 flex-shrink-0"></div>
 
           <div className="flex-1 text-center sm:text-left">
-            <p className="font-bold text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl" style={{ fontFamily: 'bodoni' }}>92%</p>
+            <p className="font-bold text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl" style={{ fontFamily: 'bodoni' }}>
+              <Counter target={92} duration={800} />%
+            </p>
             <p className="text-[7px] sm:text-xs md:text-sm lg:text-xl leading-tight" style={{ fontFamily: 'DMSans' }}>De Clients Satisfaits</p>
           </div>
-
         </div>
 
         <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 lg:gap-8">

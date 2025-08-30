@@ -59,21 +59,23 @@ export default function ServicesPage() {
         <Nav />
         
         {/* Services */}
-        <section className="py-16 px-4 sm:px-10 text-center w-[90%] m-auto relative z-10">
-          <h2 className="text-xl sm:text-2xl font-bold text-left text-gray-900 uppercase mb-6" style={{ fontFamily: 'bodoni' }}>
+        
+      
+        <section className="text-left py-16 px-4 sm:px-10 w-[90%] m-auto relative z-10">
+            <h1 className="sm:mt-24 mt-5 text-[#010e26] text-xl sm:text-2xl md:text-4xl font-bold uppercase tracking-wide mb-4 md:mb-6">
+              DES SOLUTIONS COMPLÈTES POUR BOOSTER VOTRE MARQUE ET VOTRE VISIBILITÉ
+            </h1>
+            <p className="text-[#010e26] uppercase mb-10 md:mb-20 text-sm md:text-xl tracking-normal">
+              Que vous souhaitiez renforcer votre présence en ligne, bâtir une identité de marque forte ou captiver votre audience avec du contenu créatif, nous offrons des solutions complètes et adaptées.
+            </p>
+
+          <h2 className="text-xl sm:text-2xl font-bold text-left text-[#263973] uppercase mb-6 mt-32" style={{ fontFamily: 'bodoni' }}>
             SERVICES
           </h2>
-
-          <h3 className="text-sm sm:text-xl font-bold text-left text-gray-900 uppercase mb-4">
-            DES SOLUTIONS COMPLÈTES POUR BOOSTER VOTRE MARQUE ET VOTRE VISIBILITÉ
-          </h3>
-          <p className="text-gray-600 text-sm text-left mb-12 font-bold">
-            Que vous souhaitiez renforcer votre présence en ligne, bâtir une identité de marque forte ou captiver votre audience avec du contenu créatif, nous offrons des solutions complètes et adaptées.
-          </p>
-
+         
           {['A', 'B', 'C'].map((category, idx) => (
             <div key={idx}>
-              <h3 className="font-bold text-[#010E26] uppercase text-left text-xl sm:text-2xl md:text-4xl mt-28">
+              <h3 className="font-bold text-[#010E26] uppercase text-left text-xl sm:text-2xl md:text-4xl">
                 {categoryTitles[category]}
               </h3>
               <section className="flex flex-wrap gap-5 justify-between mt-10">

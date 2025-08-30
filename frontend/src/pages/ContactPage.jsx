@@ -273,7 +273,7 @@ function ContactPage() {
         </div>
       </section>
 
-      <section className="bg-white mx-auto px-4 sm:px-10 py-16">
+      <section className="bg-white mx-auto px-4 sm:px-10 pt-16">
         <div className="container w-[90%] m-auto">
           <div className="mb-12">
             <h2 className="text-xl sm:text-3xl font-bold mb-4 text-[#263973] uppercase text-left" style={{ fontFamily: 'bodoni' }}>
@@ -287,8 +287,8 @@ function ContactPage() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-15">
             <div className="text-center">
-              <img className="w-36 mx-auto" src={icon1} alt="Remplissez le formulaire" />
-              <h3 className="text-[#010E26] font-bold uppercase" style={{ fontFamily: 'Jost' }}>
+              <img className="w-20 sm:w-28 md:w-36 mx-auto" src={icon1} alt="Remplissez le formulaire" />
+              <h3 className="text-[#010E26] text-sm sm:text-xl mt-5 mb-2 font-bold uppercase" style={{ fontFamily: 'Jost' }}>
                 Remplissez le formulaire
               </h3>
               <p className="text-[#666] font-bold text-xs" style={{ fontFamily: 'Jost' }}>
@@ -297,8 +297,8 @@ function ContactPage() {
             </div>
 
             <div className="text-center">
-              <img className="w-36 mx-auto" src={icon2} alt="Recevez l’appel d’un agent" />
-              <h3 className="text-[#010E26] font-bold uppercase" style={{ fontFamily: 'Jost' }}>
+              <img className="w-20 sm:w-28 md:w-36 mx-auto" src={icon2} alt="Recevez l’appel d’un agent" />
+              <h3 className="text-[#010E26] text-sm sm:text-xl mt-5 mb-2 font-bold uppercase" style={{ fontFamily: 'Jost' }}>
                 Recevez l’appel d’un agent
               </h3>
               <p className="text-[#666] font-bold text-xs" style={{ fontFamily: 'Jost' }}>
@@ -307,8 +307,8 @@ function ContactPage() {
             </div>
 
             <div className="text-center">
-              <img className="w-36 mx-auto" src={icon3} alt="Confirmez Votre devis" />
-              <h3 className="text-[#010E26] font-bold uppercase" style={{ fontFamily: 'Jost' }}>
+              <img className="w-20 sm:w-28 md:w-36 mx-auto" src={icon3} alt="Confirmez Votre devis" />
+              <h3 className="text-[#010E26] text-sm sm:text-xl mt-5 mb-2 font-bold uppercase" style={{ fontFamily: 'Jost' }}>
                 Confirmez Votre devis
               </h3>
               <p className="text-[#666] font-bold text-xs" style={{ fontFamily: 'Jost' }}>

@@ -294,7 +294,7 @@ export default function PortfolioPage() {
               <h1 className="text-[#010e26] text-xl sm:text-2xl md:text-4xl font-bold uppercase tracking-wide mb-4 md:mb-6">
                 Découvrez ce qu'on a réalisé pour eux… et ce qu'on peut faire pour vous
               </h1>
-              <p className="text-[#010e26] uppercase mb-10 md:mb-20 text-base sm:text-sm tracking-normal">
+              <p className="text-[#010e26] uppercase mb-10 md:mb-20 text-sm md:text-xl tracking-normal">
                 Faites comme eux, choisissez l’excellence et rejoignez une communauté qui nous fait confiance pour transformer leurs ambitions en réussites.
               </p>
             </section>

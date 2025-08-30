@@ -188,10 +188,10 @@ function ServiceDetailPage() {
         <main className="mx-auto w-[90%] px-4 sm:px-6 mt-10">
           <div className="text-sm mb-5 text-gray-500">
             <time dateTime={service.created_at}>
-              Published on {new Date(service.created_at).toLocaleDateString()}
+              Publié le {new Date(service.created_at).toLocaleDateString()}
             </time>
             <span className="mx-2">•</span>
-            <span>By Landmark Team</span>
+            <span>Par Landmark Team</span>
           </div>
 
           <img

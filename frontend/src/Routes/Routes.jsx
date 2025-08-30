@@ -18,6 +18,7 @@ import InboxPage from '../pages/InboxPage';
 import BlogDetailPage from '../pages/BlogDetailPage';
 import ServicesController from '../pages/ServicesController';
 import ServiceDetailPage from '../pages/ServiceDetailPage';
+import HiddenLinks from '../pages/HiddenLinks';
 
 function RoutesList() {
   // console.log("login path", LOGIN_PATH, DASHBOARD_PATH);
@@ -32,6 +33,7 @@ function RoutesList() {
       <Route path="/blog/:id" element={<BlogDetailPage />} />
       <Route path="/services/:id" element={<ServiceDetailPage />} />
       <Route path="/contact" element={<Contact />} />
+      <Route path="/espace-non-reference" element={<HiddenLinks />} />
 
       <Route path={LOGIN_PATH} element={<Login />} />
 

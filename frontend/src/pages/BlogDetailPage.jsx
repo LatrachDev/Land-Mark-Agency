@@ -77,10 +77,10 @@ const formatBlogText = (text) => {
         
         <div className="text-sm mb-5 text-gray-500">
           <time dateTime={blog.created_at}>
-            Published on {new Date(blog.created_at).toLocaleDateString()}
+            Publié le {new Date(blog.created_at).toLocaleDateString()}
           </time>
           <span className="mx-2">•</span>
-          <span>By Landmark Team</span>
+          <span>Par Landmark Team</span>
         </div>
 
         <img
