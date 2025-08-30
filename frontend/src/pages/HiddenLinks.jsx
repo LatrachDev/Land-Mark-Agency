@@ -5,6 +5,7 @@ import Footer from "../components/Footer";
 function HiddenLinks() {
   const links = [
     { title: "Hawkseo", url: "https://hawkseo.co/agence-seo-maroc", description: "SEO agency" },
+    { title: "L3ochaq", url: "https://l3ochaq.ma/", description: "Store" },
   ];
 
   return (

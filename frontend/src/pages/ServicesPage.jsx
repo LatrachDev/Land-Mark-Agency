@@ -98,7 +98,7 @@ export default function ServicesPage() {
          
           {['A', 'B', 'C'].map((category, idx) => (
             <div key={idx}>
-              <h3 className="font-bold text-[#010E26] uppercase text-left text-xl sm:text-2xl md:text-4xl">
+              <h3 className="font-bold text-[#010E26] uppercase text-left text-xl sm:text-2xl md:text-4xl mt-10">
                 {categoryTitles[category]}
               </h3>
               <section className="flex flex-wrap gap-5 justify-between mt-10">
