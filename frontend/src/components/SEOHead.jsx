@@ -1,10 +1,11 @@
 import { Helmet } from 'react-helmet';
+import logoSrc from '../assets/Logotype/White.png';
 
 const SEOHead = ({ 
   title = "LandMark - Agence Marketing Digital au Maroc | Branding & Stratégie Créative",
   description = "LandMark, agence marketing digital au Maroc spécialisée en branding, création de contenu, développement web et stratégie digitale. Oujda, Casablanca, Tanger - Votre partenaire créatif de confiance.",
   keywords = "agence marketing digital maroc, branding maroc, création contenu maroc, développement web oujda, marketing digital casablanca, agence créative tanger, stratégie digitale maroc, LandMark agency",
-  ogImage = "https://landmark.ma/src/assets/Logotype/White.png",
+  ogImage = `https://landmark.ma${logoSrc}`,
   ogUrl = "https://landmark.ma/",
   structuredData = null,
   canonical = null,

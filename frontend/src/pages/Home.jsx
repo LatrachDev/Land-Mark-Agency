@@ -13,7 +13,8 @@ import Footer from '../components/Footer';
 import PromotionalPopup from '../components/PromotionalPopup'; 
 import SEOHead from '../components/SEOHead';
 import Empty from '../components/Empty';
-import bgImage from '../assets/BG/Web-Site-bg-black.jpg';
+import bgImage from '../assets/BG/Web-Site-BG-black.jpg';
+import logoSrc from '../assets/Logotype/White.png';
 import { Link } from 'react-router-dom';
 import ImageSlider from '../components/ImageSlider';
 
@@ -28,7 +29,7 @@ function Home() {
       "@type": "Organization",
       "name": "LandMark Agency",
       "url": "https://landmark.ma",
-      "logo": "https://landmark.ma/src/assets/Logotype/White.png",
+      "logo": `https://landmark.ma${logoSrc}`,
       "description": "Agence marketing digital au Maroc spécialisée en branding, création de contenu, développement web et stratégie digitale.",
       "address": {
         "@type": "PostalAddress",

@@ -67,21 +67,9 @@ const useMobilePerformance = () => {
 
   // Optimize fonts for mobile
   const optimizeFonts = useCallback(() => {
-    // Preload critical fonts
-    const criticalFonts = [
-      '/src/assets/fonts/Jost/Jost-400-Book.otf',
-      '/src/assets/fonts/Jost/Jost-600-Semi.otf'
-    ];
-    
-    criticalFonts.forEach(fontUrl => {
-      const link = document.createElement('link');
-      link.rel = 'preload';
-      link.as = 'font';
-      link.type = 'font/otf';
-      link.href = fontUrl;
-      link.crossOrigin = 'anonymous';
-      document.head.appendChild(link);
-    });
+    // For production, fonts will be in the assets folder
+    // Remove font preloading for now as it can cause issues
+    // The fonts are already loaded via CSS
     
     // Add font-display: swap to existing font faces
     const style = document.createElement('style');

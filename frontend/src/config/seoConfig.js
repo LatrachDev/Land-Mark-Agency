@@ -1,10 +1,13 @@
+// Import the logo asset
+import logoSrc from '../assets/Logotype/White.png';
+
 // SEO Configuration for LandMark Agency
 export const seoConfig = {
   defaultTitle: "LandMark - Agence Marketing Digital au Maroc | Branding & Stratégie Créative",
   defaultDescription: "LandMark, agence marketing digital au Maroc spécialisée en branding, création de contenu, développement web et stratégie digitale. Oujda, Casablanca, Tanger - Votre partenaire créatif de confiance.",
   defaultKeywords: "agence marketing digital maroc, branding maroc, création contenu maroc, développement web oujda, marketing digital casablanca, agence créative tanger, stratégie digitale maroc, LandMark agency",
   baseUrl: "https://landmark.ma",
-  defaultImage: "https://landmark.ma/src/assets/Logotype/White.png",
+  defaultImage: `https://landmark.ma${logoSrc}`,
   twitterHandle: "@LandMarkAgency",
   
   // Company Information

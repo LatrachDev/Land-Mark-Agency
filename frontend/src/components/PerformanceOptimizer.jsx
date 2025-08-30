@@ -1,4 +1,6 @@
 import { useEffect } from 'react';
+import heroImageSrc from '../assets/BG/Web-Site-BG-black.jpg';
+import logoSrc from '../assets/Logotype/White.png';
 
 const PerformanceOptimizer = () => {
   useEffect(() => {
@@ -14,11 +16,11 @@ const PerformanceOptimizer = () => {
 
       // Preload hero image
       const heroImage = new Image();
-      heroImage.src = '/src/assets/BG/Web-Site-bg-black.jpg';
+      heroImage.src = heroImageSrc;
       
       // Preload logo
       const logo = new Image();
-      logo.src = '/src/assets/Logotype/White.png';
+      logo.src = logoSrc;
     };
 
     // Lazy load non-critical images

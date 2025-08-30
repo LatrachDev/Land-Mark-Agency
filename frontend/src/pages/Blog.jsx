@@ -9,6 +9,7 @@ import SEOHead from '../components/SEOHead';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import WebSiteBG from '../assets/BG/maskBg.png';
+import logoSrc from '../assets/Logotype/White.png';
 
 function BlogPage() {
   const [blogData, setBlogData] = useState([]);
@@ -24,7 +25,7 @@ function BlogPage() {
       "@type": "Organization",
       "name": "LandMark Agency",
       "url": "https://landmark.ma",
-      "logo": "https://landmark.ma/src/assets/Logotype/White.png"
+      "logo": `https://landmark.ma${logoSrc}`
     },
     "author": {
       "@type": "Person",

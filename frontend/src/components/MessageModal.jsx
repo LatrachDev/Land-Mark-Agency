@@ -1,4 +1,3 @@
-// MessageModal.jsx
 export default function MessageModal({ message, onClose }) {
   if (!message) return null;
 
